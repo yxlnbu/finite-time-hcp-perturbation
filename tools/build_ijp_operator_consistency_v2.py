@@ -322,10 +322,12 @@ def selectors() -> dict[str, tuple[np.ndarray, np.ndarray]]:
 def configure_style() -> None:
     plt.rcParams.update(
         {
-            "font.size": 8.5,
-            "axes.labelsize": 9.0,
-            "axes.titlesize": 9.5,
-            "legend.fontsize": 7.5,
+            "font.size": 10.2,
+            "axes.labelsize": 10.5,
+            "axes.titlesize": 10.8,
+            "legend.fontsize": 8.8,
+            "xtick.labelsize": 9.2,
+            "ytick.labelsize": 9.2,
             "figure.dpi": 150,
             "savefig.dpi": 320,
             "axes.spines.top": False,
@@ -344,7 +346,7 @@ def make_figure(
     terminal = branches["terminal_y"]
     history = terminal["history"]
     time_us = times * 1.0e6
-    fig, axes = plt.subplots(2, 2, figsize=(7.45, 6.35))
+    fig, axes = plt.subplots(2, 2, figsize=(8.2, 6.8))
 
     ax = axes[0, 0]
     line_alpha = ax.plot(

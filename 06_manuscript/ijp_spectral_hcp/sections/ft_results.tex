@@ -60,20 +60,23 @@ $\exp(\int\widetilde{\boldsymbol A}\,\mathrm dt)$ gives 10.115. Thus modal
 ill-conditioning and chronological composition are quantitatively active,
 not post hoc labels attached to $\Delta_{\rm FT}^{\rm full}$.
 
-Across all 11 norm definitions, the near-onset winner remains onset-$y$ for
+In the complete 11-by-7 \emph{fixed-candidate} screen, the near-onset winner remains onset-$y$ for
 full/full, constitutive/constitutive, full/constitutive,
 mechanical/mechanical and mechanical/constitutive. Constitutive/full and
 constitutive/temperature instead select the branch labelled terminal-$y$ even
 at the near-onset horizon. At the terminal horizon, terminal-$y$ wins every
 tested selector except mechanical/mechanical, which selects onset-$x$. The
-main localization selector is therefore robust to the registered norm
-perturbations, while the complete matrix demonstrates that changing what is
-allowed at input or measured at output can change the scientific answer.
+three registered branches is therefore robust to the norm perturbations,
+while the complete matrix demonstrates that changing what is allowed at input
+or measured at output can change the scientific answer.  Because this screen
+does not optimize outside those three branches, its complete matrix is placed
+in the Supplementary Material and the unrestricted selector-specific
+re-optimization is reported below.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{fig09_operator_consistency_sensitivity.pdf}
-\caption{Like-for-like operator and sensitivity audit. (a) Full-state spectral and logarithmic rates for the terminal branch; the latter is a valid but loose same-norm upper bound. (b) Full-state propagator gain and frozen integral on the same 69-state space; the projected constitutive gain is shown separately. (c) Instantaneous leading-mode condition number, adjacent eigenvector rotation and normalized commutator. (d) Terminal gains under representative norm--selector changes.}
+\caption{Like-for-like operator and sensitivity audit. (a) Full-state spectral and logarithmic rates for the terminal branch; the latter is a valid but loose same-norm upper bound. (b) Full-state propagator gain and frozen integral on the same 69-state space; the projected constitutive gain is shown separately. (c) Instantaneous leading-mode condition number, adjacent eigenvector rotation and normalized commutator. (d) Terminal gains under representative norm--selector changes; the complete 11-by-7 fixed-candidate matrix is supplied as Supplementary Fig.~S1.}
 \label{fig:ft_discrimination}
 \end{figure}
 \FloatBarrier
@@ -124,6 +127,118 @@ Time refinement supports the threshold calculation. At fixed 129-state history, 
 \end{figure}
 \FloatBarrier
 
+\subsection{Selector-specific re-optimization separates localization from boundary waves}
+
+Re-optimizing direction and wavenumber for all seven selectors under the
+baseline and four adverse norms changes the interpretation of the unrestricted
+state maps (Fig.~\ref{fig:ft_reoptimized_selector}).  Of the 70 horizon--norm--selector
+problems, 15 attain the upper compact-domain bound.  At onset, full/full and
+mechanical/mechanical do so under every norm; at the terminal horizon only
+mechanical/mechanical does.  For the baseline norm these boundary gains
+continue to increase at fixed direction when $k$ is extended from
+$3\times10^5$ to $3\times10^7~\mathrm{m^{-1}}$.  They are therefore
+high-frequency elastic/inertial wave branches, not finite localization
+wavelengths.  Every selector that observes a constitutive or temperature
+response retains an interior optimum under every adverse norm.
+The complete fixed-candidate $11\times7$ terminal matrix, including the six
+additional factor-two norms, is reported as Fig.~S1 rather than compressed
+into the representative main-text panel.
+
+For the baseline constitutive/constitutive map, the re-optimized onset point is
+$k^*=7.185\times10^4~\mathrm{m^{-1}}$ with $\log\mathcal G=0.6217$; the
+129-state screening map places the terminal point at
+$k^*=6.837\times10^3~\mathrm{m^{-1}}$ with
+$\log\mathcal G=13.3622$ ($\mathcal G=6.36\times10^5$).  Across the five
+norms, its onset $k^*$ spans $6.286$--$7.185\times10^4~\mathrm{m^{-1}}$,
+whereas the terminal value remains within
+$6.8365$--$6.8369\times10^3~\mathrm{m^{-1}}$.  Doubling the dislocation
+coordinate scale raises the terminal log gain to 14.0552 without moving that
+wavenumber basin.  Thus the terminal constitutive localization basin is much
+more stable than the unrestricted full-state optimum.  The subsequent
+fixed-direction/fixed-wavenumber density ladder supplies the central
+1025-state terminal gain $6.29\times10^5$; it refines the amplification
+magnitude without redefining the selected basin.
+
+The formal singular-value gate does not reject any of the 60 non-rank-one
+problems.  For the baseline constitutive/constitutive selector,
+$\sigma_1/\sigma_2$ is 1.862 at onset and $3.73\times10^5$ at the terminal
+horizon, both above the 1.0526 degeneracy limit.  The ten
+constitutive/temperature cases are rank-one observables, for which a second
+singular value and a degeneracy ratio are not defined.  Near equality of two
+\emph{directional basins} must therefore not be confused with singular-value
+degeneracy at one optimized map.
+
+The same-selector piecewise-frozen propagator converges to the time-ordered
+map when every registered nonuniform interval is refined.  At 16 subdivisions
+per interval, the maximum absolute log-gain error over all 14 baseline
+horizon--selector pairs is 0.0982; for the constitutive/constitutive map it is
+0.0209 at onset and 0.00715 at the terminal horizon.  Hence freezing a
+generator over successively shorter intervals is a consistent approximation
+to propagation.  The failure of the scalar $\int\alpha\,\mathrm dt$
+surrogate arises from discarding vector transport and chronology, not from an
+unavoidable mismatch of endpoint selectors.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{fig10_reoptimized_selector_audit.pdf}
+\caption{Selector-specific direction--wavenumber re-optimization. (a,b)
+Optimized log gains for seven selectors under the baseline and four adverse
+norms. (c) Onset and terminal singular-value ratios with the formal 5\%
+relative-gap threshold; rank-one temperature outputs are not assigned a
+ratio. (d) Convergence of the same-$\boldsymbol P_{\rm in}/\boldsymbol
+P_{\rm out}$ piecewise-frozen propagator while preserving every registered
+nonuniform base-state interval. Boundary $k$ maxima are classified as wave
+branches and are not converted into localization wavelengths.}
+\label{fig:ft_reoptimized_selector}
+\end{figure}
+\FloatBarrier
+
+\subsection{Rate transfer exposes scale sensitivity and experimental limits}
+
+Without refitting, the three added paths---$5.0\times10^3$ and
+$1.3\times10^4~\mathrm{s^{-1}}$ at 293~K, and
+$1.0\times10^4~\mathrm{s^{-1}}$ at 373~K---all preserve an interior terminal
+constitutive/constitutive basin.  Their terminal wavenumbers are respectively
+$3.727\times10^3$, $8.421\times10^3$ and
+$6.291\times10^3~\mathrm{m^{-1}}$ (Fig.~\ref{fig:ft_loading_sensitivity}),
+with log gains 13.6343, 13.4334 and 12.5373.  The orientation
+changes by less than $0.01^\circ$ in the local parameter study, so the main
+transfer is a selected scale and amplification effect rather than a branch
+rotation.
+
+The local derivatives separate parameters that control amplification from
+those that control scale.  The mobile-dislocation seed has gain sensitivities
+$S_{\rho_{m0}}^{\mathcal G}=-0.783$ at onset and $-0.918$ at the terminal
+horizon.  $K_\Lambda$ is nearly inactive at onset ($-0.009$) but has the
+largest terminal gain sensitivity ($+1.516$).  The Nye length is inactive to
+the displayed precision on this branch.  By contrast, $\ell_\chi$ has
+negligible onset gain sensitivity but
+$S_{\ell_\chi}^{k^*}=-0.329$.  A nearly unchanged gain therefore does not
+imply a robust selected length.
+
+The external Grade-II CP-Ti comparison is deliberately negative as a
+quantitative validation.  At $1.3\times10^4~\mathrm{s^{-1}}$, the model peaks
+at 580~MPa and $1.35~\mu\mathrm s$ with only 0.224~K temperature rise.  Guo
+et al. report an approximately 455~MPa peak at $58.5~\mu\mathrm s$ and a
+50--90~K rise at that peak \cite{GuoEtAl2019PRL}.  Both histories place peak
+stress before the largest temperature rise, but the model misses the
+specimen-scale timing, temperature magnitude and post-localization stress
+collapse.  This comparison supports only the qualitative ordering; it does
+not validate the verification seed as a calibrated titanium card.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{fig11_loading_parameter_validation.pdf}
+\caption{Transfer and validation boundaries. (a,b) Stress and temperature
+histories for the three added rate/temperature paths, with synchronized Grade-II CP-Ti
+landmarks from Guo et al. (c,d) Branch-local logarithmic sensitivities of gain
+and optimized wavenumber to $\pm20\%$ changes in two dislocation and two
+gradient parameters. Experimental markers are external timing/scale checks,
+not fitted data.}
+\label{fig:ft_loading_sensitivity}
+\end{figure}
+\FloatBarrier
+
 \subsection{The coupling controlling amplification changes with time}
 
 Participation of the final singular vector is dominated by plastic-kinematic coordinates, but participation alone does not establish causal dependence. The fixed-base intervention in Fig.~\ref{fig:ft_counterfactual} supplies the stronger model-level test. At $2~\mu\mathrm s$, deleting thermal cross-links changes the log gain by only $-0.013$, whereas deleting inertia cross-links changes it by $-2.634$ and deleting dislocation cross-links by $-5.668$. At $140~\mu\mathrm s$, the corresponding changes are $-5.583$, $-13.726$ and $-5.219$. The complete Shapley vector has cosine similarity only 0.400 between the two horizons; its leading absolute edge changes from dislocation--plastic coupling at onset to inertia--plastic coupling at the terminal horizon. One edge also changes attribution sign. The mechanism is therefore temporally reorganized rather than represented by one invariant label such as ``thermal'' or ``dislocation controlled.''
@@ -138,28 +253,37 @@ The independent quasi-static gradient controls in Fig.~\ref{fig:ft_counterfactua
 \end{figure}
 \FloatBarrier
 
-\subsection{The complete nonlinear residual reproduces both singular-vector predictions}
+\subsection{Low-mode nonlinear transport passes, but the full-Fourier gate remains open}
 
-The prescribed near-onset and terminal right singular vectors both pass the
-nonlinear small-perturbation gate (Fig.~\ref{fig:ft_singular_nonlinear}). At
-$1.5~\mu\mathrm s$, the linear gain 4.7461 is reproduced as 4.6873 by the
-complete nonlinear periodic residual, a 1.24\% difference. At
-$140~\mu\mathrm s$, the linear gain $6.1201\times10^5$ is reproduced as
-$6.1065\times10^5$, a 0.223\% difference. The complete complex Fourier-output
-vector errors are at most 1.41\% and 0.223\%, respectively.
+The density ladder is closed before nonlinear comparison.  The near-onset
+257-to-513 relative log-gain change is 2.615\%, which triggers the mandatory
+1025-state calculation; the subsequent 513-to-1025 change is 0.666\%.
+The corresponding terminal change is 0.245\%.  The 1025-state four-substep
+map therefore supplies the central linear values
+$\mathcal G=1.7302$ near onset and $6.2906\times10^5$ at the terminal horizon,
+with the V3 directions, wavenumbers and metric held fixed.
 
-Changing the initial amplitude by a factor of two changes the measured gain
-by less than $4\times10^{-7}$ relatively. Both calculations retain at least
-16 cells per imposed wavelength; nonretained Fourier-energy fractions are
-below $2.2\times10^{-16}$ and the thermal/nonthermal partition-ledger residual
-is below $1.4\times10^{-16}$. These tests validate linear transport of the
-actual optimized inputs through the nonlinear equations. They do not test
-finite-amplitude saturation or identify a mature band width.
+On the matching 513-state map, a four-nonnegative-mode Galerkin replay of the
+prescribed right singular vectors passes its small-amplitude checks
+(Fig.~\ref{fig:ft_singular_nonlinear}).  Near onset, the linear gain 1.7365 is
+reproduced as 1.7238, a 0.730\% difference; at $140~\mu\mathrm s$, the linear
+gain $6.0898\times10^5$ is reproduced as $6.0763\times10^5$, a 0.223\%
+difference.  The complete complex output-vector errors on that Galerkin
+subspace are at most 1.006\% and 0.223\%, and factor-two amplitude changes alter
+the measured gain by less than $4\times10^{-7}$ relatively.
+
+This result cannot be promoted to complete grid-resolved nonlinear
+validation.  When all nonnegative Fourier modes resolvable on the 16-cell
+grid are retained, the near-onset continuation becomes non-finite with both
+one and four nonlinear substeps per refined interval.  The four-mode replay
+therefore demonstrates low-mode consistency only.  It does not establish
+nonlinear harmonic closure, finite-amplitude saturation or a mature band
+width.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.98\textwidth]{fig10_singular_vector_nonlinear_validation.pdf}
-\caption{Nonlinear validation of the actual near-onset and terminal optimal inputs. (a) Linear and nonlinear gains for two factor-two amplitudes at each horizon. (b) Relative gain errors remain below the preregistered 2\% gate. (c) Factor-two gain changes are orders of magnitude below the 2\% amplitude-collapse gate.}
+\includegraphics[width=0.98\textwidth]{fig12_v3_singular_vector_nonlinear_validation.pdf}
+\caption{Four-mode Galerkin transport check for the actual near-onset and terminal optimal inputs. (a) Linear and nonlinear gains for two factor-two amplitudes at each horizon. (b) Relative gain errors remain below the preregistered 2\% gate within this subspace. (c) Factor-two gain changes are orders of magnitude below the 2\% amplitude-collapse gate. The separate full-Fourier audit remains open and prevents interpreting this figure as complete nonlinear validation.}
 \label{fig:ft_singular_nonlinear}
 \end{figure}
 \FloatBarrier

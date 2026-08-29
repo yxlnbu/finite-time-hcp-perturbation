@@ -1030,16 +1030,18 @@ def make_figure(
 ) -> None:
     plt.rcParams.update(
         {
-            "font.size": 8.6,
-            "axes.labelsize": 9.0,
-            "axes.titlesize": 9.5,
-            "legend.fontsize": 7.7,
+            "font.size": 10.2,
+            "axes.labelsize": 10.5,
+            "axes.titlesize": 10.8,
+            "legend.fontsize": 8.8,
+            "xtick.labelsize": 9.2,
+            "ytick.labelsize": 9.2,
             "axes.spines.top": False,
             "axes.spines.right": False,
             "savefig.dpi": 320,
         }
     )
-    fig, axes = plt.subplots(2, 2, figsize=(7.45, 6.25))
+    fig, axes = plt.subplots(2, 2, figsize=(8.2, 6.8))
     ax = axes[0, 0]
     styles = (
         ("positive_stationary", "stationary normal", "#2166ac"),
@@ -1069,7 +1071,9 @@ def make_figure(
     ax.grid(True, alpha=0.22)
 
     ax = axes[0, 1]
-    labels = list(orientation["orientations"])
+    # Keep the manuscript and figure order identical even though the JSON
+    # receipt is serialized with sorted keys.
+    labels = ["minimum_storage", "median_storage", "maximum_storage"]
     x = np.arange(len(labels))
     selection = [
         orientation["orientations"][label]["selection_horizon_log_discrepancy"]
@@ -1163,10 +1167,29 @@ def main() -> int:
         action="store_true",
         help="reapply like-for-like acceptance gates without rerunning expensive operators",
     )
+    parser.add_argument(
+        "--refresh-figure",
+        action="store_true",
+        help="redraw the strengthening figure from the released JSON/NPZ only",
+    )
     args = parser.parse_args()
     started = time.perf_counter()
     robustness = json.loads(ROBUSTNESS.read_text(encoding="utf-8"))
     texture = json.loads(TEXTURE.read_text(encoding="utf-8"))
+
+    if args.refresh_figure:
+        require(RESULT.is_file() and ARRAYS.is_file(), "released evidence is incomplete")
+        existing = json.loads(RESULT.read_text(encoding="utf-8"))
+        with np.load(ARRAYS) as source:
+            payload = {key: np.asarray(source[key]) for key in source.files}
+        make_figure(
+            existing["positive_controls"],
+            payload,
+            existing["orientation_transfer"],
+            existing["global_search"],
+        )
+        print(json.dumps({"figure": str(FIGURE_STEM.with_suffix('.pdf'))}, indent=2))
+        return 0
 
     if args.reassess_existing:
         require(RESULT.is_file(), "no existing strengthening result to reassess")

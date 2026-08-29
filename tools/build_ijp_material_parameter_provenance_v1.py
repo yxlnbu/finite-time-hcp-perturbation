@@ -51,11 +51,20 @@ SOURCES = {
         "titanium near 300 K, as registered in the material card."
     ),
     "S4": (
-        "Repository CP-Ti card grouped Dai--Song-type HCP rate and temperature structure; "
-        "no parameter-by-parameter or batch-specific identification."
+        "Dai, L. and Song, W., A strain rate and temperature-dependent crystal "
+        "plasticity model for hexagonal close-packed (HCP) materials: Application "
+        "to alpha-titanium, International Journal of Plasticity 154 (2022) 103281, "
+        "doi:10.1016/j.ijplas.2022.103281 (publisher record accessed 2026-08-29). "
+        "The present card adopts the model class only; its numerical entries were "
+        "not copied or batch-calibrated parameter by parameter from that paper."
     ),
     "S5": (
-        "HCP_CP_v0.1/config/verification_seed.yaml, watermarked "
+        "Public release commit 8aa42e3b5999adc502142f940e42b9222cdb17e6, "
+        "config/verification_seed.yaml (frozen kernel version 0.1, SHA-256 "
+        "b7ced9294e7d17ba64b5c2eaf843be5eb4defbcfe480bbb04bce1fb8612c124a) "
+        "and config/cp_ti_grade1_dynamic_hcp_v1.json (schema V1, SHA-256 "
+        "586dd4ed43509aa045f9fe87524b2df51fbd07817853c497ac8c6ad4c082df5d), "
+        "accessed 2026-08-29. The seed remains watermarked "
         "VERIFICATION_SEED_NOT_CALIBRATED_FOR_TA2."
     ),
     "S6": (
@@ -339,6 +348,15 @@ def main() -> int:
             "specimen_or_batch_identified": False,
             "gradient_lengths_are_measured_band_widths": False,
             "inactive_twinning_parameters_affect_reported_results": False,
+        },
+        "configuration_snapshot": {
+            "public_release_commit": "8aa42e3b5999adc502142f940e42b9222cdb17e6",
+            "frozen_kernel_version": "0.1",
+            "verification_seed_path": "config/verification_seed.yaml",
+            "verification_seed_sha256": "b7ced9294e7d17ba64b5c2eaf843be5eb4defbcfe480bbb04bce1fb8612c124a",
+            "material_card_path": "config/cp_ti_grade1_dynamic_hcp_v1.json",
+            "material_card_sha256": "586dd4ed43509aa045f9fe87524b2df51fbd07817853c497ac8c6ad4c082df5d",
+            "access_date": "2026-08-29",
         },
         "outputs": {
             "csv": CSV_TABLE.relative_to(ROOT).as_posix(),

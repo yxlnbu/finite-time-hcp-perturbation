@@ -1,5 +1,14 @@
 {
   "computational_parameter_row_count": 74,
+  "configuration_snapshot": {
+    "access_date": "2026-08-29",
+    "frozen_kernel_version": "0.1",
+    "material_card_path": "config/cp_ti_grade1_dynamic_hcp_v1.json",
+    "material_card_sha256": "586dd4ed43509aa045f9fe87524b2df51fbd07817853c497ac8c6ad4c082df5d",
+    "public_release_commit": "8aa42e3b5999adc502142f940e42b9222cdb17e6",
+    "verification_seed_path": "config/verification_seed.yaml",
+    "verification_seed_sha256": "b7ced9294e7d17ba64b5c2eaf843be5eb4defbcfe480bbb04bce1fb8612c124a"
+  },
   "covered_material_dataclass_fields": [
     "T_ref",
     "activation_energy",
@@ -97,8 +106,8 @@
     "S1": "Nemat-Nasser, Guo and Cheng, Acta Materialia 47 (1999) 3705--3720, doi:10.1016/S1359-6454(99)00203-7; grouped alpha-Ti crystal/dynamic-loading constraint.",
     "S2": "NIST-JANAF alpha-Ti table / NIST Chemistry WebBook Shomate heat-capacity coefficients, admitted over 298--700 K.",
     "S3": "Touloukian/TPRC selected thermal-conductivity value for annealed high-purity titanium near 300 K, as registered in the material card.",
-    "S4": "Repository CP-Ti card grouped Dai--Song-type HCP rate and temperature structure; no parameter-by-parameter or batch-specific identification.",
-    "S5": "HCP_CP_v0.1/config/verification_seed.yaml, watermarked VERIFICATION_SEED_NOT_CALIBRATED_FOR_TA2.",
+    "S4": "Dai, L. and Song, W., A strain rate and temperature-dependent crystal plasticity model for hexagonal close-packed (HCP) materials: Application to alpha-titanium, International Journal of Plasticity 154 (2022) 103281, doi:10.1016/j.ijplas.2022.103281 (publisher record accessed 2026-08-29). The present card adopts the model class only; its numerical entries were not copied or batch-calibrated parameter by parameter from that paper.",
+    "S5": "Public release commit 8aa42e3b5999adc502142f940e42b9222cdb17e6, config/verification_seed.yaml (frozen kernel version 0.1, SHA-256 b7ced9294e7d17ba64b5c2eaf843be5eb4defbcfe480bbb04bce1fb8612c124a) and config/cp_ti_grade1_dynamic_hcp_v1.json (schema V1, SHA-256 586dd4ed43509aa045f9fe87524b2df51fbd07817853c497ac8c6ad4c082df5d), accessed 2026-08-29. The seed remains watermarked VERIFICATION_SEED_NOT_CALIBRATED_FOR_TA2.",
     "S6": "Present-study registered modeling choice in the finite-time spectral runner; not a measured shear-band width.",
     "S7": "Exact definition, derived quantity, or universal physical constant."
   },

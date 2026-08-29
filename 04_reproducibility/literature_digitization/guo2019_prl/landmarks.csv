@@ -1,0 +1,8 @@
+quantity,value,lower,upper,unit,source_location,extraction_class
+nominal_shear_rate,13000,,,s^-1,Figure 1 annotation,direct figure label
+stress_peak_time,58.5,,,microsecond,Figure 1 event f,direct figure label
+stress_peak,455,440,470,MPa,Figure 1 left axis,approximate manual read with plotting-resolution interval
+temperature_rise_at_peak_stress,,50,90,K,main text discussing Figure 3,direct reported interval
+first_visible_ASB_time,67.5,,,microsecond,Figure 1 green line and Figure 2 event h,direct figure label
+maximum_temperature_delay_after_ASB,30,,,microsecond,abstract and main text,reported approximate delay
+localized_temperature,,350,650,degree_C,main text after Equation 2,direct reported interval

@@ -1,0 +1,594 @@
+\subsection{Exact dynamic reduction and finite-time perturbation selection}
+\label{subsec:dynamic_finite_time_operator}
+
+This subsection closes the theoretical gap between the frozen-time quadratic
+descriptor in Eq.~\eqref{eq:dynamic_descriptor} and an observable perturbation
+amplified over a finite, evolving loading history.  The construction is for the
+single-crystal HCP base state.  Experimental parameter identification and
+independent full-field material validation are outside the present scope.
+
+\subsubsection{Admissible base history and operator hypotheses}
+
+Let $I=[t_0,t_f]$, let $k>0$, and let $\boldsymbol n\in\mathbb S^2$.  The
+following hypotheses define the domain on which the reduction is asserted.
+\begin{enumerate}
+\item[(H1)] The homogeneous base history is continuous and piecewise $C^1$,
+  remains on one recorded smooth constitutive branch on $I$, and supplies
+  continuous tangent blocks (piecewise continuity suffices for propagation,
+  but not for every threshold-continuity statement below).
+\item[(H2)] The density and heat capacity are strictly positive, the continuous
+  tangent blocks are finite and bounded, and the mechanical inertia and
+  differential storage blocks retain constant rank on $I$.
+\item[(H3)] The 18-by-18 algebraic microfield block is uniformly invertible:
+  $\inf_{t\in I}\sigma_{\min}
+  (\boldsymbol K_{\zeta\zeta}(t;k,\boldsymbol n))>0$ in the locked assembled
+  physical coordinates for every admitted $(k,\boldsymbol n)$; the infimum is
+  also uniform over each compact parameter domain used below.
+\item[(H4)] The eight-coordinate $\mathrm{SL}(3)$ chart is imposed before a
+  spectrum or propagator is interpreted.  The continuous local symbol does not
+  impose finite-cell wavevector quantization; rigid translation is projected
+  only in the $k=0$ limit.  A periodic finite cell instead supplies a separate
+  discrete Bloch/Floquet wavevector set and its own gauge treatment.
+\item[(H5)] State scales, input and output selectors, the gain threshold, the
+  direction--wavenumber search domain, and all numerical tolerances are fixed
+  before the resulting optimum is inspected.
+\end{enumerate}
+If H1 fails at a switching surface, an ordinary Jacobian does not define the
+claimed operator.  If H3 fails, the Schur reduction below is disabled and the
+augmented descriptor is retained as a possible algebraic or microforce
+bifurcation.  Thus invertibility is an admission condition, not a conclusion
+manufactured by regularization.
+
+\subsubsection{The 84-coordinate quadratic pencil}
+
+For the locked ordering
+\begin{equation}
+ \widehat{\boldsymbol z}_{84}
+ =
+ \left[
+  \widehat{\boldsymbol u}_3,
+  \widehat T,
+  \widehat{\boldsymbol\zeta}_{18},
+  \widehat{\boldsymbol a}_{62}
+ \right]^{\mathsf T},
+ \label{eq:dyn_84_state}
+\end{equation}
+write the dynamic Fourier operator as the quadratic matrix polynomial
+\begin{equation}
+ \boldsymbol{\mathcal Q}
+ (s;t,k,\boldsymbol n)
+ =
+ \boldsymbol K(t;k,\boldsymbol n)
+ +s\boldsymbol E(t)
+ +s^2\boldsymbol M(t),
+ \qquad
+ \boldsymbol{\mathcal Q}\widehat{\boldsymbol z}_{84}=\boldsymbol0.
+ \label{eq:dyn_quadratic_pencil}
+\end{equation}
+The only nonzero block of $\boldsymbol M$ is the 3-by-3 mechanical block
+$\boldsymbol R$; the nonzero differential block of $\boldsymbol E$ is
+\begin{equation}
+ \boldsymbol C
+ =\operatorname{diag}(\rho_0c,\boldsymbol I_{62}).
+ \label{eq:dyn_mass_storage_blocks}
+\end{equation}
+No artificial inertia or first-order storage is assigned to
+$\boldsymbol\zeta$.  All $\mathrm{i}k$ and $k^2$ terms, including the
+directional acoustic, conduction, and gradient-recovery terms, remain in
+$\boldsymbol K(t;k,\boldsymbol n)$.
+
+Partition
+\begin{equation}
+ \widehat{\boldsymbol y}
+ =
+ [\widehat{\boldsymbol u}_3,\widehat{\boldsymbol d}_{63}]^{\mathsf T},
+ \qquad
+ \widehat{\boldsymbol d}
+ =
+ [\widehat T,\widehat{\boldsymbol a}_{62}]^{\mathsf T},
+ \label{eq:dyn_retained_state}
+\end{equation}
+and place $\widehat{\boldsymbol\zeta}$ second in the block partition.  Because
+its rows and columns carry no time derivative,
+\begin{equation}
+ \boldsymbol{\mathcal Q}
+ =
+ \begin{bmatrix}
+  \boldsymbol K_{yy}+s\boldsymbol E_{yy}+s^2\boldsymbol M_{yy}
+    & \boldsymbol K_{y\zeta}\\
+  \boldsymbol K_{\zeta y} & \boldsymbol K_{\zeta\zeta}
+ \end{bmatrix}.
+ \label{eq:dyn_partitioned_pencil}
+\end{equation}
+
+\paragraph{Proposition 1 (exact algebraic reduction).}
+Under H3, the algebraic amplitude and the retained stiffness are
+\begin{align}
+ \widehat{\boldsymbol\zeta}
+ &=-\boldsymbol K_{\zeta\zeta}^{-1}
+       \boldsymbol K_{\zeta y}\widehat{\boldsymbol y},
+ \label{eq:dyn_zeta_reconstruction}\\
+ \boldsymbol K_{\zeta\mathrm{-red}}^{(66)}
+ &=\boldsymbol K_{yy}
+   -\boldsymbol K_{y\zeta}\boldsymbol K_{\zeta\zeta}^{-1}
+    \boldsymbol K_{\zeta y}.
+ \label{eq:dyn_effective_stiffness}
+\end{align}
+Moreover,
+\begin{equation}
+ \det\boldsymbol{\mathcal Q}
+ =\det\boldsymbol K_{\zeta\zeta}\,
+  \det\!\left(
+    \boldsymbol K_{\zeta\mathrm{-red}}^{(66)}
+    +s\boldsymbol E_{yy}+s^2\boldsymbol M_{yy}
+  \right),
+ \label{eq:dyn_determinant_factorization}
+\end{equation}
+so the augmented and reduced problems have the same finite eigenvalues,
+including algebraic multiplicity, and every retained eigenvector reconstructs
+a unique 84-coordinate amplitude through Eq.~\eqref{eq:dyn_zeta_reconstruction}.
+
+\emph{Proof.}
+The lower block row of Eq.~\eqref{eq:dyn_partitioned_pencil} gives
+Eq.~\eqref{eq:dyn_zeta_reconstruction}.  Substitution gives
+Eq.~\eqref{eq:dyn_effective_stiffness}; block Gaussian elimination gives
+Eq.~\eqref{eq:dyn_determinant_factorization}.  The eliminated block is
+independent of $s$, so the operation neither creates nor deletes a finite root.
+The complete block calculation and the converse reconstruction are recorded in
+Appendix~\ref{app:operator_blocks}. \hfill$\square$
+
+\subsubsection{Nonsingular 69-state generator}
+
+Write $\boldsymbol K_{\zeta\mathrm{-red}}^{(66)}$ in the
+$[\widehat{\boldsymbol u},\widehat{\boldsymbol d}]$ ordering as
+$\boldsymbol K_{uu}$, $\boldsymbol K_{ud}$,
+$\boldsymbol K_{du}$, and $\boldsymbol K_{dd}$.  The reduced time-domain
+equations are
+\begin{align}
+ \boldsymbol R\,\ddot{\widehat{\boldsymbol u}}
+ +\boldsymbol K_{uu}\widehat{\boldsymbol u}
+ +\boldsymbol K_{ud}\widehat{\boldsymbol d}&=\boldsymbol0,
+ \label{eq:dyn_reduced_momentum}\\
+ \boldsymbol C\,\dot{\widehat{\boldsymbol d}}
+ +\boldsymbol K_{du}\widehat{\boldsymbol u}
+ +\boldsymbol K_{dd}\widehat{\boldsymbol d}&=\boldsymbol0.
+ \label{eq:dyn_reduced_storage}
+\end{align}
+Introduce physical velocity
+$\widehat{\boldsymbol v}=\dot{\widehat{\boldsymbol u}}$ and the state
+\begin{equation}
+ \widehat{\boldsymbol q}
+ =
+ [\widehat{\boldsymbol u}_3,
+  \widehat{\boldsymbol v}_3,
+  \widehat{\boldsymbol d}_{63}]^{\mathsf T}\in\mathbb C^{69}.
+ \label{eq:dyn_generator_state}
+\end{equation}
+Then
+\begin{equation}
+ \dot{\widehat{\boldsymbol q}}
+ =\boldsymbol A_{\mathrm{dyn}}(t;k,\boldsymbol n)
+  \widehat{\boldsymbol q},
+ \qquad
+ \boldsymbol A_{\mathrm{dyn}}
+ =
+ \begin{bmatrix}
+  \boldsymbol0&\boldsymbol I&\boldsymbol0\\
+  -\boldsymbol R^{-1}\boldsymbol K_{uu}&\boldsymbol0&
+  -\boldsymbol R^{-1}\boldsymbol K_{ud}\\
+  -\boldsymbol C^{-1}\boldsymbol K_{du}&\boldsymbol0&
+  -\boldsymbol C^{-1}\boldsymbol K_{dd}
+ \end{bmatrix}.
+ \label{eq:dyn_generator_matrix}
+\end{equation}
+
+\paragraph{Proposition 2 (finite-spectrum equivalence).}
+Under H2--H3, $s$ is a finite root of
+Eq.~\eqref{eq:dyn_quadratic_pencil} if and only if it is an eigenvalue of
+$\boldsymbol A_{\mathrm{dyn}}$.  Hence the admitted dynamic pencil has 69
+finite roots, counted with algebraic multiplicity: six mechanical first-order
+coordinates and 63 thermal/internal-state coordinates.
+
+More precisely, with
+$\boldsymbol{\mathcal Q}_{\rm eff}=
+\boldsymbol K_{\zeta\mathrm{-red}}^{(66)}
++s\boldsymbol E_{yy}+s^2\boldsymbol M_{yy}$,
+\begin{equation}
+ \det(s\boldsymbol I_{69}-\boldsymbol A_{\rm dyn})
+ =\det(\boldsymbol R^{-1})\det(\boldsymbol C^{-1})
+  \det\boldsymbol{\mathcal Q}_{\rm eff}(s).
+ \label{eq:dyn_generator_determinant}
+\end{equation}
+
+\emph{Proof.}
+For a modal solution $\widehat{\boldsymbol q}(t)=
+\boldsymbol q_s\exp(st)$, the first block row of
+Eq.~\eqref{eq:dyn_generator_matrix} gives
+$\widehat{\boldsymbol v}=s\widehat{\boldsymbol u}$.  The remaining rows reduce
+exactly to Eqs.~\eqref{eq:dyn_reduced_momentum} and
+\eqref{eq:dyn_reduced_storage}; Proposition~1 supplies the unique algebraic
+amplitude.  Conversely, a finite pencil eigenvector and
+$\widehat{\boldsymbol v}=s\widehat{\boldsymbol u}$ satisfy every generator
+row.  Nonsingularity of $\boldsymbol R$ and $\boldsymbol C$ excludes a hidden
+differential constraint. \hfill$\square$
+
+This result concerns finite roots.  The 18 eliminated microfield coordinates
+remain structural algebraic coordinates in a first-order augmented descriptor;
+they are not reinterpreted as very fast physical modes.
+
+\subsubsection{Nonautonomous finite-time propagator}
+
+For fixed $(k,\boldsymbol n)$, H1--H3 make
+$\boldsymbol A_{\mathrm{dyn}}(\cdot;k,\boldsymbol n)$ piecewise continuous.
+The initial-value problem therefore has the unique absolutely continuous
+solution
+\begin{equation}
+ \widehat{\boldsymbol q}(t)
+ =\boldsymbol\Phi(t,t_0;k,\boldsymbol n)
+  \widehat{\boldsymbol q}(t_0),
+ \qquad
+ \dot{\boldsymbol\Phi}
+ =\boldsymbol A_{\mathrm{dyn}}\boldsymbol\Phi,
+ \qquad
+ \boldsymbol\Phi(t_0,t_0)=\boldsymbol I_{69}.
+ \label{eq:dyn_propagator_ivp}
+\end{equation}
+Equivalently,
+\begin{equation}
+ \boldsymbol\Phi(t,t_0;k,\boldsymbol n)
+ =\mathcal T\exp\!\left[
+   \int_{t_0}^{t}\boldsymbol A_{\mathrm{dyn}}
+   (\xi;k,\boldsymbol n)\,\mathrm d\xi
+  \right],
+ \label{eq:dyn_time_ordered_exponential}
+\end{equation}
+where $\mathcal T$ denotes chronological ordering.  Equation
+\eqref{eq:dyn_time_ordered_exponential}, rather than an integral of the frozen
+spectral abscissa, is the primary finite-time object.  It retains mode rotation,
+branch interaction, and non-normal transient amplification.
+
+At every time, the eliminated field is reconstructed from the simultaneous
+retained state using Eq.~\eqref{eq:dyn_zeta_reconstruction}.  No
+$\dot{\boldsymbol K}_{\zeta\zeta}$ connection term appears in the 69-state
+equations because $\boldsymbol\zeta$ has no differential row or column; such a
+term would arise only if a time derivative of the reconstructed algebraic
+observable itself were requested.
+
+\subsubsection{Fixed physical scaling and observable gain}
+
+Because displacement, velocity, temperature, plastic-chart coordinates, and
+dislocation densities have different units, an unscaled Euclidean singular
+value is not a physical invariant.  Fix one positive diagonal scale
+$\boldsymbol D_q$ for the entire history and define
+\begin{equation}
+ \widehat{\boldsymbol q}=\boldsymbol D_q\widetilde{\boldsymbol q},
+ \qquad
+ \widetilde{\boldsymbol A}_{\mathrm{dyn}}
+ =\boldsymbol D_q^{-1}\boldsymbol A_{\mathrm{dyn}}\boldsymbol D_q,
+ \qquad
+ \widetilde{\boldsymbol\Phi}
+ =\boldsymbol D_q^{-1}\boldsymbol\Phi\boldsymbol D_q.
+ \label{eq:dyn_scaled_generator}
+\end{equation}
+A time-dependent $\boldsymbol D_q$ is not used; it would add
+$-\boldsymbol D_q^{-1}\dot{\boldsymbol D}_q$ to the scaled generator and
+would change the observable being measured.
+
+Let $\boldsymbol P_{\rm in}$ and $\boldsymbol P_{\rm out}$ be preregistered
+real coordinate-selection matrices.  The pointwise observable gain is
+\begin{equation}
+ \mathcal G_{D}(t;k,\boldsymbol n)
+ =\sigma_1\!\left[
+   \boldsymbol P_{\rm out}\widetilde{\boldsymbol\Phi}
+   (t,t_0;k,\boldsymbol n)\boldsymbol P_{\rm in}^{\mathsf T}
+  \right].
+ \label{eq:dyn_observable_gain}
+\end{equation}
+The localization observable used here selects the 63 temperature and active
+crystal-state coordinates at input and output and excludes displacement and
+velocity from the singular-value objective.  Elastic inertia nevertheless
+remains fully coupled inside $\boldsymbol A_{\mathrm{dyn}}$.
+
+Two gains must be distinguished. The projected quantity
+$\mathcal G_D$ in Eq.~\eqref{eq:dyn_observable_gain} answers the conditioned
+localization input--output question and is used for direction--wavenumber
+selection. The like-for-like comparison with the spectral abscissa instead
+uses the complete reduced state,
+\begin{equation}
+ \mathcal G_D^{\rm full}(t;k,\boldsymbol n)
+ =\|\widetilde{\boldsymbol\Phi}(t,t_0;k,\boldsymbol n)\|_2,
+ \qquad
+ \boldsymbol P_{\rm in}=\boldsymbol P_{\rm out}=\boldsymbol I_{69}.
+ \label{eq:dyn_full_state_gain}
+\end{equation}
+This separation is necessary because the selected 63-coordinate constitutive
+subspace is not invariant under the HCP generator: mechanical states can feed
+the selected output and selected inputs can generate mechanical response.
+Consequently, a projected gain cannot in general be assigned the full-state
+frozen spectral abscissa without introducing a controllability/observability
+mismatch.
+
+\paragraph{Proposition 3 (equivalent norms and conditioned onset).}
+Let $\boldsymbol D_1$ and $\boldsymbol D_2$ be positive diagonal scales and
+let the same coordinate selectors be used.  Define
+\begin{align}
+ c_+^{12}
+ &=\left\|\boldsymbol P_{\rm out}\boldsymbol D_1^{-1}
+   \boldsymbol D_2\boldsymbol P_{\rm out}^{\mathsf T}\right\|_2
+   \left\|\boldsymbol P_{\rm in}\boldsymbol D_2^{-1}
+   \boldsymbol D_1\boldsymbol P_{\rm in}^{\mathsf T}\right\|_2,\\
+ c_-^{12}
+ &=\left[
+   \left\|\boldsymbol P_{\rm out}\boldsymbol D_2^{-1}
+   \boldsymbol D_1\boldsymbol P_{\rm out}^{\mathsf T}\right\|_2
+   \left\|\boldsymbol P_{\rm in}\boldsymbol D_1^{-1}
+   \boldsymbol D_2\boldsymbol P_{\rm in}^{\mathsf T}\right\|_2
+   \right]^{-1}.
+\end{align}
+Then
+\begin{equation}
+ c_-^{12}\mathcal G_{D_2}
+ \le \mathcal G_{D_1}
+ \le c_+^{12}\mathcal G_{D_2}.
+ \label{eq:dyn_norm_equivalence_bound}
+\end{equation}
+
+\emph{Proof.}
+Coordinate selectors commute with the two diagonal scalings on their selected
+subspaces.  The observed matrix in norm 1 is therefore the observed matrix in
+norm 2 multiplied by the two restricted change-of-scale matrices.  Singular
+value submultiplicativity gives the upper inequality; interchanging 1 and 2
+gives the lower inequality. \hfill$\square$
+
+Thus finite-time boundedness or blow-up is invariant within an equivalence
+class of fixed finite-dimensional norms.  A numerical threshold-crossing time
+is not invariant: it must always be reported together with
+$\boldsymbol D_q$, the selectors, and the threshold.
+
+\subsubsection{Continuous direction--wavenumber selection}
+
+First choose the compact covering domain
+\begin{equation}
+ \widehat\Omega_{nk}=\mathbb S^2\times[k_{\min},k_{\max}],
+ \qquad 0<k_{\min}<k_{\max}<\infty,
+ \label{eq:dyn_covering_search_domain}
+\end{equation}
+and let
+$\Omega_{nk}=\mathbb{RP}^2\times[k_{\min},k_{\max}]$ denote its antipodal
+quotient.  The matrix-valued generator is defined on $\mathbb S^2$, not
+directly on $\mathbb{RP}^2$; the scalar gain descends to the quotient only after
+the conjugacy in Eq.~\eqref{eq:dyn_antipodal_symmetry} is established.  Define
+the continuous gain envelope and the finite-time critical time by
+\begin{align}
+ \Gamma_D(t)
+ &=\max_{([\boldsymbol n],k)\in\Omega_{nk}}
+   \mathcal G_D(t;k,\boldsymbol n),
+ \label{eq:dyn_gain_envelope}\\
+ t_c^{\rm FT}(\boldsymbol D_q,G_c)
+ &=\inf\{t\in[t_0,t_f]:\Gamma_D(t)\ge G_c\},
+ \qquad G_c>1,
+ \label{eq:dyn_finite_critical_time}
+\end{align}
+with $\inf\varnothing=+\infty$.  The registered calculation uses $G_c=e$, so
+onset means one natural-log unit of maximum observable amplification in the
+locked dimensionless norm; it is not a material constant.
+The displayed $t_c^{\rm FT}(\boldsymbol D_q,G_c)$ is shorthand: it also depends
+on $\boldsymbol P_{\rm in}$, $\boldsymbol P_{\rm out}$, $t_0$, the base path,
+material parameters, and $\Omega_{nk}$.  No monotonicity of $\Gamma_D(t)$ is
+assumed.
+
+\paragraph{Proposition 4 (existence and antipodal symmetry).}
+If H1--H5 hold and the admitted blocks depend continuously on
+$(\boldsymbol n,k)\in\widehat\Omega_{nk}$, then the maximum in
+Eq.~\eqref{eq:dyn_gain_envelope} is attained.  For real base-state tangents and
+real selectors/scales,
+\begin{equation}
+ \boldsymbol A_{\mathrm{dyn}}(t;k,-\boldsymbol n)
+ =\overline{\boldsymbol A_{\mathrm{dyn}}(t;k,\boldsymbol n)},
+ \qquad
+ \mathcal G_D(t;k,-\boldsymbol n)
+ =\mathcal G_D(t;k,\boldsymbol n).
+ \label{eq:dyn_antipodal_symmetry}
+\end{equation}
+
+\emph{Proof.}
+Continuous dependence of a linear initial-value problem on its coefficients
+makes $\boldsymbol\Phi$ and hence $\mathcal G_D$ continuous on
+$\widehat\Omega_{nk}$.  Reversing $\boldsymbol n$ changes the
+sign of every $\mathrm{i}k$ directional block and leaves the $k^2$ blocks
+unchanged, which complex-conjugates the real-coefficient generator and its
+propagator.  Complex-conjugate matrices have the same singular values.
+Consequently, the continuous scalar gain descends to the compact quotient
+$\Omega_{nk}$, where the Weierstrass theorem gives an attained maximum.
+\hfill$\square$
+
+Uniqueness is not presumed.  For a relative gain tolerance
+$0<\varepsilon_G<1$, the robust selector is the near-optimal set
+\begin{equation}
+ \mathcal S_\varepsilon(t)
+ =\left\{([\boldsymbol n],k)\in\Omega_{nk}:
+ \mathcal G_D(t;k,\boldsymbol n)
+ \ge(1-\varepsilon_G)\Gamma_D(t)\right\}.
+ \label{eq:dyn_near_optimal_set}
+\end{equation}
+For fixed nonzero $\varepsilon_G$, this set generally has nonzero extent even
+around a smooth strict maximum.  Numerical resolution requires Hausdorff
+stability of $\mathcal S_\varepsilon$ and convergence of the maximizer candidates
+under time-step, angular, radial, and search-box refinement.  A unique
+$(\boldsymbol n_{\rm FT}^*,k_{\rm FT}^*)$ is reported only when the limiting
+maximum is strict and isolated and the conclusion persists as
+$\varepsilon_G\rightarrow0$; otherwise the selector is explicitly set-valued.
+The associated linear wavelength is
+$\lambda_{\rm FT}^*=2\pi/k_{\rm FT}^*$ only for an interior, refinement-stable
+wavenumber.
+
+\subsubsection{Long-wave and high-wavenumber robustness}
+
+For $k>0$, introduce
+\begin{equation}
+ \widehat{\boldsymbol q}_w
+ =[\widehat{\boldsymbol w},\dot{\widehat{\boldsymbol w}},
+   \widehat{\boldsymbol d}]^{\mathsf T}
+ =\boldsymbol T_k\widehat{\boldsymbol q},
+ \qquad
+ \boldsymbol T_k=\operatorname{diag}
+ (\mathrm{i}k\boldsymbol I_3,\mathrm{i}k\boldsymbol I_3,
+  \boldsymbol I_{63}),
+ \label{eq:dyn_long_wave_transform}
+\end{equation}
+so that
+$\boldsymbol A_w=\boldsymbol T_k\boldsymbol A_{\rm dyn}
+\boldsymbol T_k^{-1}$.  If, in addition to H1--H3,
+$\boldsymbol K_{\zeta\zeta}^{-1}$ remains uniform at $k=0$ and the reduced
+blocks have continuous leading limits with
+\begin{equation}
+ \boldsymbol K_{uu}=O(k^2),\qquad
+ \boldsymbol K_{ud}=O(k),\qquad
+ \boldsymbol K_{du}=O(k),\qquad
+ \boldsymbol K_{dd}=O(1),
+ \label{eq:dyn_long_wave_block_orders}
+\end{equation}
+then $\boldsymbol A_w$ has a finite $k\rightarrow0^+$ limit after rigid
+translation is projected out.  Because the registered input and output
+selectors act only on $\boldsymbol d$, their observed propagator block is
+unchanged by $\boldsymbol T_k$; the observable gain therefore has the same
+finite conditional limit.  The present implementation propagates
+$[\widehat{\boldsymbol u},\widehat{\boldsymbol v},\widehat{\boldsymbol d}]$
+only for $k>0$ and its primary search begins at a positive $k_{\min}$; it does
+not numerically certify the hypotheses in
+Eq.~\eqref{eq:dyn_long_wave_block_orders}.  Consequently, a maximum that
+follows $k_{\min}$ under domain enlargement is reported only as a long-wave
+boundary diagnostic, not as a finite material wavelength or a proved
+$k=0$ continuation.
+
+At high wavenumber, positivity of the acoustic tensor, directional
+conductivity, and the relevant gradient principal symbol is a necessary
+admission test, but by itself is not a proof against non-normal transient
+growth.  The following conditional statement supplies the required continuous
+bound.
+
+\paragraph{Proposition 5 (conditional uniform high-$k$ observable bound).}
+Suppose that for $k\ge k_H$, all $\boldsymbol n\in\mathbb S^2$, and
+$t\in I$ there is a Hermitian, differentiable symmetrizer for the fixed-scale
+generator $\widetilde{\boldsymbol A}_{\rm dyn}$,
+$\boldsymbol W(t;k,\boldsymbol n)>\boldsymbol0$ such that
+\begin{equation}
+ \dot{\boldsymbol W}
+ +\boldsymbol W\widetilde{\boldsymbol A}_{\mathrm{dyn}}
+ +\widetilde{\boldsymbol A}_{\mathrm{dyn}}^{\mathsf H}\boldsymbol W
+ \preceq2\omega_\infty(t)\boldsymbol W,
+ \qquad \omega_\infty\in L^1(I),
+ \label{eq:dyn_high_k_energy_inequality}
+\end{equation}
+with $\omega_\infty$ independent of $k$ and $\boldsymbol n$.  Suppose also
+that the selector-energy constants
+\begin{align}
+ C_{\rm in}
+ &=\sup_{\substack{k\ge k_H\\\boldsymbol n\in\mathbb S^2}}
+ \|\boldsymbol W(t_0;k,\boldsymbol n)^{1/2}
+   \boldsymbol P_{\rm in}^{\mathsf T}\|_2<\infty,\\
+ C_{\rm out}
+ &=\sup_{\substack{t\in I,k\ge k_H\\\boldsymbol n\in\mathbb S^2}}
+ \|\boldsymbol P_{\rm out}
+   \boldsymbol W(t;k,\boldsymbol n)^{-1/2}\|_2<\infty
+ \label{eq:dyn_high_k_selector_constants}
+\end{align}
+are finite.  Then
+\begin{equation}
+ \sup_{\substack{k\ge k_H\\\boldsymbol n\in\mathbb S^2}}
+ \mathcal G_D(t;k,\boldsymbol n)
+ \le
+ C_{\rm out}C_{\rm in}
+ \exp\!\left(\int_{t_0}^{t}\omega_\infty(\xi)\,\mathrm d\xi\right).
+ \label{eq:dyn_uniform_high_k_bound}
+\end{equation}
+
+\emph{Proof.}
+For $V=\widetilde{\boldsymbol q}^{\mathsf H}
+\boldsymbol W\widetilde{\boldsymbol q}$,
+Eq.~\eqref{eq:dyn_high_k_energy_inequality} gives
+$\dot V\le2\omega_\infty V$.  The input selector enters this energy norm with
+factor $C_{\rm in}$, Gronwall propagates it, and the output selector returns to
+the Euclidean observation norm with factor $C_{\rm out}$, yielding
+Eq.~\eqref{eq:dyn_uniform_high_k_bound}. \hfill$\square$
+
+Equation~\eqref{eq:dyn_uniform_high_k_bound} proves uniform finite-time
+boundedness of the declared observable under its stated symmetrizer and
+selector hypotheses; it does not prove full-state boundedness or asymptotic
+decay.  A stronger uniform equivalence
+$m\boldsymbol I\preceq\boldsymbol W\preceq M\boldsymbol I$ would bound the
+full scaled propagator by $\sqrt{M/m}$ times the same exponential, but standard
+acoustic displacement--velocity coordinates need not admit such a $k$-uniform
+equivalence.  In the present workflow, positive principal-symbol margins,
+algebraic conditioning, modal residuals, and extension of the numerical scan
+are reported only as consistency diagnostics along the audited paths.  They do
+not construct $\boldsymbol W$, do not verify the hypothesis on a continuum,
+and are not promoted to an unconditional theorem for all $k$.
+
+\subsubsection{Dominant mechanism and nonlinear-width bridge}
+
+Let $\widetilde{\boldsymbol q}_{\rm out}^*$ be a unit left singular vector of
+the maximizing observed propagator, embedded in the 69-coordinate scaled
+state.  For the mutually disjoint blocks
+$b\in\{\mathrm{thermal},\mathrm{plastic},\mathrm{dislocation},
+\mathrm{mechanical}\}$, define
+\begin{equation}
+ \eta_b^{\rm FT,out}
+ =\frac{\|\boldsymbol P_b\widetilde{\boldsymbol q}_{\rm out}^*\|_2^2}
+ {\sum_c\|\boldsymbol P_c\widetilde{\boldsymbol q}_{\rm out}^*\|_2^2},
+ \qquad \sum_b\eta_b^{\rm FT,out}=1.
+ \label{eq:dyn_mechanism_participation}
+\end{equation}
+Here the plastic block contains the plastic-distortion chart and signed slip;
+the dislocation block contains mobile and dipole densities.  A zero mechanical
+fraction follows automatically when mechanical coordinates are excluded by the
+output selector and does not imply that inertia was removed from the dynamics.
+The algebraic microfield may be reconstructed and reported separately.  To
+make ``nearly repeated'' operational before inspecting a mechanism vector, we
+define
+\begin{equation}
+ \delta_\sigma=\frac{\sigma_1-\sigma_2}{\sigma_1},\qquad
+ \delta_\sigma<0.05
+ \quad\Longleftrightarrow\quad
+ \frac{\sigma_1}{\sigma_2}<1.0526 .
+ \label{eq:dyn_singular_degeneracy_gate}
+\end{equation}
+When this gate is triggered, only the range of the leading singular subspace
+is interpreted; fractions from one arbitrary basis vector are suppressed.
+For a rank-one observed map, such as a scalar temperature output, $\sigma_2$
+does not exist and the ratio is reported as not applicable rather than as
+evidence of separation.  Onset and terminal ratios are reported for every
+selector in the reproducibility table.
+When $\mathcal S_\varepsilon$ contains distinct direction--wavenumber branches,
+Eq.~\eqref{eq:dyn_mechanism_participation} is evaluated for every branch and
+reported branchwise or as a range; one winning branch is not used to represent
+the whole near-optimal set.
+The $\eta_b^{\rm FT,out}$ are locked-scale coordinate fractions of an optimal singular
+vector.  They are not energy fractions, dissipation fractions, or identified
+causal contributions.
+
+For nonlinear and linear windows
+$I_{\rm NL}=[t_{0,\rm NL},t_{\rm NL}]$ and
+$I_{\rm L}=[t_{0,\rm L},t_{\rm L}]$, the downstream computational bridge is
+written
+\begin{equation}
+ W_{b,\mathrm{FWHM}}^{(c)}(t_{\rm NL})
+ =C_{\rm FWHM}^{(c,b)}(I_{\rm NL};I_{\rm L})
+  \frac{2\pi}{k_{\rm FT}^*(t_{\rm L})},
+ \label{eq:dyn_fwhm_bridge}
+\end{equation}
+where $c$ identifies the perturbation class and $b$ the temperature or plastic
+shear-rate observable.  The coefficient $C_{\rm FWHM}^{(c,b)}$ is accepted only after
+nested-grid convergence with one fixed grain map.  An onset-wavelength ratio is
+retained only as a memory diagnostic, and a set-valued $k_{\rm FT}^*$ induces a reported
+interval rather than a single coefficient.  A same-window quantitative
+relation requires both $t_{0,\rm L}=t_{0,\rm NL}$ and
+$t_{\rm L}=t_{\rm NL}$.  Matching only the terminal time is labelled
+same-terminal-time and remains conditioned on unequal history windows; unequal
+terminal times define a cross-horizon diagnostic.  Neither is silently
+relabeled as a same-window calibration.  The planned classical benchmark
+uses constant top velocity, a linear initial velocity field, uniform initial
+temperature, and separate unperturbed, broadband-perturbed, and
+orientation-heterogeneous cases.  Equation~\eqref{eq:dyn_fwhm_bridge} is a
+computational relation, not an experimental parameter identification or an
+independent full-field validation claim.

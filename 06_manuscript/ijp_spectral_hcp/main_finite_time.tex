@@ -24,33 +24,27 @@
 \author{[Author names and affiliations to be supplied]}
 
 \begin{abstract}
-Frozen adiabatic-shear theories rank instantaneous roots but do not determine
-which crystal-resolved disturbance accumulates the largest amplification while
-slip activity, dislocation populations and temperature evolve. We formulate
-that finite-time selection problem for an 18-slip HCP crystal. Fourier
-linearization gives an 84-coordinate quadratic differential--algebraic
-descriptor; exact elimination of 18 algebraic micromorphic fields yields a
-nonsingular 69-state generator. An independent QZ audit recovers 69 finite and
-18 structural infinite roots, with a maximum finite-root mismatch of
-$8.60\times10^{-8}$. A fixed-norm, time-ordered propagator then selects
-direction, wavenumber and state composition. On the complete 69-state space,
-stationary-normal and commuting-normal controls recover
-$\log\|\Phi\|_2=\int\alpha\,\mathrm dt$ to $10^{-14}$ when a common leading
-mode exists. The corresponding HCP differences are $+4.78$, $+7.22$ and
-$+6.40$ for three audited branches, and remain $+3.31$--$+6.74$ at the
-terminal horizon for three independently selected orientations. Large modal
-condition numbers, eigenvector rotation and reverse-order propagation
-quantify the non-normal and chronological origins of the discrepancy.
-Eleven norm definitions and seven input--output selectors retain the
-full/full and constitutive-localization $y$-like winners while exposing the
-few selector questions that choose a different branch. An
-anchor-assisted sphere--wavenumber audit retains these basins, while a blind
-1024-point Sobol design misses the narrow terminal basin and therefore does
-not constitute a global-optimum certificate. The complete nonlinear periodic
-residual reproduces the near-onset and terminal singular-vector gains within
-1.24\% and 0.223\%, respectively. The theory closes finite-time perturbation
-selection, but neither identifies a seed-independent mature band width nor
-provides propagation-resistance closure.
+Frozen adiabatic-shear analyses rank instantaneous roots but cannot identify
+which crystal-resolved disturbance wins along an evolving loading path.  We
+pose this finite-time selection problem for an 18-slip HCP crystal.  Fourier
+linearization gives an 84-coordinate differential--algebraic descriptor;
+exact elimination of 18 micromorphic fields yields a nonsingular 69-state
+generator.  A time-ordered propagator selects direction and wavenumber for
+seven input--output maps.  Stationary and commuting-normal controls recover
+frozen-spectrum equality, whereas HCP paths depart through non-normality,
+eigenvector rotation and chronology.  Re-optimization under five norms
+separates compact-domain elastic waves from interior constitutive-localization
+maxima; the terminal constitutive map selects
+$k=6.84\times10^3~\mathrm{m^{-1}}$ and converged gain
+$6.29\times10^5$.  Same-selector piecewise-frozen products converge to the
+ordered map.  Three added rate/temperature paths and four local parameter
+perturbations preserve the terminal basin but expose scale sensitivity.  A
+four-mode Galerkin replay reproduces both optimized vectors at small
+amplitude, but full-Fourier nonlinear continuation becomes non-finite.
+Synchronized Grade-II titanium data retain only qualitative
+stress-before-temperature ordering, not timing or magnitude.  The framework
+therefore closes finite-time linear selection; mature width, calibration and
+propagation resistance remain open.
 \end{abstract}
 
 \begin{keyword}
@@ -73,7 +67,7 @@ adiabatic shear localization \sep HCP crystal plasticity \sep finite-time propag
 \input{sections/ft_conclusions}
 
 \section*{Data and code availability}
-The public reproducibility repository is available at \url{https://github.com/yxlnbu/finite-time-hcp-perturbation}. It contains the machine-readable base histories, all 129 complex generators for every reported baseline branch, complete singular vectors and spectra, full-state/projected operator receipts, the norm--selector matrix, mechanism histories, nested Sobol samples, anchor-assisted optimizer trajectories, nonlinear validation fields, parameter provenance and the locked runtime environment. Release checksums and array contracts are recorded in \path{05_results/ijp_reproducibility_release_v1.json}. Selection of a reuse license and deposition under a persistent DOI remain to be completed before submission.
+The public reproducibility repository is available at \url{https://github.com/yxlnbu/finite-time-hcp-perturbation}. It contains the machine-readable base histories, all 129 complex generators for every reported baseline branch, complete singular vectors and spectra, full-state/projected operator receipts, the fixed 11-by-7 matrix, selector-specific optimization traces, piecewise-frozen controls, loading and parameter-transfer tables, Galerkin replay fields, the 1025-state density receipt, the failed full-Fourier audit, literature-digitization landmarks, parameter provenance and the locked runtime environment. V3 contracts are recorded in \path{05_results/ijp_revision_evidence_v3.json}, \path{05_results/ijp_v3_validation_suite_v1.json} and \path{05_results/ijp_v3_full_fourier_nonlinear_audit_v1.json}; release checksums and array contracts are recorded in \path{05_results/ijp_reproducibility_release_v1.json}. Selection of a reuse license and deposition under a persistent DOI remain to be completed before submission.
 
 \section*{Declaration of competing interest}
 The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work: \textbf{[to be confirmed by all authors]}.

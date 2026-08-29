@@ -3,7 +3,7 @@
 
 \subsection{Base history, exact generator and propagation}
 
-The literature-constrained pure-titanium baseline uses the complete 18-slip closure in Section~\ref{sec:base_model_dynamic}, a slip-gradient length $\ell_\chi=0.25~\mu\mathrm m$ and a Nye length $\ell_N=1~\mu\mathrm m$. The base history is integrated independently and then stored at 129 accepted states on $[0.5,140]~\mu\mathrm s$. At each state, the continuous constitutive Jacobian in Eq.~\eqref{eq:ft_constitutive_tangent_contract} is assembled on the recorded smooth branch. A state is rejected if a derivative probe changes that branch or if
+The repository verification seed uses the complete 18-slip closure in Section~\ref{sec:base_model_dynamic}, a slip-gradient length $\ell_\chi=0.25~\mu\mathrm m$ and a Nye length $\ell_N=1~\mu\mathrm m$. Its grouped constraints are informed by titanium literature, but the card is not identified for a particular batch or specimen. The base history is integrated independently and then stored at 129 accepted states on $[0.5,140]~\mu\mathrm s$. At each state, the continuous constitutive Jacobian in Eq.~\eqref{eq:ft_constitutive_tangent_contract} is assembled on the recorded smooth branch. A state is rejected if a derivative probe changes that branch or if
 \begin{equation}
  \operatorname{cond}_2(\boldsymbol K_{\zeta\zeta})\ge10^{14},
  \qquad
@@ -148,6 +148,75 @@ The primary search covers $300\le k\le3\times10^5~\mathrm{m^{-1}}$ and one close
 \end{equation}
 are retained as a near-optimal set. Temporal convergence is evaluated on 65- and 129-state histories with one, two, four and eight midpoint substeps. Norm sensitivity uses the baseline scale plus independent factor-two increases and decreases of mechanical, thermal, dislocation, plastic-kinematic and all-constitutive groups, giving 11 fixed norms. Seven selector pairs test full/full, constitutive/constitutive, full/constitutive, constitutive/full, mechanical/mechanical, mechanical/constitutive and constitutive/temperature maps. The blind Sobol maximum and the anchor-combined maximum are reported separately so that anchor dependence cannot be hidden by the audit label.
 
+The original 11-by-7 table ranks the three registered branch candidates and is
+retained as a complete fixed-candidate screen in the Supplementary Material.
+To test whether that restriction hides a selector-specific basin, all seven
+selectors are additionally re-optimized at onset and terminal time under the
+baseline norm and four adverse norms selected before re-optimization:
+mechanical${}\times0.5$, thermal${}\times0.5$,
+dislocation${}\times2$ and all-constitutive${}\times2$.  A shared 128-point
+scrambled Sobol design, exact axes and the three registered branches seed the
+bounded local searches; every objective is then evaluated on the
+129-state/four-substep reference.  A compact-domain boundary maximum is
+reported as such.  In particular, full/full and mechanical/mechanical maps can
+select reversible high-frequency elastic waves and are not required to define
+an interior localization wavelength.  Selectors that observe a constitutive
+or thermal localization response must retain an interior $k^*$.
+
+For a strict same-input/output freezing baseline, divide every registered
+nonuniform interval into $r$ equal subintervals and define
+\begin{equation}
+ \boldsymbol\Phi_{\rm PF}^{(r)}
+ =\prod_{m=N_r}^{1}
+ \exp\!\left[\Delta t_m\,
+ \widetilde{\boldsymbol A}(t_{m-1})\right],
+ \qquad
+ \mathcal G_{\rm PF}^{(r)}
+ =\left\|\boldsymbol P_{\rm out}
+ \boldsymbol\Phi_{\rm PF}^{(r)}
+ \boldsymbol P_{\rm in}^{\mathsf T}\right\|_2 .
+ \label{eq:ft_piecewise_frozen_same_selector}
+\end{equation}
+The metric and both selectors are identical to those of the time-ordered
+reference; only the generator is frozen at the left endpoint of each
+subinterval.  Results are reported for $r=1,2,4,8,16$ subdivisions per
+registered interval.  This is a
+controlled discretization of chronology, not the incompatible scalar
+$\int\alpha\,\mathrm dt$ comparison.
+
+\subsection{Loading transfer, local parameter sensitivity and external titanium check}
+
+Three additional paths are integrated without refitting: simple shear at
+$5.0\times10^3$ and $1.3\times10^4~\mathrm{s^{-1}}$ from 293.15 K, and the
+baseline $1.0\times10^4~\mathrm{s^{-1}}$ path from 373.15 K. Direction and wavenumber are
+re-optimized for the constitutive/constitutive map at onset and terminal time
+using shared Sobol reconnaissance plus continuation from the baseline basin.
+These rate/temperature cases test transfer, not specimen prediction.
+
+Local sensitivity uses symmetric multiplicative perturbations of $\pm20\%$
+for the initial mobile density $\rho_{m0}$, mean-free-path coefficient
+$K_\Lambda$, Nye length $\ell_N$ and full-rank slip-gradient length
+$\ell_\chi$.  The same branch is continued from the baseline and
+direction--wavenumber optimization is repeated.  Central logarithmic
+sensitivities of gain and wavenumber are
+\begin{equation}
+ S_p^Y=\frac{\log Y(1.2p)-\log Y(0.8p)}
+ {\log(1.2)-\log(0.8)},
+ \qquad Y\in\{\mathcal G,k^*\}.
+ \label{eq:ft_local_log_sensitivity}
+\end{equation}
+This is a branch-local derivative audit, not global uncertainty
+quantification.
+
+Finally, the $1.3\times10^4~\mathrm{s^{-1}}$ calculation is compared with the
+synchronized shear-stress and infrared-temperature landmarks measured for
+commercial-purity Grade-II titanium by Guo et al.\ \cite{GuoEtAl2019PRL}.
+Peak and shear-band times are read from their Fig.~1; the temperature-rise
+interval at peak stress and localized-temperature interval are taken from the
+paper text.  Because specimen geometry, texture, damage and localization are
+not matched, this is an external timing/scale check with explicit failures,
+not parameter identification.
+
 \subsection{Fixed-base coupling interventions}
 
 To distinguish coordinate participation from dependence on constitutive coupling, the 69-state generator is partitioned into mechanical/inertial, thermal, dislocation and plastic-kinematic groups. Within-group blocks and the base history are held fixed. Six cross-group edge families are switched on or off, and the leading singular value and optimal vectors are recomputed for all $2^6=64$ coalitions. The value function is the maximum finite-time observable log gain. Exact Shapley allocation is used to summarize edge dependence, while grouped removals (no inertial, no thermal or no dislocation cross-links) provide transparent counterfactual checks. These operations identify dependence of the \emph{linearized fixed-base model} on selected blocks; they are not experimental causal effects, dissipation fractions or unique structural mechanisms.
@@ -157,16 +226,35 @@ Gradient controls are reported in the same figure but under a separate contract.
 \subsection{Singular-vector nonlinear transport and material-width gates}
 
 The first nonlinear gate uses the actual leading right singular vectors of the
-near-onset candidate at $1.5~\mu\mathrm s$ and the registered terminal branch
-at $140~\mu\mathrm s$. Each vector is imposed as a real periodic Fourier mode
-with 16 cells per wavelength and two factor-two amplitudes. The terminal
+re-optimized baseline constitutive/constitutive map at $1.4375~\mu\mathrm s$
+and $140~\mu\mathrm s$.  Candidate direction and wavenumber and the coordinate
+metric are held at their released V3 values.  The fixed-$\beta$, passive-ledger base path
+is independently refined from 129 to 513 states, and the singular vectors are
+recomputed on that refined map before nonlinear transport.  Dense-history
+convergence compares nested 257- and 513-state maps with four midpoint
+substeps, followed by a one-to-four-substep check on the 513-state map.  If
+the 257-to-513 relative log-gain change exceeds 2\%, a 1025-state map is
+mandatory and convergence is judged from the 513-to-1025 change under the
+same four-substep contract.  The released 129-state gain is retained as a
+coarse-history screen; a finer value supersedes it only after this density
+gate closes, without changing the registered direction, wavenumber or metric.
+Each vector is imposed as a
+real periodic Fourier mode
+with 16 cells per wavelength and two factor-two amplitudes.  The first replay
+retains nonnegative modes 0--3 and is therefore labelled a Galerkin transport
+check, not a complete Fourier calculation.  A separate audit retains every
+nonnegative mode 0--8 resolvable on the 16-cell grid and repeats the replay
+with one and four nonlinear midpoint substeps.  Any non-finite continuation
+or more than 1\% discarded right-hand-side Fourier energy leaves the complete
+nonlinear gate open.  The terminal
 amplitude is additionally limited so that its linearly predicted final
-dimensionless norm does not exceed $10^{-3}$. The complete nonlinear periodic
+dimensionless norm does not exceed $10^{-3}$. The nonlinear periodic
 momentum--heat--micromorphic--crystal-state residual is advanced with the
 registered tangent used only as an integrating factor. Acceptance requires
 less than 2\% error in gain, less than 3\% error in the complete complex
 Fourier output vector, less than 2\% factor-two gain variation, less than 1\%
-nonretained Fourier energy and a power-partition ledger residual below
-$10^{-10}$.
+nonretained Fourier energy within the declared subspace and a power-partition
+ledger residual below $10^{-10}$.  Passing these Galerkin checks does not
+override a failed full-Fourier audit.
 
 A separate $0$--$2~\mu\mathrm s$ material-width bridge imposes prescribed sinusoidal or multimode disturbances with locked phases and spatial grids. It is accepted in stages. First, linear gain and phase transport must be reproduced. Second, multiple input amplitudes must remain in the amplitude-linear regime for a single mode. Third, the peak and full width at half maximum (FWHM) must converge on nested grids. Finally, a candidate material width must be insensitive to seed phase/spectrum, remain resolved by at least 12 cells and emerge independently of the imposed wavelength. A failure retains the successful lower-level verification but disables the material-scale interpretation.

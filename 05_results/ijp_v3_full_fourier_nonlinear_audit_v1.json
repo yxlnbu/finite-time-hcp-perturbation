@@ -1,0 +1,84 @@
+{
+  "contract": {
+    "base_history": "factor64 / 513 states",
+    "cells_per_fundamental_wavelength": 16,
+    "coordinate_metric": "exact released V3 metric",
+    "directions_and_wavenumbers": "fixed V3 re-optimized winners",
+    "retained_nonnegative_fourier_modes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "selector": "constitutive_to_constitutive"
+  },
+  "gate": {
+    "definition": "Both optimized horizons remain finite with all 16-cell Fourier modes for one and four nonlinear substeps, and discarded RHS energy <=1%.",
+    "passed": false
+  },
+  "interpretation": "Failure means the four-mode replay cannot be promoted to complete grid-resolved nonlinear validation. It is evidence of an unresolved high-wavenumber/nonlinear closure problem, not evidence for mature width.",
+  "provenance": {
+    "base_context_cache": "05_results/cp_ti_lsbrp_base_cache_v1_ref64.pkl",
+    "base_context_cache_sha256": "8d2b2677b9a6f027f2f3056cf19216ac2dd02ba84f47520dc4d18ab093c2fa24",
+    "tool": "tools/audit_ijp_v3_full_fourier_nonlinear_v1.py",
+    "tool_sha256": "326e251866eb0d1dcff766b0c2464be4fa71d9dd04c35435f3299bf260f03e04",
+    "v3_arrays_sha256": "472aa140f258b4425a295672041641ea648592b95524e0288a186aa187a34a0e",
+    "v3_evidence_sha256": "36a7ba568ffe71dd995b366ef07a89a74b287e2c2c584690208748d0d056fe90"
+  },
+  "runtime": {
+    "numpy": "2.4.3",
+    "python": "3.12.10",
+    "wall_time_s": 84.75137759998324
+  },
+  "schema": "IJP_V3_FULL_FOURIER_NONLINEAR_AUDIT_V1",
+  "status": "FULL_FOURIER_NONLINEAR_GATE_OPEN",
+  "trials": [
+    {
+      "cells": 16,
+      "completed": false,
+      "failure_message": "integrating factor Fourier conjugacy defect exceeded 1e-7",
+      "failure_type": "FloatingPointError",
+      "nonlinear_substeps_per_interval": 1,
+      "retained_nonnegative_fourier_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "role": "near_onset",
+      "runtime_s": 18.892227000003913,
+      "warnings": []
+    },
+    {
+      "cells": 16,
+      "completed": false,
+      "failure_message": "non-autonomous history integration became non-finite",
+      "failure_type": "FloatingPointError",
+      "nonlinear_substeps_per_interval": 4,
+      "retained_nonnegative_fourier_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "role": "near_onset",
+      "runtime_s": 65.6434525999939,
+      "warnings": []
+    }
+  ]
+}
