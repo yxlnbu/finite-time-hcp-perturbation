@@ -356,7 +356,9 @@ def main() -> int:
         "The package supports like-for-like full-state finite-time/frozen discrimination, "
         "norm--selector robustness and an anchor-assisted direction--wavenumber audit. It does not claim specimen "
         "calibration, nonlinear material band width, propagation resistance, an analytic "
-        "global optimum proof, or a strict HCP-to-Bai analytical degeneration.\n",
+        "global optimum proof, or a strict HCP-to-Bai analytical degeneration.\n\n"
+        "## Public repository\n\n"
+        "https://github.com/yxlnbu/finite-time-hcp-perturbation\n",
         encoding="utf-8",
     )
     copied.append(readme)
@@ -410,7 +412,7 @@ def main() -> int:
         "nonlinear_field_contract": nonlinear_contract,
         "gates": gates,
         "publication_note": (
-            "The archive is ready for repository/DOI deposition but has not been uploaded by this script."
+            "The public GitHub repository is https://github.com/yxlnbu/finite-time-hcp-perturbation; DOI deposition remains pending."
         ),
     }
     RECEIPT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")

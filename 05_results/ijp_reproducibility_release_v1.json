@@ -1,7 +1,7 @@
 {
   "archive": "04_reproducibility/ijp_finite_time_release_v1.zip",
-  "archive_sha256": "419c69a428b6b46f672aec4358199b43ba840dd07244b8a94fe7d95b7ee9fb1e",
-  "archive_size_bytes": 11796750,
+  "archive_sha256": "91006cd6a472d458a763939a7b0d7e7283dfb04763f825ba205e43c85974d279",
+  "archive_size_bytes": 11796946,
   "array_contract": {
     "all_generators_complex128": true,
     "all_singular_vectors_complex128": true,
@@ -45,7 +45,7 @@
     "zip_crc_test_pass": true,
     "zip_member_count_matches": true
   },
-  "manifest_sha256": "0cb1fc604775c7b01816082be24f9edbc3bce68d89e872d46a785b18b60b9ea7",
+  "manifest_sha256": "e3210726d243212c32514163192ad7f6104ff41201e8902ea8cfc152296f0338",
   "nonlinear_field_contract": {
     "contract_pass": true,
     "missing_required_arrays": [],
@@ -60,7 +60,7 @@
     "path": "05_results/ijp_operator_consistency_v2_arrays.npz",
     "shape_failures": {}
   },
-  "publication_note": "The archive is ready for repository/DOI deposition but has not been uploaded by this script.",
+  "publication_note": "The public GitHub repository is https://github.com/yxlnbu/finite-time-hcp-perturbation; DOI deposition remains pending.",
   "release_directory": "04_reproducibility/ijp_finite_time_release_v1",
   "release_file_count_excluding_manifest": 77,
   "schema": "IJP_FINITE_TIME_REPRODUCIBILITY_RELEASE_V1",
