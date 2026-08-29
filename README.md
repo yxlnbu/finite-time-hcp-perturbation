@@ -19,7 +19,9 @@ The repository contains the audited manuscript, machine-readable numerical evide
 
 ## Repository layout
 
+- `src/hcp_cp/` -- vendored, frozen v0.1 constitutive kernel used by the release.
 - `src/hcp_cp_gnd/` -- HCP crystal-plasticity and perturbation kernels used by the released audits.
+- `config/verification_seed.yaml` -- exact watermarked v0.1 verification configuration; no sibling checkout is required.
 - `tools/` -- operator, search, nonlinear-validation, provenance and packaging scripts.
 - `05_results/` -- JSON/CSV/NPZ evidence and complete numerical histories.
 - `06_manuscript/ijp_spectral_hcp/` -- LaTeX source, figures, evidence ledger and audited PDF.

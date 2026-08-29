@@ -1,0 +1,48 @@
+schema: hcp-cp-material-0.1
+status: VERIFICATION_SEED_NOT_CALIBRATED_FOR_TA2
+lattice:
+  c_over_a: 1.587
+elastic:
+  T_ref_K: 293.15
+  C11_Pa: 1.624e11
+  C12_Pa: 9.20e10
+  C13_Pa: 6.90e10
+  C33_Pa: 1.807e11
+  C44_Pa: 4.67e10
+thermal:
+  mass_density_kg_per_m3: 4510.0
+  heat_capacity_J_per_kgK: 544.0
+  taylor_quinney: 0.9
+slip:
+  burgers_m: [2.95e-10, 2.95e-10, 5.53e-10]
+  tau0_Pa: [8.0e7, 1.1e8, 2.2e8]
+  tau_cut_Pa: [5.5e8, 5.5e8, 7.0e8]
+  activation_energy_J: [1.8e-19, 1.8e-19, 1.8e-19]
+  reference_velocity_m_per_s: [4.0e3, 4.0e3, 4.0e3]
+  p: [0.7, 0.7, 0.7]
+  q: [1.06, 1.06, 1.06]
+  rho_mobile_0_per_m2: [1.6e12, 1.6e12, 1.6e12]
+  rho_dipole_0_per_m2: [1.0e10, 1.0e10, 1.0e10]
+dislocation:
+  grain_size_m: 2.0e-5
+  mean_free_path_coefficient: 33.0
+  reference_shear_modulus_Pa: 4.67e10  # explicit T_ref C44 verification choice
+  forest_self: 1.0
+  forest_latent: 1.35
+  taylor_factor_coefficient: 0.30
+  dipole_min_distance_burgers: 3.0  # synthetic activity witness; legacy prior is 9
+  climb_frequency_per_s: 2.0e4
+  climb_activation_J: 1.2e-19
+twinning:
+  shear: 0.0  # zero means use the crystallographic c/a expression
+  crss_Pa: 8.0e7
+  reference_rate_per_s: 2.5e3
+  rate_exponent: 3.0
+  stress_scale_Pa: 1.5e8
+  latent_hardening_Pa: 3.0e8
+  max_total_fraction: 0.85
+numerics:
+  density_floor_per_m2: 1.0e4
+  determinant_tolerance: 1.0e-8
+  maximum_slip_increment: 2.0e-4
+  maximum_twin_increment: 2.0e-4

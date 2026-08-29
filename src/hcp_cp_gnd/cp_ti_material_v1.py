@@ -54,16 +54,24 @@ def build_material_objects(card: dict[str, Any] | None = None):
     """Return systems, parameters, and a basal-texture representative point."""
 
     root = _project_root()
-    v01 = root.parent / "HCP_CP_v0.1"
-    if str(v01 / "src") not in sys.path:
-        sys.path.insert(0, str(v01 / "src"))
+    # The public archive vendors the frozen v0.1 kernel as ``src/hcp_cp`` and
+    # the exact verification seed as ``config/verification_seed.yaml``.  The
+    # historical sibling checkout remains a development fallback only.
+    vendored_seed = root / "config/verification_seed.yaml"
+    sibling = root.parent / "HCP_CP_v0.1"
+    if vendored_seed.is_file():
+        seed_path = vendored_seed
+    else:
+        if str(sibling / "src") not in sys.path:
+            sys.path.insert(0, str(sibling / "src"))
+        seed_path = sibling / "config/verification_seed.yaml"
     from hcp_cp.crystal import build_hcp_systems
     from hcp_cp.model import HCPMaterialPoint, MechanismSwitches, orientation_from_bunge
     from hcp_cp.parameters import load_material_parameters
 
     data = card or load_card()
     systems = build_hcp_systems()
-    seed = load_material_parameters(v01 / "config/verification_seed.yaml", systems)
+    seed = load_material_parameters(seed_path, systems)
     thermal = data["thermal"]
     load = data["representative_loading"]
     parameters = replace(
