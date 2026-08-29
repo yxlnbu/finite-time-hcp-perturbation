@@ -1,0 +1,172 @@
+\section{Evidence design and numerical implementation}
+\label{sec:numerical_dynamic}
+
+\subsection{Base history, exact generator and propagation}
+
+The literature-constrained pure-titanium baseline uses the complete 18-slip closure in Section~\ref{sec:base_model_dynamic}, a slip-gradient length $\ell_\chi=0.25~\mu\mathrm m$ and a Nye length $\ell_N=1~\mu\mathrm m$. The base history is integrated independently and then stored at 129 accepted states on $[0.5,140]~\mu\mathrm s$. At each state, the continuous constitutive Jacobian in Eq.~\eqref{eq:ft_constitutive_tangent_contract} is assembled on the recorded smooth branch. A state is rejected if a derivative probe changes that branch or if
+\begin{equation}
+ \operatorname{cond}_2(\boldsymbol K_{\zeta\zeta})\ge10^{14},
+ \qquad
+ \operatorname{cond}_2(\boldsymbol R)\ge10^{12},
+ \qquad\text{or}\qquad
+ \operatorname{cond}_2(\boldsymbol C)\ge10^{12}.
+ \label{eq:dyn_conditioning_gates}
+\end{equation}
+The algebraic microfield is eliminated, the generator in Eq.~\eqref{eq:dyn_generator_matrix} is assembled and the block reconstruction residual is recorded.
+
+Between stored states $t_i$ and $t_{i+1}$, the fixed-scale generator is interpolated linearly. Four exponential-midpoint substeps are used per interval:
+\begin{align}
+ \widehat{\boldsymbol A}_{ij}
+ &=(1-f_j)\widehat{\boldsymbol A}_i+f_j\widehat{\boldsymbol A}_{i+1},
+ &f_j&=(j+1/2)/4,\\
+ \boldsymbol\Phi_{ij+1}
+ &=\exp(h_i\widehat{\boldsymbol A}_{ij})\boldsymbol\Phi_{ij},
+ &h_i&=(t_{i+1}-t_i)/4.
+ \label{eq:ft_midpoint_product}
+\end{align}
+The reference history therefore uses 512 ordered exponentials. Base-history refinement and propagation-substep refinement are audited separately.
+
+The diagonal coordinate scale $\boldsymbol D_q$ is fixed before any spectrum or singular vector is inspected. Representative scales are $1~\mu\mathrm m$ for displacement, $0.1~\mathrm{m\,s^{-1}}$ for velocity, $1~\mathrm K$ for temperature, $2\times10^{-4}$ for plastic-chart and signed-slip coordinates, $1.6\times10^{12}~\mathrm{m^{-2}}$ for mobile density and $10^{10}~\mathrm{m^{-2}}$ for dipole density. Input and output selectors retain temperature and the 62 local coordinates. Displacement and velocity remain coupled inside the propagator but are not directly optimized. The declared threshold is $\mathcal G_c=e$.
+
+\subsection{Independent descriptor audit and classical anchor}
+
+The quadratic pencil is independently converted to an 87-coordinate first-order generalized eigenproblem with state ordering $[\widehat{\boldsymbol u},\widehat{\boldsymbol v},\widehat T,\widehat{\boldsymbol\zeta},\widehat{\boldsymbol a}]$. Generalized Schur decomposition must return 69 finite roots and 18 infinite roots. The finite roots are matched to eigenvalues of the reduced 69-state generator, and both modal backward error and microfield reconstruction residual are evaluated. No small mass or relaxation time is assigned to the algebraic coordinates.
+
+Separately, the scalar Bai coefficient/root implementation is checked against exact-dyadic sign and zero tests and targeted regression cases. This establishes an executable classical anchor. It is not used as evidence of a strict analytical HCP-to-Bai reduction; that reduction remains a separate open gate.
+
+\subsection{Central finite-time/frozen-spectrum discrimination}
+
+For each fixed branch $(k,\boldsymbol n)$, define the frozen spectral abscissa of the same scaled 69-state generator as
+\begin{equation}
+ \alpha(t;k,\boldsymbol n)
+ =\max_j\operatorname{Re}\lambda_j
+ [\widetilde{\boldsymbol A}_{\rm dyn}(t;k,\boldsymbol n)]
+ \label{eq:ft_spectral_abscissa}
+\end{equation}
+and its accumulated prediction
+\begin{equation}
+ \mathcal I_\alpha(t;k,\boldsymbol n)
+ =\int_{t_0}^{t}\alpha(\xi;k,\boldsymbol n)\,\mathrm d\xi .
+ \label{eq:ft_frozen_integral}
+\end{equation}
+The primary like-for-like finite-time quantity is the full-state log gain
+\begin{equation}
+ \mathcal L_{\rm FT}^{\rm full}(t;k,\boldsymbol n)
+ =\log\|\widetilde{\boldsymbol\Phi}
+ (t,t_0;k,\boldsymbol n)\|_2,
+ \label{eq:ft_log_gain}
+\end{equation}
+and the discrimination statistic is
+\begin{equation}
+ \Delta_{\rm FT}^{\rm full}
+ =\mathcal L_{\rm FT}^{\rm full}-\mathcal I_\alpha .
+ \label{eq:ft_discrimination}
+\end{equation}
+Equations~\eqref{eq:ft_spectral_abscissa}--\eqref{eq:ft_discrimination}
+use the same complete 69-state space, fixed scaling and identity input/output
+selectors. The projected localization gain in
+Eq.~\eqref{eq:dyn_observable_gain} is reported separately and is not
+subtracted from the full-state $\alpha$. The selected 63-coordinate subspace
+has nonzero mechanical input and output coupling, so it is not a closed
+instantaneous system.
+
+As a same-norm upper-bound audit, define the numerical abscissa
+\begin{equation}
+ \mu_2(\widetilde{\boldsymbol A})
+ =\lambda_{\max}\!\left[
+ \frac{\widetilde{\boldsymbol A}
+ +\widetilde{\boldsymbol A}^{\mathsf H}}{2}\right],
+ \qquad
+ \log\|\widetilde{\boldsymbol\Phi}(t,t_0)\|_2
+ \le\int_{t_0}^{t}\mu_2(\widetilde{\boldsymbol A})\,\mathrm dt .
+ \label{eq:ft_logarithmic_norm_bound}
+\end{equation}
+The bound is not used as a selector; it checks that the propagated full-state
+gain is consistent with the declared norm.
+
+To verify both the implementation and the sufficiency statement, let
+\begin{equation}
+ \widetilde{\boldsymbol A}(t)=\boldsymbol U
+ \operatorname{diag}[\lambda_1(t),\ldots,\lambda_m(t)]\boldsymbol U^{\mathsf H},
+ \qquad \boldsymbol U^{\mathsf H}\boldsymbol U=\boldsymbol I,
+ \label{eq:ft_commuting_normal_control}
+\end{equation}
+where the basis is independent of time. The family is normal and pairwise commuting, and hence
+\begin{equation}
+ \log\|\boldsymbol\Phi(t,t_0)\|_2
+ =\max_j\int_{t_0}^{t}\operatorname{Re}\lambda_j(\xi)\,\mathrm d\xi.
+ \label{eq:ft_commuting_normal_identity}
+\end{equation}
+This equals $\int\alpha\,\mathrm dt$ if one common mode attains the pointwise maximum almost everywhere. A stationary normal control and a time-varying commuting-normal control with a fixed leader test this equality using the same exponential-midpoint/frozen-integral quadrature. A third commuting control switches its pointwise leader and must fail the equality; it demonstrates that commutation alone is insufficient. The HCP test is then applied to the optimized near-onset $x$- and $y$-like branches and to the terminal $y$-like branch.
+
+A second stationary diagonal control applies two invariant coordinate
+projections. When the frozen rate is restricted to the same invariant
+subspace, projected gain and frozen accumulation coincide; when the selected
+subspace excludes the full-state leader, comparison with the full-state
+$\alpha$ fails by construction. This control detects precisely the
+input--output mismatch avoided in Eq.~\eqref{eq:ft_discrimination}.
+
+The source of HCP non-equivalence is diagnosed with four quantities. For
+adjacent scaled generators, the normalized commutator is
+\begin{equation}
+ c_i=\frac{\|\widetilde{\boldsymbol A}_{i+1}
+ \widetilde{\boldsymbol A}_i-
+ \widetilde{\boldsymbol A}_i
+ \widetilde{\boldsymbol A}_{i+1}\|_F}
+ {\|\widetilde{\boldsymbol A}_{i+1}\|_F
+  \|\widetilde{\boldsymbol A}_i\|_F}.
+ \label{eq:ft_commutator_diagnostic}
+\end{equation}
+For the instantaneous leading eigenvalue, left and right eigenvectors give
+\begin{equation}
+ \kappa_\lambda
+ =\frac{\|\boldsymbol w\|_2\|\boldsymbol v\|_2}
+ {|\boldsymbol w^{\mathsf H}\boldsymbol v|},
+ \qquad
+ \theta_i=\cos^{-1}\!
+ \frac{|\boldsymbol v_i^{\mathsf H}\boldsymbol v_{i+1}|}
+ {\|\boldsymbol v_i\|_2\|\boldsymbol v_{i+1}\|_2}.
+ \label{eq:ft_modal_condition_rotation}
+\end{equation}
+Finally, the chronological product is compared with the reverse-ordered
+product and with $\exp(\int\widetilde{\boldsymbol A}\,\mathrm dt)$, the first
+Magnus surrogate. These tests separate mode ill-conditioning, eigenvector
+rotation and operator ordering from the mere observation that two terminal
+numbers differ.
+
+\subsection{Cross-orientation transfer test}
+
+Three Bunge orientations, $(0^\circ,0^\circ,0^\circ)$, $(30^\circ,90^\circ,30^\circ)$ and $(90^\circ,60^\circ,30^\circ)$, are selected independently as the minimum-, median- and maximum-storage representatives of the pre-existing deterministic orientation atlas. For each orientation, its own direction--wavenumber pair is refined; the full-state propagator norm and frozen integral are then recomputed on that same pair, base path and scaling. No orientation is fitted to increase $|\Delta_{\rm FT}^{\rm full}|$. The transfer gate requires at least three orientations, modal backward errors below $10^{-8}$ and $|\Delta_{\rm FT}^{\rm full}|\ge0.1$ at either the selection or terminal horizon for every orientation.
+
+\subsection{Direction--wavenumber search and horizon tracking}
+
+The primary search covers $300\le k\le3\times10^5~\mathrm{m^{-1}}$ and one closed hemisphere, using the antipodal equivalence $\boldsymbol n\sim-\boldsymbol n$. A nested scrambled Sobol sequence samples the projective sphere and $\log k$ at 64, 256 and 1024 points. Exact sample axes and the independently registered onset/final branches are retained as anchors because a narrow maximum on the equator can be missed by an unanchored finite spherical design. Empirical projective-sphere fill angle and maximum $\log k$ gap are measured at every level. Eight mutually separated starts are refined independently for both the onset and terminal objectives, with every function evaluation retained. Candidates are retained only if the last two anchor-combined maxima differ by less than 1\%, at least two starts recur in the winning basin, $k^*$ remains strictly inside the registered interval, and reevaluation on the 129-state/four-substep history lies within 1\% in gain of the independently registered reference candidate. This is an \emph{anchor-assisted basin-retention and convergence audit}. It is not called a global-search certificate because the blind Sobol design fails to discover the narrow terminal basin. At each horizon, branches within
+\begin{equation}
+ \mathcal G(t;k,\boldsymbol n)\ge(1-\varepsilon_G)\Gamma_D(t),
+ \qquad \varepsilon_G=0.02,
+ \label{eq:ft_near_optimal_gate}
+\end{equation}
+are retained as a near-optimal set. Temporal convergence is evaluated on 65- and 129-state histories with one, two, four and eight midpoint substeps. Norm sensitivity uses the baseline scale plus independent factor-two increases and decreases of mechanical, thermal, dislocation, plastic-kinematic and all-constitutive groups, giving 11 fixed norms. Seven selector pairs test full/full, constitutive/constitutive, full/constitutive, constitutive/full, mechanical/mechanical, mechanical/constitutive and constitutive/temperature maps. The blind Sobol maximum and the anchor-combined maximum are reported separately so that anchor dependence cannot be hidden by the audit label.
+
+\subsection{Fixed-base coupling interventions}
+
+To distinguish coordinate participation from dependence on constitutive coupling, the 69-state generator is partitioned into mechanical/inertial, thermal, dislocation and plastic-kinematic groups. Within-group blocks and the base history are held fixed. Six cross-group edge families are switched on or off, and the leading singular value and optimal vectors are recomputed for all $2^6=64$ coalitions. The value function is the maximum finite-time observable log gain. Exact Shapley allocation is used to summarize edge dependence, while grouped removals (no inertial, no thermal or no dislocation cross-links) provide transparent counterfactual checks. These operations identify dependence of the \emph{linearized fixed-base model} on selected blocks; they are not experimental causal effects, dissipation fractions or unique structural mechanisms.
+
+Gradient controls are reported in the same figure but under a separate contract. They use an assembled frozen quasi-static HCP operator, extend the sampled range to $k=10^{12}~\mathrm{m^{-1}}$, and test removal of slip-gradient and Nye contributions. They do not supply nonlinear widths or a calibrated high-$k$ theorem, so no quantitative comparison between the dynamic coupling-intervention panel and the quasi-static gradient panel is made.
+
+\subsection{Singular-vector nonlinear transport and material-width gates}
+
+The first nonlinear gate uses the actual leading right singular vectors of the
+near-onset candidate at $1.5~\mu\mathrm s$ and the registered terminal branch
+at $140~\mu\mathrm s$. Each vector is imposed as a real periodic Fourier mode
+with 16 cells per wavelength and two factor-two amplitudes. The terminal
+amplitude is additionally limited so that its linearly predicted final
+dimensionless norm does not exceed $10^{-3}$. The complete nonlinear periodic
+momentum--heat--micromorphic--crystal-state residual is advanced with the
+registered tangent used only as an integrating factor. Acceptance requires
+less than 2\% error in gain, less than 3\% error in the complete complex
+Fourier output vector, less than 2\% factor-two gain variation, less than 1\%
+nonretained Fourier energy and a power-partition ledger residual below
+$10^{-10}$.
+
+A separate $0$--$2~\mu\mathrm s$ material-width bridge imposes prescribed sinusoidal or multimode disturbances with locked phases and spatial grids. It is accepted in stages. First, linear gain and phase transport must be reproduced. Second, multiple input amplitudes must remain in the amplitude-linear regime for a single mode. Third, the peak and full width at half maximum (FWHM) must converge on nested grids. Finally, a candidate material width must be insensitive to seed phase/spectrum, remain resolved by at least 12 cells and emerge independently of the imposed wavelength. A failure retains the successful lower-level verification but disables the material-scale interpretation.

@@ -1,0 +1,68 @@
+{
+  "archive": "04_reproducibility/ijp_finite_time_release_v1.zip",
+  "archive_sha256": "419c69a428b6b46f672aec4358199b43ba840dd07244b8a94fe7d95b7ee9fb1e",
+  "archive_size_bytes": 11796750,
+  "array_contract": {
+    "all_generators_complex128": true,
+    "all_singular_vectors_complex128": true,
+    "array_count": 90,
+    "contract_pass": true,
+    "generator_array_keys": [
+      "orientation_minimum_storage_generators",
+      "orientation_median_storage_generators",
+      "orientation_maximum_storage_generators",
+      "baseline_onset_x_generators",
+      "baseline_onset_y_generators",
+      "baseline_terminal_y_generators"
+    ],
+    "missing_required_arrays": [],
+    "nonfinite_required_arrays": [],
+    "required_array_count": 15,
+    "shape_failures": {},
+    "singular_vector_array_keys": [
+      "orientation_minimum_storage_input_vector",
+      "orientation_minimum_storage_output_vector",
+      "orientation_median_storage_input_vector",
+      "orientation_median_storage_output_vector",
+      "orientation_maximum_storage_input_vector",
+      "orientation_maximum_storage_output_vector",
+      "baseline_onset_x_input_vector",
+      "baseline_onset_x_output_vector",
+      "baseline_onset_y_input_vector",
+      "baseline_onset_y_output_vector",
+      "baseline_terminal_y_input_vector",
+      "baseline_terminal_y_output_vector"
+    ]
+  },
+  "gates": {
+    "array_contract_pass": true,
+    "audited_manuscript_present": true,
+    "environment_lock_present": true,
+    "manifest_covers_every_release_file": true,
+    "nonlinear_field_contract_pass": true,
+    "operator_array_contract_pass": true,
+    "optimizer_trace_present": true,
+    "zip_crc_test_pass": true,
+    "zip_member_count_matches": true
+  },
+  "manifest_sha256": "0cb1fc604775c7b01816082be24f9edbc3bce68d89e872d46a785b18b60b9ea7",
+  "nonlinear_field_contract": {
+    "contract_pass": true,
+    "missing_required_arrays": [],
+    "nonfinite_required_arrays": [],
+    "path": "05_results/ijp_singular_vector_nonlinear_validation_v2_fields.npz",
+    "shape_failures": {}
+  },
+  "operator_array_contract": {
+    "contract_pass": true,
+    "missing_required_arrays": [],
+    "nonfinite_required_arrays": [],
+    "path": "05_results/ijp_operator_consistency_v2_arrays.npz",
+    "shape_failures": {}
+  },
+  "publication_note": "The archive is ready for repository/DOI deposition but has not been uploaded by this script.",
+  "release_directory": "04_reproducibility/ijp_finite_time_release_v1",
+  "release_file_count_excluding_manifest": 77,
+  "schema": "IJP_FINITE_TIME_REPRODUCIBILITY_RELEASE_V1",
+  "status": "PUBLICATION_READY_LOCAL_ARCHIVE"
+}

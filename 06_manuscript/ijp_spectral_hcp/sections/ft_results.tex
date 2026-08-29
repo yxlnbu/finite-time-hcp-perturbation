@@ -1,0 +1,184 @@
+\section{Results}
+\label{sec:results_dynamic}
+
+\subsection{The finite-spectrum reduction is structurally exact}
+
+Figure~\ref{fig:ft_reduction} separates three statements that should not be conflated. The scalar Bai implementation passes 34 targeted and 358 related regression tests, including exact-dyadic sign and zero checks, and is therefore a controlled classical reference. The augmented HCP first-order descriptor has dimension 87 and rank 69 in its differential matrix. Generalized Schur decomposition returns exactly 69 finite and 18 infinite roots; the latter correspond one-for-one to the algebraic micromorphic coordinates. Complete matching of the finite descriptor roots to the reduced generator gives a maximum relative error of $8.595\times10^{-8}$ and a median error of $1.01\times10^{-22}$. The code-level generator and decoupling residuals satisfy $2\times10^{-13}$ gates. Thus exact elimination neither creates a fast microfield mode nor deletes a finite crystal mode.
+
+These checks do not establish a strict analytical limit from the 18-slip HCP operator to Bai's scalar coefficients. Figure~\ref{fig:ft_reduction} therefore displays that reduction as open rather than treating numerical agreement within each separate model as a proof of cross-model equivalence.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{fig02_classical_reduction_descriptor_verification.pdf}
+\caption{Classical anchor and exact-reduction audit. The Bai scalar implementation passes its scoped regression tests. For the HCP operator, the 87-coordinate augmented descriptor contains 69 finite roots and 18 structural infinite roots; exact algebraic elimination and the 69-state generator reproduce the finite spectrum and reconstruct the eliminated microfield. A strict HCP-to-Bai analytical reduction is deliberately retained as an open gate.}
+\label{fig:ft_reduction}
+\end{figure}
+\FloatBarrier
+
+\subsection{The base path evolves through distinct constitutive regimes}
+
+The homogeneous path is far from a stationary linearization (Fig.~\ref{fig:ft_base_state}). First Piola shear stress rises from $176.0~\mathrm{MPa}$ at $0.5~\mu\mathrm s$ to a peak of $565.7~\mathrm{MPa}$ at $2~\mu\mathrm s$, then decreases to $431.8~\mathrm{MPa}$ at $140~\mu\mathrm s$. Over the same interval, temperature rises from $293.15$ to $548.83~\mathrm K$ and accumulated absolute slip reaches 1.388. Total mobile density grows from $2.88\times10^{13}$ to $2.04\times10^{14}~\mathrm{m^{-2}}$, while total dipole density grows from $1.80\times10^{11}$ to $1.95\times10^{14}~\mathrm{m^{-2}}$. Prismatic $\langle a\rangle$ slip remains the dominant family, but the resistance, rate, thermal and density tangent blocks change substantially. The accumulated crystal-plastic power ledger is $6.76\times10^8~\mathrm{J\,m^{-3}}$ at the terminal state, partitioned into $6.08\times10^8~\mathrm{J\,m^{-3}}$ generated heat and a $6.76\times10^7~\mathrm{J\,m^{-3}}$ passive nonthermal remainder. The latter is not interpreted as an identified dislocation free energy. This evolving base path supplies the nonautonomous operator tested below.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{fig03_evolving_base_state.pdf}
+\caption{Evolution of the registered homogeneous HCP base state. Stress, temperature, accumulated slip, mobile and dipole dislocation densities, and the plastic-work ledger evolve over the same loading history used to assemble the perturbation generator. The stress peak near $2~\mu\mathrm s$ separates early hardening from the later thermally softened path.}
+\label{fig:ft_base_state}
+\end{figure}
+\FloatBarrier
+
+\subsection{Frozen spectral accumulation is not the finite-time selector}
+
+Figure~\ref{fig:ft_discrimination} gives the decisive same-branch comparison. At each checkpoint, $\mathcal I_\alpha$ and $\mathcal L_{\rm FT}^{\rm full}$ use the same 129-state base history, direction, wavenumber, scaling, complete 69-state space and identity input/output selectors. The projected constitutive gain is shown only as a conditioned localization diagnostic. The maximum modal backward error in the frozen eigenproblems is $5.33\times10^{-24}$, so the discrepancy is not attributable to unresolved eigenpairs.
+
+The three branch results are summarized in Table~\ref{tab:ft_discrimination}. Frozen accumulation underpredicts the full-state terminal log gain by 4.784, 7.217 and 6.402 on the onset-$x$, onset-$y$ and terminal-$y$ branches. The originally projected onset-$x$ gain is only 0.902, compared with the full-state value 6.874; this large difference demonstrates why a projected gain cannot be subtracted from the full-state spectral abscissa. For the two $y$-like branches, full and projected log gains differ by less than $4.3\times10^{-4}$. No branch-independent additive correction to the frozen growth rate recovers all three trajectories.
+
+\begin{table}[t]
+\centering
+\caption{Like-for-like full-state finite-time/frozen-spectrum discrimination at $140~\mu\mathrm s$. Here $\Delta_{\rm FT}^{\rm full}=\log\|\widetilde{\boldsymbol\Phi}\|_2-\int\alpha\,\mathrm dt$.}
+\label{tab:ft_discrimination}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Branch & $k$ (m$^{-1}$) & $\log\mathcal G$ & $\int\alpha\,\mathrm dt$ & $\Delta_{\rm FT}$\\
+\midrule
+Onset $x$ & 24163.9 & 6.874 & 2.090 & $+4.784$\\
+Onset $y$ & 51247.2 & 9.939 & 2.722 & $+7.217$\\
+Terminal $y$ & 7724.0 & 13.368 & 6.966 & $+6.402$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The mechanism diagnostics make the discrepancy interpretable. The maximum
+instantaneous leading-mode condition numbers are
+$2.96\times10^5$, $2.78\times10^5$ and $6.06\times10^2$ for the three
+branches, while maximum adjacent leading-vector rotations are
+$51.1^\circ$, $25.0^\circ$ and $9.46^\circ$. The normalized adjacent
+commutator is nonzero on every branch. For the terminal branch, reversing the
+one-step chronological factors reduces the full-state log gain from 13.370 to
+10.979, and the first-Magnus surrogate
+$\exp(\int\widetilde{\boldsymbol A}\,\mathrm dt)$ gives 10.115. Thus modal
+ill-conditioning and chronological composition are quantitatively active,
+not post hoc labels attached to $\Delta_{\rm FT}^{\rm full}$.
+
+Across all 11 norm definitions, the near-onset winner remains onset-$y$ for
+full/full, constitutive/constitutive, full/constitutive,
+mechanical/mechanical and mechanical/constitutive. Constitutive/full and
+constitutive/temperature instead select the branch labelled terminal-$y$ even
+at the near-onset horizon. At the terminal horizon, terminal-$y$ wins every
+tested selector except mechanical/mechanical, which selects onset-$x$. The
+main localization selector is therefore robust to the registered norm
+perturbations, while the complete matrix demonstrates that changing what is
+allowed at input or measured at output can change the scientific answer.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{fig09_operator_consistency_sensitivity.pdf}
+\caption{Like-for-like operator and sensitivity audit. (a) Full-state spectral and logarithmic rates for the terminal branch; the latter is a valid but loose same-norm upper bound. (b) Full-state propagator gain and frozen integral on the same 69-state space; the projected constitutive gain is shown separately. (c) Instantaneous leading-mode condition number, adjacent eigenvector rotation and normalized commutator. (d) Terminal gains under representative norm--selector changes.}
+\label{fig:ft_discrimination}
+\end{figure}
+\FloatBarrier
+
+\subsection{Positive controls, orientation transfer and anchor-assisted search audit}
+
+The two positive controls in Fig.~\ref{fig:ft_strengthening}(a) close an important logical loop. For the stationary normal generator, the final difference between the propagated log norm and the frozen integral is $4.44\times10^{-15}$; for the time-varying commuting-normal family with one common leading mode it is zero to the reported precision, and the maximum history error is $1.78\times10^{-15}$. Normality and adjacent-commutator residuals remain below $2.2\times10^{-16}$. The switching-leader family is also commuting and normal but gives $\Delta_{\rm FT}=-1.146$, as predicted by the distinction between $\max_j\int\operatorname{Re}\lambda_j\,\mathrm dt$ and $\int\max_j\operatorname{Re}\lambda_j\,\mathrm dt$. Thus the code recovers equality when its sufficient conditions hold and rejects it when the missing fixed-leader condition is deliberately removed.
+
+The projected stationary control closes the input--output logic separately.
+Both invariant projections reproduce the frozen integral restricted to the
+same subspace to within $2\times10^{-12}$. When the projection excludes the
+full-state leader, comparison with the unrestricted $\alpha$ intentionally
+fails. The HCP constitutive subspace has nonzero bidirectional mechanical
+coupling and is therefore not assigned a projected frozen spectrum.
+
+The HCP non-equivalence transfers to all three independently selected orientations (Fig.~\ref{fig:ft_strengthening}b). At the selection horizon, $\Delta_{\rm FT}$ is $6.234$, $5.810$ and $5.532$ for the minimum-, median- and maximum-storage representatives. At $140~\mu\mathrm s$, the corresponding values are $6.737$, $4.461$ and $3.307$. Their maximum frozen-mode backward errors are below $10^{-23}$. The magnitude changes with orientation and with the independently selected $(\boldsymbol n,k)$ pair, but non-equivalence does not disappear. The central result is therefore not a peculiarity of the $(0^\circ,0^\circ,0^\circ)$ path.
+
+The anchor-assisted audit challenges retention of the selector without claiming independent global discovery (Fig.~\ref{fig:ft_strengthening}c,d). From 64 to 1024 Sobol samples, the empirical projective-sphere fill angle decreases from $18.52^\circ$ to $4.45^\circ$ and the maximum $\log k$ gap from 0.199 to 0.0116. The anchor-combined onset and terminal maxima are unchanged over the last two levels. Four of eight onset refinements and five of eight terminal refinements return to the retained winning basin. On the 129-state/four-substep history, the new onset candidate has gain 5.32086 compared with the independently registered 5.32074, while the terminal candidate has gain $6.355\times10^5$, only 0.516\% below the reported $6.388\times10^5$ candidate. Both wavenumbers remain in the interior of the search interval.
+
+The blind Sobol result is retained as a failed discovery test: at the terminal horizon its largest log gain rises only from 2.20 to 4.18, far below the anchor-combined 13.35. The terminal basin is too narrow for 1024 unanchored points. Accordingly, the accepted statement is only that exact symmetry/prior-branch anchors, independent basin recurrence and high-resolution verification retain the reported basin on the registered domain. The calculation is not a global-optimum certificate.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.98\textwidth]{fig08_positive_orientation_anchor_audit.pdf}
+\caption{Strengthening audits. (a) Stationary-normal and commuting-normal fixed-leader controls give coincident propagated and frozen-integral curves; a commuting-normal switching-leader control correctly separates them. (b) Like-for-like full-state discrepancies for three independently selected crystal orientations. (c) Nested projective-sphere--$\log k$ reconnaissance, with blind Sobol and anchor-combined maxima shown separately. (d) Recurrence of eight independent local refinements around the retained onset and terminal basins. Panels (c,d) constitute an anchor-assisted basin-retention audit, not a global-optimum certificate.}
+\label{fig:ft_strengthening}
+\end{figure}
+\FloatBarrier
+
+\subsection{Direction and wavenumber reorganize with the observation horizon}
+
+The tested gain envelope crosses $\mathcal G_c=e$ at
+\begin{equation}
+ t_c\approx1.46~\mu\mathrm s,
+ \label{eq:ft_result_tc}
+\end{equation}
+using log-linear interpolation between the registered $1.4375$ and $1.5~\mu\mathrm s$ checkpoints. At $1.5~\mu\mathrm s$, the refined $x$- and $y$-like branches have gains 5.3141 and 5.3207. Their difference is only 0.124\%, so both belong to the 2\% near-optimal set. Their wavenumbers, $2.416\times10^4$ and $5.125\times10^4~\mathrm{m^{-1}}$, correspond to wavelengths of 260 and $123~\mu\mathrm m$. A unique onset direction or wavelength would therefore be a tie-breaking artefact.
+
+The horizon map in Fig.~\ref{fig:ft_horizon_map} shows two simultaneous changes. The best tested direction rotates rapidly from an $x$-like to a $y$-like branch, while the selected $k$ first rises and then decreases as the observation window lengthens. At $140~\mu\mathrm s$, the continuous reference optimization gives a $y$-like branch with $k=7.724\times10^3~\mathrm{m^{-1}}$, wavelength $0.8135~\mathrm{mm}$ and gain $6.388\times10^5$. Its gain gap to the best tested competitor is 99.994\% in relative terms. The selected wavelength is thus a windowed property of the evolving path, not a fixed material length.
+
+Time refinement supports the threshold calculation. At fixed 129-state history, increasing midpoint substeps from two to four changes $t_c$ by $2.43\times10^{-6}$ relatively and the final log gain by $3.04\times10^{-5}$. The remaining 1.97\% difference between the 65- and 129-state histories is controlled by base-history resolution. Independent factor-two changes of the thermal, plastic, density and signed-slip coordinate scales change $t_c$ by at most 2.34\% and preserve the qualitative branch/mechanism conclusion, but do not make $t_c$ coordinate invariant.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{fig05_direction_wavenumber_horizon_map.pdf}
+\caption{Direction--wavenumber selection as a function of observation horizon. Panels (a,b) show the registered directional reconnaissance at $2$ and $140~\mu\mathrm s$ after optimizing sampled $k$; panels (c,d) track the selected wavenumber/wavelength and direction. The independent continuous onset audit retains both $x$- and $y$-like branches within 2\% at $1.5~\mu\mathrm s$. The landscape scan visualizes basin reorganization; the reported reference values come from the continuous branch refinement.}
+\label{fig:ft_horizon_map}
+\end{figure}
+\FloatBarrier
+
+\subsection{The coupling controlling amplification changes with time}
+
+Participation of the final singular vector is dominated by plastic-kinematic coordinates, but participation alone does not establish causal dependence. The fixed-base intervention in Fig.~\ref{fig:ft_counterfactual} supplies the stronger model-level test. At $2~\mu\mathrm s$, deleting thermal cross-links changes the log gain by only $-0.013$, whereas deleting inertia cross-links changes it by $-2.634$ and deleting dislocation cross-links by $-5.668$. At $140~\mu\mathrm s$, the corresponding changes are $-5.583$, $-13.726$ and $-5.219$. The complete Shapley vector has cosine similarity only 0.400 between the two horizons; its leading absolute edge changes from dislocation--plastic coupling at onset to inertia--plastic coupling at the terminal horizon. One edge also changes attribution sign. The mechanism is therefore temporally reorganized rather than represented by one invariant label such as ``thermal'' or ``dislocation controlled.''
+
+The independent quasi-static gradient controls in Fig.~\ref{fig:ft_counterfactual}(b) answer a narrower question. The local model alone retains nearly constant high-$k$ frozen growth. Adding the Nye term reduces growth only partially because its symbol is rank deficient, whereas the full-rank slip-gradient term, alone or combined with Nye recovery, suppresses the sampled high-$k$ branch. This establishes which regularization acts on the audited quasi-static symbol; it is not a nonlinear band-width calibration and is not quantitatively combined with panel (a).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{fig06_counterfactual_mechanism_gradient_controls.pdf}
+\caption{Counterfactual controls. (a) Change in finite-time log gain after grouped removal of cross-coupling blocks while holding the base history and all within-group blocks fixed. The dependence on inertia, thermal and dislocation cross-links changes sharply between $2$ and $140~\mu\mathrm s$. (b) Independent frozen quasi-static gradient audit: full-rank slip-gradient recovery controls the sampled high-$k$ branch, whereas the rank-deficient Nye term alone gives only partial suppression. The panels have separate evidence contracts and are not compared quantitatively.}
+\label{fig:ft_counterfactual}
+\end{figure}
+\FloatBarrier
+
+\subsection{The complete nonlinear residual reproduces both singular-vector predictions}
+
+The prescribed near-onset and terminal right singular vectors both pass the
+nonlinear small-perturbation gate (Fig.~\ref{fig:ft_singular_nonlinear}). At
+$1.5~\mu\mathrm s$, the linear gain 4.7461 is reproduced as 4.6873 by the
+complete nonlinear periodic residual, a 1.24\% difference. At
+$140~\mu\mathrm s$, the linear gain $6.1201\times10^5$ is reproduced as
+$6.1065\times10^5$, a 0.223\% difference. The complete complex Fourier-output
+vector errors are at most 1.41\% and 0.223\%, respectively.
+
+Changing the initial amplitude by a factor of two changes the measured gain
+by less than $4\times10^{-7}$ relatively. Both calculations retain at least
+16 cells per imposed wavelength; nonretained Fourier-energy fractions are
+below $2.2\times10^{-16}$ and the thermal/nonthermal partition-ledger residual
+is below $1.4\times10^{-16}$. These tests validate linear transport of the
+actual optimized inputs through the nonlinear equations. They do not test
+finite-amplitude saturation or identify a mature band width.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{fig10_singular_vector_nonlinear_validation.pdf}
+\caption{Nonlinear validation of the actual near-onset and terminal optimal inputs. (a) Linear and nonlinear gains for two factor-two amplitudes at each horizon. (b) Relative gain errors remain below the preregistered 2\% gate. (c) Factor-two gain changes are orders of magnitude below the 2\% amplitude-collapse gate.}
+\label{fig:ft_singular_nonlinear}
+\end{figure}
+\FloatBarrier
+
+\subsection{The same-window bridge verifies transport but rejects a material width}
+
+The same-window bridge passes its lower-level tests (Fig.~\ref{fig:ft_scale_gate}). Linear gain and phase translation are reproduced. A prescribed single Fourier mode remains amplitude linear over the accepted range, and its measured FWHM converges with grid refinement. However, the converged width follows the imposed wavelength:
+\begin{equation}
+ 0.32970\le W_{\rm FWHM}/\lambda_{\rm input}\le0.32979.
+ \label{eq:ft_imposed_width_ratio}
+\end{equation}
+This near-constant ratio is evidence of faithful transport of the imposed mode, not emergence of an independent material scale.
+
+The 27 seed--spectrum--amplitude cases fail the required seed-independent FWHM and monotonic contraction gates. The multimode peaks are resolved by only 2.55--2.93 cells, below the preregistered 12-cell requirement. Consequently, the correct decision is asymmetric: the linear/nonlinear transport bridge is verified, but the claim of an emergent material shear-band width is rejected for the present calculations. Grid convergence of a seeded single-mode width is necessary and demonstrable; it is not sufficient for physical length-scale identification.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.98\textwidth]{fig07_same_window_linear_nonlinear_scale_gate.pdf}
+\caption{Same-window linear--nonlinear acceptance/denial gate. (a) The FWHM depends on perturbation amplitude, seed and spectral support. (b) Single-mode width follows $W\simeq0.330\lambda_{\rm input}$. (c) That imposed-mode width converges under grid refinement. (d) Gain, amplitude linearity, phase translation and winner-grid convergence pass, whereas seed-independent FWHM, 12-cell multimode resolution and an emergent material width fail.}
+\label{fig:ft_scale_gate}
+\end{figure}
+\FloatBarrier

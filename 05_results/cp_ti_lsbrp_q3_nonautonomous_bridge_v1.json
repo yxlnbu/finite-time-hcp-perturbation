@@ -1,0 +1,3701 @@
+{
+  "schema": "CP_TI_LSBRP_Q3_NONAUTONOMOUS_BRIDGE_V1",
+  "status": "GAIN_GATE_PASSED__25_CASE_MATRIX_COMPLETED__NO_EMERGENT_NONLINEAR_SCALE",
+  "classification": "FIXED_MODEL_NONLINEAR_NUMERICAL_BRIDGE__NOT_EXPERIMENTAL_ASB_WIDTH",
+  "contract": {
+    "base_context": "factor64",
+    "global_registered_state_count": 513,
+    "integrated_prefix_state_count": 129,
+    "time_window_s": [
+      5e-07,
+      2e-06
+    ],
+    "active_state_count": 69,
+    "passive_history_count": 21,
+    "passive_history": "18 Gamma_absolute plus cumulative CP work/generated heat/stored energy",
+    "base_interpolation": "linear except geodesic left-SL3 Fp interpolation",
+    "residual": "full nonlinear periodic RHS minus homogeneous base RHS at every stage",
+    "integration": "registered-tangent exponential midpoint with nonlinear remainder",
+    "integration_substeps_per_interval": 1,
+    "initial_passive_perturbation": "zero; preserves the registered 69-state optimal-input contract"
+  },
+  "gain_gate": {
+    "schema": "CP_TI_LSBRP_Q3_NONAUTONOMOUS_GAIN_GATE_V1",
+    "status": "PASSED",
+    "integration_substeps_per_interval": 1,
+    "thresholds": {
+      "maximum_gain_relative_error": 0.02,
+      "factor_two_gain_collapse": 0.02,
+      "temporal_refinement_relative_error": 0.01
+    },
+    "observed": {
+      "maximum_gain_relative_error": 0.0020566459921221338,
+      "factor_two_gain_collapse": {
+        "lower": 4.362761010985432e-08,
+        "winner": 2.269954832500693e-08,
+        "upper": 1.0639044333755868e-07
+      },
+      "temporal_refinement_relative_error": 0.00053445209860224
+    },
+    "cases": [
+      {
+        "case_id": "gate_lower_0.125",
+        "family": "small_gain_gate",
+        "linear_role": "lower",
+        "roles": [
+          "lower"
+        ],
+        "modes": [
+          1
+        ],
+        "weights": [
+          1.0
+        ],
+        "phases_rad": [
+          0.0
+        ],
+        "k_reference_m_inv": 8949.90356270698,
+        "wavelength_reference_m": 0.0007020394424539676,
+        "domain_length_m": 0.0007020394424539676,
+        "cells": 8,
+        "epsilon": 1.25e-05,
+        "amplitude_fraction_of_q3_high": 0.125,
+        "substeps": 1,
+        "retained_nonnegative_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "initial_observed_rms_dimensionless": 8.838834764831848e-06,
+        "final_observed_rms_dimensionless": 0.0065740646827433195,
+        "measured_nonlinear_gain": 743.7705147402861,
+        "predicted_linear_gain": 745.2009084268652,
+        "gain_relative_error": 0.0019194738900663903,
+        "nonretained_fourier_energy_fraction": 1.1785215938359748e-09,
+        "ledger_partition_maximum_relative_residual": 1.1543913340837618e-16,
+        "minimum_total_Gamma_absolute": 0.0,
+        "widths": {
+          "temperature": {
+            "maximum": 0.00028284534578519496,
+            "width_m": 0.00022691370791339847,
+            "width_cells": 2.585765917883192
+          },
+          "signed_slip": {
+            "maximum": 0.006571221823242181,
+            "width_m": 0.00022691371385821397,
+            "width_cells": 2.585765985626571
+          },
+          "Gamma_absolute": {
+            "maximum": 1.3144134891062836e-06,
+            "width_m": 0.00022691370026398734,
+            "width_cells": 2.5857658307153133
+          },
+          "cp_work": {
+            "maximum": 747.4811285219247,
+            "width_m": 0.000226913692848767,
+            "width_cells": 2.585765746216125
+          },
+          "state_intensity": {
+            "maximum": 0.009297463553357808,
+            "width_m": 0.00022691371386374,
+            "width_cells": 2.5857659856895423
+          }
+        },
+        "history": {
+          "initial_time_s": 5e-07,
+          "final_time_s": 2e-06,
+          "registered_state_count": 129,
+          "integrated_state_count": 129,
+          "integration_substeps_per_interval": 1,
+          "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+          "retained_nonnegative_fourier_modes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_discarded_rhs_fourier_energy_fraction": 1.1298148097128812e-20,
+          "diagnostics": {
+            "rhs_evaluations": 256,
+            "material_point_evaluations": 2304,
+            "maximum_power_identity_relative_residual": 2.886744193249972e-16,
+            "maximum_power_partition_relative_residual": 9.966078214566212e-17,
+            "minimum_temperature_K": 293.14999998816216,
+            "minimum_dislocation_density_m2": 9999094999.094646,
+            "minimum_Gamma_absolute": 0.0,
+            "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+            "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+            "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+            "maximum_signed_slip_excess": 1.1334644647561024e-09
+          }
+        },
+        "runtime_s": 15.960998900001869
+      },
+      {
+        "case_id": "gate_lower_0.25",
+        "family": "small_gain_gate",
+        "linear_role": "lower",
+        "roles": [
+          "lower"
+        ],
+        "modes": [
+          1
+        ],
+        "weights": [
+          1.0
+        ],
+        "phases_rad": [
+          0.0
+        ],
+        "k_reference_m_inv": 8949.90356270698,
+        "wavelength_reference_m": 0.0007020394424539676,
+        "domain_length_m": 0.0007020394424539676,
+        "cells": 8,
+        "epsilon": 2.5e-05,
+        "amplitude_fraction_of_q3_high": 0.25,
+        "substeps": 1,
+        "retained_nonnegative_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "initial_observed_rms_dimensionless": 1.7677669529663695e-05,
+        "final_observed_rms_dimensionless": 0.0131481299391081,
+        "measured_nonlinear_gain": 743.7705471892161,
+        "predicted_linear_gain": 745.2009084268652,
+        "gain_relative_error": 0.001919430346198339,
+        "nonretained_fourier_energy_fraction": 4.714082514603933e-09,
+        "ledger_partition_maximum_relative_residual": 1.1535852128254195e-16,
+        "minimum_total_Gamma_absolute": 0.0,
+        "widths": {
+          "temperature": {
+            "maximum": 0.0005657108322568272,
+            "width_m": 0.00022691190642241875,
+            "width_cells": 2.585745389224877
+          },
+          "signed_slip": {
+            "maximum": 0.013142913707223064,
+            "width_m": 0.0002269119183274583,
+            "width_cells": 2.585745524887221
+          },
+          "Gamma_absolute": {
+            "maximum": 2.628921819193125e-06,
+            "width_m": 0.00022691189111026714,
+            "width_cells": 2.5857452147372264
+          },
+          "cp_work": {
+            "maximum": 1495.015992900813,
+            "width_m": 0.0002269118762624501,
+            "width_cells": 2.5857450455408406
+          },
+          "state_intensity": {
+            "maximum": 0.01859559217845613,
+            "width_m": 0.00022691191833849896,
+            "width_cells": 2.5857455250130337
+          }
+        },
+        "history": {
+          "initial_time_s": 5e-07,
+          "final_time_s": 2e-06,
+          "registered_state_count": 129,
+          "integrated_state_count": 129,
+          "integration_substeps_per_interval": 1,
+          "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+          "retained_nonnegative_fourier_modes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_discarded_rhs_fourier_energy_fraction": 3.32285734957678e-21,
+          "diagnostics": {
+            "rhs_evaluations": 256,
+            "material_point_evaluations": 2304,
+            "maximum_power_identity_relative_residual": 2.7451414082486623e-16,
+            "maximum_power_partition_relative_residual": 9.956712147100237e-17,
+            "minimum_temperature_K": 293.14999997632435,
+            "minimum_dislocation_density_m2": 9998189998.189236,
+            "minimum_Gamma_absolute": 0.0,
+            "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+            "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+            "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+            "maximum_signed_slip_excess": 2.267066632458039e-09
+          }
+        },
+        "runtime_s": 16.259755599996424
+      },
+      {
+        "case_id": "gate_winner_0.125",
+        "family": "small_gain_gate",
+        "linear_role": "winner",
+        "roles": [
+          "winner"
+        ],
+        "modes": [
+          1
+        ],
+        "weights": [
+          1.0
+        ],
+        "phases_rad": [
+          0.0
+        ],
+        "k_reference_m_inv": 154190.90402314544,
+        "wavelength_reference_m": 4.074939016011232e-05,
+        "domain_length_m": 4.074939016011232e-05,
+        "cells": 8,
+        "epsilon": 1.25e-05,
+        "amplitude_fraction_of_q3_high": 0.125,
+        "substeps": 1,
+        "retained_nonnegative_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "initial_observed_rms_dimensionless": 8.83883476483185e-06,
+        "final_observed_rms_dimensionless": 0.007091898208759801,
+        "measured_nonlinear_gain": 802.3566903838051,
+        "predicted_linear_gain": 804.0102548520717,
+        "gain_relative_error": 0.0020566459921221338,
+        "nonretained_fourier_energy_fraction": 3.228687886561208e-10,
+        "ledger_partition_maximum_relative_residual": 1.1545327345689452e-16,
+        "minimum_total_Gamma_absolute": 0.0,
+        "widths": {
+          "temperature": {
+            "maximum": 0.0002928202900821572,
+            "width_m": 1.3171100508305486e-05,
+            "width_cells": 2.5857762202680643
+          },
+          "signed_slip": {
+            "maximum": 0.007088986250641851,
+            "width_m": 1.3171095850094776e-05,
+            "width_cells": 2.5857753057590243
+          },
+          "Gamma_absolute": {
+            "maximum": 1.4162240733906866e-06,
+            "width_m": 1.3171097187002225e-05,
+            "width_cells": 2.58577556822331
+          },
+          "cp_work": {
+            "maximum": 806.4279967222641,
+            "width_m": 1.3171097516784625e-05,
+            "width_cells": 2.585775632966836
+          },
+          "state_intensity": {
+            "maximum": 0.01002966379276328,
+            "width_m": 1.3171095854522395e-05,
+            "width_cells": 2.585775306628263
+          }
+        },
+        "history": {
+          "initial_time_s": 5e-07,
+          "final_time_s": 2e-06,
+          "registered_state_count": 129,
+          "integrated_state_count": 129,
+          "integration_substeps_per_interval": 1,
+          "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+          "retained_nonnegative_fourier_modes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_discarded_rhs_fourier_energy_fraction": 1.7463898803424838e-20,
+          "diagnostics": {
+            "rhs_evaluations": 256,
+            "material_point_evaluations": 2304,
+            "maximum_power_identity_relative_residual": 2.770073144471922e-16,
+            "maximum_power_partition_relative_residual": 9.91152699958346e-17,
+            "minimum_temperature_K": 293.14999999073956,
+            "minimum_dislocation_density_m2": 9999070546.298706,
+            "minimum_Gamma_absolute": 0.0,
+            "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+            "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+            "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+            "maximum_signed_slip_excess": 2.885980361373025e-09
+          }
+        },
+        "runtime_s": 16.710256100006518
+      },
+      {
+        "case_id": "gate_winner_0.25",
+        "family": "small_gain_gate",
+        "linear_role": "winner",
+        "roles": [
+          "winner"
+        ],
+        "modes": [
+          1
+        ],
+        "weights": [
+          1.0
+        ],
+        "phases_rad": [
+          0.0
+        ],
+        "k_reference_m_inv": 154190.90402314544,
+        "wavelength_reference_m": 4.074939016011232e-05,
+        "domain_length_m": 4.074939016011232e-05,
+        "cells": 8,
+        "epsilon": 2.5e-05,
+        "amplitude_fraction_of_q3_high": 0.25,
+        "substeps": 1,
+        "retained_nonnegative_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "initial_observed_rms_dimensionless": 1.76776695296637e-05,
+        "final_observed_rms_dimensionless": 0.014183796739485374,
+        "measured_nonlinear_gain": 802.3567085969396,
+        "predicted_linear_gain": 804.0102548520717,
+        "gain_relative_error": 0.002056623339258744,
+        "nonretained_fourier_energy_fraction": 1.2914732097684495e-09,
+        "ledger_partition_maximum_relative_residual": 6.416351533851467e-17,
+        "minimum_total_Gamma_absolute": 0.0,
+        "widths": {
+          "temperature": {
+            "maximum": 0.0005856515822095491,
+            "width_m": 1.3171048448743415e-05,
+            "width_cells": 2.585765999832987
+          },
+          "signed_slip": {
+            "maximum": 0.014178262875283227,
+            "width_m": 1.317103912895832e-05,
+            "width_cells": 2.5857641701545435
+          },
+          "Gamma_absolute": {
+            "maximum": 2.8325052339595145e-06,
+            "width_m": 1.3171041813640224e-05,
+            "width_cells": 2.5857646972165473
+          },
+          "cp_work": {
+            "maximum": 1612.8880234538642,
+            "width_m": 1.3171042473104054e-05,
+            "width_cells": 2.5857648266837767
+          },
+          "state_intensity": {
+            "maximum": 0.020059738382813986,
+            "width_m": 1.3171039137814949e-05,
+            "width_cells": 2.5857641718932944
+          }
+        },
+        "history": {
+          "initial_time_s": 5e-07,
+          "final_time_s": 2e-06,
+          "registered_state_count": 129,
+          "integrated_state_count": 129,
+          "integration_substeps_per_interval": 1,
+          "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+          "retained_nonnegative_fourier_modes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_discarded_rhs_fourier_energy_fraction": 4.238929738354522e-21,
+          "diagnostics": {
+            "rhs_evaluations": 256,
+            "material_point_evaluations": 2304,
+            "maximum_power_identity_relative_residual": 3.2335721912662813e-16,
+            "maximum_power_partition_relative_residual": 9.96607826645083e-17,
+            "minimum_temperature_K": 293.1499999814791,
+            "minimum_dislocation_density_m2": 9998141092.597357,
+            "minimum_Gamma_absolute": 0.0,
+            "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+            "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+            "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+            "maximum_signed_slip_excess": 5.771247174601868e-09
+          }
+        },
+        "runtime_s": 17.116882400005125
+      },
+      {
+        "case_id": "gate_upper_0.125",
+        "family": "small_gain_gate",
+        "linear_role": "upper",
+        "roles": [
+          "upper"
+        ],
+        "modes": [
+          1
+        ],
+        "weights": [
+          1.0
+        ],
+        "phases_rad": [
+          0.0
+        ],
+        "k_reference_m_inv": 2649457.0987187703,
+        "wavelength_reference_m": 2.371499168723291e-06,
+        "domain_length_m": 2.371499168723291e-06,
+        "cells": 8,
+        "epsilon": 1.25e-05,
+        "amplitude_fraction_of_q3_high": 0.125,
+        "substeps": 1,
+        "retained_nonnegative_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "initial_observed_rms_dimensionless": 8.83883476483185e-06,
+        "final_observed_rms_dimensionless": 0.001494139629717652,
+        "measured_nonlinear_gain": 169.0426022740653,
+        "predicted_linear_gain": 169.13000322624356,
+        "gain_relative_error": 0.0005167678738901307,
+        "nonretained_fourier_energy_fraction": 1.1799351630988883e-09,
+        "ledger_partition_maximum_relative_residual": 1.0258370051822179e-16,
+        "minimum_total_Gamma_absolute": 0.0,
+        "widths": {
+          "temperature": {
+            "maximum": 1.8583533898897248e-06,
+            "width_m": 7.668508574807127e-07,
+            "width_cells": 2.586889736566261
+          },
+          "signed_slip": {
+            "maximum": 0.0014941249841876794,
+            "width_m": 7.665159002476567e-07,
+            "width_cells": 2.585759793996688
+          },
+          "Gamma_absolute": {
+            "maximum": 2.9877410437724807e-07,
+            "width_m": 7.665053059244982e-07,
+            "width_cells": 2.5857240551752763
+          },
+          "cp_work": {
+            "maximum": 155.4084436005323,
+            "width_m": 7.665048624582704e-07,
+            "width_cells": 2.585722559189164
+          },
+          "state_intensity": {
+            "maximum": 0.0021131618326010134,
+            "width_m": 7.665159080009828e-07,
+            "width_cells": 2.585759820151708
+          }
+        },
+        "history": {
+          "initial_time_s": 5e-07,
+          "final_time_s": 2e-06,
+          "registered_state_count": 129,
+          "integrated_state_count": 129,
+          "integration_substeps_per_interval": 1,
+          "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+          "retained_nonnegative_fourier_modes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_discarded_rhs_fourier_energy_fraction": 5.631811548482298e-19,
+          "diagnostics": {
+            "rhs_evaluations": 256,
+            "material_point_evaluations": 2304,
+            "maximum_power_identity_relative_residual": 4.251724044993213e-16,
+            "maximum_power_partition_relative_residual": 9.967437024479091e-17,
+            "minimum_temperature_K": 293.15,
+            "minimum_dislocation_density_m2": 9998887618.672686,
+            "minimum_Gamma_absolute": 0.0,
+            "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+            "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+            "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+            "maximum_signed_slip_excess": 9.978677911639915e-10
+          }
+        },
+        "runtime_s": 17.893267200008268
+      },
+      {
+        "case_id": "gate_upper_0.25",
+        "family": "small_gain_gate",
+        "linear_role": "upper",
+        "roles": [
+          "upper"
+        ],
+        "modes": [
+          1
+        ],
+        "weights": [
+          1.0
+        ],
+        "phases_rad": [
+          0.0
+        ],
+        "k_reference_m_inv": 2649457.0987187703,
+        "wavelength_reference_m": 2.371499168723291e-06,
+        "domain_length_m": 2.371499168723291e-06,
+        "cells": 8,
+        "epsilon": 2.5e-05,
+        "amplitude_fraction_of_q3_high": 0.25,
+        "substeps": 1,
+        "retained_nonnegative_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "initial_observed_rms_dimensionless": 1.76776695296637e-05,
+        "final_observed_rms_dimensionless": 0.0029882795773596587,
+        "measured_nonlinear_gain": 169.0426202585827,
+        "predicted_linear_gain": 169.13000322624356,
+        "gain_relative_error": 0.0005166615384259563,
+        "nonretained_fourier_energy_fraction": 4.719755963095766e-09,
+        "ledger_partition_maximum_relative_residual": 1.1542806000942752e-16,
+        "minimum_total_Gamma_absolute": 0.0,
+        "widths": {
+          "temperature": {
+            "maximum": 3.719155150725289e-06,
+            "width_m": 7.671779525630295e-07,
+            "width_cells": 2.58799315700724
+          },
+          "signed_slip": {
+            "maximum": 0.002988433162567446,
+            "width_m": 7.665079979907248e-07,
+            "width_cells": 2.5857331365741216
+          },
+          "Gamma_absolute": {
+            "maximum": 5.976222702735276e-07,
+            "width_m": 7.6648674938651e-07,
+            "width_cells": 2.5856614566697136
+          },
+          "cp_work": {
+            "maximum": 310.85544398038195,
+            "width_m": 7.664858552061557e-07,
+            "width_cells": 2.5856584402474736
+          },
+          "state_intensity": {
+            "maximum": 0.004226582734633387,
+            "width_m": 7.665080134965523e-07,
+            "width_cells": 2.58573318888138
+          }
+        },
+        "history": {
+          "initial_time_s": 5e-07,
+          "final_time_s": 2e-06,
+          "registered_state_count": 129,
+          "integrated_state_count": 129,
+          "integration_substeps_per_interval": 1,
+          "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+          "retained_nonnegative_fourier_modes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_discarded_rhs_fourier_energy_fraction": 4.537869117588141e-19,
+          "diagnostics": {
+            "rhs_evaluations": 256,
+            "material_point_evaluations": 2304,
+            "maximum_power_identity_relative_residual": 4.133415766916537e-16,
+            "maximum_power_partition_relative_residual": 9.963200623196716e-17,
+            "minimum_temperature_K": 293.15,
+            "minimum_dislocation_density_m2": 9997775237.345314,
+            "minimum_Gamma_absolute": 0.0,
+            "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+            "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+            "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+            "maximum_signed_slip_excess": 1.995935192133664e-09
+          }
+        },
+        "runtime_s": 17.931642700001248
+      },
+      {
+        "case_id": "gate_winner_0.125_temporal",
+        "family": "temporal_audit",
+        "linear_role": "winner",
+        "roles": [
+          "winner"
+        ],
+        "modes": [
+          1
+        ],
+        "weights": [
+          1.0
+        ],
+        "phases_rad": [
+          0.0
+        ],
+        "k_reference_m_inv": 154190.90402314544,
+        "wavelength_reference_m": 4.074939016011232e-05,
+        "domain_length_m": 4.074939016011232e-05,
+        "cells": 8,
+        "epsilon": 1.25e-05,
+        "amplitude_fraction_of_q3_high": 0.125,
+        "substeps": 2,
+        "retained_nonnegative_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "initial_observed_rms_dimensionless": 8.83883476483185e-06,
+        "final_observed_rms_dimensionless": 0.007095690515446814,
+        "measured_nonlinear_gain": 802.7857409077612,
+        "predicted_linear_gain": 804.0102548520717,
+        "gain_relative_error": 0.0015230078682712794,
+        "nonretained_fourier_energy_fraction": 3.272184055441982e-10,
+        "ledger_partition_maximum_relative_residual": 1.2828149391810331e-16,
+        "minimum_total_Gamma_absolute": 0.0,
+        "widths": {
+          "temperature": {
+            "maximum": 0.0002929773875790158,
+            "width_m": 1.3171100557750228e-05,
+            "width_cells": 2.5857762299751528
+          },
+          "signed_slip": {
+            "maximum": 0.007092777179686164,
+            "width_m": 1.3171095613241592e-05,
+            "width_cells": 2.585775259259544
+          },
+          "Gamma_absolute": {
+            "maximum": 1.4186102345794592e-06,
+            "width_m": 1.317109319024834e-05,
+            "width_cells": 2.5857747835727682
+          },
+          "cp_work": {
+            "maximum": 807.8245661517608,
+            "width_m": 1.3171093420543541e-05,
+            "width_cells": 2.5857748287847726
+          },
+          "state_intensity": {
+            "maximum": 0.01003502728214991,
+            "width_m": 1.3171095617934958e-05,
+            "width_cells": 2.5857752601809545
+          }
+        },
+        "history": {
+          "initial_time_s": 5e-07,
+          "final_time_s": 2e-06,
+          "registered_state_count": 129,
+          "integrated_state_count": 129,
+          "integration_substeps_per_interval": 2,
+          "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+          "retained_nonnegative_fourier_modes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "maximum_discarded_rhs_fourier_energy_fraction": 1.693406275153498e-20,
+          "diagnostics": {
+            "rhs_evaluations": 512,
+            "material_point_evaluations": 4608,
+            "maximum_power_identity_relative_residual": 3.689606568195609e-16,
+            "maximum_power_partition_relative_residual": 9.962979477436447e-17,
+            "minimum_temperature_K": 293.14999999073956,
+            "minimum_dislocation_density_m2": 9999070546.298706,
+            "minimum_Gamma_absolute": 0.0,
+            "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+            "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+            "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+            "maximum_signed_slip_excess": 4.09206062697981e-10
+          }
+        },
+        "runtime_s": 23.97886779998953
+      }
+    ],
+    "provenance": {
+      "base_cache": "05_results/cp_ti_lsbrp_base_cache_v1_ref64.pkl",
+      "base_cache_sha256": "8d2b2677b9a6f027f2f3056cf19216ac2dd02ba84f47520dc4d18ab093c2fa24",
+      "q3_result_sha256": "20629758ebdfff3b4b21a4796debd2947bb0b12908c6193ca3d6b4eb77690710",
+      "q3_fields_sha256": "7ed6fa466f22a17e3667f3df4d39ca5716ee426f1eddd33e95402f5eea23cf5a"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "core_lower_0.125",
+      "family": "single_mode_core",
+      "linear_role": "lower",
+      "roles": [
+        "lower"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 8949.90356270698,
+      "wavelength_reference_m": 0.0007020394424539676,
+      "domain_length_m": 0.0007020394424539676,
+      "cells": 16,
+      "epsilon": 1.25e-05,
+      "amplitude_fraction_of_q3_high": 0.125,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 8.838834764831844e-06,
+      "final_observed_rms_dimensionless": 0.0065740646826751995,
+      "measured_nonlinear_gain": 743.7705147325795,
+      "predicted_linear_gain": 745.2009084268652,
+      "gain_relative_error": 0.0019194739004080356,
+      "nonretained_fourier_energy_fraction": 1.1785206531117672e-09,
+      "ledger_partition_maximum_relative_residual": 1.2825199641151648e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.00028284534578769947,
+          "width_m": 0.00023152244158947761,
+          "width_cells": 5.2765682971929815
+        },
+        "signed_slip": {
+          "maximum": 0.006571221823299554,
+          "width_m": 0.00023152258665290018,
+          "width_cells": 5.276571603296059
+        },
+        "Gamma_absolute": {
+          "maximum": 1.31441348961426e-06,
+          "width_m": 0.00023152253741298964,
+          "width_cells": 5.276570481081948
+        },
+        "cp_work": {
+          "maximum": 747.481128818408,
+          "width_m": 0.0002315223856559217,
+          "width_cells": 5.276567022425724
+        },
+        "state_intensity": {
+          "maximum": 0.00929746355343923,
+          "width_m": 0.0002315225865578427,
+          "width_cells": 5.276571601129628
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 1.2562057473206787e-20,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 2.99140252808231e-16,
+          "maximum_power_partition_relative_residual": 9.969292813179531e-17,
+          "minimum_temperature_K": 293.14999998816216,
+          "minimum_dislocation_density_m2": 9999094999.094646,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 1.1334644804228237e-09
+        }
+      },
+      "runtime_s": 29.698434099991573
+    },
+    {
+      "case_id": "core_lower_0.25",
+      "family": "single_mode_core",
+      "linear_role": "lower",
+      "roles": [
+        "lower"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 8949.90356270698,
+      "wavelength_reference_m": 0.0007020394424539676,
+      "domain_length_m": 0.0007020394424539676,
+      "cells": 16,
+      "epsilon": 2.5e-05,
+      "amplitude_fraction_of_q3_high": 0.25,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 1.767766952966369e-05,
+      "final_observed_rms_dimensionless": 0.013148129939063355,
+      "measured_nonlinear_gain": 743.7705471866852,
+      "predicted_linear_gain": 745.2009084268652,
+      "gain_relative_error": 0.0019194303495945993,
+      "nonretained_fourier_energy_fraction": 4.714081573887472e-09,
+      "ledger_partition_maximum_relative_residual": 1.4099374823422335e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0005657108322399955,
+          "width_m": 0.00023151365087407816,
+          "width_cells": 5.276367950263898
+        },
+        "signed_slip": {
+          "maximum": 0.013142913706839846,
+          "width_m": 0.00023151394097939844,
+          "width_cells": 5.276374561979485
+        },
+        "Gamma_absolute": {
+          "maximum": 2.628921819031735e-06,
+          "width_m": 0.0002315138425670486,
+          "width_cells": 5.276372319088983
+        },
+        "cp_work": {
+          "maximum": 1495.015992806349,
+          "width_m": 0.00023151353907678658,
+          "width_cells": 5.276365402320638
+        },
+        "state_intensity": {
+          "maximum": 0.01859559217791374,
+          "width_m": 0.00023151394078928564,
+          "width_cells": 5.276374557646673
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 2.3455920775968603e-21,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 2.774822476752926e-16,
+          "maximum_power_partition_relative_residual": 9.960222472996398e-17,
+          "minimum_temperature_K": 293.14999997632435,
+          "minimum_dislocation_density_m2": 9998189998.189236,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 2.2670665353135243e-09
+        }
+      },
+      "runtime_s": 20.01441980000527
+    },
+    {
+      "case_id": "core_lower_0.5",
+      "family": "single_mode_core",
+      "linear_role": "lower",
+      "roles": [
+        "lower"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 8949.90356270698,
+      "wavelength_reference_m": 0.0007020394424539676,
+      "domain_length_m": 0.0007020394424539676,
+      "cells": 16,
+      "epsilon": 5e-05,
+      "amplitude_fraction_of_q3_high": 0.5,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 3.535533905932738e-05,
+      "final_observed_rms_dimensionless": 0.026296264466458028,
+      "measured_nonlinear_gain": 743.7706769642929,
+      "predicted_linear_gain": 745.2009084268652,
+      "gain_relative_error": 0.001919256198427884,
+      "nonretained_fourier_energy_fraction": 1.885633257211103e-08,
+      "ledger_partition_maximum_relative_residual": 1.409883225876396e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0011315023324376223,
+          "width_m": 0.00023149607073508468,
+          "width_cells": 5.275967285846935
+        },
+        "signed_slip": {
+          "maximum": 0.026287710049502738,
+          "width_m": 0.00023149665085973116,
+          "width_cells": 5.27598050731824
+        },
+        "Gamma_absolute": {
+          "maximum": 5.258223483983008e-06,
+          "width_m": 0.00023149645403832688,
+          "width_cells": 5.275976021612341
+        },
+        "cp_work": {
+          "maximum": 2990.2472091124614,
+          "width_m": 0.00023149584714618704,
+          "width_cells": 5.275962190089993
+        },
+        "state_intensity": {
+          "maximum": 0.03719384802845584,
+          "width_m": 0.00023149665047954155,
+          "width_cells": 5.275980498653437
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 5.132931029840314e-22,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 2.787459003472875e-16,
+          "maximum_power_partition_relative_residual": 9.971403151379251e-17,
+          "minimum_temperature_K": 293.1499999526488,
+          "minimum_dislocation_density_m2": 9996379996.378416,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 4.534683843270687e-09
+        }
+      },
+      "runtime_s": 20.11044740000216
+    },
+    {
+      "case_id": "core_lower_1",
+      "family": "single_mode_core",
+      "linear_role": "lower",
+      "roles": [
+        "lower"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 8949.90356270698,
+      "wavelength_reference_m": 0.0007020394424539676,
+      "domain_length_m": 0.0007020394424539676,
+      "cells": 16,
+      "epsilon": 0.0001,
+      "amplitude_fraction_of_q3_high": 1.0,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 7.071067811865475e-05,
+      "final_observed_rms_dimensionless": 0.052592565640663815,
+      "measured_nonlinear_gain": 743.7711960902401,
+      "predicted_linear_gain": 745.2009084268652,
+      "gain_relative_error": 0.001918559572938904,
+      "nonretained_fourier_energy_fraction": 7.54254330619214e-08,
+      "ledger_partition_maximum_relative_residual": 8.998416823687306e-17,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.002263328178475372,
+          "width_m": 0.00023146091561747196,
+          "width_cells": 5.275166074621769
+        },
+        "signed_slip": {
+          "maximum": 0.052582969786929105,
+          "width_m": 0.00023146207552285404,
+          "width_cells": 5.275192509726396
+        },
+        "Gamma_absolute": {
+          "maximum": 1.0517970204836026e-05,
+          "width_m": 0.00023146168200008837,
+          "width_cells": 5.275183541050464
+        },
+        "cp_work": {
+          "maximum": 5981.357551134268,
+          "width_m": 0.00023146046857354366,
+          "width_cells": 5.275155886158814
+        },
+        "state_intensity": {
+          "maximum": 0.07439837783512222,
+          "width_m": 0.0002314620747626629,
+          "width_cells": 5.275192492401075
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 1.0637305764005816e-22,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 2.662384601244515e-16,
+          "maximum_power_partition_relative_residual": 9.990718416492955e-17,
+          "minimum_temperature_K": 293.14999990529753,
+          "minimum_dislocation_density_m2": 9992759992.756773,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 9.071569045102958e-09
+        }
+      },
+      "runtime_s": 20.01670579999336
+    },
+    {
+      "case_id": "core_winner_0.125",
+      "family": "single_mode_core",
+      "linear_role": "winner",
+      "roles": [
+        "winner"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 4.074939016011232e-05,
+      "cells": 16,
+      "epsilon": 1.25e-05,
+      "amplitude_fraction_of_q3_high": 0.125,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 8.83883476483185e-06,
+      "final_observed_rms_dimensionless": 0.007091898208710919,
+      "measured_nonlinear_gain": 802.3566903782748,
+      "predicted_linear_gain": 804.0102548520717,
+      "gain_relative_error": 0.002056645999000524,
+      "nonretained_fourier_energy_fraction": 3.2286878866057185e-10,
+      "ledger_partition_maximum_relative_residual": 1.4101312711826205e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.00029282029007837035,
+          "width_m": 1.3438840234088367e-05,
+          "width_cells": 5.27667881410133
+        },
+        "signed_slip": {
+          "maximum": 0.007088986250664446,
+          "width_m": 1.3438820137657534e-05,
+          "width_cells": 5.276670923360093
+        },
+        "Gamma_absolute": {
+          "maximum": 1.4162240727002586e-06,
+          "width_m": 1.3438829816434985e-05,
+          "width_cells": 5.276674723673143
+        },
+        "cp_work": {
+          "maximum": 806.4279963198121,
+          "width_m": 1.3438827024893309e-05,
+          "width_cells": 5.276673627591296
+        },
+        "state_intensity": {
+          "maximum": 0.010029663792795079,
+          "width_m": 1.3438820155764725e-05,
+          "width_cells": 5.276670930469771
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 7.605930107162193e-21,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 4.3665109333854865e-16,
+          "maximum_power_partition_relative_residual": 9.962994309222139e-17,
+          "minimum_temperature_K": 293.14999999073956,
+          "minimum_dislocation_density_m2": 9999070546.298706,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 2.885979780457501e-09
+        }
+      },
+      "runtime_s": 31.34866719999991
+    },
+    {
+      "case_id": "core_winner_0.25",
+      "family": "single_mode_core",
+      "linear_role": "winner",
+      "roles": [
+        "winner"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 4.074939016011232e-05,
+      "cells": 16,
+      "epsilon": 2.5e-05,
+      "amplitude_fraction_of_q3_high": 0.25,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 1.76776695296637e-05,
+      "final_observed_rms_dimensionless": 0.014183796739430236,
+      "measured_nonlinear_gain": 802.3567085938205,
+      "predicted_linear_gain": 804.0102548520717,
+      "gain_relative_error": 0.002056623343138187,
+      "nonretained_fourier_energy_fraction": 1.291473479239095e-09,
+      "ledger_partition_maximum_relative_residual": 1.0264024326010293e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0005856515821961832,
+          "width_m": 1.3438611422724154e-05,
+          "width_cells": 5.2765889727119735
+        },
+        "signed_slip": {
+          "maximum": 0.014178262875121812,
+          "width_m": 1.3438571228443227e-05,
+          "width_cells": 5.276573190672234
+        },
+        "Gamma_absolute": {
+          "maximum": 2.8325052358837557e-06,
+          "width_m": 1.3438590603453492e-05,
+          "width_cells": 5.276580798152077
+        },
+        "cp_work": {
+          "maximum": 1612.8880246143603,
+          "width_m": 1.3438585020633837e-05,
+          "width_cells": 5.276578606091923
+        },
+        "state_intensity": {
+          "maximum": 0.020059738382585745,
+          "width_m": 1.3438571264656215e-05,
+          "width_cells": 5.276573204891044
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 1.3685957430700457e-21,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 3.818339580398032e-16,
+          "maximum_power_partition_relative_residual": 9.972252440110087e-17,
+          "minimum_temperature_K": 293.1499999814791,
+          "minimum_dislocation_density_m2": 9998141092.597357,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 5.771249644631257e-09
+        }
+      },
+      "runtime_s": 20.32900559999689
+    },
+    {
+      "case_id": "core_winner_0.5",
+      "family": "single_mode_core",
+      "linear_role": "winner",
+      "roles": [
+        "winner"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 4.074939016011232e-05,
+      "cells": 16,
+      "epsilon": 5e-05,
+      "amplitude_fraction_of_q3_high": 0.5,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 3.53553390593274e-05,
+      "final_observed_rms_dimensionless": 0.028367596054936977,
+      "measured_nonlinear_gain": 802.3567814562671,
+      "predicted_linear_gain": 804.0102548520717,
+      "gain_relative_error": 0.0020565327193605093,
+      "nonretained_fourier_energy_fraction": 5.165893382912102e-09,
+      "ledger_partition_maximum_relative_residual": 1.4098272886734955e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0011713472298246332,
+          "width_m": 1.3438153786970528e-05,
+          "width_cells": 5.276409284818995
+        },
+        "signed_slip": {
+          "maximum": 0.02835768860778038,
+          "width_m": 1.3438073392486154e-05,
+          "width_cells": 5.276377718414077
+        },
+        "Gamma_absolute": {
+          "maximum": 5.665239112654666e-06,
+          "width_m": 1.343811213129041e-05,
+          "width_cells": 5.27639292896976
+        },
+        "cp_work": {
+          "maximum": 3225.904338912007,
+          "width_m": 1.3438100965876624e-05,
+          "width_cells": 5.276388544938002
+        },
+        "state_intensity": {
+          "maximum": 0.04012112188067877,
+          "width_m": 1.3438073464916714e-05,
+          "width_cells": 5.276377746853495
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 4.852622714720115e-22,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 3.776806588111934e-16,
+          "maximum_power_partition_relative_residual": 9.956712146690528e-17,
+          "minimum_temperature_K": 293.1499999629582,
+          "minimum_dislocation_density_m2": 9996282185.194656,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 1.1539641966377273e-08
+        }
+      },
+      "runtime_s": 20.470219299997552
+    },
+    {
+      "case_id": "core_winner_1",
+      "family": "single_mode_core",
+      "linear_role": "winner",
+      "roles": [
+        "winner"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 4.074939016011232e-05,
+      "cells": 16,
+      "epsilon": 0.0001,
+      "amplitude_fraction_of_q3_high": 1.0,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 7.07106781186548e-05,
+      "final_observed_rms_dimensionless": 0.05673521271749352,
+      "measured_nonlinear_gain": 802.357072892018,
+      "predicted_linear_gain": 804.0102548520717,
+      "gain_relative_error": 0.0020561702417065853,
+      "nonretained_fourier_energy_fraction": 2.0663578595415385e-08,
+      "ledger_partition_maximum_relative_residual": 1.406899889761327e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0023428711787839987,
+          "width_m": 1.3437238466489685e-05,
+          "width_cells": 5.276049889803857
+        },
+        "signed_slip": {
+          "maximum": 0.05672003952794764,
+          "width_m": 1.3437077653859639e-05,
+          "width_cells": 5.275986747703555
+        },
+        "Gamma_absolute": {
+          "maximum": 1.1331395002746104e-05,
+          "width_m": 1.3437155050917284e-05,
+          "width_cells": 5.276017137187114
+        },
+        "cp_work": {
+          "maximum": 6452.323123019895,
+          "width_m": 1.3437132717620527e-05,
+          "width_cells": 5.276008368154088
+        },
+        "state_intensity": {
+          "maximum": 0.08024883962001902,
+          "width_m": 1.3437077798737864e-05,
+          "width_cells": 5.275986804589108
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 3.0746195134957433e-22,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 4.00834450312962e-16,
+          "maximum_power_partition_relative_residual": 9.990821672072306e-17,
+          "minimum_temperature_K": 293.1499999259164,
+          "minimum_dislocation_density_m2": 9992564370.389254,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 2.3067847456205784e-08
+        }
+      },
+      "runtime_s": 20.422211000011885
+    },
+    {
+      "case_id": "core_upper_0.125",
+      "family": "single_mode_core",
+      "linear_role": "upper",
+      "roles": [
+        "upper"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 2649457.0987187703,
+      "wavelength_reference_m": 2.371499168723291e-06,
+      "domain_length_m": 2.371499168723291e-06,
+      "cells": 16,
+      "epsilon": 1.25e-05,
+      "amplitude_fraction_of_q3_high": 0.125,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 8.838834764831846e-06,
+      "final_observed_rms_dimensionless": 0.0014941396296513833,
+      "measured_nonlinear_gain": 169.04260226656794,
+      "predicted_linear_gain": 169.13000322624356,
+      "gain_relative_error": 0.0005167679182191237,
+      "nonretained_fourier_energy_fraction": 1.1799349734945532e-09,
+      "ledger_partition_maximum_relative_residual": 1.2822962564652686e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 1.8583533764065239e-06,
+          "width_m": 7.824790100487132e-07,
+          "width_cells": 5.279219291280391
+        },
+        "signed_slip": {
+          "maximum": 0.0014941249842756776,
+          "width_m": 7.82098178961193e-07,
+          "width_cells": 5.276649905011704
+        },
+        "Gamma_absolute": {
+          "maximum": 2.987740877817217e-07,
+          "width_m": 7.820470128047611e-07,
+          "width_cells": 5.2763046978475145
+        },
+        "cp_work": {
+          "maximum": 155.40843385678235,
+          "width_m": 7.820413247734695e-07,
+          "width_cells": 5.27626632191137
+        },
+        "state_intensity": {
+          "maximum": 0.0021131618327255245,
+          "width_m": 7.820981802117099e-07,
+          "width_cells": 5.276649913448675
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 8.322896140990251e-20,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 4.3765227255048853e-16,
+          "maximum_power_partition_relative_residual": 9.91152699958346e-17,
+          "minimum_temperature_K": 293.15,
+          "minimum_dislocation_density_m2": 9998887618.672686,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 9.97870923017492e-10
+        }
+      },
+      "runtime_s": 32.05023570000776
+    },
+    {
+      "case_id": "core_upper_0.25",
+      "family": "single_mode_core",
+      "linear_role": "upper",
+      "roles": [
+        "upper"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 2649457.0987187703,
+      "wavelength_reference_m": 2.371499168723291e-06,
+      "domain_length_m": 2.371499168723291e-06,
+      "cells": 16,
+      "epsilon": 2.5e-05,
+      "amplitude_fraction_of_q3_high": 0.25,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 1.7677669529663692e-05,
+      "final_observed_rms_dimensionless": 0.002988279577301371,
+      "measured_nonlinear_gain": 169.04262025528553,
+      "predicted_linear_gain": 169.13000322624356,
+      "gain_relative_error": 0.0005166615579208657,
+      "nonretained_fourier_energy_fraction": 4.719756342697813e-09,
+      "ledger_partition_maximum_relative_residual": 1.025832899048116e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 3.7191551645874045e-06,
+          "width_m": 7.828422915156357e-07,
+          "width_cells": 5.281670273995215
+        },
+        "signed_slip": {
+          "maximum": 0.0029884331622894236,
+          "width_m": 7.820805742018612e-07,
+          "width_cells": 5.276531129448539
+        },
+        "Gamma_absolute": {
+          "maximum": 5.976222399930751e-07,
+          "width_m": 7.819781633379211e-07,
+          "width_cells": 5.275840185152774
+        },
+        "cp_work": {
+          "maximum": 310.85542655754756,
+          "width_m": 7.819667764768363e-07,
+          "width_cells": 5.275763360425294
+        },
+        "state_intensity": {
+          "maximum": 0.00422658273424031,
+          "width_m": 7.820805767037524e-07,
+          "width_cells": 5.276531146328266
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 9.505729909063874e-20,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 4.0930022729256136e-16,
+          "maximum_power_partition_relative_residual": 9.967548882068196e-17,
+          "minimum_temperature_K": 293.15,
+          "minimum_dislocation_density_m2": 9997775237.345314,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 1.9959233381718414e-09
+        }
+      },
+      "runtime_s": 20.251173600001493
+    },
+    {
+      "case_id": "core_upper_0.5",
+      "family": "single_mode_core",
+      "linear_role": "upper",
+      "roles": [
+        "upper"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 2649457.0987187703,
+      "wavelength_reference_m": 2.371499168723291e-06,
+      "domain_length_m": 2.371499168723291e-06,
+      "cells": 16,
+      "epsilon": 5e-05,
+      "amplitude_fraction_of_q3_high": 0.5,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 3.5355339059327384e-05,
+      "final_observed_rms_dimensionless": 0.0059765616993282585,
+      "measured_nonlinear_gain": 169.04269223099226,
+      "predicted_linear_gain": 169.13000322624356,
+      "gain_relative_error": 0.0005162359935304052,
+      "nonretained_fourier_energy_fraction": 1.887904780489971e-08,
+      "ledger_partition_maximum_relative_residual": 1.0258865845657885e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 7.448107468609792e-06,
+          "width_m": 7.835690735523994e-07,
+          "width_cells": 5.2865737176656085
+        },
+        "signed_slip": {
+          "maximum": 0.0059776004224800115,
+          "width_m": 7.820453531447851e-07,
+          "width_cells": 5.276293500474998
+        },
+        "Gamma_absolute": {
+          "maximum": 1.19554095125938e-06,
+          "width_m": 7.818404632034186e-07,
+          "width_cells": 5.274911151661597
+        },
+        "cp_work": {
+          "maximum": 621.8651987134,
+          "width_m": 7.818176868358087e-07,
+          "width_cells": 5.274757484358415
+        },
+        "state_intensity": {
+          "maximum": 0.008454203614559154,
+          "width_m": 7.820453581515049e-07,
+          "width_cells": 5.27629353425427
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 2.8770333318001534e-20,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 4.89213987567221e-16,
+          "maximum_power_partition_relative_residual": 9.969019910366504e-17,
+          "minimum_temperature_K": 293.15,
+          "minimum_dislocation_density_m2": 9995550474.69057,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 3.992669256276454e-09
+        }
+      },
+      "runtime_s": 20.39871019999555
+    },
+    {
+      "case_id": "core_upper_1",
+      "family": "single_mode_core",
+      "linear_role": "upper",
+      "roles": [
+        "upper"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 2649457.0987187703,
+      "wavelength_reference_m": 2.371499168723291e-06,
+      "domain_length_m": 2.371499168723291e-06,
+      "cells": 16,
+      "epsilon": 0.0001,
+      "amplitude_fraction_of_q3_high": 1.0,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 7.071067811865477e-05,
+      "final_observed_rms_dimensionless": 0.011953143755275829,
+      "measured_nonlinear_gain": 169.04298011706342,
+      "predicted_linear_gain": 169.13000322624356,
+      "gain_relative_error": 0.0005145338350388799,
+      "nonretained_fourier_energy_fraction": 7.551641700337911e-08,
+      "ledger_partition_maximum_relative_residual": 1.153539240570608e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 1.4935432285489062e-05,
+          "width_m": 7.850234361285408e-07,
+          "width_cells": 5.296385992333532
+        },
+        "signed_slip": {
+          "maximum": 0.011958147805290979,
+          "width_m": 7.819748649694632e-07,
+          "width_cells": 5.27581793176301
+        },
+        "Gamma_absolute": {
+          "maximum": 2.3922703573447774e-06,
+          "width_m": 7.815652199872101e-07,
+          "width_cells": 5.273054144281027
+        },
+        "cp_work": {
+          "maximum": 1244.3491889753059,
+          "width_m": 7.815197042008378e-07,
+          "width_cells": 5.272747058960669
+        },
+        "state_intensity": {
+          "maximum": 0.016912574759762617,
+          "width_m": 7.819748749949989e-07,
+          "width_cells": 5.275817999403165
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 2.0882897549369472e-21,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 4.42767120965688e-16,
+          "maximum_power_partition_relative_residual": 9.982718740096126e-17,
+          "minimum_temperature_K": 293.15,
+          "minimum_dislocation_density_m2": 9991100949.381086,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 7.988543895153964e-09
+        }
+      },
+      "runtime_s": 20.338148000009824
+    },
+    {
+      "case_id": "grid_winner_0.5_n32",
+      "family": "grid_bridge",
+      "linear_role": "winner",
+      "roles": [
+        "winner"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 4.074939016011232e-05,
+      "cells": 32,
+      "epsilon": 5e-05,
+      "amplitude_fraction_of_q3_high": 0.5,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "initial_observed_rms_dimensionless": 3.53553390593274e-05,
+      "final_observed_rms_dimensionless": 0.028367596054905315,
+      "measured_nonlinear_gain": 802.3567814553716,
+      "predicted_linear_gain": 804.0102548520717,
+      "gain_relative_error": 0.002056532720474315,
+      "nonretained_fourier_energy_fraction": 5.165893248193353e-09,
+      "ledger_partition_maximum_relative_residual": 8.989039646499541e-17,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0011713472298358304,
+          "width_m": 1.3551909497484872e-05,
+          "width_cells": 10.642149544215917
+        },
+        "signed_slip": {
+          "maximum": 0.028357688607753586,
+          "width_m": 1.355183099107752e-05,
+          "width_cells": 10.642087894089979
+        },
+        "Gamma_absolute": {
+          "maximum": 5.665239119454823e-06,
+          "width_m": 1.3551868466753715e-05,
+          "width_cells": 10.642117323282257
+        },
+        "cp_work": {
+          "maximum": 3225.9043429363237,
+          "width_m": 1.3551857947399733e-05,
+          "width_cells": 10.64210906256164
+        },
+        "state_intensity": {
+          "maximum": 0.04012112188064143,
+          "width_m": 1.3551831061808004e-05,
+          "width_cells": 10.642087949633767
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 4.8044025015728404e-05,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 8448,
+          "maximum_power_identity_relative_residual": 3.7281723145368065e-16,
+          "maximum_power_partition_relative_residual": 9.983225466723039e-17,
+          "minimum_temperature_K": 293.1499999629582,
+          "minimum_dislocation_density_m2": 9996282185.194656,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 1.1539644392604895e-08
+        }
+      },
+      "runtime_s": 55.461785799998324
+    },
+    {
+      "case_id": "grid_winner_0.5_n64",
+      "family": "grid_bridge",
+      "linear_role": "winner",
+      "roles": [
+        "winner"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 4.074939016011232e-05,
+      "cells": 64,
+      "epsilon": 5e-05,
+      "amplitude_fraction_of_q3_high": 0.5,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "initial_observed_rms_dimensionless": 3.53553390593274e-05,
+      "final_observed_rms_dimensionless": 0.02836759605490514,
+      "measured_nonlinear_gain": 802.3567814553667,
+      "predicted_linear_gain": 804.0102548520717,
+      "gain_relative_error": 0.002056532720480395,
+      "nonretained_fourier_energy_fraction": 5.165893248193416e-09,
+      "ledger_partition_maximum_relative_residual": 1.2839678087240802e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0011713472298234277,
+          "width_m": 1.3573951226650708e-05,
+          "width_cells": 21.318917291577222
+        },
+        "signed_slip": {
+          "maximum": 0.028357688607857798,
+          "width_m": 1.3573869730059577e-05,
+          "width_cells": 21.31878929501551
+        },
+        "Gamma_absolute": {
+          "maximum": 5.665239112232494e-06,
+          "width_m": 1.3573908534782416e-05,
+          "width_cells": 21.318850240768366
+        },
+        "cp_work": {
+          "maximum": 3225.9043386983963,
+          "width_m": 1.357389771958513e-05,
+          "width_cells": 21.318833254682843
+        },
+        "state_intensity": {
+          "maximum": 0.04012112188078803,
+          "width_m": 1.3573869803484279e-05,
+          "width_cells": 21.31878941033456
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 0.0002732198518227063,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 16640,
+          "maximum_power_identity_relative_residual": 4.1477671373728224e-16,
+          "maximum_power_partition_relative_residual": 9.983477684953457e-17,
+          "minimum_temperature_K": 293.1499999629582,
+          "minimum_dislocation_density_m2": 9996282185.194656,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 1.1539640636278048e-08
+        }
+      },
+      "runtime_s": 93.5449779999908
+    },
+    {
+      "case_id": "grid_winner_0.5_n128",
+      "family": "grid_bridge",
+      "linear_role": "winner",
+      "roles": [
+        "winner"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 4.074939016011232e-05,
+      "cells": 128,
+      "epsilon": 5e-05,
+      "amplitude_fraction_of_q3_high": 0.5,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "initial_observed_rms_dimensionless": 3.53553390593274e-05,
+      "final_observed_rms_dimensionless": 0.028367596054884193,
+      "measured_nonlinear_gain": 802.3567814547741,
+      "predicted_linear_gain": 804.0102548520717,
+      "gain_relative_error": 0.002056532721217371,
+      "nonretained_fourier_energy_fraction": 5.165893517661602e-09,
+      "ledger_partition_maximum_relative_residual": 1.411625565208963e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0011713472298210358,
+          "width_m": 1.3580237060108913e-05,
+          "width_cells": 42.65757933711245
+        },
+        "signed_slip": {
+          "maximum": 0.02835768860784217,
+          "width_m": 1.3580156536856643e-05,
+          "width_cells": 42.65732640139366
+        },
+        "Gamma_absolute": {
+          "maximum": 5.665239109364105e-06,
+          "width_m": 1.3580194859620846e-05,
+          "width_cells": 42.65744677899437
+        },
+        "cp_work": {
+          "maximum": 3225.904337007866,
+          "width_m": 1.3580184198425596e-05,
+          "width_cells": 42.65741329056702
+        },
+        "state_intensity": {
+          "maximum": 0.04012112188076609,
+          "width_m": 1.35801566094045e-05,
+          "width_cells": 42.657326629277456
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 0.0014176086073648712,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 33024,
+          "maximum_power_identity_relative_residual": 4.121063223547781e-16,
+          "maximum_power_partition_relative_residual": 9.983540932021135e-17,
+          "minimum_temperature_K": 293.1499999629582,
+          "minimum_dislocation_density_m2": 9996282185.194656,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 1.1539639113624517e-08
+        }
+      },
+      "runtime_s": 168.56066499999724
+    },
+    {
+      "case_id": "multimode_1",
+      "family": "multimode_bridge",
+      "linear_role": null,
+      "roles": [
+        "winner",
+        "winner"
+      ],
+      "modes": [
+        6,
+        8
+      ],
+      "weights": [
+        0.7071067811865475,
+        0.7071067811865475
+      ],
+      "phases_rad": [
+        0.0,
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 0.00032599512128089856,
+      "cells": 64,
+      "epsilon": 5e-05,
+      "amplitude_fraction_of_q3_high": 0.5,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "interpretation": "nearby modes use the winner input vector and are not individually re-optimized",
+      "initial_observed_rms_dimensionless": 3.53553390593274e-05,
+      "final_observed_rms_dimensionless": 0.028424412369227003,
+      "measured_nonlinear_gain": 803.9637895009272,
+      "predicted_linear_gain": null,
+      "gain_relative_error": null,
+      "nonretained_fourier_energy_fraction": 1.2726646030436657e-08,
+      "ledger_partition_maximum_relative_residual": 1.283556951388724e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0016756750679858855,
+          "width_m": 1.4957699732618708e-05,
+          "width_cells": 2.936524875360732
+        },
+        "signed_slip": {
+          "maximum": 0.04018679622725534,
+          "width_m": 1.493735682583024e-05,
+          "width_cells": 2.9325311161003285
+        },
+        "Gamma_absolute": {
+          "maximum": 8.034931520502893e-06,
+          "width_m": 1.4939137993969928e-05,
+          "width_cells": 2.9328807985142618
+        },
+        "cp_work": {
+          "maximum": 4575.595111619162,
+          "width_m": 1.4939288011629091e-05,
+          "width_cells": 2.9329102502746096
+        },
+        "state_intensity": {
+          "maximum": 0.05685768079408119,
+          "width_m": 1.4937374507217069e-05,
+          "width_cells": 2.932534587344783
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 3.8083213525098784e-07,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 16640,
+          "maximum_power_identity_relative_residual": 4.0751022550485397e-16,
+          "maximum_power_partition_relative_residual": 9.98172866231263e-17,
+          "minimum_temperature_K": 293.149999947615,
+          "minimum_dislocation_density_m2": 9995512200.537262,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 9.899460865631093e-09
+        }
+      },
+      "runtime_s": 101.54129180000746
+    },
+    {
+      "case_id": "multimode_2",
+      "family": "multimode_bridge",
+      "linear_role": null,
+      "roles": [
+        "winner",
+        "winner",
+        "winner"
+      ],
+      "modes": [
+        7,
+        8,
+        9
+      ],
+      "weights": [
+        0.5773502691896258,
+        0.5773502691896258,
+        0.5773502691896258
+      ],
+      "phases_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 0.00032599512128089856,
+      "cells": 64,
+      "epsilon": 5e-05,
+      "amplitude_fraction_of_q3_high": 0.5,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "interpretation": "nearby modes use the winner input vector and are not individually re-optimized",
+      "initial_observed_rms_dimensionless": 3.5355339059327404e-05,
+      "final_observed_rms_dimensionless": 0.028364768196430818,
+      "measured_nonlinear_gain": 802.2767975392293,
+      "predicted_linear_gain": null,
+      "gain_relative_error": null,
+      "nonretained_fourier_energy_fraction": 2.296139940747944e-08,
+      "ledger_partition_maximum_relative_residual": 1.4085530062687216e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0020281198060852802,
+          "width_m": 1.3160533493358056e-05,
+          "width_cells": 2.5837016832198465
+        },
+        "signed_slip": {
+          "maximum": 0.04911858764346297,
+          "width_m": 1.314947833789081e-05,
+          "width_cells": 2.5815313134697604
+        },
+        "Gamma_absolute": {
+          "maximum": 9.819729808821375e-06,
+          "width_m": 1.3150417434781971e-05,
+          "width_cells": 2.5817156788087203
+        },
+        "cp_work": {
+          "maximum": 5591.6596440362255,
+          "width_m": 1.3150490320415235e-05,
+          "width_cells": 2.5817299878588393
+        },
+        "state_intensity": {
+          "maximum": 0.06949410519354964,
+          "width_m": 1.3149501098818424e-05,
+          "width_cells": 2.5815357819396
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 1.6285226645734056e-07,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 16640,
+          "maximum_power_identity_relative_residual": 4.0356747817747106e-16,
+          "maximum_power_partition_relative_residual": 9.988597474501495e-17,
+          "minimum_temperature_K": 293.1499999358417,
+          "minimum_dislocation_density_m2": 9993887338.195974,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 1.3867194228632182e-08
+        }
+      },
+      "runtime_s": 74.8651361999946
+    },
+    {
+      "case_id": "multimode_3",
+      "family": "multimode_bridge",
+      "linear_role": null,
+      "roles": [
+        "winner",
+        "winner",
+        "winner"
+      ],
+      "modes": [
+        5,
+        8,
+        11
+      ],
+      "weights": [
+        0.5773502691896258,
+        0.5773502691896258,
+        0.5773502691896258
+      ],
+      "phases_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 0.00032599512128089856,
+      "cells": 64,
+      "epsilon": 5e-05,
+      "amplitude_fraction_of_q3_high": 0.5,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "interpretation": "nearby modes use the winner input vector and are not individually re-optimized",
+      "initial_observed_rms_dimensionless": 3.53553390593274e-05,
+      "final_observed_rms_dimensionless": 0.028341689845903444,
+      "measured_nonlinear_gain": 801.6240432129692,
+      "predicted_linear_gain": null,
+      "gain_relative_error": null,
+      "nonretained_fourier_energy_fraction": 2.361361917544765e-08,
+      "ledger_partition_maximum_relative_residual": 1.2827711909162722e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.00202024122189831,
+          "width_m": 1.3074631386195582e-05,
+          "width_cells": 2.566837213479328
+        },
+        "signed_slip": {
+          "maximum": 0.04907814605713878,
+          "width_m": 1.2977839885611312e-05,
+          "width_cells": 2.5478349167177896
+        },
+        "Gamma_absolute": {
+          "maximum": 9.811709983966053e-06,
+          "width_m": 1.2978826271916009e-05,
+          "width_cells": 2.548028566006934
+        },
+        "cp_work": {
+          "maximum": 5587.013872653617,
+          "width_m": 1.2979326530915802e-05,
+          "width_cells": 2.5481267778325005
+        },
+        "state_intensity": {
+          "maximum": 0.06943670681066993,
+          "width_m": 1.297801665521823e-05,
+          "width_cells": 2.5478696204728593
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 1.93459895519212e-07,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 16640,
+          "maximum_power_identity_relative_residual": 3.8495127658407894e-16,
+          "maximum_power_partition_relative_residual": 9.990521391155973e-17,
+          "minimum_temperature_K": 293.1499999358417,
+          "minimum_dislocation_density_m2": 9993887338.195974,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 8.315069511893262e-09
+        }
+      },
+      "runtime_s": 74.52788259999943
+    },
+    {
+      "case_id": "multimode_4",
+      "family": "multimode_bridge",
+      "linear_role": null,
+      "roles": [
+        "winner",
+        "winner",
+        "winner",
+        "winner"
+      ],
+      "modes": [
+        4,
+        6,
+        8,
+        10
+      ],
+      "weights": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "phases_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 0.00032599512128089856,
+      "cells": 64,
+      "epsilon": 5e-05,
+      "amplitude_fraction_of_q3_high": 0.5,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "interpretation": "nearby modes use the winner input vector and are not individually re-optimized",
+      "initial_observed_rms_dimensionless": 3.5355339059327404e-05,
+      "final_observed_rms_dimensionless": 0.0284075285777415,
+      "measured_nonlinear_gain": 803.4862437628655,
+      "predicted_linear_gain": null,
+      "gain_relative_error": null,
+      "nonretained_fourier_energy_fraction": 2.4392005873928006e-08,
+      "ledger_partition_maximum_relative_residual": 1.4098896199535462e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.002362721977186822,
+          "width_m": 1.4790310008560461e-05,
+          "width_cells": 2.9036625972455425
+        },
+        "signed_slip": {
+          "maximum": 0.05679966296694742,
+          "width_m": 1.469387825243455e-05,
+          "width_cells": 2.8847309262198877
+        },
+        "Gamma_absolute": {
+          "maximum": 1.1357531772473013e-05,
+          "width_m": 1.469573687503182e-05,
+          "width_cells": 2.885095814644469
+        },
+        "cp_work": {
+          "maximum": 6467.617736603096,
+          "width_m": 1.469625591374288e-05,
+          "width_cells": 2.885197713339693
+        },
+        "state_intensity": {
+          "maximum": 0.08036197752196364,
+          "width_m": 1.469396215318334e-05,
+          "width_cells": 2.884747397779037
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 7.782469466389471e-08,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 16640,
+          "maximum_power_identity_relative_residual": 4.3617549489887927e-16,
+          "maximum_power_partition_relative_residual": 9.984479404162951e-17,
+          "minimum_temperature_K": 293.1499999259164,
+          "minimum_dislocation_density_m2": 9995512200.537262,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 6.312881496196854e-09
+        }
+      },
+      "runtime_s": 74.40457420000166
+    },
+    {
+      "case_id": "phase_pi_lower_0.25",
+      "family": "phase_translation",
+      "linear_role": "lower",
+      "roles": [
+        "lower"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        3.141592653589793
+      ],
+      "k_reference_m_inv": 8949.90356270698,
+      "wavelength_reference_m": 0.0007020394424539676,
+      "domain_length_m": 0.0007020394424539676,
+      "cells": 16,
+      "epsilon": 2.5e-05,
+      "amplitude_fraction_of_q3_high": 0.25,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 1.767766952966369e-05,
+      "final_observed_rms_dimensionless": 0.013148129939085157,
+      "measured_nonlinear_gain": 743.7705471879185,
+      "predicted_linear_gain": 745.2009084268652,
+      "gain_relative_error": 0.0019194303479396432,
+      "nonretained_fourier_energy_fraction": 4.714081260288988e-09,
+      "ledger_partition_maximum_relative_residual": 1.4114531416790142e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.000565710832240205,
+          "width_m": 0.00023151365087474256,
+          "width_cells": 5.27636795027904
+        },
+        "signed_slip": {
+          "maximum": 0.013142913706843626,
+          "width_m": 0.00023151394098005134,
+          "width_cells": 5.276374561994365
+        },
+        "Gamma_absolute": {
+          "maximum": 2.628921818954448e-06,
+          "width_m": 0.00023151384257095463,
+          "width_cells": 5.276372319178004
+        },
+        "cp_work": {
+          "maximum": 1495.0159927614009,
+          "width_m": 0.00023151353908077379,
+          "width_cells": 5.27636540241151
+        },
+        "state_intensity": {
+          "maximum": 0.018595592177919097,
+          "width_m": 0.00023151394078993852,
+          "width_cells": 5.276374557661553
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 2.5082376649523797e-21,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 2.6646323572797564e-16,
+          "maximum_power_partition_relative_residual": 9.968740528950182e-17,
+          "minimum_temperature_K": 293.14999997632435,
+          "minimum_dislocation_density_m2": 9998189998.189236,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 2.26706651829155e-09
+        }
+      },
+      "runtime_s": 20.061661100000492
+    },
+    {
+      "case_id": "phase_pi_lower_1",
+      "family": "phase_translation",
+      "linear_role": "lower",
+      "roles": [
+        "lower"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        3.141592653589793
+      ],
+      "k_reference_m_inv": 8949.90356270698,
+      "wavelength_reference_m": 0.0007020394424539676,
+      "domain_length_m": 0.0007020394424539676,
+      "cells": 16,
+      "epsilon": 0.0001,
+      "amplitude_fraction_of_q3_high": 1.0,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 7.071067811865475e-05,
+      "final_observed_rms_dimensionless": 0.05259256564070466,
+      "measured_nonlinear_gain": 743.7711960908177,
+      "predicted_linear_gain": 745.2009084268652,
+      "gain_relative_error": 0.0019185595721637535,
+      "nonretained_fourier_energy_fraction": 7.54254335321777e-08,
+      "ledger_partition_maximum_relative_residual": 1.4079711088734513e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0022633281784761442,
+          "width_m": 0.00023146091561746193,
+          "width_cells": 5.2751660746215405
+        },
+        "signed_slip": {
+          "maximum": 0.05258296978694694,
+          "width_m": 0.00023146207552284163,
+          "width_cells": 5.2751925097261125
+        },
+        "Gamma_absolute": {
+          "maximum": 1.051797020484376e-05,
+          "width_m": 0.00023146168200010821,
+          "width_cells": 5.275183541050916
+        },
+        "cp_work": {
+          "maximum": 5981.3575511387035,
+          "width_m": 0.0002314604685735691,
+          "width_cells": 5.275155886159393
+        },
+        "state_intensity": {
+          "maximum": 0.07439837783514745,
+          "width_m": 0.00023146207476265035,
+          "width_cells": 5.275192492400789
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 1.12314111788851e-22,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 2.6798737935224197e-16,
+          "maximum_power_partition_relative_residual": 9.991863063514256e-17,
+          "minimum_temperature_K": 293.14999990529753,
+          "minimum_dislocation_density_m2": 9992759992.756773,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 9.071569014636877e-09
+        }
+      },
+      "runtime_s": 21.103582199997618
+    },
+    {
+      "case_id": "phase_pi_winner_0.25",
+      "family": "phase_translation",
+      "linear_role": "winner",
+      "roles": [
+        "winner"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        3.141592653589793
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 4.074939016011232e-05,
+      "cells": 16,
+      "epsilon": 2.5e-05,
+      "amplitude_fraction_of_q3_high": 0.25,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 1.76776695296637e-05,
+      "final_observed_rms_dimensionless": 0.014183796739452581,
+      "measured_nonlinear_gain": 802.3567085950846,
+      "predicted_linear_gain": 804.0102548520717,
+      "gain_relative_error": 0.0020566233415659635,
+      "nonretained_fourier_energy_fraction": 1.2914732097744218e-09,
+      "ledger_partition_maximum_relative_residual": 1.4102106440637485e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.0005856515822039797,
+          "width_m": 1.3438611422571e-05,
+          "width_cells": 5.2765889726518385
+        },
+        "signed_slip": {
+          "maximum": 0.014178262875201927,
+          "width_m": 1.3438571228412864e-05,
+          "width_cells": 5.276573190660313
+        },
+        "Gamma_absolute": {
+          "maximum": 2.8325052370441163e-06,
+          "width_m": 1.343859059676649e-05,
+          "width_cells": 5.276580795526467
+        },
+        "cp_work": {
+          "maximum": 1612.888025280322,
+          "width_m": 1.3438585013888614e-05,
+          "width_cells": 5.276578603443452
+        },
+        "state_intensity": {
+          "maximum": 0.020059738382699224,
+          "width_m": 1.343857126462575e-05,
+          "width_cells": 5.2765732048790825
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 1.599657532020914e-21,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 3.6364488254992714e-16,
+          "maximum_power_partition_relative_residual": 9.962740200121668e-17,
+          "minimum_temperature_K": 293.1499999814791,
+          "minimum_dislocation_density_m2": 9998141092.597357,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 5.771248389992503e-09
+        }
+      },
+      "runtime_s": 20.635379900006228
+    },
+    {
+      "case_id": "phase_pi_winner_1",
+      "family": "phase_translation",
+      "linear_role": "winner",
+      "roles": [
+        "winner"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        3.141592653589793
+      ],
+      "k_reference_m_inv": 154190.90402314544,
+      "wavelength_reference_m": 4.074939016011232e-05,
+      "domain_length_m": 4.074939016011232e-05,
+      "cells": 16,
+      "epsilon": 0.0001,
+      "amplitude_fraction_of_q3_high": 1.0,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 7.07106781186548e-05,
+      "final_observed_rms_dimensionless": 0.05673521271747047,
+      "measured_nonlinear_gain": 802.3570728916919,
+      "predicted_linear_gain": 804.0102548520717,
+      "gain_relative_error": 0.0020561702421121194,
+      "nonretained_fourier_energy_fraction": 2.0663578460701994e-08,
+      "ledger_partition_maximum_relative_residual": 1.1553790520700911e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 0.002342871178784028,
+          "width_m": 1.34372384664867e-05,
+          "width_cells": 5.276049889802684
+        },
+        "signed_slip": {
+          "maximum": 0.05672003952788419,
+          "width_m": 1.343707765385692e-05,
+          "width_cells": 5.275986747702487
+        },
+        "Gamma_absolute": {
+          "maximum": 1.1331395004554355e-05,
+          "width_m": 1.3437155048964362e-05,
+          "width_cells": 5.276017136420311
+        },
+        "cp_work": {
+          "maximum": 6452.32312407949,
+          "width_m": 1.34371327156147e-05,
+          "width_cells": 5.2760083673665115
+        },
+        "state_intensity": {
+          "maximum": 0.08024883961992932,
+          "width_m": 1.3437077798735141e-05,
+          "width_cells": 5.2759868045880385
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 2.9721172813150584e-22,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 3.729345375848103e-16,
+          "maximum_power_partition_relative_residual": 9.982731294076794e-17,
+          "minimum_temperature_K": 293.1499999259164,
+          "minimum_dislocation_density_m2": 9992564370.389254,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 2.306784849270306e-08
+        }
+      },
+      "runtime_s": 22.497252799992566
+    },
+    {
+      "case_id": "phase_pi_upper_0.25",
+      "family": "phase_translation",
+      "linear_role": "upper",
+      "roles": [
+        "upper"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        3.141592653589793
+      ],
+      "k_reference_m_inv": 2649457.0987187703,
+      "wavelength_reference_m": 2.371499168723291e-06,
+      "domain_length_m": 2.371499168723291e-06,
+      "cells": 16,
+      "epsilon": 2.5e-05,
+      "amplitude_fraction_of_q3_high": 0.25,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 1.7677669529663692e-05,
+      "final_observed_rms_dimensionless": 0.002988279577329504,
+      "measured_nonlinear_gain": 169.04262025687694,
+      "predicted_linear_gain": 169.13000322624356,
+      "gain_relative_error": 0.0005166615485114366,
+      "nonretained_fourier_energy_fraction": 4.719755204355179e-09,
+      "ledger_partition_maximum_relative_residual": 1.1539765412084567e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 3.719155166983952e-06,
+          "width_m": 7.828422910943937e-07,
+          "width_cells": 5.281670271153185
+        },
+        "signed_slip": {
+          "maximum": 0.002988433162272633,
+          "width_m": 7.820805742065391e-07,
+          "width_cells": 5.2765311294801
+        },
+        "Gamma_absolute": {
+          "maximum": 5.976222386249127e-07,
+          "width_m": 7.819781571890555e-07,
+          "width_cells": 5.275840143667686
+        },
+        "cp_work": {
+          "maximum": 310.8554258354827,
+          "width_m": 7.819667695123044e-07,
+          "width_cells": 5.275763313437079
+        },
+        "state_intensity": {
+          "maximum": 0.004226582734216557,
+          "width_m": 7.820805767084318e-07,
+          "width_cells": 5.276531146359837
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 9.252164698530093e-20,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 4.45836304696996e-16,
+          "maximum_power_partition_relative_residual": 9.969630168778415e-17,
+          "minimum_temperature_K": 293.15,
+          "minimum_dislocation_density_m2": 9997775237.345314,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 1.995925584205062e-09
+        }
+      },
+      "runtime_s": 20.56387869999162
+    },
+    {
+      "case_id": "phase_pi_upper_1",
+      "family": "phase_translation",
+      "linear_role": "upper",
+      "roles": [
+        "upper"
+      ],
+      "modes": [
+        1
+      ],
+      "weights": [
+        1.0
+      ],
+      "phases_rad": [
+        3.141592653589793
+      ],
+      "k_reference_m_inv": 2649457.0987187703,
+      "wavelength_reference_m": 2.371499168723291e-06,
+      "domain_length_m": 2.371499168723291e-06,
+      "cells": 16,
+      "epsilon": 0.0001,
+      "amplitude_fraction_of_q3_high": 1.0,
+      "substeps": 1,
+      "retained_nonnegative_modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "initial_observed_rms_dimensionless": 7.071067811865477e-05,
+      "final_observed_rms_dimensionless": 0.011953143755261773,
+      "measured_nonlinear_gain": 169.04298011686464,
+      "predicted_linear_gain": 169.13000322624356,
+      "gain_relative_error": 0.0005145338362141972,
+      "nonretained_fourier_energy_fraction": 7.551641605501593e-08,
+      "ledger_partition_maximum_relative_residual": 1.1543642390502136e-16,
+      "minimum_total_Gamma_absolute": 0.0,
+      "widths": {
+        "temperature": {
+          "maximum": 1.4935432287821143e-05,
+          "width_m": 7.850234361349168e-07,
+          "width_cells": 5.296385992376549
+        },
+        "signed_slip": {
+          "maximum": 0.011958147805232487,
+          "width_m": 7.819748649649006e-07,
+          "width_cells": 5.275817931732227
+        },
+        "Gamma_absolute": {
+          "maximum": 2.39227037545457e-06,
+          "width_m": 7.815652182187849e-07,
+          "width_cells": 5.273054132349839
+        },
+        "cp_work": {
+          "maximum": 1244.3491995705822,
+          "width_m": 7.815197021963414e-07,
+          "width_cells": 5.272747045436759
+        },
+        "state_intensity": {
+          "maximum": 0.016912574759679885,
+          "width_m": 7.819748749904376e-07,
+          "width_cells": 5.275817999372391
+        }
+      },
+      "history": {
+        "initial_time_s": 5e-07,
+        "final_time_s": 2e-06,
+        "registered_state_count": 129,
+        "integrated_state_count": 129,
+        "integration_substeps_per_interval": 1,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_discarded_rhs_fourier_energy_fraction": 1.0774151364137647e-20,
+        "diagnostics": {
+          "rhs_evaluations": 256,
+          "material_point_evaluations": 4352,
+          "maximum_power_identity_relative_residual": 4.610393971714924e-16,
+          "maximum_power_partition_relative_residual": 9.980313992138463e-17,
+          "minimum_temperature_K": 293.15,
+          "minimum_dislocation_density_m2": 9991100949.381086,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "maximum_signed_slip_excess": 7.988539718265094e-09
+        }
+      },
+      "runtime_s": 22.51473409999744
+    }
+  ],
+  "phase_translation_errors": {
+    "lower_0.25": 4.436288720986821e-12,
+    "lower_1": 1.5789585564913034e-12,
+    "winner_0.25": 5.11320377681977e-12,
+    "winner_1": 9.874896780498635e-13,
+    "upper_0.25": 6.886389366662369e-12,
+    "upper_1": 2.549961999034444e-12
+  },
+  "scale_regressions": {
+    "amplitude_fraction_0.125": {
+      "temperature": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9999117451003144,
+        "r_squared": 0.9999999978154831,
+        "width_over_wavelength": [
+          0.32978551857456134,
+          0.3297924258813331,
+          0.32995120570502445
+        ]
+      },
+      "signed_slip": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9999973916186969,
+        "r_squared": 0.9999999999946492,
+        "width_over_wavelength": [
+          0.3297857252060037,
+          0.3297919327100058,
+          0.3297906190632315
+        ]
+      },
+      "Gamma_absolute": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 1.0000088495136688,
+        "r_squared": 0.9999999999167942,
+        "width_over_wavelength": [
+          0.32978565506762175,
+          0.3297921702295714,
+          0.32976904361546966
+        ]
+      },
+      "cp_work": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 1.0000100122747662,
+        "r_squared": 0.9999999999023005,
+        "width_over_wavelength": [
+          0.3297854389016078,
+          0.329792101724456,
+          0.32976664511946063
+        ]
+      },
+      "state_intensity": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9999973912655222,
+        "r_squared": 0.9999999999946485,
+        "width_over_wavelength": [
+          0.3297857250706018,
+          0.3297919331543607,
+          0.3297906195905422
+        ]
+      }
+    },
+    "amplitude_fraction_0.25": {
+      "temperature": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9998235166467428,
+        "r_squared": 0.9999999912632088,
+        "width_over_wavelength": [
+          0.32977299689149364,
+          0.32978681079449834,
+          0.33010439212470094
+        ]
+      },
+      "signed_slip": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9999947842789321,
+        "r_squared": 0.9999999999785932,
+        "width_over_wavelength": [
+          0.3297734101237178,
+          0.32978582441701465,
+          0.3297831955905337
+        ]
+      },
+      "Gamma_absolute": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 1.0000177190368302,
+        "r_squared": 0.9999999996667613,
+        "width_over_wavelength": [
+          0.32977326994306144,
+          0.3297862998845048,
+          0.32974001157204835
+        ]
+      },
+      "cp_work": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 1.0000200472291412,
+        "r_squared": 0.9999999996086923,
+        "width_over_wavelength": [
+          0.3297728376450399,
+          0.3297861628807452,
+          0.32973521002658085
+        ]
+      },
+      "state_intensity": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.999994783572372,
+        "r_squared": 0.9999999999785903,
+        "width_over_wavelength": [
+          0.3297734098529171,
+          0.32978582530569023,
+          0.32978319664551664
+        ]
+      }
+    },
+    "amplitude_fraction_0.5": {
+      "temperature": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9996471243067763,
+        "r_squared": 0.9999999650598571,
+        "width_over_wavelength": [
+          0.32974795536543344,
+          0.3297755803011872,
+          0.33041085735410053
+        ]
+      },
+      "signed_slip": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9999895726554919,
+        "r_squared": 0.9999999999143452,
+        "width_over_wavelength": [
+          0.32974878170739,
+          0.3297736074008798,
+          0.3297683437796874
+        ]
+      },
+      "Gamma_absolute": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 1.0000354625790524,
+        "r_squared": 0.9999999986661368,
+        "width_over_wavelength": [
+          0.32974850135077133,
+          0.32977455806061,
+          0.32968194697884984
+        ]
+      },
+      "cp_work": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 1.0000401205289247,
+        "r_squared": 0.999999998433728,
+        "width_over_wavelength": [
+          0.3297476368806246,
+          0.32977428405862513,
+          0.32967234277240093
+        ]
+      },
+      "state_intensity": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9999895712416672,
+        "r_squared": 0.9999999999143339,
+        "width_over_wavelength": [
+          0.32974878116583983,
+          0.3297736091783434,
+          0.3297683458908919
+        ]
+      }
+    },
+    "amplitude_fraction_1": {
+      "temperature": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9992946149845983,
+        "r_squared": 0.9999998602967359,
+        "width_over_wavelength": [
+          0.32969787966386055,
+          0.32975311811274105,
+          0.33102412452084573
+        ]
+      },
+      "signed_slip": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9999791616091531,
+        "r_squared": 0.9999999996571609,
+        "width_over_wavelength": [
+          0.32969953185789974,
+          0.32974917173147217,
+          0.3297386207351881
+        ]
+      },
+      "Gamma_absolute": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 1.0000709315458067,
+        "r_squared": 0.9999999946650958,
+        "width_over_wavelength": [
+          0.329698971315654,
+          0.3297510710741946,
+          0.3295658840175642
+        ]
+      },
+      "cp_work": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 1.0000802430250895,
+        "r_squared": 0.9999999937360373,
+        "width_over_wavelength": [
+          0.32969724288492586,
+          0.3297505230096305,
+          0.3295466911850418
+        ]
+      },
+      "state_intensity": {
+        "available": true,
+        "log_width_vs_log_wavelength_slope": 0.9999791587786403,
+        "r_squared": 0.9999999996571157,
+        "width_over_wavelength": [
+          0.3296995307750672,
+          0.32974917528681924,
+          0.3297386249626978
+        ]
+      }
+    }
+  },
+  "scientific_interpretation": {
+    "finite_time_small_gain_gate": "PASSED",
+    "single_mode_numerical_bridge": "PASSED",
+    "single_mode_width_over_input_wavelength_range": [
+      0.3296995307750672,
+      0.3297919331543607
+    ],
+    "maximum_single_mode_amplitude_gain_variation": 2.235236673740775e-06,
+    "amplitude_gain_variation_by_role": {
+      "lower": 9.160856023025863e-07,
+      "winner": 4.7673770172163347e-07,
+      "upper": 2.235236673740775e-06
+    },
+    "winner_grid_state_width_relative_changes": [
+      0.008394260256968784,
+      0.001623615225086216,
+      0.0004629406052554413
+    ],
+    "finest_winner_state_width_cells": 42.657326629277456,
+    "multimode_width_cells_range": [
+      2.5478696204728593,
+      2.932534587344783
+    ],
+    "multimode_twelve_cell_width_gate": "FAILED",
+    "mechanistic_conclusion": "The accepted single-mode widths scale one-for-one with the imposed wavelength and remain amplitude-linear; the matrix therefore verifies perturbation transport but does not identify an emergent nonlinear or mature ASB width. Multimode widths are under-resolved and remain diagnostic only."
+  },
+  "global_gates": {
+    "maximum_phase_translation_error_gate": 1e-09,
+    "maximum_phase_translation_error": 6.886389366662369e-12,
+    "maximum_ledger_partition_relative_residual": 1.411625565208963e-16,
+    "minimum_total_Gamma_absolute": 0.0
+  },
+  "provenance": {
+    "base_cache": "05_results/cp_ti_lsbrp_base_cache_v1_ref64.pkl",
+    "base_cache_sha256": "8d2b2677b9a6f027f2f3056cf19216ac2dd02ba84f47520dc4d18ab093c2fa24",
+    "q3_result": "05_results/cp_ti_lsbrp_q3_optimal_input_v1.json",
+    "q3_result_sha256": "20629758ebdfff3b4b21a4796debd2947bb0b12908c6193ca3d6b4eb77690710",
+    "q3_fields": "05_results/cp_ti_lsbrp_q3_optimal_input_v1_fields.npz",
+    "q3_fields_sha256": "7ed6fa466f22a17e3667f3df4d39ca5716ee426f1eddd33e95402f5eea23cf5a",
+    "fields_npz": "05_results/cp_ti_lsbrp_q3_nonautonomous_bridge_v1_fields.npz",
+    "python": "3.12.10",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "fields_npz_sha256": "ec07519c7dadfc2ed3193964dfca8f88062f9d67620c083b377929f827f3b2d6"
+  },
+  "runtime_s": 514.5046446000051
+}

@@ -1,0 +1,104 @@
+\begin{landscape}
+\section{Complete material, model and numerical parameter provenance}
+\label{app:parameter_provenance}
+Computational completeness does not imply material calibration. The evidence-class column distinguishes direct reference functions, grouped literature constraints, repository verification values, registered model controls and numerical controls. Parameters marked inactive are retained by the material object but do not enter the reported no-twinning branch.
+\begingroup\tiny
+\setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.095\linewidth}>{\raggedright\arraybackslash}p{0.095\linewidth}>{\raggedright\arraybackslash}p{0.06\linewidth}>{\raggedright\arraybackslash}p{0.258\linewidth}@{}}
+\toprule
+Group & Symbol & Parameter & Value & Unit & Source & Evidence/calibration status \\
+\midrule
+\endfirsthead
+\toprule
+Group & Symbol & Parameter & Value & Unit & Source & Evidence/calibration status \\
+\midrule
+\endhead
+crystal & \texttt{\detokenize{c/a}} & HCP lattice ratio & 1.587 & -- & S1 & L2 grouped literature constraint; literature-constrained, not batch identified \\
+crystal & \texttt{\detokenize{T_ref}} & elastic reference temperature & 293.15 & $\mathrm{K}$ & S5 & L2 repository baseline; verification seed \\
+elasticity & \texttt{\detokenize{C_11}} & HCP stiffness C11 & 1.624e+11 & $\mathrm{Pa}$ & S1/S5 & L2 grouped literature constraint; research baseline, not batch identified \\
+elasticity & \texttt{\detokenize{C_12}} & HCP stiffness C12 & 9.2e+10 & $\mathrm{Pa}$ & S1/S5 & L2 grouped literature constraint; research baseline, not batch identified \\
+elasticity & \texttt{\detokenize{C_13}} & HCP stiffness C13 & 6.9e+10 & $\mathrm{Pa}$ & S1/S5 & L2 grouped literature constraint; research baseline, not batch identified \\
+elasticity & \texttt{\detokenize{C_33}} & HCP stiffness C33 & 1.807e+11 & $\mathrm{Pa}$ & S1/S5 & L2 grouped literature constraint; research baseline, not batch identified \\
+elasticity & \texttt{\detokenize{C_44}} & HCP stiffness C44 & 4.67e+10 & $\mathrm{Pa}$ & S1/S5 & L2 grouped literature constraint; research baseline, not batch identified \\
+elasticity & \texttt{\detokenize{C_66}} & derived HCP stiffness & 3.52e+10 & $\mathrm{Pa}$ & S7 & derived; exactly derived from C11 and C12 \\
+thermal & \texttt{\detokenize{rho_0}} & mass density & 4510 & $\mathrm{kg\,m^{-3}}$ & S1/S5 & L2 grouped literature constraint; research baseline \\
+thermal & \texttt{\detokenize{c_p(298.15 K)}} & specific heat used at reference state & 527.2485158 & $\mathrm{J\,kg^{-1}\,K^{-1}}$ & S2 & L1 direct reference function; literature function, not fitted \\
+thermal & \texttt{\detokenize{A}} & Shomate coefficient A & 5.406172 & $\mathrm{cal\,mol^{-1}\,K^{-1}}$ & S2 & L1 direct reference function; admitted only on 298--700 K \\
+thermal & \texttt{\detokenize{B}} & Shomate coefficient B & 4.538229 & $\mathrm{cal\,mol^{-1}\,K^{-1}}$ & S2 & L1 direct reference function; admitted only on 298--700 K \\
+thermal & \texttt{\detokenize{C}} & Shomate coefficient C & -4.346881 & $\mathrm{cal\,mol^{-1}\,K^{-1}}$ & S2 & L1 direct reference function; admitted only on 298--700 K \\
+thermal & \texttt{\detokenize{D}} & Shomate coefficient D & 1.69235 & $\mathrm{cal\,mol^{-1}\,K^{-1}}$ & S2 & L1 direct reference function; admitted only on 298--700 K \\
+thermal & \texttt{\detokenize{E}} & Shomate coefficient E & -0.034287 & $\mathrm{cal\,mol^{-1}\,K^{-1}}$ & S2 & L1 direct reference function; admitted only on 298--700 K \\
+thermal & \texttt{\detokenize{M_Ti}} & titanium molar mass & 0.047867 & $\mathrm{kg\,mol^{-1}}$ & S2 & L1 reference constant; reference constant \\
+thermal & \texttt{\detokenize{kappa}} & thermal conductivity at 300 K & 21.9 & $\mathrm{W\,m^{-1}\,K^{-1}}$ & S3 & L1 selected reference value; literature value, not batch identified \\
+thermal & \texttt{\detokenize{beta}} & Taylor--Quinney heat fraction & 0.9 & -- & S5 & L2 repository baseline; not independently identified \\
+slip kinetics & \texttt{\detokenize{b^bas}} & burgers m by family: basal$<$a$>$ & 2.95e-10 & $\mathrm{m}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{b^pri}} & burgers m by family: prismatic$<$a$>$ & 2.95e-10 & $\mathrm{m}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{b^pyr}} & burgers m by family: pyramidal$<$c+a$>$ & 5.53e-10 & $\mathrm{m}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{tau_0^bas}} & tau0 Pa: basal$<$a$>$ & 80000000 & $\mathrm{Pa}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{tau_0^pri}} & tau0 Pa: prismatic$<$a$>$ & 1.1e+08 & $\mathrm{Pa}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{tau_0^pyr}} & tau0 Pa: pyramidal$<$c+a$>$ & 2.2e+08 & $\mathrm{Pa}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{tau_cut^bas}} & tau cut Pa: basal$<$a$>$ & 5.5e+08 & $\mathrm{Pa}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{tau_cut^pri}} & tau cut Pa: prismatic$<$a$>$ & 5.5e+08 & $\mathrm{Pa}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{tau_cut^pyr}} & tau cut Pa: pyramidal$<$c+a$>$ & 7e+08 & $\mathrm{Pa}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{Delta F^bas}} & activation energy J: basal$<$a$>$ & 1.8e-19 & $\mathrm{J}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{Delta F^pri}} & activation energy J: prismatic$<$a$>$ & 1.8e-19 & $\mathrm{J}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{Delta F^pyr}} & activation energy J: pyramidal$<$c+a$>$ & 1.8e-19 & $\mathrm{J}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{v_0^bas}} & reference velocity m s: basal$<$a$>$ & 4000 & $\mathrm{m\,s^{-1}}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{v_0^pri}} & reference velocity m s: prismatic$<$a$>$ & 4000 & $\mathrm{m\,s^{-1}}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{v_0^pyr}} & reference velocity m s: pyramidal$<$c+a$>$ & 4000 & $\mathrm{m\,s^{-1}}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{p^bas}} & p: basal$<$a$>$ & 0.7 & -- & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{p^pri}} & p: prismatic$<$a$>$ & 0.7 & -- & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{p^pyr}} & p: pyramidal$<$c+a$>$ & 0.7 & -- & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{q^bas}} & q: basal$<$a$>$ & 1.06 & -- & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{q^pri}} & q: prismatic$<$a$>$ & 1.06 & -- & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{q^pyr}} & q: pyramidal$<$c+a$>$ & 1.06 & -- & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{rho_m0^bas}} & rho mobile 0 m2: basal$<$a$>$ & 1.6e+12 & $\mathrm{m^{-2}}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{rho_m0^pri}} & rho mobile 0 m2: prismatic$<$a$>$ & 1.6e+12 & $\mathrm{m^{-2}}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{rho_m0^pyr}} & rho mobile 0 m2: pyramidal$<$c+a$>$ & 1.6e+12 & $\mathrm{m^{-2}}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{rho_d0^bas}} & rho dipole 0 m2: basal$<$a$>$ & 1e+10 & $\mathrm{m^{-2}}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{rho_d0^pri}} & rho dipole 0 m2: prismatic$<$a$>$ & 1e+10 & $\mathrm{m^{-2}}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+slip kinetics & \texttt{\detokenize{rho_d0^pyr}} & rho dipole 0 m2: pyramidal$<$c+a$>$ & 1e+10 & $\mathrm{m^{-2}}$ & S4/S5 & L2 repository verification baseline; not family-by-family calibrated for the reported specimen \\
+dislocation & \texttt{\detokenize{d_g}} & grain size & 2e-05 & $\mathrm{m}$ & S4/S5 & L2 repository verification baseline; not batch identified \\
+dislocation & \texttt{\detokenize{K_Lambda}} & mean-free-path coefficient & 33 & -- & S4/S5 & L2 repository verification baseline; not batch identified \\
+dislocation & \texttt{\detokenize{mu_ref}} & reference shear modulus & 4.67e+10 & $\mathrm{Pa}$ & S4/S5 & L2 repository verification baseline; not batch identified \\
+dislocation & \texttt{\detokenize{h_self}} & forest self interaction & 1 & -- & S4/S5 & L2 repository verification baseline; not batch identified \\
+dislocation & \texttt{\detokenize{h_lat}} & forest latent interaction & 1.35 & -- & S4/S5 & L2 repository verification baseline; not batch identified \\
+dislocation & \texttt{\detokenize{a_T}} & Taylor coefficient & 0.3 & -- & S4/S5 & L2 repository verification baseline; not batch identified \\
+dislocation & \texttt{\detokenize{c_d}} & minimum dipole distance & 3 & $b$ & S4/S5 & L2 repository verification baseline; not batch identified \\
+dislocation & \texttt{\detokenize{nu_c}} & climb attempt frequency & 20000 & $\mathrm{s^{-1}}$ & S4/S5 & L2 repository verification baseline; not batch identified \\
+dislocation & \texttt{\detokenize{Q_c}} & climb activation energy & 1.2e-19 & $\mathrm{J}$ & S4/S5 & L2 repository verification baseline; not batch identified \\
+micromorphic / gradient & \texttt{\detokenize{H_chi}} & micromorphic penalty modulus & 4.67e+10 & $\mathrm{Pa}$ & S6 & L3 registered model control; not identified as a material band width \\
+micromorphic / gradient & \texttt{\detokenize{ell_N}} & Nye/GND energetic length & 1e-06 & $\mathrm{m}$ & S6 & L3 registered model control; not identified as a material band width \\
+micromorphic / gradient & \texttt{\detokenize{ell_chi}} & full-rank slip-gradient length & 2.5e-07 & $\mathrm{m}$ & S6 & L3 registered model control; not identified as a material band width \\
+loading & \texttt{\detokenize{g_1}} & Bunge orientation case 1 & 0/0/0 & degree & S6 & L3 registered orientation case; theoretical orientation, not an experimental ODF \\
+loading & \texttt{\detokenize{g_2}} & Bunge orientation case 2 & 30/90/30 & degree & S6 & L3 registered orientation case; theoretical orientation, not an experimental ODF \\
+loading & \texttt{\detokenize{g_3}} & Bunge orientation case 3 & 90/60/30 & degree & S6 & L3 registered orientation case; theoretical orientation, not an experimental ODF \\
+loading & \texttt{\detokenize{T_0}} & initial temperature & 293.15 & $\mathrm{K}$ & S6 & L3 registered loading; prescribed \\
+loading & \texttt{\detokenize{dot_gamma_0}} & macroscopic simple-shear rate & 10000 & $\mathrm{s^{-1}}$ & S1/S6 & L2 dynamic loading constraint; representative, not specimen-matched \\
+loading & \texttt{\detokenize{gamma_f}} & final simple shear & 1.4 & -- & S6 & L3 registered loading; prescribed \\
+numerical & \texttt{\detokenize{rho_floor}} & density protection floor & 10000 & $\mathrm{m^{-2}}$ & S5 & N1 numerical control; not material data \\
+numerical & \texttt{\detokenize{eps_det}} & determinant tolerance & 1e-08 & -- & S5 & N1 numerical control; not material data \\
+numerical & \texttt{\detokenize{Delta gamma_max}} & maximum slip increment & 0.0002 & -- & S5 & N1 numerical control; not material data \\
+numerical & \texttt{\detokenize{Delta f_tw_max}} & maximum twin increment & 0.0002 & -- & S5 & N1 numerical control; not material data \\
+inactive twinning & \texttt{\detokenize{gamma_tw}} & twin shear override & 0 & -- & S5 & I inactive repository parameter; inactive in all reported calculations \\
+inactive twinning & \texttt{\detokenize{tau_tw}} & twin CRSS & 80000000 & $\mathrm{Pa}$ & S5 & I inactive repository parameter; inactive in all reported calculations \\
+inactive twinning & \texttt{\detokenize{dot_f_tw0}} & twin reference rate & 2500 & $\mathrm{s^{-1}}$ & S5 & I inactive repository parameter; inactive in all reported calculations \\
+inactive twinning & \texttt{\detokenize{m_tw}} & twin rate exponent & 3 & -- & S5 & I inactive repository parameter; inactive in all reported calculations \\
+inactive twinning & \texttt{\detokenize{tau_tw_scale}} & twin stress scale & 1.5e+08 & $\mathrm{Pa}$ & S5 & I inactive repository parameter; inactive in all reported calculations \\
+inactive twinning & \texttt{\detokenize{H_tw}} & twin latent hardening & 3e+08 & $\mathrm{Pa}$ & S5 & I inactive repository parameter; inactive in all reported calculations \\
+inactive twinning & \texttt{\detokenize{f_tw_max}} & maximum twin fraction & 0.85 & -- & S5 & I inactive repository parameter; inactive in all reported calculations \\
+\bottomrule
+\end{longtable}
+\endgroup
+\end{landscape}
+
+\paragraph{Source key.}
+\textbf{S1}: Nemat-Nasser, Guo and Cheng, Acta Materialia 47 (1999) 3705--3720, doi:10.1016/S1359-6454(99)00203-7; grouped alpha-Ti crystal/dynamic-loading constraint.\par
+\textbf{S2}: NIST-JANAF alpha-Ti table / NIST Chemistry WebBook Shomate heat-capacity coefficients, admitted over 298--700 K.\par
+\textbf{S3}: Touloukian/TPRC selected thermal-conductivity value for annealed high-purity titanium near 300 K, as registered in the material card.\par
+\textbf{S4}: Repository CP-Ti card grouped Dai--Song-type HCP rate and temperature structure; no parameter-by-parameter or batch-specific identification.\par
+\textbf{S5}: HCP\_CP\_v0.1/config/verification\_seed.yaml, watermarked VERIFICATION\_SEED\_NOT\_CALIBRATED\_FOR\_TA2.\par
+\textbf{S6}: Present-study registered modeling choice in the finite-time spectral runner; not a measured shear-band width.\par
+\textbf{S7}: Exact definition, derived quantity, or universal physical constant.\par
+
+The full machine-readable table, including the model role and active/inactive flag for every row, is supplied as \path{ijp_material_parameter_provenance_v1.csv}.

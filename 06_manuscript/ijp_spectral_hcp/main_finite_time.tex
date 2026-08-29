@@ -1,0 +1,96 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{amsmath,amssymb,bm,mathtools}
+\usepackage{booktabs,longtable,array,multirow}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{placeins}
+\usepackage{pdflscape}
+\hypersetup{hidelinks}
+\setlength{\emergencystretch}{3em}
+\graphicspath{{figures/}{../../05_results/}}
+
+\journal{International Journal of Plasticity}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Finite-time perturbation selection in evolving HCP crystal plasticity: path-dependent direction, wavelength and mechanism}
+
+\author{[Author names and affiliations to be supplied]}
+
+\begin{abstract}
+Frozen adiabatic-shear theories rank instantaneous roots but do not determine
+which crystal-resolved disturbance accumulates the largest amplification while
+slip activity, dislocation populations and temperature evolve. We formulate
+that finite-time selection problem for an 18-slip HCP crystal. Fourier
+linearization gives an 84-coordinate quadratic differential--algebraic
+descriptor; exact elimination of 18 algebraic micromorphic fields yields a
+nonsingular 69-state generator. An independent QZ audit recovers 69 finite and
+18 structural infinite roots, with a maximum finite-root mismatch of
+$8.60\times10^{-8}$. A fixed-norm, time-ordered propagator then selects
+direction, wavenumber and state composition. On the complete 69-state space,
+stationary-normal and commuting-normal controls recover
+$\log\|\Phi\|_2=\int\alpha\,\mathrm dt$ to $10^{-14}$ when a common leading
+mode exists. The corresponding HCP differences are $+4.78$, $+7.22$ and
+$+6.40$ for three audited branches, and remain $+3.31$--$+6.74$ at the
+terminal horizon for three independently selected orientations. Large modal
+condition numbers, eigenvector rotation and reverse-order propagation
+quantify the non-normal and chronological origins of the discrepancy.
+Eleven norm definitions and seven input--output selectors retain the
+full/full and constitutive-localization $y$-like winners while exposing the
+few selector questions that choose a different branch. An
+anchor-assisted sphere--wavenumber audit retains these basins, while a blind
+1024-point Sobol design misses the narrow terminal basin and therefore does
+not constitute a global-optimum certificate. The complete nonlinear periodic
+residual reproduces the near-onset and terminal singular-vector gains within
+1.24\% and 0.223\%, respectively. The theory closes finite-time perturbation
+selection, but neither identifies a seed-independent mature band width nor
+provides propagation-resistance closure.
+\end{abstract}
+
+\begin{keyword}
+adiabatic shear localization \sep HCP crystal plasticity \sep finite-time propagator \sep non-normal amplification \sep dislocation density \sep wavelength selection
+\end{keyword}
+
+\end{frontmatter}
+
+\input{sections/ft_introduction}
+\input{tables/dyn_nomenclature}
+\input{sections/ft_model}
+
+\section{Exact reduction and finite-time perturbation theory}
+\label{sec:dynamic_theory}
+\input{sections/sec2_dynamic_perturbation_methods}
+
+\input{sections/ft_numerical_methods}
+\input{sections/ft_results}
+\input{sections/ft_discussion}
+\input{sections/ft_conclusions}
+
+\section*{Data and code availability}
+The local publication-ready archive \path{04_reproducibility/ijp_finite_time_release_v1.zip} contains the machine-readable base histories, all 129 complex generators for every reported baseline branch, complete singular vectors and spectra, full-state/projected operator receipts, the norm--selector matrix, mechanism histories, nested Sobol samples, anchor-assisted optimizer trajectories, nonlinear validation fields, parameter provenance and the locked runtime environment. Its SHA-256 digest and internal manifest are recorded in \path{ijp_reproducibility_release_v1.json}. Public repository deposition, license and persistent identifier remain to be completed before submission: \textbf{[repository, license and DOI to be supplied]}.
+
+\section*{Declaration of competing interest}
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work: \textbf{[to be confirmed by all authors]}.
+
+\section*{Funding}
+\textbf{[Funding sources and grant numbers to be supplied.]}
+
+\section*{CRediT authorship contribution statement}
+\textbf{[Author-specific CRediT roles to be supplied.]}
+
+\appendix
+\input{appendices/dyn_operator_proofs}
+\input{appendices/ft_reproducibility}
+\clearpage
+\input{tables/ft_material_parameter_source_table}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{bib/references}
+
+\end{document}

@@ -1,0 +1,86 @@
+{
+  "schema": "CP_TI_GRADE1_DYNAMIC_HCP_MATERIAL_CARD_V1",
+  "status": "COMPLETE_RESEARCH_BASELINE__LITERATURE_CONSTRAINED__NOT_BATCH_SPECIFIC",
+  "material": "commercially pure alpha titanium, Grade-1/TA1 proxy",
+  "reference_temperature_K": 293.15,
+  "lattice": {
+    "c_over_a": 1.587,
+    "burgers_m_by_family": [2.95e-10, 2.95e-10, 5.53e-10]
+  },
+  "elastic_Pa": {
+    "C11": 1.624e11,
+    "C12": 9.20e10,
+    "C13": 6.90e10,
+    "C33": 1.807e11,
+    "C44": 4.67e10
+  },
+  "thermal": {
+    "mass_density_kg_m3": 4510.0,
+    "heat_capacity_J_kgK_at_298_15K": 527.25,
+    "heat_capacity_model": {
+      "kind": "NIST_SHOMATE_ALPHA_TI_298_TO_700_K",
+      "coefficient_energy_unit": "cal_molK",
+      "calorie_to_joule": 4.184,
+      "molar_mass_kg_mol": 0.047867,
+      "A": 5.406172,
+      "B": 4.538229,
+      "C": -4.346881,
+      "D": 1.692350,
+      "E": -0.034287
+    },
+    "conductivity_W_mK_at_300K": 21.9,
+    "taylor_quinney": 0.9
+  },
+  "slip_kinetics_by_family": {
+    "family_order": ["basal<a>", "prismatic<a>", "pyramidal<c+a>"],
+    "tau0_Pa": [8.0e7, 1.1e8, 2.2e8],
+    "tau_cut_Pa": [5.5e8, 5.5e8, 7.0e8],
+    "activation_energy_J": [1.8e-19, 1.8e-19, 1.8e-19],
+    "reference_velocity_m_s": [4.0e3, 4.0e3, 4.0e3],
+    "p": [0.7, 0.7, 0.7],
+    "q": [1.06, 1.06, 1.06],
+    "rho_mobile_0_m2": [1.6e12, 1.6e12, 1.6e12],
+    "rho_dipole_0_m2": [1.0e10, 1.0e10, 1.0e10]
+  },
+  "dislocation": {
+    "grain_size_m": 2.0e-5,
+    "mean_free_path_coefficient": 33.0,
+    "reference_shear_modulus_Pa": 4.67e10,
+    "forest_self": 1.0,
+    "forest_latent": 1.35,
+    "taylor_coefficient": 0.30,
+    "dipole_min_distance_burgers": 3.0,
+    "climb_frequency_s": 2.0e4,
+    "climb_activation_J": 1.2e-19
+  },
+  "micromorphic": {
+    "penalty_modulus_Pa": 4.67e10,
+    "nye_length_initial_m": 2.0e-6,
+    "slip_gradient_length_initial_m": 5.0e-6,
+    "experimental_band_core_target_m": 4.0e-5,
+    "experimental_band_core_interval_m": [2.5e-5, 5.0e-5]
+  },
+  "representative_loading": {
+    "kind": "homogeneous_simple_shear_F12",
+    "orientation_bunge_deg": [0.0, 0.0, 0.0],
+    "initial_temperature_K": 293.15,
+    "macroscopic_shear_rate_s": 10000.0,
+    "final_shear": 1.4,
+    "time_s": 0.00014,
+    "spectral_checkpoint_shears": [0.02, 0.05, 0.10, 0.20, 0.50, 1.00, 1.40]
+  },
+  "provenance": {
+    "lattice_and_dynamic_loading": "Nemat-Nasser, Guo and Cheng, Acta Materialia 47 (1999) 3705-3720, DOI 10.1016/S1359-6454(99)00203-7",
+    "heat_capacity": "NIST-JANAF alpha-Ti table and NIST Chemistry WebBook Shomate coefficients",
+    "thermal_conductivity": "Touloukian/TPRC selected value for annealed high-purity titanium at 300 K",
+    "band_core_interval": "Grade-1 technically pure titanium microscopy literature; 25-50 micrometre core used as an identification interval",
+    "crystal_kinetics": "Dai-Song-type rate/temperature HCP structure initialized with the repository alpha-Ti family block; requires batch-specific stress-curve/texture update before engineering prediction"
+  },
+  "interpretation": {
+    "complete_parameter_card": true,
+    "all_solver_fields_have_values_and_units": true,
+    "literature_constrained_research_baseline": true,
+    "batch_specific_texture_or_chemistry_identified": false,
+    "engineering_allowable_or_specification_card": false
+  }
+}
