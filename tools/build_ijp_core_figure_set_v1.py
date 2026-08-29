@@ -47,12 +47,12 @@ def _load(relative: str) -> dict[str, Any]:
 def _style() -> None:
     plt.rcParams.update(
         {
-            "font.size": 10.2,
-            "axes.labelsize": 10.5,
-            "axes.titlesize": 10.8,
-            "legend.fontsize": 8.8,
-            "xtick.labelsize": 9.2,
-            "ytick.labelsize": 9.2,
+            "font.size": 11.4,
+            "axes.labelsize": 11.6,
+            "axes.titlesize": 11.8,
+            "legend.fontsize": 9.6,
+            "xtick.labelsize": 10.2,
+            "ytick.labelsize": 10.2,
             "figure.dpi": 150,
             "savefig.dpi": 320,
             "axes.spines.top": False,
@@ -547,7 +547,7 @@ def figure05_direction_wavenumber(
         0.06,
         "continuous onset audit:\n{x, y} within 2% at 1.5 µs",
         transform=ax.transAxes,
-        fontsize=7.8,
+        fontsize=9.0,
         bbox={"facecolor": "white", "edgecolor": "0.7", "alpha": 0.9},
     )
     fig.tight_layout()

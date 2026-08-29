@@ -14,8 +14,8 @@
 
 \begin{center}
 {\Large Supplementary Material}\par\medskip
-{\large Finite-time perturbation selection in evolving HCP crystal plasticity:\\
-path-dependent direction, wavelength and mechanism}
+{\large Finite-time direction--wavenumber selection in evolving HCP crystal plasticity:\\
+exact descriptor reduction and path-dependent amplification}
 \end{center}
 
 \section{Complete fixed-candidate norm--selector screen}
@@ -63,13 +63,27 @@ stress/temperature landmarks.  The latter is a timing-and-scale check, not a
 batch-calibrated validation.  The figure synthesized from those tables is
 included in the main paper.
 
+\section{Full-grid convergence, branch switching and physical metrics}
+
+The V4 full-grid receipt
+\path{05_results/ijp_v4_full_fourier_convergence_audit_v1.json} supplies the
+raw Nyquist negative control, matched no-Nyquist control, two-thirds-dealiased
+16/32/64-cell ladder, independent time-step and integration-format checks,
+and the first-failure equation--variable--wavenumber record.  The separate
+receipt \path{05_results/ijp_v4_start_branch_metric_audit_v1.json} supplies
+the initial-time sensitivity, all detected branch transitions, four bounded
+propagation conventions, and the recoverable-energy quotient metric.  The
+resolved gain converges, while the discarded nonlinear right-hand-side energy
+keeps complete harmonic closure open.
+
 \section{Reproducibility contracts}
 
 The complete V3 receipt is
 \path{05_results/ijp_revision_evidence_v3.json}.  The exact literature
 landmarks and extraction record are under
 \path{04_reproducibility/literature_digitization/guo2019_prl/}.  Parameter
-source keys S4 and S5 identify the exact paper, frozen kernel version, public
-repository commit, configuration paths, SHA-256 checksums and access date.
+source keys S2--S5 identify the exact reference record or paper, frozen kernel
+version, public repository commit, configuration paths, SHA-256 checksums and
+access date.
 
 \end{document}

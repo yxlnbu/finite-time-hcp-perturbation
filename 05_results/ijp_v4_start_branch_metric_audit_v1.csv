@@ -1,0 +1,16 @@
+role,audit,case,gain,relative_change_or_ratio
+near_onset,start_time,t0=5e-07,1.7365306648748127,1.0
+near_onset,start_time,t0=7.5e-07,1.7364970680703353,0.9999806529160947
+near_onset,start_time,t0=1e-06,1.7364449580519843,0.9999506447973756
+near_onset,branch_convention,linear_interpolation_midpoint,1.7365306648748127,0.0
+near_onset,branch_convention,left_continuous,1.7365306632721305,9.229219610773498e-10
+near_onset,branch_convention,right_continuous,1.7365306664905666,9.304494952289133e-10
+near_onset,branch_convention,secant_split,1.7365306659617017,6.258968898720241e-10
+terminal,start_time,t0=5e-07,608984.198857322,1.0
+terminal,start_time,t0=7.5e-07,608984.3245175654,1.000000206344013
+terminal,start_time,t0=1e-06,608984.4700032829,1.0000004452430151
+terminal,start_time,t0=2e-06,195870.7339992964,0.32163516617807464
+terminal,branch_convention,linear_interpolation_midpoint,608984.198857322,0.0
+terminal,branch_convention,left_continuous,608831.2284131079,0.00025118951280034274
+terminal,branch_convention,right_continuous,609128.273919109,0.00023658259451941888
+terminal,branch_convention,secant_split,608608.6140303272,0.0006167398558115655

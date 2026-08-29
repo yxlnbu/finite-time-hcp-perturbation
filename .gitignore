@@ -18,6 +18,7 @@ tmp/
 06_manuscript/ijp_spectral_hcp/output/
 06_manuscript/ijp_spectral_hcp/rendered_finite_time/
 06_manuscript/ijp_spectral_hcp/*.md
+!06_manuscript/ijp_spectral_hcp/IJP_V4_REVISION_AUDIT.md
 06_manuscript/ijp_spectral_hcp/highlights*.txt
 06_manuscript/ijp_spectral_hcp/main.pdf
 06_manuscript/ijp_spectral_hcp/main.tex

@@ -52,6 +52,17 @@ DATA_FILES = (
     "05_results/ijp_singular_vector_nonlinear_validation_v2.json",
     "05_results/ijp_singular_vector_nonlinear_validation_v2.csv",
     "05_results/ijp_singular_vector_nonlinear_validation_v2_fields.npz",
+    "05_results/ijp_revision_evidence_v3.json",
+    "05_results/ijp_revision_evidence_v3_arrays.npz",
+    "05_results/ijp_v3_validation_suite_v1.json",
+    "05_results/ijp_v3_dense_convergence_v1.json",
+    "05_results/ijp_singular_vector_nonlinear_validation_v3.json",
+    "05_results/ijp_singular_vector_nonlinear_validation_v3.csv",
+    "05_results/ijp_singular_vector_nonlinear_validation_v3_fields.npz",
+    "05_results/ijp_v4_full_fourier_convergence_audit_v1.json",
+    "05_results/ijp_v4_full_fourier_convergence_audit_v1.csv",
+    "05_results/ijp_v4_start_branch_metric_audit_v1.json",
+    "05_results/ijp_v4_start_branch_metric_audit_v1.csv",
 )
 
 CODE_FILES = (
@@ -60,6 +71,11 @@ CODE_FILES = (
     "tools/build_ijp_strengthening_evidence_v1.py",
     "tools/run_ijp_singular_vector_nonlinear_validation_v2.py",
     "tools/build_ijp_material_parameter_provenance_v1.py",
+    "tools/build_ijp_revision_evidence_v3.py",
+    "tools/run_ijp_singular_vector_nonlinear_validation_v3.py",
+    "tools/run_ijp_v3_dense_convergence_v1.py",
+    "tools/audit_ijp_v4_full_fourier_convergence_v1.py",
+    "tools/audit_ijp_v4_start_branch_metric_v1.py",
     "tools/build_ijp_reproducibility_release_v1.py",
     "tools/build_ijp_finite_time_discrimination_v1.py",
     "tools/audit_cp_ti_continuous_spectrum_robustness_v1.py",
@@ -92,6 +108,8 @@ CODE_FILES = (
 MANUSCRIPT_FILES = (
     "06_manuscript/ijp_spectral_hcp/main_finite_time.pdf",
     "06_manuscript/ijp_spectral_hcp/main_finite_time.tex",
+    "06_manuscript/ijp_spectral_hcp/main_supplementary.tex",
+    "06_manuscript/ijp_spectral_hcp/bib/references.bib",
     "06_manuscript/ijp_spectral_hcp/sections/ft_introduction.tex",
     "06_manuscript/ijp_spectral_hcp/sections/ft_numerical_methods.tex",
     "06_manuscript/ijp_spectral_hcp/sections/ft_results.tex",
@@ -100,11 +118,17 @@ MANUSCRIPT_FILES = (
     "06_manuscript/ijp_spectral_hcp/sections/ft_model.tex",
     "06_manuscript/ijp_spectral_hcp/appendices/ft_reproducibility.tex",
     "06_manuscript/ijp_spectral_hcp/tables/ft_material_parameter_source_table.tex",
+    "06_manuscript/ijp_spectral_hcp/tables/dyn_nomenclature.tex",
     "06_manuscript/ijp_spectral_hcp/metadata/finite_time_claim_evidence_v2.csv",
     "06_manuscript/ijp_spectral_hcp/figures/fig08_positive_orientation_anchor_audit.pdf",
     "06_manuscript/ijp_spectral_hcp/figures/fig09_operator_consistency_sensitivity.pdf",
     "06_manuscript/ijp_spectral_hcp/figures/fig10_singular_vector_nonlinear_validation.pdf",
+    "06_manuscript/ijp_spectral_hcp/figures/fig05_direction_wavenumber_horizon_map.pdf",
+    "06_manuscript/ijp_spectral_hcp/figures/fig06_counterfactual_mechanism_gradient_controls.pdf",
+    "06_manuscript/ijp_spectral_hcp/figures/fig07_same_window_linear_nonlinear_scale_gate.pdf",
+    "06_manuscript/ijp_spectral_hcp/figures/figS01_full_norm_selector_matrix.pdf",
     "06_manuscript/ijp_spectral_hcp/IJP_STRENGTHENING_AUDIT_V2.md",
+    "06_manuscript/ijp_spectral_hcp/IJP_V4_REVISION_AUDIT.md",
 )
 
 
@@ -341,8 +365,12 @@ def main() -> int:
         "generators, nested Sobol samples, anchor-assisted audit data, and positive controls.\n"
         "- `ijp_operator_consistency_v2.*` records the like-for-like full-state audit, "
         "norm--selector matrix, commutators, modal conditioning and eigenvector rotation.\n"
-        "- `ijp_singular_vector_nonlinear_validation_v2.*` records nonlinear validation "
-        "of the actual near-onset and terminal optimal inputs.\n"
+        "- `ijp_revision_evidence_v3.*` records selector-specific re-optimization, "
+        "matched piecewise freezing, loading transfer and local sensitivity.\n"
+        "- `ijp_v4_full_fourier_convergence_audit_v1.*` records the Nyquist negative "
+        "control and dealiased space--time--integration convergence ladder.\n"
+        "- `ijp_v4_start_branch_metric_audit_v1.*` records start-time, active-set "
+        "switching and recoverable-energy quotient-metric audits.\n"
         "- `optimizer_trajectories.csv` contains every retained objective evaluation for "
         "all independent local-search starts.\n"
         "- `ijp_material_parameter_provenance_v1.csv` distinguishes literature constraints, "
@@ -354,8 +382,9 @@ def main() -> int:
         "- `MANIFEST.sha256` authenticates every packaged file.\n\n"
         "## Claim boundary\n\n"
         "The package supports like-for-like full-state finite-time/frozen discrimination, "
-        "norm--selector robustness and an anchor-assisted direction--wavenumber audit. It does not claim specimen "
-        "calibration, nonlinear material band width, propagation resistance, an analytic "
+        "norm--selector robustness, an anchor-assisted direction--wavenumber audit and "
+        "resolved dealiased finite-band transport. It does not claim specimen "
+        "calibration, nonlinear spectral closure, material band width, propagation resistance, an analytic "
         "global optimum proof, or a strict HCP-to-Bai analytical degeneration.\n\n"
         "## Public repository\n\n"
         "https://github.com/yxlnbu/finite-time-hcp-perturbation\n",

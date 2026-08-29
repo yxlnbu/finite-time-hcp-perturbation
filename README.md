@@ -1,10 +1,10 @@
-# Finite-time perturbation selection in evolving HCP crystal plasticity
+# Finite-time direction--wavenumber selection in evolving HCP crystal plasticity
 
 Public reproducibility materials for the manuscript:
 
-> *Finite-time perturbation selection in evolving HCP crystal plasticity: path-dependent direction, wavelength and mechanism*
+> *Finite-time direction--wavenumber selection in evolving HCP crystal plasticity: exact descriptor reduction and path-dependent amplification*
 
-The repository contains the audited manuscript, machine-readable numerical evidence, the 69-state generator histories, optimal singular vectors, search trajectories, Galerkin/full-Fourier gate receipts, parameter provenance and the scripts needed to reassess the principal claims.
+The repository contains the manuscript source, machine-readable numerical evidence, the 69-state generator histories, optimal singular vectors, search trajectories, Galerkin/dealiased full-grid gate receipts, parameter provenance and the scripts needed to reassess the principal claims.
 
 ## Main findings represented by this release
 
@@ -17,7 +17,8 @@ The repository contains the audited manuscript, machine-readable numerical evide
 - The direction--wavenumber evidence is classified as an **anchor-assisted basin-retention audit**, not an independent global-optimum certificate.
 - Three added rate/temperature paths, four local parameter sensitivities and a bounded Grade-II CP-Ti comparison expose transfer and calibration limits.
 - The mandatory 513-to-1025 history-density audit passes in the declared log-gain objective; the 1025-state terminal constitutive gain is `6.2906e5` at `k = 6.8369e3 m^-1`.
-- A four-mode Galerkin replay reproduces the matching 513-state gains within `0.730%` and `0.223%`, but its terminal discarded-RHS energy gate fails. Retaining every Fourier mode resolvable on the 16-cell grid makes near-onset continuation non-finite for both one and four nonlinear substeps.
+- A raw 16-cell all-mode negative control fails at the even-grid Nyquist coordinate; the matched no-Nyquist control completes at both horizons. Two-thirds-dealiased 16/32/64-cell replays converge in gain, but the primary terminal audit places `84.66%` of instantaneous nonlinear RHS energy above the retained cutoff.
+- Four registered active-set transition intervals have been audited with left-, right- and secant-split propagation conventions; terminal gain varies by at most `0.0617%`. A rank-28 recoverable-energy quotient metric retains large terminal amplification at the released direction and wavenumber.
 - The present theory therefore closes finite-time finite-band **linear selection**, but not complete nonlinear harmonic transfer, mature material width or propagation resistance.
 
 ## Repository layout
@@ -32,7 +33,7 @@ The repository contains the audited manuscript, machine-readable numerical evide
 - `environment/requirements-lock.txt` -- minimal public Python runtime.
 - `05_results/ijp_reproducibility_release_v1.json` -- release checksum and array-contract receipt.
 
-The latest audited manuscript is [`06_manuscript/ijp_spectral_hcp/main_finite_time.pdf`](06_manuscript/ijp_spectral_hcp/main_finite_time.pdf).
+The latest revision is the LaTeX source [`06_manuscript/ijp_spectral_hcp/main_finite_time.tex`](06_manuscript/ijp_spectral_hcp/main_finite_time.tex). The committed PDF is the preceding build and must not be treated as the V4 revision until the source is explicitly recompiled.
 
 ## Quick verification
 
@@ -42,7 +43,7 @@ Python 3.11 or newer is required.
 python -m venv .venv
 python -m pip install -r environment/requirements-lock.txt
 python -m pip install -e .
-python -m pytest tests/test_ijp_operator_consistency_v2.py tests/test_ijp_singular_vector_nonlinear_validation_v2.py tests/test_ijp_revision_evidence_v3.py -q
+python -m pytest -q
 ```
 
 Rebuild the like-for-like operator, norm and mechanism evidence with:
@@ -57,7 +58,8 @@ The V3 re-optimization, density ladder and nonlinear audits are intentionally mo
 python tools/build_ijp_revision_evidence_v3.py
 python tools/run_ijp_singular_vector_nonlinear_validation_v3.py
 python tools/run_ijp_v3_dense_convergence_v1.py
-python tools/audit_ijp_v3_full_fourier_nonlinear_v1.py
+python tools/audit_ijp_v4_full_fourier_convergence_v1.py
+python tools/audit_ijp_v4_start_branch_metric_v1.py
 ```
 
 The factor-128 context cache is intentionally not versioned because it exceeds GitHub's per-file limit; `run_ijp_v3_dense_convergence_v1.py` rebuilds it and verifies its SHA-256 manifest locally.

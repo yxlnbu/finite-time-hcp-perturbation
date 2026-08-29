@@ -2235,7 +2235,7 @@
   "runtime": {
     "numpy": "2.4.3",
     "python": "3.12.10",
-    "wall_time_s": 6.2912016000191215
+    "wall_time_s": 5.604897700017318
   },
   "schema": "IJP_OPERATOR_CONSISTENCY_NORM_MECHANISM_V2",
   "source": "05_results/ijp_strengthening_evidence_v1_arrays.npz",

@@ -74,6 +74,7 @@ MODE = 1
 RETAINED_MODES = tuple(range(4))
 LINEAR_SUBSTEPS = 1
 NONLINEAR_SUBSTEPS = 1
+NONLINEAR_SCHEME = "exponential_midpoint"
 TARGET_FINAL_DIMENSIONLESS_NORM = 1.0e-3
 GAIN_ERROR_GATE = 0.02
 OUTPUT_VECTOR_ERROR_GATE = 0.03
@@ -197,6 +198,7 @@ def execute_role(
     spectral: Any,
     admission: Any,
     scales: np.ndarray,
+    amplitude_multipliers: tuple[float, ...] = (0.5, 1.0),
 ) -> tuple[dict[str, Any], list[dict[str, Any]], list[np.ndarray]]:
     role_started = time.perf_counter()
     direction = np.asarray(contract["direction_n"], dtype=float)
@@ -215,7 +217,13 @@ def execute_role(
     physical_mode = scales * vector
     admissible = maximum_admissible_amplitude(base, physical_mode)
     high = min(0.25 * admissible, TARGET_FINAL_DIMENSIONLESS_NORM / predicted_gain)
-    amplitudes = (0.5 * high, high)
+    multipliers = tuple(float(value) for value in amplitude_multipliers)
+    require(
+        bool(multipliers)
+        and all(np.isfinite(value) and 0.0 < value <= 1.0 for value in multipliers),
+        "amplitude multipliers must lie in (0,1]",
+    )
+    amplitudes = tuple(value * high for value in multipliers)
     require(high > 0.0, f"{role} has no positive small amplitude")
 
     domain_length = float(2.0 * np.pi * MODE / k_m_inv)
@@ -266,6 +274,7 @@ def execute_role(
             scaled_generator=scaled_generator,
             retained_nonnegative_modes=RETAINED_MODES,
             integration_substeps_per_interval=NONLINEAR_SUBSTEPS,
+            integration_scheme=NONLINEAR_SCHEME,
             end_index=end_index,
         )
         final = np.asarray(integrated["active_delta"], dtype=float)
@@ -307,8 +316,11 @@ def execute_role(
         records.append(record)
         final_fields.append(final)
 
-    collapse = abs(records[1]["measured_nonlinear_gain"] - records[0]["measured_nonlinear_gain"]) / max(
-        abs(records[0]["measured_nonlinear_gain"]), TINY
+    collapse = (
+        abs(records[-1]["measured_nonlinear_gain"] - records[0]["measured_nonlinear_gain"])
+        / max(abs(records[0]["measured_nonlinear_gain"]), TINY)
+        if len(records) >= 2
+        else None
     )
     summary = {
         **contract,
@@ -321,6 +333,7 @@ def execute_role(
         "domain_length_m": domain_length,
         "linear_substeps_per_interval": LINEAR_SUBSTEPS,
         "nonlinear_substeps_per_interval": NONLINEAR_SUBSTEPS,
+        "nonlinear_integration_scheme": NONLINEAR_SCHEME,
         "predicted_linear_gain": predicted_gain,
         "admissible_amplitude_ceiling": admissible,
         "tested_amplitudes": list(amplitudes),
@@ -364,10 +377,10 @@ def write_table(records: list[dict[str, Any]]) -> None:
 def make_figure(records: list[dict[str, Any]], roles: dict[str, Any]) -> None:
     plt.rcParams.update(
         {
-            "font.size": 8.8,
-            "axes.labelsize": 9.2,
-            "axes.titlesize": 9.5,
-            "legend.fontsize": 8.0,
+            "font.size": 10.0,
+            "axes.labelsize": 10.2,
+            "axes.titlesize": 10.4,
+            "legend.fontsize": 9.0,
             "savefig.dpi": 320,
             "axes.spines.top": False,
             "axes.spines.right": False,
@@ -377,7 +390,7 @@ def make_figure(records: list[dict[str, Any]], roles: dict[str, Any]) -> None:
     x = np.arange(len(records))
     predicted = [item["predicted_linear_gain"] for item in records]
     measured = [item["measured_nonlinear_gain"] for item in records]
-    fig, axes = plt.subplots(1, 3, figsize=(7.45, 3.05))
+    fig, axes = plt.subplots(1, 3, figsize=(8.2, 3.45))
     ax = axes[0]
     width = 0.38
     ax.bar(x - width / 2, predicted, width, label="linear")
@@ -418,7 +431,7 @@ def make_figure(records: list[dict[str, Any]], roles: dict[str, Any]) -> None:
             f"{value:.1e}",
             ha="center",
             va="bottom",
-            fontsize=7.5,
+            fontsize=8.6,
         )
     fig.tight_layout()
     FIGURE_STEM.parent.mkdir(parents=True, exist_ok=True)

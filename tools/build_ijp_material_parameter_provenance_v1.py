@@ -43,12 +43,19 @@ SOURCES = {
         "doi:10.1016/S1359-6454(99)00203-7; grouped alpha-Ti crystal/dynamic-loading constraint."
     ),
     "S2": (
-        "NIST-JANAF alpha-Ti table / NIST Chemistry WebBook Shomate heat-capacity "
-        "coefficients, admitted over 298--700 K."
+        "NIST Chemistry WebBook, SRD 69, Titanium (CAS 7440-32-6), solid alpha-phase "
+        "Shomate heat-capacity coefficients for 298--700 K; Chase, M. W., Jr., "
+        "NIST-JANAF Thermochemical Tables, Fourth Edition, J. Phys. Chem. Ref. Data "
+        "Monograph 9 (1998), 1--1951; "
+        "https://webbook.nist.gov/cgi/cbook.cgi?ID=C7440326&Mask=2202&Units=CAL, "
+        "accessed 2026-08-30."
     ),
     "S3": (
-        "Touloukian/TPRC selected thermal-conductivity value for annealed high-purity "
-        "titanium near 300 K, as registered in the material card."
+        "International Atomic Energy Agency, Thermophysical Properties of Materials "
+        "for Nuclear Engineering: A Tutorial and Collection of Data, IAEA, Vienna "
+        "(2008), IAEA-THPH, ISBN 978-92-0-106508-7, Table 1.2 (Ti: 21.9 W m^-1 K^-1 "
+        "at 300 K); https://www-pub.iaea.org/MTCD/Publications/PDF/IAEA-THPH_web.pdf, "
+        "accessed 2026-08-30."
     ),
     "S4": (
         "Dai, L. and Song, W., A strain rate and temperature-dependent crystal "
@@ -64,7 +71,7 @@ SOURCES = {
         "b7ced9294e7d17ba64b5c2eaf843be5eb4defbcfe480bbb04bce1fb8612c124a) "
         "and config/cp_ti_grade1_dynamic_hcp_v1.json (schema V1, SHA-256 "
         "586dd4ed43509aa045f9fe87524b2df51fbd07817853c497ac8c6ad4c082df5d), "
-        "accessed 2026-08-29. The seed remains watermarked "
+        "accessed 2026-08-30. The seed remains watermarked "
         "VERIFICATION_SEED_NOT_CALIBRATED_FOR_TA2."
     ),
     "S6": (

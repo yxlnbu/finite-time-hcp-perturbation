@@ -1,5 +1,9 @@
 # IJP finite-time crystal-perturbation strengthening audit V2
 
+> Historical V2 audit retained for traceability. The current disposition,
+> including the localized Nyquist control and V4 convergence evidence, is
+> `IJP_V4_REVISION_AUDIT.md`.
+
 ## Decision
 
 The requested strengthening actions have been implemented at the level needed for the manuscript's **like-for-like full-state finite-time versus frozen discrimination claim**. The evidence does not close, and the manuscript does not claim, specimen calibration, an independent global optimum, nonlinear band width or propagation resistance, or a strict analytical HCP-to-Bai degeneration.

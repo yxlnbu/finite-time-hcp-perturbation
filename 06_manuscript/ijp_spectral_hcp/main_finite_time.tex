@@ -19,36 +19,36 @@
 
 \begin{frontmatter}
 
-\title{Finite-time perturbation selection in evolving HCP crystal plasticity: path-dependent direction, wavelength and mechanism}
+\title{Finite-time direction--wavenumber selection in evolving HCP crystal plasticity: exact descriptor reduction and path-dependent amplification}
 
 \author{[Author names and affiliations to be supplied]}
 
 \begin{abstract}
-Frozen adiabatic-shear analyses rank instantaneous roots but cannot identify
-which crystal-resolved disturbance wins along an evolving loading path.  We
-pose this finite-time selection problem for an 18-slip HCP crystal.  Fourier
-linearization gives an 84-coordinate differential--algebraic descriptor;
-exact elimination of 18 micromorphic fields yields a nonsingular 69-state
-generator.  A time-ordered propagator selects direction and wavenumber for
-seven input--output maps.  Stationary and commuting-normal controls recover
-frozen-spectrum equality, whereas HCP paths depart through non-normality,
-eigenvector rotation and chronology.  Re-optimization under five norms
-separates compact-domain elastic waves from interior constitutive-localization
-maxima; the terminal constitutive map selects
-$k=6.84\times10^3~\mathrm{m^{-1}}$ and converged gain
-$6.29\times10^5$.  Same-selector piecewise-frozen products converge to the
-ordered map.  Three added rate/temperature paths and four local parameter
-perturbations preserve the terminal basin but expose scale sensitivity.  A
-four-mode Galerkin replay reproduces both optimized vectors at small
-amplitude, but full-Fourier nonlinear continuation becomes non-finite.
-Synchronized Grade-II titanium data retain only qualitative
-stress-before-temperature ordering, not timing or magnitude.  The framework
-therefore closes finite-time linear selection; mature width, calibration and
-propagation resistance remain open.
+Frozen adiabatic-shear analyses rank instantaneous roots but do not identify
+which crystal-resolved disturbance is amplified most along an evolving path.
+We formulate this finite-time selection problem for an 18-slip HCP crystal.
+Fourier linearization gives an 84-coordinate differential--algebraic
+descriptor; exact elimination of 18 micromorphic fields yields a nonsingular
+69-state generator.  A time-ordered propagator selects direction and
+wavenumber for seven input--output maps.  Stationary and commuting-normal
+controls recover frozen-spectrum equality under its sufficient conditions;
+HCP paths depart because of non-normality, eigenvector rotation and chronology.
+Seventy selector--norm--horizon optimizations separate high-frequency elastic
+boundary branches from interior constitutive-response maxima; the baseline
+terminal constitutive map selects $k=6.84\times10^3~\mathrm{m^{-1}}$ and gain
+$6.29\times10^5$.  The basin transfers across three added loading paths and
+four local parameter perturbations.  Dealiased 16/32/64-cell replays converge
+in gain, with the 32-to-64-cell change below $1.4\times10^{-7}$; independent
+time-step and integration-format ladders also agree.  However, the primary
+terminal audit places 84.7\% of the instantaneous right-hand-side energy
+above the retained cutoff, so nonlinear spectral closure remains open.  The
+titanium-like card is therefore a verification seed.  The framework closes
+selector-dependent finite-time linear selection, not material band width,
+calibrated dissipation or propagation resistance.
 \end{abstract}
 
 \begin{keyword}
-adiabatic shear localization \sep HCP crystal plasticity \sep finite-time propagator \sep non-normal amplification \sep dislocation density \sep wavelength selection
+adiabatic shear localization \sep HCP crystal plasticity \sep descriptor systems \sep finite-time propagator \sep non-normal amplification \sep direction--wavenumber selection
 \end{keyword}
 
 \end{frontmatter}
@@ -67,7 +67,7 @@ adiabatic shear localization \sep HCP crystal plasticity \sep finite-time propag
 \input{sections/ft_conclusions}
 
 \section*{Data and code availability}
-The public reproducibility repository is available at \url{https://github.com/yxlnbu/finite-time-hcp-perturbation}. It contains the machine-readable base histories, all 129 complex generators for every reported baseline branch, complete singular vectors and spectra, full-state/projected operator receipts, the fixed 11-by-7 matrix, selector-specific optimization traces, piecewise-frozen controls, loading and parameter-transfer tables, Galerkin replay fields, the 1025-state density receipt, the failed full-Fourier audit, literature-digitization landmarks, parameter provenance and the locked runtime environment. V3 contracts are recorded in \path{05_results/ijp_revision_evidence_v3.json}, \path{05_results/ijp_v3_validation_suite_v1.json} and \path{05_results/ijp_v3_full_fourier_nonlinear_audit_v1.json}; release checksums and array contracts are recorded in \path{05_results/ijp_reproducibility_release_v1.json}. Selection of a reuse license and deposition under a persistent DOI remain to be completed before submission.
+The public reproducibility repository is available at \url{https://github.com/yxlnbu/finite-time-hcp-perturbation}. It contains the machine-readable base histories, all 129 complex generators for every reported baseline branch, complete singular vectors and spectra, full-state/projected operator receipts, the fixed 11-by-7 matrix, selector-specific optimization traces, piecewise-frozen controls, loading and parameter-transfer tables, Galerkin replay fields, literature-digitization landmarks, parameter provenance and the locked runtime environment. V3 operator and search contracts are recorded in \path{05_results/ijp_revision_evidence_v3.json} and \path{05_results/ijp_v3_validation_suite_v1.json}. The independent full-grid convergence and first-failure receipt is \path{05_results/ijp_v4_full_fourier_convergence_audit_v1.json}; the start-time, branch-convention and physical-metric receipt is \path{05_results/ijp_v4_start_branch_metric_audit_v1.json}. The release builder now registers these V4 files; the earlier V1 archive receipt remains \path{05_results/ijp_reproducibility_release_v1.json} and will be regenerated only after the revised manuscript PDF is explicitly compiled. Selection of a reuse license and deposition under a persistent DOI remain to be completed before submission.
 
 \section*{Declaration of competing interest}
 The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work: \textbf{[to be confirmed by all authors]}.

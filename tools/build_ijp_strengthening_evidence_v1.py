@@ -1030,12 +1030,12 @@ def make_figure(
 ) -> None:
     plt.rcParams.update(
         {
-            "font.size": 10.2,
-            "axes.labelsize": 10.5,
-            "axes.titlesize": 10.8,
-            "legend.fontsize": 8.8,
-            "xtick.labelsize": 9.2,
-            "ytick.labelsize": 9.2,
+            "font.size": 11.4,
+            "axes.labelsize": 11.6,
+            "axes.titlesize": 11.8,
+            "legend.fontsize": 9.6,
+            "xtick.labelsize": 10.2,
+            "ytick.labelsize": 10.2,
             "axes.spines.top": False,
             "axes.spines.right": False,
             "savefig.dpi": 320,
@@ -1127,7 +1127,9 @@ def make_figure(
     ax.set_xlabel("nested Sobol samples")
     ax.set_ylabel("maximum finite-time log gain")
     ax.set_title("(c) Anchor-assisted search convergence")
-    ax.legend(frameon=False, ncol=2)
+    # The four long labels overrun the left margin in a two-column legend.
+    # Keep them inside the otherwise empty middle of the panel.
+    ax.legend(frameon=False, ncol=1, loc="center")
     ax.grid(True, alpha=0.22)
 
     ax = axes[1, 1]

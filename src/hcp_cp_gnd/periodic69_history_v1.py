@@ -52,6 +52,32 @@ PASSIVE_STORED_ENERGY = 20
 N_PASSIVE_HISTORY = 21
 
 
+def _generator_component_name(index: int) -> str:
+    """Return the registered physical block for one 69-state coordinate."""
+
+    value = int(index)
+    for name, part in (
+        ("displacement", GENERATOR_U_SLICE),
+        ("velocity", GENERATOR_V_SLICE),
+        ("temperature", GENERATOR_T_SLICE),
+        ("plastic_chart", GENERATOR_THETA_SLICE),
+        ("mobile_dislocation_density", GENERATOR_RHO_MOBILE_SLICE),
+        ("dipole_dislocation_density", GENERATOR_RHO_DIPOLE_SLICE),
+        ("signed_slip", GENERATOR_GAMMA_SLICE),
+    ):
+        if value in range(*part.indices(N_GENERATOR)):
+            return name
+    return "unknown"
+
+
+class Periodic69IntegrationFailure(FloatingPointError):
+    """Structured first-failure record for nonlinear Fourier integration."""
+
+    def __init__(self, message: str, diagnostics: dict[str, Any]) -> None:
+        super().__init__(message)
+        self.diagnostics = dict(diagnostics)
+
+
 def _finite(value: Any, shape: tuple[int, ...], name: str) -> RealArray:
     result = np.asarray(value, dtype=np.float64)
     if result.shape != shape or not np.all(np.isfinite(result)):
@@ -592,6 +618,7 @@ class Periodic69HistoryV1:
         retained_nonnegative_modes: Sequence[int],
         initial_passive_delta: Any | None = None,
         integration_substeps_per_interval: int = 1,
+        integration_scheme: str = "exponential_midpoint",
         end_index: int | None = None,
         enforce_state92_admissibility: bool = False,
         checkpoint_monitor: Callable[
@@ -641,6 +668,11 @@ class Periodic69HistoryV1:
         ):
             raise ValueError("integration substeps must be a positive integer")
         substeps = int(integration_substeps_per_interval)
+        scheme = str(integration_scheme).strip().lower()
+        if scheme not in {"exponential_midpoint", "lawson_euler"}:
+            raise ValueError(
+                "integration_scheme must be exponential_midpoint or lawson_euler"
+            )
         stop = len(self.base_times_s) - 1 if end_index is None else int(end_index)
         if stop < 1 or stop >= len(self.base_times_s):
             raise ValueError("end_index must identify a noninitial base checkpoint")
@@ -664,7 +696,79 @@ class Periodic69HistoryV1:
         monitor_records: list[dict[str, Any]] = []
         stop_reason: str | None = None
         actual_stop = 0
+        current_interval = 0
+        current_substep = 0
+        current_fraction = 0.0
         self.spectral_model._verify_configuration()
+
+        def failure_diagnostics(
+            stage: str,
+            *,
+            field_hat: np.ndarray | None = None,
+            active_dimensionless: np.ndarray | None = None,
+            passive: np.ndarray | None = None,
+        ) -> dict[str, Any]:
+            diagnostics_record: dict[str, Any] = {
+                "interval": int(current_interval),
+                "substep": int(current_substep),
+                "fraction": float(current_fraction),
+                "time_s": float(
+                    (1.0 - current_fraction) * self.base_times_s[current_interval]
+                    + current_fraction * self.base_times_s[current_interval + 1]
+                ),
+                "stage": str(stage),
+                "integration_scheme": scheme,
+                "cells": int(self.cells),
+            }
+            if field_hat is not None:
+                coefficients = np.asarray(field_hat, dtype=np.complex128)
+                magnitudes = np.abs(coefficients)
+                flat = int(np.nanargmax(np.nan_to_num(magnitudes, nan=np.inf)))
+                fft_index, component = np.unravel_index(flat, magnitudes.shape)
+                nonnegative = min(int(fft_index), int(self.cells - fft_index))
+                diagnostics_record.update(
+                    {
+                        "dominant_fft_index": int(fft_index),
+                        "dominant_nonnegative_mode": nonnegative,
+                        "dominant_wavenumber_m_inv": float(
+                            2.0 * np.pi * nonnegative / self.domain_length_m
+                        ),
+                        "dominant_state_index": int(component),
+                        "dominant_state_group": _generator_component_name(component),
+                        "dominant_fourier_magnitude": float(magnitudes[fft_index, component]),
+                    }
+                )
+            if active_dimensionless is not None:
+                values = np.asarray(active_dimensionless, dtype=float)
+                finite_values = np.nan_to_num(np.abs(values), nan=np.inf, posinf=np.inf, neginf=np.inf)
+                flat = int(np.argmax(finite_values))
+                cell, component = np.unravel_index(flat, values.shape)
+                diagnostics_record.update(
+                    {
+                        "dominant_cell": int(cell),
+                        "dominant_state_index": int(component),
+                        "dominant_state_group": _generator_component_name(component),
+                        "dominant_dimensionless_state_magnitude": float(finite_values[cell, component]),
+                    }
+                )
+                spectrum = np.fft.fft(np.nan_to_num(values), axis=0)
+                spectral_energy = np.sum(np.abs(spectrum) ** 2, axis=1)
+                fft_index = int(np.argmax(spectral_energy))
+                nonnegative = min(fft_index, self.cells - fft_index)
+                diagnostics_record.update(
+                    {
+                        "dominant_fft_index": fft_index,
+                        "dominant_nonnegative_mode": nonnegative,
+                        "dominant_wavenumber_m_inv": float(
+                            2.0 * np.pi * nonnegative / self.domain_length_m
+                        ),
+                    }
+                )
+            if passive is not None:
+                diagnostics_record["passive_state_finite"] = bool(
+                    np.all(np.isfinite(passive))
+                )
+            return diagnostics_record
 
         def enforce(
             interval: int,
@@ -750,35 +854,38 @@ class Periodic69HistoryV1:
                 result[fft_index] = matrix @ field_hat[fft_index]
             return result
 
-        def enforce_conjugate_symmetry(field_hat: np.ndarray) -> np.ndarray:
+        def enforce_conjugate_symmetry(
+            field_hat: np.ndarray, stage: str
+        ) -> np.ndarray:
             """Project Fourier coefficients onto the real-field subspace."""
 
             nonlocal maximum_fourier_conjugacy_relative_defect
             projected = np.asarray(field_hat, dtype=np.complex128).copy()
             scale = max(float(np.max(np.abs(projected), initial=0.0)), 1.0)
-            defect = float(np.max(np.abs(projected[0].imag), initial=0.0))
+            zero_defects = np.abs(projected[0].imag)
+            component = int(np.argmax(zero_defects))
+            defect = float(zero_defects[component])
+            defect_mode = 0
+            defect_component = component
             projected[0] = projected[0].real
             if self.cells % 2 == 0:
-                defect = max(
-                    defect,
-                    float(
-                        np.max(
-                            np.abs(projected[self.cells // 2].imag), initial=0.0
-                        )
-                    ),
-                )
+                nyquist_defects = np.abs(projected[self.cells // 2].imag)
+                nyquist_component = int(np.argmax(nyquist_defects))
+                nyquist_defect = float(nyquist_defects[nyquist_component])
+                if nyquist_defect > defect:
+                    defect = nyquist_defect
+                    defect_mode = self.cells // 2
+                    defect_component = nyquist_component
                 projected[self.cells // 2] = projected[self.cells // 2].real
             for index in range(1, (self.cells + 1) // 2):
                 partner = self.cells - index
-                defect = max(
-                    defect,
-                    float(
-                        np.max(
-                            np.abs(projected[partner] - projected[index].conj()),
-                            initial=0.0,
-                        )
-                    ),
-                )
+                pair_defects = np.abs(projected[partner] - projected[index].conj())
+                pair_component = int(np.argmax(pair_defects))
+                pair_defect = float(pair_defects[pair_component])
+                if pair_defect > defect:
+                    defect = pair_defect
+                    defect_mode = index
+                    defect_component = pair_component
                 average = 0.5 * (projected[index] + projected[partner].conj())
                 projected[index] = average
                 projected[partner] = average.conj()
@@ -787,19 +894,37 @@ class Periodic69HistoryV1:
                 maximum_fourier_conjugacy_relative_defect, relative
             )
             if relative > 1.0e-7:
-                raise FloatingPointError(
-                    "integrating factor Fourier conjugacy defect exceeded 1e-7"
+                record = failure_diagnostics(stage, field_hat=field_hat)
+                record.update(
+                    {
+                        "conjugacy_defect_relative": relative,
+                        "conjugacy_defect_nonnegative_mode": int(defect_mode),
+                        "conjugacy_defect_wavenumber_m_inv": float(
+                            2.0 * np.pi * defect_mode / self.domain_length_m
+                        ),
+                        "conjugacy_defect_state_index": int(defect_component),
+                        "conjugacy_defect_state_group": _generator_component_name(
+                            defect_component
+                        ),
+                    }
+                )
+                raise Periodic69IntegrationFailure(
+                    "integrating factor Fourier conjugacy defect exceeded 1e-7",
+                    record,
                 )
             return projected
 
         z = q / scales[None, :]
         for interval in range(stop):
+            current_interval = interval
             substep_dt = (
                 self.base_times_s[interval + 1] - self.base_times_s[interval]
             ) / substeps
             for substep in range(substeps):
+                current_substep = substep
                 left_fraction = substep / substeps
                 midpoint_fraction = (substep + 0.5) / substeps
+                current_fraction = left_fraction
                 q_left = z * scales[None, :]
                 enforce(interval, left_fraction, q_left, h)
                 left_frame = self.base_frame(interval, left_fraction)
@@ -821,47 +946,70 @@ class Periodic69HistoryV1:
                 nonlinear_left_hat = rate_left_hat - linear_action(
                     z_hat, interval, left_fraction
                 )
-                stage_hat = exponential_action(
-                    z_hat + 0.5 * substep_dt * nonlinear_left_hat,
-                    interval,
-                    midpoint_fraction,
-                    0.5 * substep_dt,
-                )
-                stage_hat = enforce_conjugate_symmetry(stage_hat)
-                z_mid_complex = np.fft.ifft(stage_hat, axis=0)
-                imaginary = float(np.max(np.abs(z_mid_complex.imag), initial=0.0))
-                if imaginary > 2.0e-10 * max(float(np.max(np.abs(z_mid_complex.real), initial=0.0)), 1.0):
-                    raise FloatingPointError("integrating factor lost Fourier conjugate symmetry")
-                z_mid = z_mid_complex.real
-                h_mid = h + 0.5 * substep_dt * h_rate_left
-                h_mid[:, PASSIVE_STORED_ENERGY] = (
-                    h_mid[:, PASSIVE_CP_WORK] - h_mid[:, PASSIVE_GENERATED_HEAT]
-                )
-                enforce(
-                    interval,
-                    midpoint_fraction,
-                    z_mid * scales[None, :],
-                    h_mid,
-                    reference_gamma,
-                    reference_Gamma,
-                )
-                q_rate_mid, h_rate_mid = self.rhs(
-                    interval,
-                    midpoint_fraction,
-                    z_mid * scales[None, :],
-                    h_mid,
-                    diagnostics,
-                )
-                rate_mid_hat = np.fft.fft(
-                    q_rate_mid / scales[None, :], axis=0
-                )
-                nonlinear_mid_hat = rate_mid_hat - linear_action(
-                    stage_hat, interval, midpoint_fraction
-                )
-                total_rhs_energy = float(np.sum(np.abs(rate_mid_hat) ** 2))
+                if scheme == "exponential_midpoint":
+                    current_fraction = midpoint_fraction
+                    stage_hat = exponential_action(
+                        z_hat + 0.5 * substep_dt * nonlinear_left_hat,
+                        interval,
+                        midpoint_fraction,
+                        0.5 * substep_dt,
+                    )
+                    stage_hat = enforce_conjugate_symmetry(stage_hat, "midpoint_stage")
+                    z_mid_complex = np.fft.ifft(stage_hat, axis=0)
+                    imaginary = float(np.max(np.abs(z_mid_complex.imag), initial=0.0))
+                    if imaginary > 2.0e-10 * max(float(np.max(np.abs(z_mid_complex.real), initial=0.0)), 1.0):
+                        raise Periodic69IntegrationFailure(
+                            "integrating factor lost Fourier conjugate symmetry",
+                            failure_diagnostics("midpoint_ifft", field_hat=stage_hat),
+                        )
+                    z_mid = z_mid_complex.real
+                    h_mid = h + 0.5 * substep_dt * h_rate_left
+                    h_mid[:, PASSIVE_STORED_ENERGY] = (
+                        h_mid[:, PASSIVE_CP_WORK] - h_mid[:, PASSIVE_GENERATED_HEAT]
+                    )
+                    enforce(
+                        interval,
+                        midpoint_fraction,
+                        z_mid * scales[None, :],
+                        h_mid,
+                        reference_gamma,
+                        reference_Gamma,
+                    )
+                    q_rate_update, h_rate_update = self.rhs(
+                        interval,
+                        midpoint_fraction,
+                        z_mid * scales[None, :],
+                        h_mid,
+                        diagnostics,
+                    )
+                    rate_update_hat = np.fft.fft(
+                        q_rate_update / scales[None, :], axis=0
+                    )
+                    nonlinear_update_hat = rate_update_hat - linear_action(
+                        stage_hat, interval, midpoint_fraction
+                    )
+                    z_new_hat = exponential_action(
+                        z_hat, interval, midpoint_fraction, substep_dt
+                    ) + substep_dt * exponential_action(
+                        nonlinear_update_hat,
+                        interval,
+                        midpoint_fraction,
+                        0.5 * substep_dt,
+                    )
+                else:
+                    current_fraction = left_fraction
+                    rate_update_hat = rate_left_hat
+                    h_rate_update = h_rate_left
+                    z_new_hat = exponential_action(
+                        z_hat + substep_dt * nonlinear_left_hat,
+                        interval,
+                        midpoint_fraction,
+                        substep_dt,
+                    )
+                total_rhs_energy = float(np.sum(np.abs(rate_update_hat) ** 2))
                 discarded_rhs_energy = float(
                     sum(
-                        np.sum(np.abs(rate_mid_hat[index]) ** 2)
+                        np.sum(np.abs(rate_update_hat[index]) ** 2)
                         for index in range(self.cells)
                         if index not in retained_indices
                     )
@@ -871,21 +1019,17 @@ class Periodic69HistoryV1:
                         maximum_discarded_rhs_fraction,
                         discarded_rhs_energy / total_rhs_energy,
                     )
-                z_new_hat = exponential_action(
-                    z_hat, interval, midpoint_fraction, substep_dt
-                ) + substep_dt * exponential_action(
-                    nonlinear_mid_hat,
-                    interval,
-                    midpoint_fraction,
-                    0.5 * substep_dt,
-                )
-                z_new_hat = enforce_conjugate_symmetry(z_new_hat)
+                current_fraction = (substep + 1.0) / substeps
+                z_new_hat = enforce_conjugate_symmetry(z_new_hat, "completed_step")
                 z_complex = np.fft.ifft(z_new_hat, axis=0)
                 imaginary = float(np.max(np.abs(z_complex.imag), initial=0.0))
                 if imaginary > 2.0e-10 * max(float(np.max(np.abs(z_complex.real), initial=0.0)), 1.0):
-                    raise FloatingPointError("integrating factor lost Fourier conjugate symmetry")
+                    raise Periodic69IntegrationFailure(
+                        "integrating factor lost Fourier conjugate symmetry",
+                        failure_diagnostics("completed_step_ifft", field_hat=z_new_hat),
+                    )
                 z = z_complex.real
-                h += substep_dt * h_rate_mid
+                h += substep_dt * h_rate_update
                 h[:, PASSIVE_STORED_ENERGY] = (
                     h[:, PASSIVE_CP_WORK] - h[:, PASSIVE_GENERATED_HEAT]
                 )
@@ -899,7 +1043,14 @@ class Periodic69HistoryV1:
                     reference_Gamma,
                 )
                 if not np.all(np.isfinite(z)) or not np.all(np.isfinite(h)):
-                    raise FloatingPointError("non-autonomous history integration became non-finite")
+                    raise Periodic69IntegrationFailure(
+                        "non-autonomous history integration became non-finite",
+                        failure_diagnostics(
+                            "completed_step_state",
+                            active_dimensionless=z,
+                            passive=h,
+                        ),
+                    )
             actual_stop = interval + 1
             observe(actual_stop, z * scales[None, :], h)
             if stop_condition is not None:
@@ -919,7 +1070,12 @@ class Periodic69HistoryV1:
             "completed_requested_history": actual_stop == stop,
             "stop_reason": stop_reason,
             "integration_substeps_per_interval": substeps,
-            "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+            "integration_method": (
+                "registered_tangent_exponential_midpoint_with_nonlinear_remainder"
+                if scheme == "exponential_midpoint"
+                else "registered_tangent_lawson_euler_with_nonlinear_remainder"
+            ),
+            "integration_scheme": scheme,
             "state92_admissibility_enforced": bool(enforce_state92_admissibility),
             "maximum_Gamma_projection": maximum_Gamma_projection,
             "total_Gamma_projection_l1": total_Gamma_projection_l1,
@@ -934,6 +1090,7 @@ class Periodic69HistoryV1:
 
 __all__ = [
     "HistoryDiagnosticsV1",
+    "Periodic69IntegrationFailure",
     "N_PASSIVE_HISTORY",
     "PASSIVE_CP_WORK",
     "PASSIVE_GAMMA_ABSOLUTE_SLICE",

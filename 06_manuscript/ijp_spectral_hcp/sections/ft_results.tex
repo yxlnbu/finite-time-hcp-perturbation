@@ -17,7 +17,7 @@ These checks do not establish a strict analytical limit from the 18-slip HCP ope
 
 \subsection{The base path evolves through distinct constitutive regimes}
 
-The homogeneous path is far from a stationary linearization (Fig.~\ref{fig:ft_base_state}). First Piola shear stress rises from $176.0~\mathrm{MPa}$ at $0.5~\mu\mathrm s$ to a peak of $565.7~\mathrm{MPa}$ at $2~\mu\mathrm s$, then decreases to $431.8~\mathrm{MPa}$ at $140~\mu\mathrm s$. Over the same interval, temperature rises from $293.15$ to $548.83~\mathrm K$ and accumulated absolute slip reaches 1.388. Total mobile density grows from $2.88\times10^{13}$ to $2.04\times10^{14}~\mathrm{m^{-2}}$, while total dipole density grows from $1.80\times10^{11}$ to $1.95\times10^{14}~\mathrm{m^{-2}}$. Prismatic $\langle a\rangle$ slip remains the dominant family, but the resistance, rate, thermal and density tangent blocks change substantially. The accumulated crystal-plastic power ledger is $6.76\times10^8~\mathrm{J\,m^{-3}}$ at the terminal state, partitioned into $6.08\times10^8~\mathrm{J\,m^{-3}}$ generated heat and a $6.76\times10^7~\mathrm{J\,m^{-3}}$ passive nonthermal remainder. The latter is not interpreted as an identified dislocation free energy. This evolving base path supplies the nonautonomous operator tested below.
+The homogeneous path is far from a stationary linearization (Fig.~\ref{fig:ft_base_state}). First Piola shear stress rises from $176.0~\mathrm{MPa}$ at $0.5~\mu\mathrm s$ to a peak of $565.7~\mathrm{MPa}$ at $2~\mu\mathrm s$, then decreases to $431.8~\mathrm{MPa}$ at $140~\mu\mathrm s$. Over the same interval, temperature rises from $293.15$ to $548.83~\mathrm K$ and accumulated absolute slip reaches 1.388. Total mobile density grows from $2.88\times10^{13}$ to $2.04\times10^{14}~\mathrm{m^{-2}}$, while total dipole density grows from $1.80\times10^{11}$ to $1.95\times10^{14}~\mathrm{m^{-2}}$. Prismatic $\langle a\rangle$ slip remains the dominant family, but the resistance, rate, thermal and density tangent blocks change substantially. Four adjacent checkpoint intervals contain registered slip-activity transitions, so the generator history is piecewise smooth rather than globally smooth. The accumulated crystal-plastic power ledger is $6.76\times10^8~\mathrm{J\,m^{-3}}$ at the terminal state, partitioned into $6.08\times10^8~\mathrm{J\,m^{-3}}$ generated heat and a $6.76\times10^7~\mathrm{J\,m^{-3}}$ passive nonthermal remainder. The latter is not interpreted as an identified dislocation free energy. This evolving base path supplies the nonautonomous operator tested below.
 
 \begin{figure}[t]
 \centering
@@ -66,7 +66,7 @@ mechanical/mechanical and mechanical/constitutive. Constitutive/full and
 constitutive/temperature instead select the branch labelled terminal-$y$ even
 at the near-onset horizon. At the terminal horizon, terminal-$y$ wins every
 tested selector except mechanical/mechanical, which selects onset-$x$. The
-three registered branches is therefore robust to the norm perturbations,
+three registered branches are therefore robust to the norm perturbations,
 while the complete matrix demonstrates that changing what is allowed at input
 or measured at output can change the scientific answer.  Because this screen
 does not optimize outside those three branches, its complete matrix is placed
@@ -193,6 +193,36 @@ branches and are not converted into localization wavelengths.}
 \end{figure}
 \FloatBarrier
 
+\subsection{Initial time, branch switching and physical metrics are explicit conditions}
+
+The near-onset window contains two registered slip-activation transitions and
+the terminal window contains four.  Replacing linear-midpoint interpolation by
+left-continuous, right-continuous or secant-split propagation changes the
+near-onset gain by at most $9.31\times10^{-10}$ relatively and the terminal
+gain by at most $6.17\times10^{-4}$.  The reported finite-time separation is
+therefore insensitive to these bounded branch conventions, although this
+computational audit is not a semismooth propagation theorem.
+
+The initial-time audit gives a complementary physical result.  Moving $t_0$
+from $0.50$ to $0.75$ or $1.00~\mu\mathrm s$ changes the fixed-candidate
+terminal gain by less than $4.5\times10^{-7}$ relatively.  Starting instead at
+$2.00~\mu\mathrm s$, after the stress peak, reduces that gain from
+$6.090\times10^5$ to $1.959\times10^5$, or 32.16\% of the baseline value.
+Thus the early submicrosecond interval is numerically insensitive within the
+tested pre-peak window, but the stress-peak history is physically essential to
+the terminal amplification.
+
+The recoverable-energy metric $\boldsymbol W_E$ is positive semidefinite with
+rank 28 and nullity 41; its density directions remain null because their
+registered storage is affine.  At the released direction and wavenumber, the
+energy-to-energy gains are 1.004 near onset and 119.71 at the terminal horizon;
+the corresponding energy-to-$\boldsymbol W_O$ gains are 1.288 and 74.45.
+These values establish that large terminal amplification survives a
+recoverable-energy quotient metric.  They do not constitute a physical-norm
+re-optimization: $\boldsymbol W_O$ is built from numerical coordinate scales,
+not an experimental observation covariance, and $(\boldsymbol n,k)$ remains
+fixed.
+
 \subsection{Rate transfer exposes scale sensitivity and experimental limits}
 
 Without refitting, the three added paths---$5.0\times10^3$ and
@@ -253,7 +283,7 @@ The independent quasi-static gradient controls in Fig.~\ref{fig:ft_counterfactua
 \end{figure}
 \FloatBarrier
 
-\subsection{Low-mode nonlinear transport passes, but the full-Fourier gate remains open}
+\subsection{Dealiased full-grid transport converges, but nonlinear right-hand-side closure remains open}
 
 The density ladder is closed before nonlinear comparison.  The near-onset
 257-to-513 relative log-gain change is 2.615\%, which triggers the mandatory
@@ -272,18 +302,52 @@ difference.  The complete complex output-vector errors on that Galerkin
 subspace are at most 1.006\% and 0.223\%, and factor-two amplitude changes alter
 the measured gain by less than $4\times10^{-7}$ relatively.
 
-This result cannot be promoted to complete grid-resolved nonlinear
-validation.  When all nonnegative Fourier modes resolvable on the 16-cell
-grid are retained, the near-onset continuation becomes non-finite with both
-one and four nonlinear substeps per refined interval.  The four-mode replay
-therefore demonstrates low-mode consistency only.  It does not establish
-nonlinear harmonic closure, finite-amplitude saturation or a mature band
-width.
+The earlier all-mode failure is now localized rather than treated as an
+undifferentiated nonlinear blow-up.  The raw 16-cell control includes the
+Nyquist mode and first fails at $t=1.3515625~\mu\mathrm s$, in interval 86 at
+the midpoint stage.  Both the dominant velocity coordinate (zero-based state
+index 4) and the first conjugacy defect in the signed-slip block (index 55)
+occur at Nyquist wavenumber $k=5.748\times10^5~\mathrm{m^{-1}}$.  Removing
+only that even-grid Nyquist coordinate permits otherwise all-resolvable
+mode-0--7 runs to complete at both horizons.  The failure is therefore a
+discrete--continuum Nyquist inconsistency in the raw control, not evidence for
+a physical short-wave instability.
+
+The independently dealiased ladder completes on 16, 32 and 64 cells
+(Table~\ref{tab:ft_full_grid}).  The 32-to-64-cell gain changes are
+$1.30\times10^{-11}$ near onset and $1.40\times10^{-7}$ at the terminal
+horizon.  Comparing the 257-state/two-substep calculation with the
+513-state/one-substep reference changes the gains by $1.06\times10^{-4}$ and
+$2.07\times10^{-3}$, respectively.  Replacing exponential midpoint by
+Lawson--Euler changes them by 0.730\% and 0.191\%.  Across the primary
+dealiased cases, the maximum linear-gain and complete-output-vector errors are
+0.730\% and 1.006\%, below their declared gates.
+
+\begin{table}[t]
+\centering
+\caption{Independent two-thirds-dealiased spatial convergence at the released direction and wavenumber.}
+\label{tab:ft_full_grid}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Horizon & $N=16$ & $N=32$ & $N=64$ & relative change, 32--64 \\
+\midrule
+Near onset & 1.7238480595 & 1.7238480595 & 1.7238480595 & $1.30\times10^{-11}$ \\
+Terminal & 607628.6185 & 607628.4461 & 607628.3612 & $1.40\times10^{-7}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Numerical convergence does not close the nonlinear spectrum.  In the primary
+terminal grid ladder, 84.66\% of the instantaneous nonlinear right-hand-side
+Fourier energy lies above the retained cutoff, far beyond the 1\% closure
+gate.  The evidence therefore supports converged finite-band state and gain
+transport, but not complete nonlinear harmonic closure, finite-amplitude
+saturation or a mature band width.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{fig12_v3_singular_vector_nonlinear_validation.pdf}
-\caption{Four-mode Galerkin transport check for the actual near-onset and terminal optimal inputs. (a) Linear and nonlinear gains for two factor-two amplitudes at each horizon. (b) Relative gain errors remain below the preregistered 2\% gate within this subspace. (c) Factor-two gain changes are orders of magnitude below the 2\% amplitude-collapse gate. The separate full-Fourier audit remains open and prevents interpreting this figure as complete nonlinear validation.}
+\caption{Four-mode Galerkin transport check for the actual near-onset and terminal optimal inputs. (a) Linear and nonlinear gains for two factor-two amplitudes at each horizon. (b) Relative gain errors remain below the preregistered 2\% gate within this subspace. (c) Factor-two gain changes are orders of magnitude below the 2\% amplitude-collapse gate. The separate dealiased full-grid audit converges in resolved gain but fails the discarded-right-hand-side-energy gate, preventing interpretation as complete nonlinear validation.}
 \label{fig:ft_singular_nonlinear}
 \end{figure}
 \FloatBarrier

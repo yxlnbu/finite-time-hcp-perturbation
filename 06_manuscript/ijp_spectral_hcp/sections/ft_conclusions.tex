@@ -41,19 +41,21 @@ changes from dislocation--plastic near onset to inertia--plastic at the
 terminal horizon, while full-rank slip-gradient recovery controls the sampled
 quasi-static high-$k$ branch more completely than the rank-deficient Nye term.
 A four-mode Galerkin replay transports both re-optimized singular inputs
-within its small-amplitude acceptance gates.  Retaining every resolvable
-Fourier mode instead makes the continuation non-finite even after substep
-refinement.  The evidence therefore validates finite-time linear selection
-and low-mode consistency, but not complete nonlinear transport or
-finite-amplitude saturation.
+within its small-amplitude acceptance gates.  The independent dealiased
+16/32/64-cell ladder converges in gain, and separate time-step and
+integration-format controls pass.  The raw all-mode failure is localized to
+the even-grid Nyquist coordinate, but the primary terminal audit places
+84.66\% of the nonlinear right-hand-side energy above the retained cutoff.  The evidence therefore
+validates finite-time linear selection and resolved finite-band transport, not
+complete nonlinear harmonic closure or finite-amplitude saturation.
 
 \item The closed result is therefore finite-time, selector-dependent linear
 selection on an evolving HCP path. The same-window audit still rejects a
 seed-independent mature width, and the present theory does not supply
 specimen calibration, propagation resistance, fracture-like dissipation or a
-strict HCP-to-Bai analytical degeneration.  The open full-Fourier gate further
-shows that finite-band linear selection alone does not regularize nonlinear
-harmonic transfer. Complete generators, singular
+strict HCP-to-Bai analytical degeneration.  The open nonlinear spectral-flux
+gate further shows that finite-band linear selection alone does not regularize
+nonlinear harmonic transfer. Complete generators, singular
 subspaces, optimization traces, parameter provenance and runtime contracts
 make those open gates explicit and reproducible.
 \end{enumerate}

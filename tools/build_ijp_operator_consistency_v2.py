@@ -322,12 +322,12 @@ def selectors() -> dict[str, tuple[np.ndarray, np.ndarray]]:
 def configure_style() -> None:
     plt.rcParams.update(
         {
-            "font.size": 10.2,
-            "axes.labelsize": 10.5,
-            "axes.titlesize": 10.8,
-            "legend.fontsize": 8.8,
-            "xtick.labelsize": 9.2,
-            "ytick.labelsize": 9.2,
+            "font.size": 11.4,
+            "axes.labelsize": 11.6,
+            "axes.titlesize": 11.8,
+            "legend.fontsize": 9.6,
+            "xtick.labelsize": 10.2,
+            "ytick.labelsize": 10.2,
             "figure.dpi": 150,
             "savefig.dpi": 320,
             "axes.spines.top": False,

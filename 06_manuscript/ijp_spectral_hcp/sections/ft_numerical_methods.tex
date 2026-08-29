@@ -3,7 +3,7 @@
 
 \subsection{Base history, exact generator and propagation}
 
-The repository verification seed uses the complete 18-slip closure in Section~\ref{sec:base_model_dynamic}, a slip-gradient length $\ell_\chi=0.25~\mu\mathrm m$ and a Nye length $\ell_N=1~\mu\mathrm m$. Its grouped constraints are informed by titanium literature, but the card is not identified for a particular batch or specimen. The base history is integrated independently and then stored at 129 accepted states on $[0.5,140]~\mu\mathrm s$. At each state, the continuous constitutive Jacobian in Eq.~\eqref{eq:ft_constitutive_tangent_contract} is assembled on the recorded smooth branch. A state is rejected if a derivative probe changes that branch or if
+The repository verification seed uses the complete 18-slip closure in Section~\ref{sec:base_model_dynamic}, a slip-gradient length $\ell_\chi=0.25~\mu\mathrm m$ and a Nye length $\ell_N=1~\mu\mathrm m$. Its grouped constraints are informed by titanium literature, but the card is not identified for a particular batch or specimen. The base history is integrated independently and then stored at 129 accepted states on $[0.5,140]~\mu\mathrm s$. At each checkpoint, the continuous constitutive Jacobian in Eq.~\eqref{eq:ft_constitutive_tangent_contract} is assembled while the local active-set and rate-sign branch is locked. A checkpoint is rejected if a derivative probe changes that branch or if
 \begin{equation}
  \operatorname{cond}_2(\boldsymbol K_{\zeta\zeta})\ge10^{14},
  \qquad
@@ -12,7 +12,7 @@ The repository verification seed uses the complete 18-slip closure in Section~\r
  \operatorname{cond}_2(\boldsymbol C)\ge10^{12}.
  \label{eq:dyn_conditioning_gates}
 \end{equation}
-The algebraic microfield is eliminated, the generator in Eq.~\eqref{eq:dyn_generator_matrix} is assembled and the block reconstruction residual is recorded.
+The algebraic microfield is eliminated, the generator in Eq.~\eqref{eq:dyn_generator_matrix} is assembled and the block reconstruction residual is recorded. Adjacent checkpoints are additionally scanned for yield-activity and signed-rate changes. The resulting generator path is treated as piecewise smooth. Every detected transition interval is propagated using left-continuous, right-continuous, linear-midpoint and secant-split conventions; their spread is reported as a branch-convention sensitivity rather than hidden inside the interpolation error.
 
 Between stored states $t_i$ and $t_{i+1}$, the fixed-scale generator is interpolated linearly. Four exponential-midpoint substeps are used per interval:
 \begin{align}
@@ -27,6 +27,10 @@ Between stored states $t_i$ and $t_{i+1}$, the fixed-scale generator is interpol
 The reference history therefore uses 512 ordered exponentials. Base-history refinement and propagation-substep refinement are audited separately.
 
 The diagonal coordinate scale $\boldsymbol D_q$ is fixed before any spectrum or singular vector is inspected. Representative scales are $1~\mu\mathrm m$ for displacement, $0.1~\mathrm{m\,s^{-1}}$ for velocity, $1~\mathrm K$ for temperature, $2\times10^{-4}$ for plastic-chart and signed-slip coordinates, $1.6\times10^{12}~\mathrm{m^{-2}}$ for mobile density and $10^{10}~\mathrm{m^{-2}}$ for dipole density. Input and output selectors retain temperature and the 62 local coordinates. Displacement and velocity remain coupled inside the propagator but are not directly optimized. The declared threshold is $\mathcal G_c=e$.
+
+Two supplementary metrics test the dependence on coordinate normalization. A recoverable-energy metric $\boldsymbol W_E(t)$ is assembled from the second variations of elastic strain energy, kinetic energy, thermal availability and condensed micromorphic curvature. Because the present stored dislocation contribution is affine in density, $\boldsymbol W_E$ is positive semidefinite rather than positive definite; its gain is therefore evaluated on the quotient space spanned by its positive eigenmodes, using Moore--Penrose square roots. A second metric $\boldsymbol W_O$ treats the registered coordinate scales as independent numerical observation standard deviations. It is explicitly a numerical covariance surrogate because no synchronized DIC--thermometry--EBSD covariance is available. Both metrics are evaluated at the released direction and wavenumber; no energy-metric direction--wavenumber re-optimization is claimed.
+
+The initial time $t_0$ is also part of the input--output definition, not a numerical nuisance parameter. Fixed-candidate gains are recomputed from $t_0=0.50$, $0.75$ and $1.00~\mu\mathrm s$ at both horizons and additionally from $2.00~\mu\mathrm s$ at the terminal horizon, thereby separating pre-peak history from late-window amplification.
 
 \subsection{Independent descriptor audit and classical anchor}
 
@@ -242,11 +246,7 @@ Each vector is imposed as a
 real periodic Fourier mode
 with 16 cells per wavelength and two factor-two amplitudes.  The first replay
 retains nonnegative modes 0--3 and is therefore labelled a Galerkin transport
-check, not a complete Fourier calculation.  A separate audit retains every
-nonnegative mode 0--8 resolvable on the 16-cell grid and repeats the replay
-with one and four nonlinear midpoint substeps.  Any non-finite continuation
-or more than 1\% discarded right-hand-side Fourier energy leaves the complete
-nonlinear gate open.  The terminal
+check, not a complete Fourier calculation.  The terminal
 amplitude is additionally limited so that its linearly predicted final
 dimensionless norm does not exceed $10^{-3}$. The nonlinear periodic
 momentum--heat--micromorphic--crystal-state residual is advanced with the
@@ -255,6 +255,23 @@ less than 2\% error in gain, less than 3\% error in the complete complex
 Fourier output vector, less than 2\% factor-two gain variation, less than 1\%
 nonretained Fourier energy within the declared subspace and a power-partition
 ledger residual below $10^{-10}$.  Passing these Galerkin checks does not
-override a failed full-Fourier audit.
+override the independent full-grid gate.
+
+That gate separates discretization convergence from nonlinear spectral
+closure.  On the 16-cell grid, a raw mode-0--8 calculation is retained as a
+negative control, while an otherwise identical mode-0--7 calculation removes
+only the even-grid Nyquist coordinate.  A dealiased ladder then retains
+nonnegative modes $0,\ldots,\lfloor N/3\rfloor$ on $N=16$, 32 and 64 cells.
+Spatial convergence requires the 32-to-64-cell gain change to be below 1\% at
+both horizons.  Time convergence independently compares 257-state histories
+with one, two and four substeps against a 513-state one-substep reference.
+Integration-format sensitivity compares exponential midpoint with a
+Lawson--Euler control and must remain below 2\%.  The primary dealiased replay
+must also reproduce the linear gain within 2\% and the complete retained
+complex output vector within 3\%.  Every non-finite run records the first
+failed time interval, residual stage, state coordinate and signed
+wavenumber.  Finally, the instantaneous nonlinear right-hand side is projected
+onto discarded modes; more than 1\% discarded energy leaves nonlinear
+harmonic closure open even when the resolved state and gain are converged.
 
 A separate $0$--$2~\mu\mathrm s$ material-width bridge imposes prescribed sinusoidal or multimode disturbances with locked phases and spatial grids. It is accepted in stages. First, linear gain and phase transport must be reproduced. Second, multiple input amplitudes must remain in the amplitude-linear regime for a single mode. Third, the peak and full width at half maximum (FWHM) must converge on nested grids. Finally, a candidate material width must be insensitive to seed phase/spectrum, remain resolved by at least 12 cells and emerge independently of the imposed wavelength. A failure retains the successful lower-level verification but disables the material-scale interpretation.

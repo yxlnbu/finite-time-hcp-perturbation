@@ -1,0 +1,400 @@
+{
+  "gates": {
+    "branch_convention_gain_change_below_1_percent": true,
+    "energy_metrics_constructed_without_diagonal_regularization": true,
+    "experimental_observation_covariance_available": false,
+    "released_gain_reproduced_below_1e_minus_10": true
+  },
+  "interpretation": {
+    "branching": "checkpoint Jacobians are branch locked, but the base path is only piecewise smooth; left, right and secant-split conventions bound the effect of four registered transition intervals",
+    "physical_metric": "the recoverable-energy metric is a positive-semidefinite quotient metric with density null directions; the observation covariance is numerical, not experimental, and no energy-metric direction-wavenumber reoptimization is claimed",
+    "start_time": "t0 is part of the input-output problem; sensitivity is reported rather than treated as a numerical invariance requirement"
+  },
+  "outputs": {
+    "csv": "05_results/ijp_v4_start_branch_metric_audit_v1.csv",
+    "json": "05_results/ijp_v4_start_branch_metric_audit_v1.json"
+  },
+  "provenance": {
+    "base_context_cache": "05_results/cp_ti_lsbrp_base_cache_v1_ref64.pkl",
+    "base_context_cache_sha256": "8d2b2677b9a6f027f2f3056cf19216ac2dd02ba84f47520dc4d18ab093c2fa24",
+    "tool": "tools/audit_ijp_v4_start_branch_metric_v1.py",
+    "tool_sha256": "b5318be55bd1b001142b67839c14927a0dbb21e644428241f7002b355616f77b",
+    "v3_arrays_sha256": "472aa140f258b4425a295672041641ea648592b95524e0288a186aa187a34a0e",
+    "v3_evidence_sha256": "36a7ba568ffe71dd995b366ef07a89a74b287e2c2c584690208748d0d056fe90"
+  },
+  "roles": {
+    "near_onset": {
+      "branch_transition_count": 2,
+      "branch_transitions": [
+        {
+          "changed_contracts": [
+            {
+              "label": "slip04.yield",
+              "left_category": 0,
+              "left_signed_distance": -2286.010874837637,
+              "right_category": -1,
+              "right_signed_distance": 1391609.41972062,
+              "secant_zero_fraction": 0.001640016047589077
+            },
+            {
+              "label": "slip04.rate_sign",
+              "left_category": 0,
+              "left_signed_distance": 2286.010874837637,
+              "right_category": -1,
+              "right_signed_distance": 137055698.15189162,
+              "secant_zero_fraction": 1.667915144675432e-05
+            }
+          ],
+          "event_fraction": 0.001640016047589077,
+          "event_time_secant_s": 7.656378126253718e-07,
+          "interval": 34,
+          "left_time_s": 7.65625e-07,
+          "right_time_s": 7.734375e-07
+        },
+        {
+          "changed_contracts": [
+            {
+              "label": "slip06.yield",
+              "left_category": 0,
+              "left_signed_distance": -432217.7093076706,
+              "right_category": -1,
+              "right_signed_distance": 924839.1434957087,
+              "secant_zero_fraction": 0.3184963904900553
+            },
+            {
+              "label": "slip06.rate_sign",
+              "left_category": 0,
+              "left_signed_distance": 432217.7093076706,
+              "right_category": -1,
+              "right_signed_distance": 136588927.87567887,
+              "secant_zero_fraction": 0.0031543869193502703
+            }
+          ],
+          "event_fraction": 0.3184963904900553,
+          "event_time_secant_s": 7.759257530507035e-07,
+          "interval": 35,
+          "left_time_s": 7.734375e-07,
+          "right_time_s": 7.8125e-07
+        }
+      ],
+      "convention_gains": {
+        "left_continuous": 1.7365306632721305,
+        "linear_interpolation_midpoint": 1.7365306648748127,
+        "right_continuous": 1.7365306664905666,
+        "secant_split": 1.7365306659617017
+      },
+      "direction_n": [
+        0.0049949714977768475,
+        0.9999875199159888,
+        0.00010135090718695746
+      ],
+      "fixed_coordinate_gain": 1.7365306648748127,
+      "fixed_coordinate_gain_relative_reproduction_error": 2.220446049250313e-16,
+      "k_m_inv": 71848.05580700038,
+      "maximum_branch_convention_relative_gain_change": 9.304494952289133e-10,
+      "physical_metric_audit": {
+        "classification": "FIXED_DIRECTION_WAVENUMBER_QUOTIENT_METRIC_AUDIT_NOT_ENERGY_METRIC_REOPTIMIZATION",
+        "energy_to_energy_gain": 1.0036069693497238,
+        "energy_to_numerical_observation_gain": 1.2883284057077888,
+        "experimental_covariance_available": false,
+        "final_energy_metric": {
+          "dimension": 69,
+          "full_state_spd": false,
+          "label": "W_E",
+          "maximum_eigenvalue": 838674523.443547,
+          "minimum_eigenvalue": -3.575510834044601e-08,
+          "minimum_positive_eigenvalue": 0.602485827259234,
+          "nullity": 41,
+          "positive_semidefinite_within_relative_tolerance": true,
+          "provenance": "checkpoint deltaEe:C:deltaEe displacement-SL3 elastic block+kinetic+thermal-availability+condensed-micromorphic curvature; affine density storage left null",
+          "rank": 28,
+          "rank_basis": "registered_dimensionless_coordinates_q=Dz"
+        },
+        "initial_energy_metric": {
+          "dimension": 69,
+          "full_state_spd": false,
+          "label": "W_E",
+          "maximum_eigenvalue": 838401840.4633191,
+          "minimum_eigenvalue": -6.098679983341704e-09,
+          "minimum_positive_eigenvalue": 0.6024858272592342,
+          "nullity": 41,
+          "positive_semidefinite_within_relative_tolerance": true,
+          "provenance": "checkpoint deltaEe:C:deltaEe displacement-SL3 elastic block+kinetic+thermal-availability+condensed-micromorphic curvature; affine density storage left null",
+          "rank": 28,
+          "rank_basis": "registered_dimensionless_coordinates_q=Dz"
+        },
+        "numerical_observation_metric": {
+          "dimension": 69,
+          "full_state_spd": false,
+          "label": "W_O",
+          "maximum_eigenvalue": 1.0000000000000002,
+          "minimum_eigenvalue": 0.0,
+          "minimum_positive_eigenvalue": 0.9999999999999999,
+          "nullity": 6,
+          "positive_semidefinite_within_relative_tolerance": true,
+          "provenance": "NUMERICAL SURROGATE: registered coordinate scales treated as independent standard deviations; no experimental covariance",
+          "rank": 63,
+          "rank_basis": "registered_dimensionless_coordinates_q=Dz"
+        }
+      },
+      "registered_state_count": 93,
+      "released_linear_gain": 1.7365306648748124,
+      "role": "near_onset",
+      "start_time_sensitivity": [
+        {
+          "gain": 1.7365306648748127,
+          "relative_to_0p5us_gain": 1.0,
+          "start_index": 0,
+          "start_time_s": 5e-07
+        },
+        {
+          "gain": 1.7364970680703353,
+          "relative_to_0p5us_gain": 0.9999806529160947,
+          "start_index": 32,
+          "start_time_s": 7.5e-07
+        },
+        {
+          "gain": 1.7364449580519843,
+          "relative_to_0p5us_gain": 0.9999506447973756,
+          "start_index": 64,
+          "start_time_s": 1e-06
+        }
+      ],
+      "target_time_s": 1.4375e-06
+    },
+    "terminal": {
+      "branch_transition_count": 4,
+      "branch_transitions": [
+        {
+          "changed_contracts": [
+            {
+              "label": "slip04.yield",
+              "left_category": 0,
+              "left_signed_distance": -2286.010874837637,
+              "right_category": -1,
+              "right_signed_distance": 1391609.41972062,
+              "secant_zero_fraction": 0.001640016047589077
+            },
+            {
+              "label": "slip04.rate_sign",
+              "left_category": 0,
+              "left_signed_distance": 2286.010874837637,
+              "right_category": -1,
+              "right_signed_distance": 137055698.15189162,
+              "secant_zero_fraction": 1.667915144675432e-05
+            }
+          ],
+          "event_fraction": 0.001640016047589077,
+          "event_time_secant_s": 7.656378126253718e-07,
+          "interval": 34,
+          "left_time_s": 7.65625e-07,
+          "right_time_s": 7.734375e-07
+        },
+        {
+          "changed_contracts": [
+            {
+              "label": "slip06.yield",
+              "left_category": 0,
+              "left_signed_distance": -432217.7093076706,
+              "right_category": -1,
+              "right_signed_distance": 924839.1434957087,
+              "secant_zero_fraction": 0.3184963904900553
+            },
+            {
+              "label": "slip06.rate_sign",
+              "left_category": 0,
+              "left_signed_distance": 432217.7093076706,
+              "right_category": -1,
+              "right_signed_distance": 136588927.87567887,
+              "secant_zero_fraction": 0.0031543869193502703
+            }
+          ],
+          "event_fraction": 0.3184963904900553,
+          "event_time_secant_s": 7.759257530507035e-07,
+          "interval": 35,
+          "left_time_s": 7.734375e-07,
+          "right_time_s": 7.8125e-07
+        },
+        {
+          "changed_contracts": [
+            {
+              "label": "slip07.yield",
+              "left_category": 0,
+              "left_signed_distance": -934090.1767995358,
+              "right_category": 1,
+              "right_signed_distance": 1036497.1595530808,
+              "secant_zero_fraction": 0.4740161268510201
+            },
+            {
+              "label": "slip07.rate_sign",
+              "left_category": 0,
+              "left_signed_distance": 934090.1767995358,
+              "right_category": 1,
+              "right_signed_distance": 269252606.5460934,
+              "secant_zero_fraction": 0.003457202697724052
+            },
+            {
+              "label": "slip13.yield",
+              "left_category": 0,
+              "left_signed_distance": -934090.1767995358,
+              "right_category": -1,
+              "right_signed_distance": 1036497.1595530808,
+              "secant_zero_fraction": 0.4740161268510201
+            },
+            {
+              "label": "slip13.rate_sign",
+              "left_category": 0,
+              "left_signed_distance": 934090.1767995358,
+              "right_category": -1,
+              "right_signed_distance": 269252606.5460934,
+              "secant_zero_fraction": 0.003457202697724052
+            }
+          ],
+          "event_fraction": 0.4740161268510201,
+          "event_time_secant_s": 1.6011565019820471e-06,
+          "interval": 102,
+          "left_time_s": 1.59375e-06,
+          "right_time_s": 1.609375e-06
+        },
+        {
+          "changed_contracts": [
+            {
+              "label": "slip07.yield",
+              "left_category": 1,
+              "left_signed_distance": 283494.69627958536,
+              "right_category": 0,
+              "right_signed_distance": -522575.61726361513,
+              "secant_zero_fraction": 0.3516997109513223
+            },
+            {
+              "label": "slip07.rate_sign",
+              "left_category": 1,
+              "left_signed_distance": 270994574.7847541,
+              "right_category": 0,
+              "right_signed_distance": 522575.61726361513,
+              "secant_zero_fraction": 0.9980753495074257
+            },
+            {
+              "label": "slip13.yield",
+              "left_category": -1,
+              "left_signed_distance": 283494.69627958536,
+              "right_category": 0,
+              "right_signed_distance": -522575.61726361513,
+              "secant_zero_fraction": 0.3516997109513223
+            },
+            {
+              "label": "slip13.rate_sign",
+              "left_category": -1,
+              "left_signed_distance": 270994574.7847541,
+              "right_category": 0,
+              "right_signed_distance": 522575.61726361513,
+              "secant_zero_fraction": 0.9980753495074257
+            }
+          ],
+          "event_fraction": 0.3516997109513223,
+          "event_time_secant_s": 2.016485923950843e-06,
+          "interval": 128,
+          "left_time_s": 2e-06,
+          "right_time_s": 2.046875e-06
+        }
+      ],
+      "convention_gains": {
+        "left_continuous": 608831.2284131079,
+        "linear_interpolation_midpoint": 608984.198857322,
+        "right_continuous": 609128.273919109,
+        "secant_split": 608608.6140303272
+      },
+      "direction_n": [
+        -0.004594551025745008,
+        -0.9999894398586743,
+        0.0001013509090619021
+      ],
+      "fixed_coordinate_gain": 608984.198857322,
+      "fixed_coordinate_gain_relative_reproduction_error": 0.0,
+      "k_m_inv": 6836.8536687706555,
+      "maximum_branch_convention_relative_gain_change": 0.0006167398558115655,
+      "physical_metric_audit": {
+        "classification": "FIXED_DIRECTION_WAVENUMBER_QUOTIENT_METRIC_AUDIT_NOT_ENERGY_METRIC_REOPTIMIZATION",
+        "energy_to_energy_gain": 119.71047892721762,
+        "energy_to_numerical_observation_gain": 74.44590459730664,
+        "experimental_covariance_available": false,
+        "final_energy_metric": {
+          "dimension": 69,
+          "full_state_spd": false,
+          "label": "W_E",
+          "maximum_eigenvalue": 7497960.474337819,
+          "minimum_eigenvalue": -1.0292228810789919e-10,
+          "minimum_positive_eigenvalue": 0.00545717888125008,
+          "nullity": 41,
+          "positive_semidefinite_within_relative_tolerance": true,
+          "provenance": "checkpoint deltaEe:C:deltaEe displacement-SL3 elastic block+kinetic+thermal-availability+condensed-micromorphic curvature; affine density storage left null",
+          "rank": 28,
+          "rank_basis": "registered_dimensionless_coordinates_q=Dz"
+        },
+        "initial_energy_metric": {
+          "dimension": 69,
+          "full_state_spd": false,
+          "label": "W_E",
+          "maximum_eigenvalue": 7592751.775356926,
+          "minimum_eigenvalue": -2.232230452688052e-10,
+          "minimum_positive_eigenvalue": 0.005457178881246766,
+          "nullity": 41,
+          "positive_semidefinite_within_relative_tolerance": true,
+          "provenance": "checkpoint deltaEe:C:deltaEe displacement-SL3 elastic block+kinetic+thermal-availability+condensed-micromorphic curvature; affine density storage left null",
+          "rank": 28,
+          "rank_basis": "registered_dimensionless_coordinates_q=Dz"
+        },
+        "numerical_observation_metric": {
+          "dimension": 69,
+          "full_state_spd": false,
+          "label": "W_O",
+          "maximum_eigenvalue": 1.0000000000000002,
+          "minimum_eigenvalue": 0.0,
+          "minimum_positive_eigenvalue": 0.9999999999999999,
+          "nullity": 6,
+          "positive_semidefinite_within_relative_tolerance": true,
+          "provenance": "NUMERICAL SURROGATE: registered coordinate scales treated as independent standard deviations; no experimental covariance",
+          "rank": 63,
+          "rank_basis": "registered_dimensionless_coordinates_q=Dz"
+        }
+      },
+      "registered_state_count": 513,
+      "released_linear_gain": 608984.198857322,
+      "role": "terminal",
+      "start_time_sensitivity": [
+        {
+          "gain": 608984.198857322,
+          "relative_to_0p5us_gain": 1.0,
+          "start_index": 0,
+          "start_time_s": 5e-07
+        },
+        {
+          "gain": 608984.3245175654,
+          "relative_to_0p5us_gain": 1.000000206344013,
+          "start_index": 32,
+          "start_time_s": 7.5e-07
+        },
+        {
+          "gain": 608984.4700032829,
+          "relative_to_0p5us_gain": 1.0000004452430151,
+          "start_index": 64,
+          "start_time_s": 1e-06
+        },
+        {
+          "gain": 195870.7339992964,
+          "relative_to_0p5us_gain": 0.32163516617807464,
+          "start_index": 128,
+          "start_time_s": 2e-06
+        }
+      ],
+      "target_time_s": 0.00014
+    }
+  },
+  "runtime": {
+    "numpy": "2.4.3",
+    "python": "3.12.10",
+    "wall_time_s": 4.232520399993518
+  },
+  "schema": "IJP_V4_START_BRANCH_METRIC_AUDIT_V1",
+  "status": "START_AND_BRANCH_AUDIT_PASS__EXPERIMENTAL_METRIC_OPEN"
+}
