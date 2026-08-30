@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hcp-cp-gnd"
+version = "0.2.0.dev0"
+description = "Independent micromorphic/GND finite-element reference kernel for HCP crystal plasticity"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2.0", "scipy>=1.13"]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+ebsd = ["h5py>=3.10", "numba>=0.60", "pandas>=2.2", "damask==3.1.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+pythonpath = ["src"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

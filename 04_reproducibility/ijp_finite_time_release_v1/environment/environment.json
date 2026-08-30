@@ -1,0 +1,97 @@
+{
+  "blas_lapack_configuration": {
+    "Build Dependencies": {
+      "blas": {
+        "detection method": "pkgconfig",
+        "found": true,
+        "name": "scipy-openblas",
+        "openblas configuration": "OpenBLAS 0.3.31.dev  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24",
+        "version": "0.3.31.dev"
+      },
+      "lapack": {
+        "detection method": "pkgconfig",
+        "found": true,
+        "name": "scipy-openblas",
+        "openblas configuration": "OpenBLAS 0.3.31.dev  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24",
+        "version": "0.3.31.dev"
+      }
+    },
+    "Compilers": {
+      "c": {
+        "linker": "link",
+        "name": "msvc",
+        "version": "19.44.35223"
+      },
+      "c++": {
+        "linker": "link",
+        "name": "msvc",
+        "version": "19.44.35223"
+      },
+      "cython": {
+        "linker": "cython",
+        "name": "cython",
+        "version": "3.2.4"
+      }
+    },
+    "Machine Information": {
+      "build": {
+        "cpu": "x86_64",
+        "endian": "little",
+        "family": "x86_64",
+        "system": "windows"
+      },
+      "host": {
+        "cpu": "x86_64",
+        "endian": "little",
+        "family": "x86_64",
+        "system": "windows"
+      }
+    },
+    "Python Information": {
+      "version": "3.12"
+    },
+    "SIMD Extensions": {
+      "baseline": [
+        "X86_V2"
+      ],
+      "found": [
+        "X86_V3"
+      ]
+    }
+  },
+  "deterministic_seeds": {
+    "nested_sobol_search": 20260829
+  },
+  "git_revision": {
+    "arguments": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "returncode": 128,
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git",
+    "stdout": ""
+  },
+  "git_status_at_packaging": {
+    "arguments": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "returncode": 128,
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git",
+    "stdout": ""
+  },
+  "implementation": "CPython",
+  "logical_cpu_count": 12,
+  "machine": "AMD64",
+  "matplotlib_version": "3.10.8",
+  "numpy_version": "2.4.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+  "python_executable": "python.exe",
+  "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "requirements_lock_sha256": "b99fb4414899c2bf1a6cfb0147b5401da6ce8bb6fe58f041c1729f45b0d54500",
+  "schema": "IJP_FINITE_TIME_ENVIRONMENT_V1",
+  "scipy_version": "1.17.1"
+}

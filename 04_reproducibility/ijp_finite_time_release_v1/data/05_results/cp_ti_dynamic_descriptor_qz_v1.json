@@ -1,0 +1,123 @@
+{
+  "acceptance_gates": {
+    "decoupling_max_abs_error": 2e-13,
+    "generator_equivalence_relative_error_max": 2e-13,
+    "matched_root_relative_error_max": 5e-07,
+    "results": {
+      "algebraic_block_is_identity_below_gate": true,
+      "algebraic_columns_decoupled_below_gate": true,
+      "balanced_generator_equivalence_error_below_gate": true,
+      "finite_root_count_is_69": true,
+      "generator_equivalence_error_below_gate": true,
+      "infinite_root_count_is_18": true,
+      "matched_finite_roots_below_gate": true,
+      "raw_E_rank_is_69": true,
+      "regularized_E_rank_is_69": true
+    }
+  },
+  "checkpoint": {
+    "configuration": "material_reference_configuration",
+    "direction_label": "same_window_sample_y_candidate",
+    "direction_n_reference": [
+      0.0051621866569075605,
+      0.9999866758233878,
+      2.1470533273329246e-06
+    ],
+    "direction_norm": 1.0,
+    "shear": 0.02,
+    "shear_increment": 0.0002,
+    "time_s": 2e-06,
+    "wavenumber_reference_m_inv": 61418.91850038309
+  },
+  "claim_boundary": {
+    "evidence_kind": "structure_and_code_level_numerical_verification",
+    "grade2_168_dimensional_count_status": "structural_count_only__69_finite_99_infinite__not_executed_qz",
+    "grade2_168_dimensional_qz_executed": false,
+    "interpretation": "The audit verifies the registered 87-state descriptor assembly, its 69 finite plus 18 structural-infinite split, and finite-spectrum agreement with the balanced 69-state generator. It is not material validation.",
+    "material_validation": false,
+    "single_registered_checkpoint_only": true,
+    "ta2_critical_strain_prediction": false,
+    "ta2_finite_bandwidth_prediction": false,
+    "ta2_onset_time_prediction": false,
+    "ta2_parameter_identification": false
+  },
+  "classification": "NUMERICAL_VERIFICATION_ONLY_NOT_A_TA2_PREDICTION",
+  "descriptor": {
+    "dimension": 87,
+    "finite_root_count": 69,
+    "projective_finite_classification": {
+      "maximum_infinite_beta_ratio": 0.0,
+      "minimum_finite_beta_ratio": 2.7124419329336493e-09,
+      "rule": "abs(beta)/max(abs(alpha),abs(beta),1) > tolerance",
+      "tolerance": 5e-13
+    },
+    "qz_solver": {
+      "algorithm_family": "generalized Schur/QZ",
+      "call": "scipy.linalg.eig(-K,E,homogeneous_eigvals=True)",
+      "check_finite": true,
+      "finite_block_similarity_balanced": true
+    },
+    "raw_E_rank": 69,
+    "raw_E_rank_tolerance": 4.5935810746964793e-08,
+    "raw_E_shape": [
+      87,
+      87
+    ],
+    "raw_K_shape": [
+      87,
+      87
+    ],
+    "regularized_E_rank": 69,
+    "state_order": "[u(3), v(3), d(63), zeta(18)]",
+    "structural_infinite_root_count": 18
+  },
+  "finite_spectrum_match": {
+    "assignment_method": "Hungarian minimum-cost complete matching",
+    "balanced_generator_root_count": 69,
+    "descriptor_finite_root_count": 69,
+    "maximum_relative_error": 8.594790937288199e-08,
+    "mean_relative_error": 4.318819381340682e-09,
+    "median_relative_error": 1.007551060950871e-22,
+    "relative_error_definition": "abs(lambda_D-lambda_G)/(1+abs(lambda_D)+abs(lambda_G))"
+  },
+  "parameters_used": {
+    "conductivity_W_mK": 21.9,
+    "nye_length_scale_m": 1e-06,
+    "parameter_provenance": "COMPLETE_RESEARCH_BASELINE__LITERATURE_CONSTRAINED__NOT_BATCH_SPECIFIC",
+    "penalty_modulus_Pa": 46700000000.0,
+    "reference_shear_modulus_Pa": 46700000000.0,
+    "slip_gradient_length_m": 2.5e-07
+  },
+  "provenance": {
+    "numpy": "2.5.2",
+    "python": "3.12.13",
+    "scipy": "1.18.0",
+    "script": "tools/audit_cp_ti_dynamic_descriptor_qz_v1.py",
+    "source_files": [
+      "src/hcp_cp_gnd/dynamic_crystal_perturbation_v1.py",
+      "src/hcp_cp_gnd/cp_ti_material_v1.py",
+      "src/hcp_cp_gnd/spectral_export.py",
+      "tests/test_dynamic_crystal_perturbation_v1.py",
+      "tests/test_cp_ti_dynamic_descriptor_qz_v1.py"
+    ]
+  },
+  "schema": "CP_TI_DYNAMIC_DESCRIPTOR_QZ_AUDIT_V1",
+  "status": "PASS__87D_DYNAMIC_DESCRIPTOR_QZ_STRUCTURE_AND_CODE_EQUIVALENCE",
+  "strict_equivalence_regularization": {
+    "algebraic_identity_max_abs_error": 2.220446049250313e-16,
+    "balanced_generator_equivalence_relative_error": 0.0,
+    "explanation": "All regularization steps are nonsingular row or variable transformations. They preserve generalized eigenvalues in exact arithmetic and do not move the 18 algebraic roots to finite frequency. Balancing is a similarity transformation of the regularized 69-dimensional finite block.",
+    "fictitious_mass_or_time_derivative_added": false,
+    "generalized_spectrum_preserved_in_exact_arithmetic": true,
+    "generator_equivalence_relative_error": 0.0,
+    "lower_left_decoupling_max_abs_error": 0.0,
+    "operations": [
+      "normalize the invertible 18x18 algebraic stiffness block by a nonsingular block-row operation",
+      "eliminate algebraic columns from the first 69 rows by a nonsingular block-row operation",
+      "normalize the invertible 69x69 dynamic storage block",
+      "apply a nonsingular block-triangular variable transformation to separate finite and algebraic sectors",
+      "apply a finite-block similarity balance T^-1 A T before QZ"
+    ],
+    "upper_right_decoupling_max_abs_error": 0.0
+  }
+}

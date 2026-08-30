@@ -1,0 +1,456 @@
+{
+  "claim_boundaries": {
+    "coordinate_invariant_critical_time_claimed": false,
+    "experimental_localization_onset_validated": false,
+    "global_direction_wavenumber_optimum_certified": false,
+    "like_for_like_full_state_finite_time_discrimination_supported": true,
+    "material_band_width_identified": false,
+    "singular_vector_small_amplitude_nonlinear_transport_supported": true,
+    "strict_hcp_to_bai_reduction_closed": false
+  },
+  "figures": {
+    "figure_1": {
+      "evidence": {
+        "claim": "Bai scalar anchor to HCP descriptor to finite-time set-valued selector",
+        "evidence_kind": "theory and variable map"
+      },
+      "paths": {
+        "pdf": "06_manuscript/ijp_spectral_hcp/figures/fig01_theory_variable_framework.pdf",
+        "png": "06_manuscript/ijp_spectral_hcp/figures/fig01_theory_variable_framework.png"
+      }
+    },
+    "figure_2": {
+      "evidence": {
+        "bai_scalar_reference_status": "SCOPED_ACCEPTED_V5_BAI_SCALAR_COEFFICIENT_ROOT_REGRESSION_REFERENCE_BASELINE__P0_0__P1_0__P2_7__NO_BAI_GATE_AUTHORITY__NO_HCP_STRICT_REDUCTION__HIGH_K_01_OPEN__TOLERANCE_REVIEW_OPEN__NO_SPECTRAL_RESULT__NOT_TA2",
+        "finite_root_count": 69,
+        "maximum_finite_root_relative_error": 8.594790937288199e-08,
+        "qz_status": "PASS__87D_DYNAMIC_DESCRIPTOR_QZ_STRUCTURE_AND_CODE_EQUIVALENCE",
+        "strict_hcp_to_bai_reduction_closed": false,
+        "structural_infinite_root_count": 18
+      },
+      "paths": {
+        "pdf": "06_manuscript/ijp_spectral_hcp/figures/fig02_classical_reduction_descriptor_verification.pdf",
+        "png": "06_manuscript/ijp_spectral_hcp/figures/fig02_classical_reduction_descriptor_verification.png"
+      }
+    },
+    "figure_3": {
+      "evidence": {
+        "base_history": [
+          {
+            "accumulated_slip_sum": 1.431242600347349e-18,
+            "dominant_slip_family": "prismatic<a>",
+            "first_piola_shear_Pa": 176010149.9999999,
+            "generated_heat_J_m3": 2.040474763439595e-10,
+            "maximum_slip_rate_s": 1.7110844315346075e-10,
+            "plastic_work_J_m3": 2.2671941815995502e-10,
+            "rho_dipole_sum_m2": 179999999999.99994,
+            "rho_mobile_sum_m2": 28800000000000.0,
+            "shear": 0.005,
+            "stored_energy_J_m3": 2.2671941815995496e-11,
+            "temperature_K": 293.15,
+            "time_s": 5e-07
+          },
+          {
+            "accumulated_slip_sum": 6.867608955642035e-11,
+            "dominant_slip_family": "prismatic<a>",
+            "first_piola_shear_Pa": 352081197.58092886,
+            "generated_heat_J_m3": 0.02058990979470522,
+            "maximum_slip_rate_s": 0.0025998192926925284,
+            "plastic_work_J_m3": 0.022877677549672463,
+            "rho_dipole_sum_m2": 180000001176.67664,
+            "rho_mobile_sum_m2": 28800000053606.098,
+            "shear": 0.01,
+            "stored_energy_J_m3": 0.002287767754967246,
+            "temperature_K": 293.1500000086589,
+            "time_s": 1e-06
+          },
+          {
+            "accumulated_slip_sum": 0.003937432345921908,
+            "dominant_slip_family": "prismatic<a>",
+            "first_piola_shear_Pa": 565738893.9307865,
+            "generated_heat_J_m3": 2029299.860754925,
+            "maximum_slip_rate_s": 9811.679497212896,
+            "plastic_work_J_m3": 2254777.6230610283,
+            "rho_dipole_sum_m2": 226400491888.91687,
+            "rho_mobile_sum_m2": 31905264117031.23,
+            "shear": 0.02,
+            "stored_energy_J_m3": 225477.76230610278,
+            "temperature_K": 294.00340329977814,
+            "time_s": 2e-06
+          },
+          {
+            "accumulated_slip_sum": 0.03472194577513842,
+            "dominant_slip_family": "prismatic<a>",
+            "first_piola_shear_Pa": 538077083.7888962,
+            "generated_heat_J_m3": 17243010.19151142,
+            "maximum_slip_rate_s": 8967.345662048798,
+            "plastic_work_J_m3": 19158900.212790463,
+            "rho_dipole_sum_m2": 2216894205241.9775,
+            "rho_mobile_sum_m2": 55154672834402.23,
+            "shear": 0.05,
+            "stored_energy_J_m3": 1915890.0212790454,
+            "temperature_K": 300.40138856022577,
+            "time_s": 5e-06
+          },
+          {
+            "accumulated_slip_sum": 0.08498186848660771,
+            "dominant_slip_family": "prismatic<a>",
+            "first_piola_shear_Pa": 528913275.23855823,
+            "generated_heat_J_m3": 41429775.592726,
+            "maximum_slip_rate_s": 8902.37605677902,
+            "plastic_work_J_m3": 46033083.99191775,
+            "rho_dipole_sum_m2": 10524036721278.51,
+            "rho_mobile_sum_m2": 88264729433258.92,
+            "shear": 0.1,
+            "stored_energy_J_m3": 4603308.399191774,
+            "temperature_K": 310.57290919329824,
+            "time_s": 1e-05
+          },
+          {
+            "accumulated_slip_sum": 0.18520241569189674,
+            "dominant_slip_family": "prismatic<a>",
+            "first_piola_shear_Pa": 521138073.7242394,
+            "generated_heat_J_m3": 88957744.43527104,
+            "maximum_slip_rate_s": 8761.21631390518,
+            "plastic_work_J_m3": 98841938.2614122,
+            "rho_dipole_sum_m2": 36861382707222.12,
+            "rho_mobile_sum_m2": 137145717676235.8,
+            "shear": 0.2,
+            "stored_energy_J_m3": 9884193.82614123,
+            "temperature_K": 330.5603571926771,
+            "time_s": 2e-05
+          },
+          {
+            "accumulated_slip_sum": 0.4857700930890456,
+            "dominant_slip_family": "prismatic<a>",
+            "first_piola_shear_Pa": 501126699.40426403,
+            "generated_heat_J_m3": 227957451.65739882,
+            "maximum_slip_rate_s": 8991.178725631225,
+            "plastic_work_J_m3": 253286057.39710996,
+            "rho_dipole_sum_m2": 114269439511243.14,
+            "rho_mobile_sum_m2": 201140070374021.12,
+            "shear": 0.5,
+            "stored_energy_J_m3": 25328605.739710942,
+            "temperature_K": 389.0153993013616,
+            "time_s": 5e-05
+          },
+          {
+            "accumulated_slip_sum": 0.9868874300723515,
+            "dominant_slip_family": "prismatic<a>",
+            "first_piola_shear_Pa": 461745608.8810759,
+            "generated_heat_J_m3": 446106193.2362929,
+            "maximum_slip_rate_s": 9144.021795042658,
+            "plastic_work_J_m3": 495673548.0403253,
+            "rho_dipole_sum_m2": 174770902526064.0,
+            "rho_mobile_sum_m2": 212823221726086.66,
+            "shear": 1.0,
+            "stored_energy_J_m3": 49567354.804032505,
+            "temperature_K": 480.7558362403604,
+            "time_s": 0.0001
+          },
+          {
+            "accumulated_slip_sum": 1.3877384883512662,
+            "dominant_slip_family": "prismatic<a>",
+            "first_piola_shear_Pa": 431755365.044791,
+            "generated_heat_J_m3": 607983444.1596981,
+            "maximum_slip_rate_s": 9188.67244029362,
+            "plastic_work_J_m3": 675537160.1774458,
+            "rho_dipole_sum_m2": 195462797312636.6,
+            "rho_mobile_sum_m2": 204162217197593.8,
+            "shear": 1.4,
+            "stored_energy_J_m3": 67553716.01774438,
+            "temperature_K": 548.8318178972424,
+            "time_s": 0.00014
+          }
+        ],
+        "checkpoint_count": 9,
+        "peak_stress_MPa": 565.7388939307865,
+        "peak_stress_time_s": 2e-06,
+        "terminal_accumulated_slip_sum": 1.3877384883512662,
+        "terminal_dipole_dislocation_sum_m2": 195462797312636.6,
+        "terminal_mobile_dislocation_sum_m2": 204162217197593.8,
+        "terminal_temperature_K": 548.8318178972424
+      },
+      "paths": {
+        "pdf": "06_manuscript/ijp_spectral_hcp/figures/fig03_evolving_base_state.pdf",
+        "png": "06_manuscript/ijp_spectral_hcp/figures/fig03_evolving_base_state.png"
+      }
+    },
+    "figure_4": {
+      "evidence": {
+        "gates": {
+          "full_state_like_for_like_contract": true,
+          "logarithmic_norm_bounds_full_gain": true,
+          "observed_subspace_not_misrepresented_as_closed": true,
+          "primary_non_equivalence_on_all_reported_branches": true,
+          "projected_control_pass": true,
+          "released_propagators_reproduced": true
+        },
+        "status": "ALL_OPERATOR_CONSISTENCY_GATES_PASS"
+      },
+      "paths": {
+        "pdf": "06_manuscript/ijp_spectral_hcp/figures/fig09_operator_consistency_sensitivity.pdf",
+        "png": "06_manuscript/ijp_spectral_hcp/figures/fig09_operator_consistency_sensitivity.png"
+      }
+    },
+    "figure_5": {
+      "evidence": {
+        "gates": {
+          "anchor_assisted_search_audit_pass": true,
+          "full_reported_generators_and_singular_vectors_released": true,
+          "positive_controls_pass": true,
+          "strict_hcp_to_bai_analytic_reduction_closed": false,
+          "three_orientation_transfer_pass": true
+        },
+        "status": "ALL_REQUIRED_STRENGTHENING_GATES_PASS"
+      },
+      "paths": {
+        "pdf": "06_manuscript/ijp_spectral_hcp/figures/fig08_positive_orientation_anchor_audit.pdf",
+        "png": "06_manuscript/ijp_spectral_hcp/figures/fig08_positive_orientation_anchor_audit.png"
+      }
+    },
+    "figure_6": {
+      "evidence": {
+        "final_relative_gap_to_best_tested_competitor": 0.9999377192250027,
+        "final_winner_label": "sample_y_branch",
+        "global_onset_near_optimal_set_certified": false,
+        "near_optimal_tolerance": 0.02,
+        "tested_near_optimal_onset_set": [
+          "sample_x_branch",
+          "sample_y_branch"
+        ],
+        "trajectory": [
+          {
+            "direction_id": "sample_x",
+            "direction_n": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "k_star_m_inv": 300.0,
+            "maximum_gain": 1.0,
+            "scan_level": "coarse",
+            "time_s": 5e-07,
+            "wavelength_2pi_over_k_m": 0.020943951023931952
+          },
+          {
+            "direction_id": "sample_y",
+            "direction_n": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "k_star_m_inv": 2597.892970080197,
+            "maximum_gain": 1.0000844380595366,
+            "scan_level": "coarse",
+            "time_s": 1e-06,
+            "wavelength_2pi_over_k_m": 0.0024185697330654943
+          },
+          {
+            "direction_id": "sample_y",
+            "direction_n": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "k_star_m_inv": 53348.3823011677,
+            "maximum_gain": 614.2012776850543,
+            "scan_level": "coarse",
+            "time_s": 2e-06,
+            "wavelength_2pi_over_k_m": 0.0001177764917351966
+          },
+          {
+            "direction_id": "sample_y",
+            "direction_n": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "k_star_m_inv": 34643.45954068376,
+            "maximum_gain": 13523.279360910743,
+            "scan_level": "coarse",
+            "time_s": 5e-06,
+            "wavelength_2pi_over_k_m": 0.00018136714376925574
+          },
+          {
+            "direction_id": "sample_y",
+            "direction_n": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "k_star_m_inv": 22496.826279973684,
+            "maximum_gain": 24369.770580889763,
+            "scan_level": "coarse",
+            "time_s": 1e-05,
+            "wavelength_2pi_over_k_m": 0.00027929207564592246
+          },
+          {
+            "direction_id": "sample_y",
+            "direction_n": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "k_star_m_inv": 14609.025754975899,
+            "maximum_gain": 37227.66295501793,
+            "scan_level": "coarse",
+            "time_s": 2e-05,
+            "wavelength_2pi_over_k_m": 0.0004300892758053702
+          },
+          {
+            "direction_id": "refined_center",
+            "direction_n": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "k_star_m_inv": 10955.223817645136,
+            "maximum_gain": 98287.12152074673,
+            "scan_level": "refined",
+            "time_s": 5e-05,
+            "wavelength_2pi_over_k_m": 0.0005735332670300642
+          },
+          {
+            "direction_id": "refined_center",
+            "direction_n": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "k_star_m_inv": 8828.181528627849,
+            "maximum_gain": 536801.4955243847,
+            "scan_level": "refined",
+            "time_s": 0.0001,
+            "wavelength_2pi_over_k_m": 0.0007117190881049058
+          },
+          {
+            "direction_id": "refined_center",
+            "direction_n": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "k_star_m_inv": 8215.258902793086,
+            "maximum_gain": 1767472.4080459261,
+            "scan_level": "refined",
+            "time_s": 0.00014,
+            "wavelength_2pi_over_k_m": 0.0007648189036432414
+          }
+        ]
+      },
+      "paths": {
+        "pdf": "06_manuscript/ijp_spectral_hcp/figures/fig05_direction_wavenumber_horizon_map.pdf",
+        "png": "06_manuscript/ijp_spectral_hcp/figures/fig05_direction_wavenumber_horizon_map.png"
+      }
+    },
+    "figure_7": {
+      "evidence": {
+        "cross_panel_quantitative_comparison_authorized": false,
+        "gradient_control_scope": {
+          "abaqus_executed": false,
+          "assembled_qs_operator": true,
+          "hcp_finite_eigenvalues_generated": true,
+          "high_k_sample_extended_to_m_inv": 1000000000000.0,
+          "nonlinear_localization_width_computed": false,
+          "ta2_calibrated": false
+        },
+        "intervention_contract": {
+          "attribution": "exact Shapley allocation over all 64 coupling-block coalitions",
+          "base_history_held_fixed": true,
+          "coalition_response": "the leading singular value and optimal vectors are recomputed for every coalition",
+          "interpretation": "fixed-base linearized block-intervention dependence; not an experimental causal effect, structural mechanism identification, dissipation fraction, probability, or material-calibrated pathway label",
+          "players": [
+            "mechanical_inertia__thermal",
+            "mechanical_inertia__dislocation",
+            "mechanical_inertia__plastic_kinematics",
+            "thermal__dislocation",
+            "thermal__plastic_kinematics",
+            "dislocation__plastic_kinematics"
+          ],
+          "value_function": "maximum finite-time observable log gain",
+          "within_group_blocks_always_retained": true
+        },
+        "intervention_values": {
+          "onset 2 \u00b5s": {
+            "all cross-links\noff": -5.668051182279059,
+            "full": 0.0,
+            "no dislocation\ncross-links": -5.668051182279059,
+            "no inertia\ncross-links": -2.6335911324504258,
+            "no thermal\ncross-links": -0.013083423608211575
+          },
+          "terminal 140 \u00b5s": {
+            "all cross-links\noff": -8.973178936862384,
+            "full": 0.0,
+            "no dislocation\ncross-links": -5.21928972063454,
+            "no inertia\ncross-links": -13.726265617501927,
+            "no thermal\ncross-links": -5.583026615886817
+          }
+        },
+        "mechanism_status": "FIXED_BASE_MODEL_INTERVENTIONAL_COUPLING_ATTRIBUTION_ACCEPTED"
+      },
+      "paths": {
+        "pdf": "06_manuscript/ijp_spectral_hcp/figures/fig06_counterfactual_mechanism_gradient_controls.pdf",
+        "png": "06_manuscript/ijp_spectral_hcp/figures/fig06_counterfactual_mechanism_gradient_controls.png"
+      }
+    },
+    "figure_8": {
+      "evidence": {
+        "gates": {
+          "both_horizons_completed": true,
+          "complex_output_vector_error_below_3_percent": true,
+          "factor_two_amplitude_collapse_below_2_percent": true,
+          "gain_relative_error_below_2_percent": true,
+          "ledger_partition_residual_below_1e_minus_10": true,
+          "minimum_16_cells_per_input_wavelength": true,
+          "nonretained_fourier_energy_below_1_percent": true
+        },
+        "status": "BOTH_SINGULAR_VECTOR_NONLINEAR_GATES_PASS"
+      },
+      "paths": {
+        "pdf": "06_manuscript/ijp_spectral_hcp/figures/fig10_singular_vector_nonlinear_validation.pdf",
+        "png": "06_manuscript/ijp_spectral_hcp/figures/fig10_singular_vector_nonlinear_validation.png"
+      }
+    },
+    "figure_9": {
+      "evidence": {
+        "material_scale_identified": false,
+        "multimode_twelve_cell_width_gate": "FAILED",
+        "q3_status": "GAIN_GATE_PASSED__25_CASE_MATRIX_COMPLETED__NO_EMERGENT_NONLINEAR_SCALE",
+        "seed_spectrum_failed_scientific_tests": [
+          "all_seed_mode_groups_detect_onset_at_all_three_amplitudes",
+          "all_27_rate_peaks_pass_isolated_six_cell_acceptance",
+          "all_27_temperature_peaks_pass_isolated_six_cell_acceptance",
+          "all_seed_mode_groups_strictly_contract_rate_fwhm_with_amplitude",
+          "all_seed_mode_groups_strictly_contract_temperature_fwhm_with_amplitude",
+          "full_matrix_amplitude_effect_dominance_established_for_both_observables"
+        ],
+        "seed_spectrum_status": "COMPLETED_FALSIFICATION_AUDIT",
+        "single_mode_width_over_input_wavelength_range": [
+          0.3296995307750672,
+          0.3297919331543607
+        ]
+      },
+      "paths": {
+        "pdf": "06_manuscript/ijp_spectral_hcp/figures/fig07_same_window_linear_nonlinear_scale_gate.pdf",
+        "png": "06_manuscript/ijp_spectral_hcp/figures/fig07_same_window_linear_nonlinear_scale_gate.png"
+      }
+    }
+  },
+  "paper_spine": "A crystal-resolved non-autonomous finite-time propagator identifies which direction--wavenumber--state perturbation accumulates the largest observable gain over an evolving HCP loading path; the selector changes with horizon, while the current nonlinear bridge does not identify a material band width.",
+  "schema": "IJP_CORE_FIGURE_SET_V1",
+  "source_artifacts": [
+    "05_results/bai_1982_scalar_regression_reference_v5_independent_redteam_v1.json",
+    "05_results/cp_ti_dynamic_descriptor_qz_v1.json",
+    "05_results/cp_ti_finite_time_dynamic_perturbation_v2.json",
+    "05_results/cp_ti_continuous_spectrum_robustness_v2.json",
+    "05_results/ijp_operator_consistency_v2.json",
+    "05_results/ijp_strengthening_evidence_v1.json",
+    "05_results/ijp_singular_vector_nonlinear_validation_v2.json",
+    "05_results/cp_ti_mechanism_causality_v2.json",
+    "05_results/hcp_qs_spectrum_verification_seed_v1.json",
+    "05_results/cp_ti_fwhm_seed_spectrum_v1.json",
+    "05_results/cp_ti_lsbrp_q3_nonautonomous_bridge_v1.json"
+  ],
+  "status": "NINE_CORE_FIGURES_BUILT_WITH_EXPLICIT_POSITIVE_AND_FALSIFYING_EVIDENCE"
+}

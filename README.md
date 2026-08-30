@@ -10,15 +10,15 @@ The repository contains the manuscript source, machine-readable numerical eviden
 
 - Propagator and frozen-spectrum quantities are compared on the same complete 69-state space, fixed scaling and identity selectors.
 - The three audited full-state log-gain discrepancies are `+4.784`, `+7.217` and `+6.402`.
-- All seven input--output selectors are independently re-optimized over direction and wavenumber under five norms at onset and terminal horizons. Fifteen unrestricted/mechanical cases hit the upper-wavenumber boundary; constitutive-response selectors retain interior maxima.
+- All 70 horizon--norm--selector contracts are directly optimized on the 129-state/four-substep objective. Fifty are finite-band interior candidates, five onset temperature maps are lower-boundary long-wave branches and 15 reversible/mechanical maps are high-frequency branches; all pass the retained six-neighbour stationarity and boundary-extension checks.
 - A strictly matched piecewise-frozen baseline uses the same input/output projectors and metric and converges toward the time-ordered propagator under interval-preserving refinement.
 - Commutators, modal condition numbers, eigenvector rotation and chronological-order controls diagnose the frozen/finite-time difference.
 - Three independently selected crystal orientations retain the non-equivalence.
-- The direction--wavenumber evidence is classified as an **anchor-assisted basin-retention audit**, not an independent global-optimum certificate.
+- An independent sampled challenge and local-ring/wavenumber-profile audit quantifies the near-optimal sets. The onset landscape is nearly flat and does not define a unique length or direction; the terminal constitutive basin is narrow. This remains a sampled audit, not a continuum global-optimum proof.
 - Three added rate/temperature paths, four local parameter sensitivities and a bounded Grade-II CP-Ti comparison expose transfer and calibration limits.
-- The mandatory 513-to-1025 history-density audit passes in the declared log-gain objective; the 1025-state terminal constitutive gain is `6.2906e5` at `k = 6.8369e3 m^-1`.
-- A raw 16-cell all-mode negative control fails at the even-grid Nyquist coordinate; the matched no-Nyquist control completes at both horizons. Two-thirds-dealiased 16/32/64-cell replays converge in gain, but the primary terminal audit places `84.66%` of instantaneous nonlinear RHS energy above the retained cutoff.
-- Four registered active-set transition intervals have been audited with left-, right- and secant-split propagation conventions; terminal gain varies by at most `0.0617%`. A rank-28 recoverable-energy quotient metric retains large terminal amplification at the released direction and wavenumber.
+- The mandatory 513-to-1025 history-density audit passes in the declared relative log-gain objective; the 1025-state terminal constitutive gain is `6.3378e5` at the V4 basin `k = 7.7240e3 m^-1`. The 3.46% raw-gain change is reported separately.
+- A raw 16-cell all-mode negative control first fails at `1.3203125 microseconds`, interval 84, midpoint substep 0, at the even-grid Nyquist mode (`k = 4.3640e5 m^-1`): velocity coordinate 4 dominates and signed-slip coordinate 55 first violates conjugacy. The matched no-Nyquist control completes at both horizons. Two-thirds-dealiased 16/32/64-cell replays converge in gain, but the primary terminal audit places `84.58%` of instantaneous nonlinear RHS energy above the retained cutoff.
+- Four registered active-set transition intervals have been audited with left-, right- and secant-split propagation conventions; terminal gain varies by at most `0.0622%`. The rank-28 recoverable-energy seminorm fails nullspace invariance (`0.9996` terminal leakage), so only positive-energy-subspace restricted gains are reported; no quotient norm is claimed.
 - The present theory therefore closes finite-time finite-band **linear selection**, but not complete nonlinear harmonic transfer, mature material width or propagation resistance.
 
 ## Repository layout
@@ -33,7 +33,7 @@ The repository contains the manuscript source, machine-readable numerical eviden
 - `environment/requirements-lock.txt` -- minimal public Python runtime.
 - `05_results/ijp_reproducibility_release_v1.json` -- release checksum and array-contract receipt.
 
-The latest revision is the LaTeX source [`06_manuscript/ijp_spectral_hcp/main_finite_time.tex`](06_manuscript/ijp_spectral_hcp/main_finite_time.tex). The committed PDF is the preceding build and must not be treated as the V4 revision until the source is explicitly recompiled.
+The latest audited source is [`06_manuscript/ijp_spectral_hcp/main_finite_time.tex`](06_manuscript/ijp_spectral_hcp/main_finite_time.tex); the matching compiled manuscript and supplementary PDFs are committed in the same directory. Both builds have no undefined citations/references or overfull boxes.
 
 ## Quick verification
 
@@ -52,17 +52,18 @@ Rebuild the like-for-like operator, norm and mechanism evidence with:
 python tools/build_ijp_operator_consistency_v2.py
 ```
 
-The V3 re-optimization, density ladder and nonlinear audits are intentionally more expensive than the receipt-based tests:
+The direct V4 re-optimization, near-optimal-set challenge, density ladder and nonlinear audits are intentionally more expensive than the receipt-based tests:
 
 ```bash
-python tools/build_ijp_revision_evidence_v3.py
+python tools/build_ijp_reference_reoptimization_v4.py
+python tools/audit_ijp_v4_near_optimal_set.py
+python tools/run_ijp_v4_dense_convergence_v1.py
 python tools/run_ijp_singular_vector_nonlinear_validation_v3.py
-python tools/run_ijp_v3_dense_convergence_v1.py
 python tools/audit_ijp_v4_full_fourier_convergence_v1.py
 python tools/audit_ijp_v4_start_branch_metric_v1.py
 ```
 
-The factor-128 context cache is intentionally not versioned because it exceeds GitHub's per-file limit; `run_ijp_v3_dense_convergence_v1.py` rebuilds it and verifies its SHA-256 manifest locally.
+The factor-128 context cache is intentionally not versioned because it exceeds GitHub's per-file limit; `run_ijp_v4_dense_convergence_v1.py` rebuilds the required 1025-state receipt locally.
 
 ## Evidence and claim boundaries
 

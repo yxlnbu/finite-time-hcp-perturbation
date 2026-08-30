@@ -1,0 +1,121 @@
+{
+  "artifacts": {
+    "samples_csv": "05_results/ijp_v4_near_optimal_set_audit_v1.csv"
+  },
+  "gates": {
+    "epsilon_ladder_reported_at_both_horizons": true,
+    "independent_pool_does_not_exceed_declared_winner_by_0p1_percent": true
+  },
+  "horizons": {
+    "onset": {
+      "declared_winner_direction_n": [
+        0.004192946774845538,
+        0.999991205869068,
+        8.591781336058526e-05
+      ],
+      "declared_winner_k_m_inv": 54550.4255834816,
+      "declared_winner_log_gain": 0.6219422324144918,
+      "near_optimal_sets": {
+        "epsilon_0.001": {
+          "epsilon": 0.001,
+          "k_max_m_inv": 299999.9999999999,
+          "k_min_m_inv": 1194.3215116604922,
+          "maximum_projective_angle_from_winner_deg": 89.45097949697487,
+          "sampled_member_count": 414,
+          "threshold_log_gain": 0.6210213833111254
+        },
+        "epsilon_0.005": {
+          "epsilon": 0.005,
+          "k_max_m_inv": 299999.9999999999,
+          "k_min_m_inv": 346.1198932863245,
+          "maximum_projective_angle_from_winner_deg": 89.95097949512905,
+          "sampled_member_count": 713,
+          "threshold_log_gain": 0.6170093418211647
+        },
+        "epsilon_0.01": {
+          "epsilon": 0.01,
+          "k_max_m_inv": 299999.9999999999,
+          "k_min_m_inv": 299.99999999999994,
+          "maximum_projective_angle_from_winner_deg": 89.95097949512905,
+          "sampled_member_count": 760,
+          "threshold_log_gain": 0.6119715477912075
+        },
+        "epsilon_0.02": {
+          "epsilon": 0.02,
+          "k_max_m_inv": 299999.9999999999,
+          "k_min_m_inv": 299.99999999999994,
+          "maximum_projective_angle_from_winner_deg": 89.95097949512905,
+          "sampled_member_count": 760,
+          "threshold_log_gain": 0.6018191763271895
+        }
+      },
+      "sample_count": 760,
+      "sampled_best_direction_n": [
+        0.004192946774845538,
+        0.999991205869068,
+        8.591781336058526e-05
+      ],
+      "sampled_best_k_m_inv": 37767.76235382499,
+      "sampled_best_log_gain": 0.622021883644709
+    },
+    "terminal": {
+      "declared_winner_direction_n": [
+        0.004411166337565115,
+        0.9999902707584265,
+        1.7696377058745981e-07
+      ],
+      "declared_winner_k_m_inv": 7724.0128359970095,
+      "declared_winner_log_gain": 13.367382415788443,
+      "near_optimal_sets": {
+        "epsilon_0.001": {
+          "epsilon": 0.001,
+          "k_max_m_inv": 7724.0128359970095,
+          "k_min_m_inv": 7535.659294528746,
+          "maximum_projective_angle_from_winner_deg": 0.012010067801008599,
+          "sampled_member_count": 3,
+          "threshold_log_gain": 13.366381915454859
+        },
+        "epsilon_0.005": {
+          "epsilon": 0.005,
+          "k_max_m_inv": 8455.148793793363,
+          "k_min_m_inv": 7535.659294528746,
+          "maximum_projective_angle_from_winner_deg": 0.012010067801008599,
+          "sampled_member_count": 5,
+          "threshold_log_gain": 13.362369873964898
+        },
+        "epsilon_0.01": {
+          "epsilon": 0.01,
+          "k_max_m_inv": 8455.148793793363,
+          "k_min_m_inv": 6716.163415705027,
+          "maximum_projective_angle_from_winner_deg": 0.012010067801008599,
+          "sampled_member_count": 8,
+          "threshold_log_gain": 13.357332079934942
+        },
+        "epsilon_0.02": {
+          "epsilon": 0.02,
+          "k_max_m_inv": 9486.832980505136,
+          "k_min_m_inv": 6716.163415705027,
+          "maximum_projective_angle_from_winner_deg": 0.012010067801008599,
+          "sampled_member_count": 10,
+          "threshold_log_gain": 13.347179708470923
+        }
+      },
+      "sample_count": 444,
+      "sampled_best_direction_n": [
+        0.004411166337565115,
+        0.9999902707584265,
+        1.7696377058745981e-07
+      ],
+      "sampled_best_k_m_inv": 7724.0128359970095,
+      "sampled_best_log_gain": 13.367382415788443
+    }
+  },
+  "runtime": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "seconds": 762.7190500999568
+  },
+  "schema": "IJP_V4_NEAR_OPTIMAL_SET_AUDIT_V1",
+  "scope": "Independent scrambled-Sobol challenge plus structured local direction and full-domain fixed-direction k profiles for the baseline constitutive map. This is a sampled near-optimal-set audit, not a continuum global proof.",
+  "status": "NEAR_OPTIMAL_SET_AUDIT_PASS"
+}

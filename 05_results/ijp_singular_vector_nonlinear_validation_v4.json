@@ -1,0 +1,356 @@
+{
+  "cases": [
+    {
+      "amplitude_index": 1,
+      "case_id": "near_onset_a1",
+      "complex_output_vector_relative_error": 0.008037888372584437,
+      "epsilon": 1.25e-05,
+      "final_dimensionless_observed_rms": 1.524061235105294e-05,
+      "gain_relative_error": 0.007304342722582097,
+      "integration": {
+        "Gamma_projection_component_count": 0,
+        "completed_requested_history": true,
+        "diagnostics": {
+          "material_point_evaluations": 3128,
+          "maximum_power_identity_relative_residual": 2.8578357496334733e-16,
+          "maximum_power_partition_relative_residual": 9.960388028777826e-17,
+          "maximum_signed_slip_excess": 9.251688427432455e-10,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_dislocation_density_m2": 9999354342.071947,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "minimum_temperature_K": 293.1499998342501,
+          "rhs_evaluations": 184
+        },
+        "final_time_s": 1.4375e-06,
+        "initial_time_s": 5e-07,
+        "integrated_state_count": 93,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "integration_scheme": "exponential_midpoint",
+        "integration_substeps_per_interval": 1,
+        "maximum_Gamma_projection": 0.0,
+        "maximum_discarded_rhs_fourier_energy_fraction": 1.3508612938259364e-08,
+        "maximum_fourier_conjugacy_relative_defect_before_projection": 2.1821928180849893e-19,
+        "registered_state_count": 93,
+        "requested_end_index": 92,
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "state92_admissibility_enforced": false,
+        "stop_reason": null,
+        "total_Gamma_projection_l1": 0.0
+      },
+      "ledger_partition_maximum_relative_residual": 9.25675867687092e-17,
+      "measured_nonlinear_gain": 1.7242784548583963,
+      "nonretained_fourier_energy_fraction": 0.0,
+      "predicted_linear_gain": 1.73696584871483,
+      "role": "near_onset",
+      "runtime_s": 22.08339409995824
+    },
+    {
+      "amplitude_index": 2,
+      "case_id": "near_onset_a2",
+      "complex_output_vector_relative_error": 0.008037921916707281,
+      "epsilon": 2.5e-05,
+      "final_dimensionless_observed_rms": 3.0481224710448215e-05,
+      "gain_relative_error": 0.007304342450893612,
+      "integration": {
+        "Gamma_projection_component_count": 0,
+        "completed_requested_history": true,
+        "diagnostics": {
+          "material_point_evaluations": 3128,
+          "maximum_power_identity_relative_residual": 2.57841820817369e-16,
+          "maximum_power_partition_relative_residual": 9.96406672044783e-17,
+          "maximum_signed_slip_excess": 1.8503377021832044e-09,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_dislocation_density_m2": 9998708684.143837,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "minimum_temperature_K": 293.1499996685002,
+          "rhs_evaluations": 184
+        },
+        "final_time_s": 1.4375e-06,
+        "initial_time_s": 5e-07,
+        "integrated_state_count": 93,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "integration_scheme": "exponential_midpoint",
+        "integration_substeps_per_interval": 1,
+        "maximum_Gamma_projection": 0.0,
+        "maximum_discarded_rhs_fourier_energy_fraction": 2.615975685282728e-09,
+        "maximum_fourier_conjugacy_relative_defect_before_projection": 4.190079481148705e-19,
+        "registered_state_count": 93,
+        "requested_end_index": 92,
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "state92_admissibility_enforced": false,
+        "stop_reason": null,
+        "total_Gamma_projection_l1": 0.0
+      },
+      "ledger_partition_maximum_relative_residual": 1.3231416104999767e-16,
+      "measured_nonlinear_gain": 1.7242784553303099,
+      "nonretained_fourier_energy_fraction": 0.0,
+      "predicted_linear_gain": 1.73696584871483,
+      "role": "near_onset",
+      "runtime_s": 18.32321999996202
+    },
+    {
+      "amplitude_index": 1,
+      "case_id": "terminal_a1",
+      "complex_output_vector_relative_error": 0.002225679421167924,
+      "epsilon": 8.170601827650765e-10,
+      "final_dimensionless_observed_rms": 0.00035276649613067947,
+      "gain_relative_error": 0.0022256736423142244,
+      "integration": {
+        "Gamma_projection_component_count": 0,
+        "completed_requested_history": true,
+        "diagnostics": {
+          "material_point_evaluations": 17408,
+          "maximum_power_identity_relative_residual": 2.930138811976893e-16,
+          "maximum_power_partition_relative_residual": 9.990287772319375e-17,
+          "maximum_signed_slip_excess": 7.007416868987093e-11,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_dislocation_density_m2": 9999999523.39739,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "minimum_temperature_K": 293.1499999999918,
+          "rhs_evaluations": 1024
+        },
+        "final_time_s": 0.00014,
+        "initial_time_s": 5e-07,
+        "integrated_state_count": 513,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "integration_scheme": "exponential_midpoint",
+        "integration_substeps_per_interval": 1,
+        "maximum_Gamma_projection": 0.0,
+        "maximum_discarded_rhs_fourier_energy_fraction": 0.930096425250213,
+        "maximum_fourier_conjugacy_relative_defect_before_projection": 4.126349807674582e-18,
+        "registered_state_count": 513,
+        "requested_end_index": 512,
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "state92_admissibility_enforced": false,
+        "stop_reason": null,
+        "total_Gamma_projection_l1": 0.0
+      },
+      "ledger_partition_maximum_relative_residual": 1.3234973352142385e-16,
+      "measured_nonlinear_gain": 610588.0248508994,
+      "nonretained_fourier_energy_fraction": 0.0,
+      "predicted_linear_gain": 611950.025893945,
+      "role": "terminal",
+      "runtime_s": 99.01700320001692
+    },
+    {
+      "amplitude_index": 2,
+      "case_id": "terminal_a2",
+      "complex_output_vector_relative_error": 0.002224960729465081,
+      "epsilon": 1.634120365530153e-09,
+      "final_dimensionless_observed_rms": 0.0007055335010797323,
+      "gain_relative_error": 0.002224954064469725,
+      "integration": {
+        "Gamma_projection_component_count": 0,
+        "completed_requested_history": true,
+        "diagnostics": {
+          "material_point_evaluations": 17408,
+          "maximum_power_identity_relative_residual": 2.906175469942387e-16,
+          "maximum_power_partition_relative_residual": 9.990287525482288e-17,
+          "maximum_signed_slip_excess": 1.391560200403319e-10,
+          "minimum_Gamma_absolute": 0.0,
+          "minimum_cp_work_density_J_m3": 2.2671941815995502e-10,
+          "minimum_dislocation_density_m2": 9999999523.396843,
+          "minimum_generated_heat_density_J_m3": 2.040474763439595e-10,
+          "minimum_stored_energy_density_J_m3": 2.2671941815995515e-11,
+          "minimum_temperature_K": 293.14999999998366,
+          "rhs_evaluations": 1024
+        },
+        "final_time_s": 0.00014,
+        "initial_time_s": 5e-07,
+        "integrated_state_count": 513,
+        "integration_method": "registered_tangent_exponential_midpoint_with_nonlinear_remainder",
+        "integration_scheme": "exponential_midpoint",
+        "integration_substeps_per_interval": 1,
+        "maximum_Gamma_projection": 0.0,
+        "maximum_discarded_rhs_fourier_energy_fraction": 0.9431839701616899,
+        "maximum_fourier_conjugacy_relative_defect_before_projection": 7.116994829228247e-18,
+        "registered_state_count": 513,
+        "requested_end_index": 512,
+        "retained_nonnegative_fourier_modes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "state92_admissibility_enforced": false,
+        "stop_reason": null,
+        "total_Gamma_projection_l1": 0.0
+      },
+      "ledger_partition_maximum_relative_residual": 1.3234973252337417e-16,
+      "measured_nonlinear_gain": 610588.4651965799,
+      "nonretained_fourier_energy_fraction": 0.0,
+      "predicted_linear_gain": 611950.025893945,
+      "role": "terminal",
+      "runtime_s": 74.69945489999373
+    }
+  ],
+  "claim_boundary": "The matching-grid gain and output-vector checks validate only the declared four-mode Galerkin transport of the actual V4 re-optimized vectors. The discarded-RHS gate must pass before this can be called a complete Fourier nonlinear validation; mature width, resistance and calibration remain open.",
+  "classification": "FOUR_MODE_GALERKIN_SMALL_PERTURBATION_TRANSPORT_NOT_FULL_FOURIER_VALIDATION",
+  "closure_gates": {
+    "discarded_rhs_fourier_energy_below_1_percent": false
+  },
+  "complete_nonlinear_rhs_closure_passed": false,
+  "contract": {
+    "base_context": "paper-consistent fixed-beta V4 factor64 / 513 registered checkpoints",
+    "cells_per_wavelength": 16,
+    "dense_history_convergence": {
+      "near_onset": {
+        "factor32_four_substep_gain": 1.7621774803102004,
+        "factor32_to64_relative_log_gain_change": 0.02609983640081981,
+        "factor64_four_substep_gain": 1.7369652798445638,
+        "factor64_one_to_four_substep_relative_log_gain_change": 3.2750813905302323e-07
+      },
+      "terminal": {
+        "factor32_four_substep_gain": 612839.1756860699,
+        "factor32_to64_relative_log_gain_change": 0.00012111927946900636,
+        "factor64_four_substep_gain": 611850.959448872,
+        "factor64_one_to_four_substep_relative_log_gain_change": 0.00016191270691523485
+      }
+    },
+    "density_trigger": {
+      "factor128_mandatory": true,
+      "factor32_to64_relative_log_gain_change_below_2_percent": false,
+      "factor64_to128_receipt": "05_results/ijp_v4_dense_convergence_v1.json",
+      "factor64_to128_status": "V4_DENSE_CONVERGENCE_GATE_PASS"
+    },
+    "linear_and_nonlinear_substeps_per_interval": 1,
+    "metric": "exact released V4 reference_coordinate_scales",
+    "released_129_state_reference_status": "superseded for central gain magnitudes by the converged 513-state map",
+    "released_129_to_513_gain_relative_changes": {
+      "near_onset": 0.06742192686059645,
+      "terminal": 0.04206611279806893
+    },
+    "retained_nonnegative_fourier_modes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "selector": "constitutive_to_constitutive",
+    "source": "05_results/ijp_reference_reoptimization_v4.json",
+    "target_final_dimensionless_norm": 0.001
+  },
+  "outputs": {
+    "fields": "05_results/ijp_singular_vector_nonlinear_validation_v4_fields.npz",
+    "figure_pdf": "06_manuscript/ijp_spectral_hcp/figures/fig12_v4_singular_vector_nonlinear_validation.pdf",
+    "figure_png": "06_manuscript/ijp_spectral_hcp/figures/fig12_v4_singular_vector_nonlinear_validation.png",
+    "table": "05_results/ijp_singular_vector_nonlinear_validation_v4.csv"
+  },
+  "provenance": {
+    "base_context_cache": "05_results/cp_ti_lsbrp_base_cache_v1_ref64.pkl",
+    "base_context_cache_sha256": "8d2b2677b9a6f027f2f3056cf19216ac2dd02ba84f47520dc4d18ab093c2fa24",
+    "mandatory_dense_convergence": "05_results/ijp_v4_dense_convergence_v1.json",
+    "mandatory_dense_convergence_sha256": "2962fc9ceb535e9d012f6a6215f490b481453710129970e4b67cbf86c4cae9a8",
+    "optimization_arrays": "05_results/ijp_reference_reoptimization_v4_arrays.npz",
+    "optimization_arrays_sha256": "10442f99560d5551eca04800f5b26cd789fecabec3a7917b2e458ed6c9169d65",
+    "optimization_evidence_sha256": "9be314c92fb64553bb5dcfaa64463e9e73dc7a0dab45928517a97a26b9389a95",
+    "paper_model_contract_builder": "tools/build_ijp_revision_evidence_v3.py",
+    "paper_model_contract_builder_sha256": "a8c311c387c3330ad2f3dcabd03beea901b303ba440fc3317969d5b29cc5011d",
+    "tool": "tools/run_ijp_singular_vector_nonlinear_validation_v3.py",
+    "tool_sha256": "2e372090e283f31fe1b39a48b73637ee81cbba24ae6d3f07013f682c487535b8"
+  },
+  "roles": {
+    "near_onset": {
+      "admissible_amplitude_ceiling": 0.0001,
+      "base_state_count": 93,
+      "cells": 16,
+      "cells_per_wavelength": 16.0,
+      "direction_n": [
+        0.004192946774845538,
+        0.999991205869068,
+        8.591781336058526e-05
+      ],
+      "domain_length_m": 0.0001151812335096098,
+      "end_index": 92,
+      "factor_two_gain_collapse": 2.736875926063656e-10,
+      "k_m_inv": 54550.4255834816,
+      "linear_substeps_per_interval": 1,
+      "maximum_complex_output_vector_relative_error": 0.008037921916707281,
+      "maximum_gain_relative_error": 0.007304342722582097,
+      "maximum_ledger_partition_relative_residual": 1.3231416104999767e-16,
+      "maximum_nonretained_fourier_energy_fraction": 0.0,
+      "mode": 1,
+      "nonlinear_integration_scheme": "exponential_midpoint",
+      "nonlinear_substeps_per_interval": 1,
+      "predicted_linear_gain": 1.73696584871483,
+      "runtime_s": 41.35962150001433,
+      "source": "direct-reference direction--wavenumber re-optimization for the baseline constitutive-to-constitutive selector",
+      "target_time_s": 1.4375e-06,
+      "tested_amplitudes": [
+        1.25e-05,
+        2.5e-05
+      ]
+    },
+    "terminal": {
+      "admissible_amplitude_ceiling": 0.0001,
+      "base_state_count": 513,
+      "cells": 16,
+      "cells_per_wavelength": 16.0,
+      "direction_n": [
+        0.004411166337565115,
+        0.9999902707584265,
+        1.7696377058745981e-07
+      ],
+      "domain_length_m": 0.0008134612720861121,
+      "end_index": 512,
+      "factor_two_gain_collapse": 7.211829624098573e-07,
+      "k_m_inv": 7724.0128359970095,
+      "linear_substeps_per_interval": 1,
+      "maximum_complex_output_vector_relative_error": 0.002225679421167924,
+      "maximum_gain_relative_error": 0.0022256736423142244,
+      "maximum_ledger_partition_relative_residual": 1.3234973352142385e-16,
+      "maximum_nonretained_fourier_energy_fraction": 0.0,
+      "mode": 1,
+      "nonlinear_integration_scheme": "exponential_midpoint",
+      "nonlinear_substeps_per_interval": 1,
+      "predicted_linear_gain": 611950.025893945,
+      "runtime_s": 178.50542169995606,
+      "source": "direct-reference direction--wavenumber re-optimization for the baseline constitutive-to-constitutive selector",
+      "target_time_s": 0.00014,
+      "tested_amplitudes": [
+        8.170601827650765e-10,
+        1.634120365530153e-09
+      ]
+    }
+  },
+  "runtime": {
+    "numpy": "2.4.3",
+    "python": "3.12.10",
+    "wall_time_s": 228.9246835000231
+  },
+  "schema": "IJP_SINGULAR_VECTOR_NONLINEAR_VALIDATION_V4",
+  "status": "GALERKIN_TRANSPORT_PASS_NONLINEAR_RHS_CLOSURE_OPEN",
+  "transport_gates": {
+    "513_state_one_to_four_substep_gain_change_below_0p5_percent": true,
+    "both_reoptimized_horizons_completed": true,
+    "complex_output_vector_error_below_3_percent": true,
+    "factor_two_amplitude_collapse_below_2_percent": true,
+    "gain_relative_error_below_2_percent": true,
+    "ledger_partition_residual_below_1e_minus_10": true,
+    "mandatory_dense_history_convergence_contract_passed": true,
+    "minimum_16_cells_per_input_wavelength": true,
+    "nonretained_fourier_energy_below_1_percent": true
+  },
+  "transport_passed": true
+}

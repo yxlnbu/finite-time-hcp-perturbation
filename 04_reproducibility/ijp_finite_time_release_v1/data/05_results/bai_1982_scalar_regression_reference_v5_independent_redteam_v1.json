@@ -1,0 +1,261 @@
+{
+  "schema": "HCP_CP_BAI_1982_SCALAR_REGRESSION_REFERENCE_V5_INDEPENDENT_REDTEAM_RECEIPT_V1",
+  "evidence_id": "BAI-SCALAR-P05-INDEPENDENT-REDTEAM-V1",
+  "date": "2026-08-16",
+  "status": "SCOPED_ACCEPTED_V5_BAI_SCALAR_COEFFICIENT_ROOT_REGRESSION_REFERENCE_BASELINE__P0_0__P1_0__P2_7__NO_BAI_GATE_AUTHORITY__NO_HCP_STRICT_REDUCTION__HIGH_K_01_OPEN__TOLERANCE_REVIEW_OPEN__NO_SPECTRAL_RESULT__NOT_TA2",
+  "review_type": "INDEPENDENT_READ_ONLY_EQUATION_CODE_HASH_TEST_AND_NUMERICAL_MUTATION_REVIEW",
+  "verdict": {
+    "result": "SCOPED_ACCEPTED_V5_BAI_SCALAR_COEFFICIENT_ROOT_REGRESSION_REFERENCE_BASELINE",
+    "go_no_go": "GO_FOR_SCOPED_SCALAR_REFERENCE_IMPLEMENTATION_BASELINE_ONLY",
+    "p0_count": 0,
+    "p1_count": 0,
+    "p2_count": 7,
+    "bai_criterion_authority": false,
+    "hcp_strict_reduction_authority": false,
+    "high_k_01_authority": false,
+    "tolerance_authority": false,
+    "scientific_spectrum_authority": false,
+    "candidate_v1_through_v5_bytes_mutated": false,
+    "governing_bridge_bytes_mutated": false,
+    "global_registry_updated": false
+  },
+  "candidate_authority": {
+    "path": "05_results/bai_1982_scalar_regression_reference_v5_candidate.json",
+    "bytes": 16294,
+    "sha256": "47ae54b6e36e935f45b3ab6e43e51ae4a49183f6c9fb2f3f063a60073b777c7d"
+  },
+  "current_v5_authorities": [
+    {
+      "path": "03_design/BAI_1982_SCALAR_REGRESSION_SPEC_V5.md",
+      "bytes": 10716,
+      "sha256": "ff9a3a8ee24b953433d153c12e787c27f2713378a55b015f655a1ef3b6689355"
+    },
+    {
+      "path": "src/hcp_cp_gnd/bai_reference_v5.py",
+      "bytes": 19188,
+      "sha256": "f4c37b5d5d1c8fb3d7fc73b90f7d74729bdff5d5a04ea01f9e6edcbc016d77fb"
+    },
+    {
+      "path": "tests/test_bai_reference_v5.py",
+      "bytes": 14600,
+      "sha256": "704e9dc37d8609e725847c7072a218e58c5a58204198d7f6efaab79753b9626e"
+    },
+    {
+      "path": "03_design/THEORY_BRIDGE_BAI_TO_HCP_SPECTRAL.md",
+      "bytes": 63383,
+      "sha256": "e564abe5f23d46dade83a9d19d7f44f99def9b50a0fb3be99bf8d8fb6259d9e6"
+    }
+  ],
+  "independent_integrity_recheck": {
+    "method": "Strict JSON parse followed by independent byte-count and SHA-256 verification of every candidate authority record, resolving paths against E:/ASBs/HCP_CP_v0.2.",
+    "candidate_authority_records": {
+      "current": 25,
+      "passed": 25,
+      "failed": 0,
+      "unique_roles": 25,
+      "unique_paths": 25,
+      "duplicate_json_keys": false
+    },
+    "historical_chain": "PASS_V1_V2_V3_V4_SPECIFICATION_SOURCE_TEST_AND_CANDIDATE_RECEIPT_BYTES_UNCHANGED",
+    "runtime_binding": "PASS_V5_TO_V4_TO_V3_TO_V2_TO_V1_SOURCE_BINDING_CHAIN",
+    "governing_bridge_lifecycle": "PASS_V1_V2_V3_V4_HISTORICAL_NO_GO__V5_CURRENT_CANDIDATE_INDEPENDENT_REVIEW_PENDING",
+    "claim_boundary": "PASS_BAI_HCP_HIGH_K_TOLERANCE_THERMODYNAMIC_LOCALIZATION_AND_TA2_AUTHORITIES_REMAIN_OPEN"
+  },
+  "runtime": {
+    "python_implementation": "CPython",
+    "python_version": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy_version": "2.4.3",
+    "scipy_version": "1.17.1",
+    "pytest_version": "9.1.1",
+    "cross_runtime_repeatability_verified": false
+  },
+  "independent_test_reproduction": {
+    "python_bytecode_disabled_for_pytest": true,
+    "pytest_cache_disabled": true,
+    "module_compile": {
+      "command": "py -3 -B -m py_compile src/hcp_cp_gnd/bai_reference_v5.py tests/test_bai_reference_v5.py",
+      "result": "PASS"
+    },
+    "v5_targeted": {
+      "command": "py -3 -B -m pytest -q -p no:cacheprovider tests/test_bai_reference_v5.py",
+      "passed": 34,
+      "failed": 0
+    },
+    "v5_targeted_warnings_as_errors": {
+      "command": "py -3 -B -m pytest -q -p no:cacheprovider -W error tests/test_bai_reference_v5.py",
+      "passed": 34,
+      "failed": 0
+    },
+    "v5_v4_v3_v2_v1_and_related_spectral_regression": {
+      "command": "py -3 -B -m pytest -q -p no:cacheprovider tests/test_bai_reference_v5.py tests/test_bai_reference_v4.py tests/test_bai_reference_v3.py tests/test_bai_reference_v2.py tests/test_bai_reference.py tests/test_qs_descriptor.py tests/test_qs_qz.py tests/test_qs_qz_v2.py tests/test_spectral_export.py tests/test_state_contract.py",
+      "passed": 358,
+      "failed": 0,
+      "authority_scope": "INFORMATIONAL_RELATED_REGRESSION_BECAUSE_FIVE_AUXILIARY_TEST_FILES_ARE_NOT_DIRECTLY_BOUND_BY_THE_V5_CANDIDATE_RECEIPT"
+    },
+    "actual_abaqus_executed": false,
+    "scientific_hcp_root_values_serialized_or_reported": false,
+    "scientific_parameter_scan_artifact_written": false
+  },
+  "reviewed_exact_dyadic_results": {
+    "binary64_factor_decomposition": "PASS_EXACT_AS_INTEGER_RATIO_AND_ODD_INTEGER_POWER_OF_TWO_NORMALIZATION",
+    "three_factor_products": "PASS_EXACT_PYTHON_INTEGER_NUMERATOR_AND_INTEGER_EXPONENT_ARITHMETIC",
+    "aligned_difference": "PASS_EXACT_INTEGER_ALIGNMENT_SUBTRACTION_SIGN_AND_ZERO_DECISION",
+    "positive_epsilon_fixture": {
+      "exact_dyadic": [1, -104],
+      "public_hex": "0x1.0000000000000p-104",
+      "high_k_branch": "PASS_BOUNDED_POSITIVE_BRANCH_WITH_FINITE_POSITIVE_LEADING_VALUE"
+    },
+    "negative_epsilon_fixture": {
+      "exact_dyadic": [-1, -104],
+      "public_hex": "-0x1.0000000000000p-104",
+      "high_k_branch": "PASS_POSITIVE_BRANCH_REQUEST_REJECTED_AS_BaiDomainError"
+    },
+    "structural_exact_zero": "PASS_POSITIVE_BINARY64_ZERO_FOR_EQUAL_1E308_SCALE_PRODUCTS_AND_DIFFERENT_EQUAL_FACTORIZATIONS",
+    "common_power_scaling": "PASS_REGISTERED_M_EQUALS_MINUS_970_MINUS_918_MINUS_500_0_500_900_1023_FOR_BOTH_SIGNS",
+    "minimum_subnormal": "PASS_PLUS_MINUS_2_POW_MINUS_1074_FINITE_WITH_EXACT_SIGN",
+    "minimum_normal": "PASS_PLUS_MINUS_2_POW_MINUS_1022_FINITE_WITH_EXACT_SIGN",
+    "half_minimum_subnormal": "PASS_PLUS_MINUS_2_POW_MINUS_1075_BaiReferenceError_NEVER_ZERO",
+    "maximum_finite": "PASS_PLUS_MINUS_MAX_BINARY64_FINITE_WITH_EXACT_SIGN",
+    "overflow": "PASS_POSITIVE_AND_NEGATIVE_NONREPRESENTABLE_RESULTS_BaiReferenceError",
+    "negative_zero": "PASS_EXACT_ZERO_MATERIALIZES_AS_POSITIVE_0X0P0_AND_DOES_NOT_ENTER_POSITIVE_HIGH_K_BRANCH"
+  },
+  "independent_numerical_mutations": [
+    {
+      "id": "BAI-V5-RT-MUT-01",
+      "description": "Random finite binary64 three-factor product differences against exact Fraction.from_float arithmetic.",
+      "seed": "0xBA15D1A",
+      "cases": 20000,
+      "exact_fraction_mismatches": 0,
+      "public_correctly_rounded_finite_results": 13292,
+      "public_underflow_fail_closed": 480,
+      "public_overflow_fail_closed": 6228,
+      "native_exceptions": 0,
+      "floating_warnings": 0
+    },
+    {
+      "id": "BAI-V5-RT-MUT-02",
+      "description": "Independent high-precision Decimal sign and zero oracle on a subset of random binary64 product differences.",
+      "decimal_precision_digits": 4000,
+      "cases": 2000,
+      "sign_or_zero_mismatches": 0
+    },
+    {
+      "id": "BAI-V5-RT-MUT-03",
+      "description": "Constructed near-cancellation products using the correctly rounded product and adjacent binary64 neighbors.",
+      "seed": "0xCA11CE11",
+      "admitted_cases": 13313,
+      "exact_fraction_mismatches": 0,
+      "finite_correct_results": 13222,
+      "underflow_fail_closed": 91,
+      "native_exceptions": 0
+    },
+    {
+      "id": "BAI-V5-RT-MUT-04",
+      "description": "Exchange antisymmetry and exactly representable common power-of-two scaling properties.",
+      "exchange_cases": 5000,
+      "exchange_mismatches": 0,
+      "exact_scaling_cases": 10000,
+      "exact_scaling_mismatches": 0
+    },
+    {
+      "id": "BAI-V5-RT-MUT-05",
+      "description": "Different exact dyadic factorizations of equal products.",
+      "cases": 1000,
+      "nonzero_or_negative_zero_results": 0
+    },
+    {
+      "id": "BAI-V5-RT-MUT-06",
+      "description": "Subnormal tie and overflow-neighborhood rounding, including 0.25, 0.5, 0.75, 1.0, 1.5 and 2.5 times minimum subnormal and max plus powers 2^968 through 2^971.",
+      "direct_dyadic_boundary_cases": 3264,
+      "rounding_or_exception_mismatches": 0
+    },
+    {
+      "id": "BAI-V5-RT-MUT-07",
+      "description": "Positive exact-D bounded and unbounded local high-wavenumber branches over random finite binary64 factors and wavenumbers.",
+      "seed": "0xA51B",
+      "calls": 10000,
+      "finite_positive_results": 3561,
+      "bai_fail_closed_results": 6439,
+      "wrong_branch_or_nonfinite_results": 0,
+      "native_exceptions": 0,
+      "floating_warnings": 0
+    },
+    {
+      "id": "BAI-V5-RT-MUT-08",
+      "description": "Public coefficient, group, criterion, D, high-k, scale, root, matching, classification and Routh entry fuzz over finite binary64 inputs.",
+      "seed": "0x505F022",
+      "calls": 21772,
+      "finite_returns": 5981,
+      "bai_fail_closed_results": 15791,
+      "native_exceptions": 0,
+      "nonfinite_public_returns": 0,
+      "floating_warnings": 0
+    },
+    {
+      "id": "BAI-V5-RT-MUT-09",
+      "description": "Invalid bool, string, Decimal, complex, array, mapping and object admission probes across public scalar and array entries.",
+      "result": "PASS_NO_NATIVE_EXCEPTION_AND_NO_UNINTENDED_ADMISSION__NUMPY_FLOATING_AND_NONE_AUTOMATIC_RATE_REMAIN_INTENTIONALLY_ADMITTED"
+    }
+  ],
+  "p2_findings": [
+    {
+      "id": "BAI-V5-RT-P2-01",
+      "finding": "Residual, reconstruction, conditioned-sign, Routh-Hurwitz, matching, low-C and analytical representability controls remain candidate numerical policies.",
+      "impact": "NO_TOLERANCE_OR_SCIENTIFIC_CRITERION_AUTHORITY"
+    },
+    {
+      "id": "BAI-V5-RT-P2-02",
+      "finding": "Exact Python-integer arithmetic and Fraction-to-binary64 conversion were independently replayed only in the recorded CPython and Windows runtime.",
+      "impact": "CROSS_RUNTIME_AND_CROSS_PLATFORM_REPEATABILITY_OPEN"
+    },
+    {
+      "id": "BAI-V5-RT-P2-03",
+      "finding": "An exact nonzero D that rounds to binary64 zero fails closed by design; the representability and caller-handling policy has not received separate API or tolerance authority.",
+      "impact": "FAIL_CLOSED_BEHAVIOR_VERIFIED_BUT_POLICY_AUTHORITY_OPEN"
+    },
+    {
+      "id": "BAI-V5-RT-P2-04",
+      "finding": "The inherited companion-QZ path may fail closed for ill-scaled high-wavenumber or extreme-rate polynomials and has no independently frozen Bai tolerance authority.",
+      "impact": "NO_EXTREME_SCALE_ROOT_RECOVERY_AUTHORITY"
+    },
+    {
+      "id": "BAI-V5-RT-P2-05",
+      "finding": "The candidate receipt reports the 358-test related regression without directly hash-binding the five auxiliary test files and their complete implementation dependency set.",
+      "impact": "THE_358_TEST_RUN_IS_INFORMATIONAL; THE_HASH_BOUND_34_TEST_V5_SUITE_IS_THE_PRIMARY_SCOPED_EVIDENCE"
+    },
+    {
+      "id": "BAI-V5-RT-P2-06",
+      "finding": "Several manuscript-context files use the label Bai amendment V2 while the numerical scalar reference is V5; the namespaces are reconcilable but not explicitly distinguished everywhere.",
+      "impact": "NON_BLOCKING_VERSION_NAMESPACE_AMBIGUITY"
+    },
+    {
+      "id": "BAI-V5-RT-P2-07",
+      "finding": "V5 is a scalar reference only and does not embed the HCP operator, prove strict HCP-to-Bai reduction, establish the full HCP high-k Schur cutoff, compare nonlinear UEL growth, or validate TA2.",
+      "impact": "BAI_HCP_HIGH_K_THERMODYNAMIC_LOCALIZATION_AND_TA2_GATES_REMAIN_OPEN"
+    }
+  ],
+  "allowed_claims": [
+    "Independent review found no P0 or P1 defect in the bound V5 scalar numerical reference implementation.",
+    "The V5 exact-dyadic local-driving implementation repairs the registered V4 plus/minus 2^-104 sign-loss defect for the reviewed registered and independent mutations.",
+    "For reviewed inputs, local D returns a finite correctly signed binary64 value, a proved positive zero for exact equality, or BaiReferenceError; no exact nonzero was silently reported as zero.",
+    "The bound V5 source may be used as a scoped Bai scalar coefficient/root regression reference implementation baseline for later tolerance and HCP-reduction gates."
+  ],
+  "forbidden_claims": [
+    "BAI-01, BAI-02, BAI-QS, HIGH-K-01 or any tolerance policy is accepted or closed.",
+    "The HCP operator has strictly reduced to Bai or any HCP root or finite-elastic slow-root convergence has been accepted.",
+    "A bounded scalar local-adiabatic branch proves HCP finite-wavelength selection or mesh-objective localization-band width.",
+    "Any critical state, growth rate, perturbation direction, wavenumber, wavelength, band width or temperature rise has been predicted.",
+    "THERMO-01/02, STATE-01, CLOSURE-01, DAE-01, JAC-03 or nonlinear UEL validation is closed.",
+    "The implementation is cross-runtime deterministic or calibrated or validated for TA2.",
+    "V1, V2, V3 or V4 has been promoted from historical NO-GO status."
+  ],
+  "next_gates": [
+    "independent Bai tolerance and representability-policy authority",
+    "hash-bound scalar regression replay package across a second runtime",
+    "coefficient-level HCP-to-Bai strict reduction",
+    "full HCP high-wavenumber Schur and cutoff analysis",
+    "linear-to-nonlinear UEL growth-rate comparison",
+    "TA2 physical calibration and validation"
+  ]
+}

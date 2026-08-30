@@ -1,0 +1,54 @@
+{
+  "central_linear_values": {
+    "near_onset": {
+      "gain": 1.730157715787804,
+      "k_m_inv": 71848.05580700038,
+      "state_count": 1025
+    },
+    "terminal": {
+      "gain": 629058.8280745882,
+      "k_m_inv": 6836.8536687706555,
+      "state_count": 1025
+    }
+  },
+  "claim_boundary": "The suite validates converged linear finite-time gain and matching-grid small-amplitude nonlinear transport. It does not validate finite-amplitude saturation, mature width, specimen calibration or propagation resistance.",
+  "direct_nonlinear_gates": {
+    "513_state_one_to_four_substep_gain_change_below_0p5_percent": true,
+    "both_reoptimized_horizons_completed": true,
+    "complex_output_vector_error_below_3_percent": true,
+    "discarded_rhs_fourier_energy_below_1_percent": false,
+    "factor_two_amplitude_collapse_below_2_percent": true,
+    "gain_relative_error_below_2_percent": true,
+    "ledger_partition_residual_below_1e_minus_10": true,
+    "minimum_16_cells_per_input_wavelength": true,
+    "nonretained_fourier_energy_below_1_percent": true
+  },
+  "gates": {
+    "all_direct_513_state_nonlinear_transport_gates_pass": false,
+    "mandatory_513_to_1025_log_gain_density_gate_pass": true
+  },
+  "matching_513_state_nonlinear_values": {
+    "near_onset": {
+      "maximum_complex_output_vector_relative_error": 0.010056886940217964,
+      "maximum_gain_relative_error": 0.007303415989333821,
+      "predicted_linear_gain": 1.7365306648748124
+    },
+    "terminal": {
+      "maximum_complex_output_vector_relative_error": 0.002227078672158565,
+      "maximum_gain_relative_error": 0.0022270864761071234,
+      "predicted_linear_gain": 608984.198857322
+    }
+  },
+  "schema": "IJP_V3_VALIDATION_SUITE_V1",
+  "sources": {
+    "dense_convergence": "05_results/ijp_v3_dense_convergence_v1.json",
+    "dense_convergence_sha256": "0898b1fccda2dc8ebfef31c0d02c84c144c1c02b7ab428a6b1132898c92c9c3d",
+    "nonlinear_validation": "05_results/ijp_singular_vector_nonlinear_validation_v3.json",
+    "nonlinear_validation_sha256": "af31bc25b077f5ddddd6d16d323dd0adcea18d862fa4e6c33d7709c9513d2ee8"
+  },
+  "status": "OPEN_V3_DENSE_OR_NONLINEAR_GATE",
+  "trigger_and_closure": {
+    "closure": "The 513-to-1025 maximum relative log-gain change is below 2%; the 513-state nonlinear replay is judged only against its matching 513-state linear propagator.",
+    "trigger": "The near-onset 257-to-513 relative log-gain change was 2.615%, so the predeclared 2% gate triggered a 1025-state calculation."
+  }
+}

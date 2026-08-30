@@ -1,0 +1,170 @@
+\section{Block reduction and finite-time bounds}
+\label{app:operator_blocks}
+
+\subsection{Exact algebraic elimination}
+
+With
+\begin{equation}
+ \boldsymbol Q_{yy}(s)
+ =\boldsymbol K_{yy}+s\boldsymbol E_{yy}+s^2\boldsymbol M_{yy},
+ \label{eq:app_Qyy}
+\end{equation}
+the augmented pencil is
+\begin{equation}
+ \boldsymbol{\mathcal Q}(s)=
+ \begin{bmatrix}
+  \boldsymbol Q_{yy}(s)&\boldsymbol K_{y\zeta}\\
+  \boldsymbol K_{\zeta y}&\boldsymbol K_{\zeta\zeta}
+ \end{bmatrix}.
+ \label{eq:app_augmented_pencil}
+\end{equation}
+If $\boldsymbol K_{\zeta\zeta}$ is invertible, introduce
+\begin{align}
+ \boldsymbol L&=
+ \begin{bmatrix}
+  \boldsymbol I&-\boldsymbol K_{y\zeta}
+  \boldsymbol K_{\zeta\zeta}^{-1}\\
+  \boldsymbol0&\boldsymbol I
+ \end{bmatrix},
+ &
+ \boldsymbol R_e&=
+ \begin{bmatrix}
+  \boldsymbol I&\boldsymbol0\\
+  -\boldsymbol K_{\zeta\zeta}^{-1}
+  \boldsymbol K_{\zeta y}&\boldsymbol I
+ \end{bmatrix}.
+ \label{eq:app_elimination_matrices}
+\end{align}
+Both matrices have determinant one, and direct multiplication gives
+\begin{equation}
+ \boldsymbol L\boldsymbol{\mathcal Q}(s)\boldsymbol R_e
+ =\begin{bmatrix}
+  \boldsymbol Q_{yy}(s)-\boldsymbol K_{y\zeta}
+  \boldsymbol K_{\zeta\zeta}^{-1}\boldsymbol K_{\zeta y}
+  &\boldsymbol0\\
+  \boldsymbol0&\boldsymbol K_{\zeta\zeta}
+ \end{bmatrix}.
+ \label{eq:app_block_diagonalization}
+\end{equation}
+This proves the determinant factorization in Eq.~\eqref{eq:dyn_determinant_factorization}. If $\widehat{\boldsymbol y}$ belongs to the reduced kernel, then
+$[\widehat{\boldsymbol y},-\boldsymbol K_{\zeta\zeta}^{-1}
+\boldsymbol K_{\zeta y}\widehat{\boldsymbol y}]^{\mathsf T}$
+belongs to the augmented kernel. Conversely, the lower row of Eq.~\eqref{eq:app_augmented_pencil} forces this reconstruction for every augmented kernel vector. Thus the finite algebraic and geometric multiplicities are preserved.
+
+\subsection{Generator equivalence and consistent initialization}
+
+Write the reduced quadratic equations as
+\begin{align}
+ \boldsymbol R\ddot{\boldsymbol u}
+ +\boldsymbol K_{uu}\boldsymbol u
+ +\boldsymbol K_{ud}\boldsymbol d&=\boldsymbol0,
+ \label{eq:app_reduced_u}\\
+ \boldsymbol C\dot{\boldsymbol d}
+ +\boldsymbol K_{du}\boldsymbol u
+ +\boldsymbol K_{dd}\boldsymbol d&=\boldsymbol0.
+ \label{eq:app_reduced_d}
+\end{align}
+With $\boldsymbol v=\dot{\boldsymbol u}$, the first-order generator is
+\begin{equation}
+ \boldsymbol A_{\rm dyn}=
+ \begin{bmatrix}
+  \boldsymbol0&\boldsymbol I&\boldsymbol0\\
+  -\boldsymbol R^{-1}\boldsymbol K_{uu}&\boldsymbol0&
+  -\boldsymbol R^{-1}\boldsymbol K_{ud}\\
+  -\boldsymbol C^{-1}\boldsymbol K_{du}&\boldsymbol0&
+  -\boldsymbol C^{-1}\boldsymbol K_{dd}
+ \end{bmatrix}.
+ \label{eq:app_generator}
+\end{equation}
+For a modal solution $\boldsymbol q=\widehat{\boldsymbol q}e^{st}$, the first block row gives $\widehat{\boldsymbol v}=s\widehat{\boldsymbol u}$. Substitution into the remaining rows recovers Eqs.~\eqref{eq:app_reduced_u}--\eqref{eq:app_reduced_d}. Conversely, every reduced quadratic eigenvector with finite $s$ defines a generator eigenvector by adjoining $s\widehat{\boldsymbol u}$. This proves Proposition~2.
+
+A physical initial perturbation must satisfy the algebraic reconstruction
+\begin{equation}
+ \widehat{\boldsymbol\zeta}_0
+ =-\boldsymbol K_{\zeta\zeta}^{-1}(t_0;k,\boldsymbol n)
+   \boldsymbol K_{\zeta y}(t_0;k,\boldsymbol n)
+   \widehat{\boldsymbol y}_0.
+ \label{eq:app_consistent_initialization}
+\end{equation}
+Arbitrary independent initialization of $\boldsymbol\zeta$ would violate the microforce constraint and is not admitted.
+
+\subsection{Propagator existence, continuity, and norm change}
+
+If $\boldsymbol A_{\rm dyn}(t;p)$ is piecewise continuous in time and uniformly bounded for parameter $p=(k,\boldsymbol n)$ on a compact admitted set, the integral equation
+\begin{equation}
+ \boldsymbol\Phi(t,t_0;p)=\boldsymbol I+
+ \int_{t_0}^{t}\boldsymbol A_{\rm dyn}(\tau;p)
+ \boldsymbol\Phi(\tau,t_0;p)\,d\tau
+ \label{eq:app_volterra_propagator}
+\end{equation}
+has a unique absolutely continuous solution. Gronwall's inequality gives
+\begin{equation}
+ \|\boldsymbol\Phi(t,t_0;p)\|_2
+ \le\exp\!\left(\int_{t_0}^{t}
+ \|\boldsymbol A_{\rm dyn}(\tau;p)\|_2\,d\tau\right).
+ \label{eq:app_propagator_bound}
+\end{equation}
+For two parameters $p$ and $p'$, subtraction of their Volterra equations and a second Gronwall estimate yields
+\begin{equation}
+ \|\boldsymbol\Phi(t,t_0;p)-\boldsymbol\Phi(t,t_0;p')\|_2
+ \le C_I\int_{t_0}^{t}
+ \|\boldsymbol A_{\rm dyn}(\tau;p)-
+ \boldsymbol A_{\rm dyn}(\tau;p')\|_2\,d\tau,
+ \label{eq:app_parameter_continuity}
+\end{equation}
+where $C_I$ depends only on the uniform generator bound and the time interval. Continuity of the generator in $p$ therefore implies continuity of the propagator and of its largest singular value. Compactness then gives the maximizer in Proposition~4.
+
+For two fixed diagonal scalings $\boldsymbol D_1$ and $\boldsymbol D_2$, define $\boldsymbol S=\boldsymbol D_2\boldsymbol D_1^{-1}$. Their scaled propagators satisfy
+\begin{equation}
+ \widehat{\boldsymbol\Phi}_2
+ =\boldsymbol S^{-1}\widehat{\boldsymbol\Phi}_1\boldsymbol S.
+ \label{eq:app_norm_similarity}
+\end{equation}
+Consequently,
+\begin{equation}
+ \kappa_2(\boldsymbol S)^{-1}\|\widehat{\boldsymbol\Phi}_1\|_2
+ \le\|\widehat{\boldsymbol\Phi}_2\|_2
+ \le\kappa_2(\boldsymbol S)\|\widehat{\boldsymbol\Phi}_1\|_2.
+ \label{eq:app_norm_equivalence}
+\end{equation}
+Boundedness is preserved by a fixed change of norm, but a prescribed threshold time need not be.
+
+\subsection{Conditional high-wavenumber estimate}
+
+Let $\boldsymbol W(t;k,\boldsymbol n)$ be Hermitian and suppose that, for $k\ge k_0$,
+\begin{equation}
+ c_-\boldsymbol I\preceq\boldsymbol W\preceq c_+\boldsymbol I,
+ \qquad
+ \dot{\boldsymbol W}+\boldsymbol W\widehat{\boldsymbol A}
+ +\widehat{\boldsymbol A}^{\mathsf H}\boldsymbol W
+ \preceq2\beta\boldsymbol W,
+ \label{eq:app_symmetrizer_hypothesis}
+\end{equation}
+with constants independent of $t$, $k$, and $\boldsymbol n$. For
+$\mathcal E=\widehat{\boldsymbol q}^{\mathsf H}
+\boldsymbol W\widehat{\boldsymbol q}$,
+\begin{equation}
+ \dot{\mathcal E}\le2\beta\mathcal E,
+ \qquad
+ \mathcal E(t)\le e^{2\beta(t-t_0)}\mathcal E(t_0).
+ \label{eq:app_energy_growth}
+\end{equation}
+Assume additionally that the selector maps have uniformly finite energy constants
+\begin{align}
+ \|\boldsymbol P_{\rm out}\boldsymbol x\|_2^2
+ &\le C_{\rm out}\boldsymbol x^{\mathsf H}\boldsymbol W\boldsymbol x,
+ \label{eq:app_output_energy}\\
+ \inf_{\boldsymbol P_{\rm in}\boldsymbol x=\boldsymbol y}
+ \boldsymbol x^{\mathsf H}\boldsymbol W\boldsymbol x
+ &\le C_{\rm in}\|\boldsymbol y\|_2^2.
+ \label{eq:app_input_energy}
+\end{align}
+Then every selected input has a lift whose propagated output satisfies
+\begin{equation}
+ \|\boldsymbol P_{\rm out}\boldsymbol\Phi(t,t_0)
+ \boldsymbol P_{\rm in}^{\mathsf T}\|_2
+ \le\sqrt{C_{\rm in}C_{\rm out}}\,
+ e^{\beta(t-t_0)}.
+ \label{eq:app_uniform_observable_bound}
+\end{equation}
+This is an observable bound; it does not assert uniform Euclidean control of every unobserved displacement and velocity component. The numerical principal-symbol checks establish necessary admissibility diagnostics but do not construct $\boldsymbol W$ for the full HCP generator.

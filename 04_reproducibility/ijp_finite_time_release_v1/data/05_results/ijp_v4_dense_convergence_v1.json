@@ -1,0 +1,63 @@
+{
+  "claim_boundary": "This gate addresses checkpoint-density convergence of the linear finite-time gain at the V4 optima; it does not establish nonlinear closure, mature width or specimen calibration.",
+  "contract": {
+    "cache_status": "newly_built_cache",
+    "directions_and_wavenumbers": "fixed direct-reference V4 winners",
+    "metric": "V4 reference coordinate scales",
+    "selector": "constitutive_to_constitutive",
+    "substeps_per_registered_interval": 4
+  },
+  "gate": {
+    "definition": "max |log(G_513)/log(G_1025)-1| <= 0.02",
+    "maximum_observed": 0.006655587563560994,
+    "passed": true,
+    "threshold": 0.02
+  },
+  "provenance": {
+    "factor128_cache": "05_results/ijp_v3_factor128_context_v1.pkl",
+    "factor128_cache_sha256": "26f0e69801ec55df7ee0985dd8c1667e649913e7800feacd566b6a65a92940e2",
+    "tool": "tools/run_ijp_v4_dense_convergence_v1.py",
+    "tool_sha256": "5873a64ac6a4bfb05df34924c0879284b5c7af21f4fe150ab6e01ce6316985c4",
+    "v4_arrays_sha256": "10442f99560d5551eca04800f5b26cd789fecabec3a7917b2e458ed6c9169d65",
+    "v4_evidence_sha256": "9be314c92fb64553bb5dcfaa64463e9e73dc7a0dab45928517a97a26b9389a95"
+  },
+  "records": {
+    "near_onset": {
+      "direction_n": [
+        0.004192946774845538,
+        0.999991205869068,
+        8.591781336058526e-05
+      ],
+      "factor128_four_substep_gain": 1.7306360190856336,
+      "factor128_state_count": 1025,
+      "factor64_four_substep_gain": 1.7369652798445638,
+      "factor64_state_count": 513,
+      "factor64_to128_relative_gain_change": 0.0036571876981239537,
+      "factor64_to128_relative_log_gain_change": 0.006655587563560994,
+      "k_m_inv": 54550.4255834816,
+      "target_time_s": 1.4375e-06
+    },
+    "terminal": {
+      "direction_n": [
+        0.004411166337565115,
+        0.9999902707584265,
+        1.7696377058745981e-07
+      ],
+      "factor128_four_substep_gain": 633779.8020482812,
+      "factor128_state_count": 1025,
+      "factor64_four_substep_gain": 611850.959448872,
+      "factor64_state_count": 513,
+      "factor64_to128_relative_gain_change": 0.034600096955659465,
+      "factor64_to128_relative_log_gain_change": 0.002635799985085674,
+      "k_m_inv": 7724.0128359970095,
+      "target_time_s": 0.00014
+    }
+  },
+  "runtime": {
+    "numpy": "2.4.3",
+    "python": "3.12.10",
+    "wall_time_s": 926.1241769999615
+  },
+  "schema": "IJP_V4_DENSE_CONVERGENCE_V1",
+  "status": "V4_DENSE_CONVERGENCE_GATE_PASS"
+}

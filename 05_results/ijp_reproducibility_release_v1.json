@@ -1,7 +1,7 @@
 {
   "archive": "04_reproducibility/ijp_finite_time_release_v1.zip",
-  "archive_sha256": "91006cd6a472d458a763939a7b0d7e7283dfb04763f825ba205e43c85974d279",
-  "archive_size_bytes": 11796946,
+  "archive_sha256": "922767950eb96d942858914f5b460fa52020beee916beaf9a217b38dd4d665e9",
+  "archive_size_bytes": 24951643,
   "array_contract": {
     "all_generators_complex128": true,
     "all_singular_vectors_complex128": true,
@@ -45,12 +45,12 @@
     "zip_crc_test_pass": true,
     "zip_member_count_matches": true
   },
-  "manifest_sha256": "e3210726d243212c32514163192ad7f6104ff41201e8902ea8cfc152296f0338",
+  "manifest_sha256": "1196c5e394223c2198751a7bc82d63c0beaf91453a3afd63223a10a710c69132",
   "nonlinear_field_contract": {
     "contract_pass": true,
     "missing_required_arrays": [],
     "nonfinite_required_arrays": [],
-    "path": "05_results/ijp_singular_vector_nonlinear_validation_v2_fields.npz",
+    "path": "05_results/ijp_singular_vector_nonlinear_validation_v4_fields.npz",
     "shape_failures": {}
   },
   "operator_array_contract": {
@@ -62,7 +62,7 @@
   },
   "publication_note": "The public GitHub repository is https://github.com/yxlnbu/finite-time-hcp-perturbation; DOI deposition remains pending.",
   "release_directory": "04_reproducibility/ijp_finite_time_release_v1",
-  "release_file_count_excluding_manifest": 77,
+  "release_file_count_excluding_manifest": 146,
   "schema": "IJP_FINITE_TIME_REPRODUCIBILITY_RELEASE_V1",
   "status": "PUBLICATION_READY_LOCAL_ARCHIVE"
 }

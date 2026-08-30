@@ -1,0 +1,75 @@
+group,symbol,parameter,value,unit,source_key,evidence_class,calibration_status,active_in_reported_branch,role
+crystal,c/a,HCP lattice ratio,1.587,--,S1,L2_grouped_literature_constraint,"literature-constrained, not batch identified",True,slip geometry
+crystal,T_ref,elastic reference temperature,293.15,K,S5,L2_repository_baseline,verification seed,True,reference state
+elasticity,C_11,HCP stiffness C11,1.624e+11,Pa,S1/S5,L2_grouped_literature_constraint,"research baseline, not batch identified",True,anisotropic elastic tangent
+elasticity,C_12,HCP stiffness C12,9.2e+10,Pa,S1/S5,L2_grouped_literature_constraint,"research baseline, not batch identified",True,anisotropic elastic tangent
+elasticity,C_13,HCP stiffness C13,6.9e+10,Pa,S1/S5,L2_grouped_literature_constraint,"research baseline, not batch identified",True,anisotropic elastic tangent
+elasticity,C_33,HCP stiffness C33,1.807e+11,Pa,S1/S5,L2_grouped_literature_constraint,"research baseline, not batch identified",True,anisotropic elastic tangent
+elasticity,C_44,HCP stiffness C44,4.67e+10,Pa,S1/S5,L2_grouped_literature_constraint,"research baseline, not batch identified",True,anisotropic elastic tangent
+elasticity,C_66,derived HCP stiffness,3.52e+10,Pa,S7,derived,exactly derived from C11 and C12,True,anisotropic elastic tangent
+thermal,rho_0,mass density,4510,kg m^-3,S1/S5,L2_grouped_literature_constraint,research baseline,True,inertia and heat storage
+thermal,c_p(298.15 K),specific heat used at reference state,527.2485158,J kg^-1 K^-1,S2,L1_direct_reference_function,"literature function, not fitted",True,heat storage
+thermal,A,Shomate coefficient A,5.406172,cal mol^-1 K^-1,S2,L1_direct_reference_function,admitted only on 298--700 K,True,temperature-dependent heat capacity
+thermal,B,Shomate coefficient B,4.538229,cal mol^-1 K^-1,S2,L1_direct_reference_function,admitted only on 298--700 K,True,temperature-dependent heat capacity
+thermal,C,Shomate coefficient C,-4.346881,cal mol^-1 K^-1,S2,L1_direct_reference_function,admitted only on 298--700 K,True,temperature-dependent heat capacity
+thermal,D,Shomate coefficient D,1.69235,cal mol^-1 K^-1,S2,L1_direct_reference_function,admitted only on 298--700 K,True,temperature-dependent heat capacity
+thermal,E,Shomate coefficient E,-0.034287,cal mol^-1 K^-1,S2,L1_direct_reference_function,admitted only on 298--700 K,True,temperature-dependent heat capacity
+thermal,M_Ti,titanium molar mass,0.047867,kg mol^-1,S2,L1_reference_constant,reference constant,True,molar-to-mass heat-capacity conversion
+thermal,kappa,thermal conductivity at 300 K,21.9,W m^-1 K^-1,S3,L1_selected_reference_value,"literature value, not batch identified",True,thermal diffusion
+thermal,beta,Taylor--Quinney heat fraction,0.9,--,S5,L2_repository_baseline,not independently identified,True,plastic-work heat partition
+slip kinetics,b^bas,burgers_m_by_family: basal<a>,2.95e-10,m,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,b^pri,burgers_m_by_family: prismatic<a>,2.95e-10,m,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,b^pyr,burgers_m_by_family: pyramidal<c+a>,5.53e-10,m,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,tau_0^bas,tau0_Pa: basal<a>,80000000,Pa,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,tau_0^pri,tau0_Pa: prismatic<a>,1.1e+08,Pa,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,tau_0^pyr,tau0_Pa: pyramidal<c+a>,2.2e+08,Pa,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,tau_cut^bas,tau_cut_Pa: basal<a>,5.5e+08,Pa,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,tau_cut^pri,tau_cut_Pa: prismatic<a>,5.5e+08,Pa,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,tau_cut^pyr,tau_cut_Pa: pyramidal<c+a>,7e+08,Pa,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,Delta F^bas,activation_energy_J: basal<a>,1.8e-19,J,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,Delta F^pri,activation_energy_J: prismatic<a>,1.8e-19,J,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,Delta F^pyr,activation_energy_J: pyramidal<c+a>,1.8e-19,J,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,v_0^bas,reference_velocity_m_s: basal<a>,4000,m s^-1,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,v_0^pri,reference_velocity_m_s: prismatic<a>,4000,m s^-1,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,v_0^pyr,reference_velocity_m_s: pyramidal<c+a>,4000,m s^-1,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,p^bas,p: basal<a>,0.7,--,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,p^pri,p: prismatic<a>,0.7,--,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,p^pyr,p: pyramidal<c+a>,0.7,--,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,q^bas,q: basal<a>,1.06,--,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,q^pri,q: prismatic<a>,1.06,--,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,q^pyr,q: pyramidal<c+a>,1.06,--,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,rho_m0^bas,rho_mobile_0_m2: basal<a>,1.6e+12,m^-2,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,rho_m0^pri,rho_mobile_0_m2: prismatic<a>,1.6e+12,m^-2,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,rho_m0^pyr,rho_mobile_0_m2: pyramidal<c+a>,1.6e+12,m^-2,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,rho_d0^bas,rho_dipole_0_m2: basal<a>,1e+10,m^-2,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,rho_d0^pri,rho_dipole_0_m2: prismatic<a>,1e+10,m^-2,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+slip kinetics,rho_d0^pyr,rho_dipole_0_m2: pyramidal<c+a>,1e+10,m^-2,S4/S5,L2_repository_verification_baseline,not family-by-family calibrated for the reported specimen,True,thermally activated slip and initial state
+dislocation,d_g,grain size,2e-05,m,S4/S5,L2_repository_verification_baseline,not batch identified,True,storage/recovery/forest resistance
+dislocation,K_Lambda,mean-free-path coefficient,33,--,S4/S5,L2_repository_verification_baseline,not batch identified,True,storage/recovery/forest resistance
+dislocation,mu_ref,reference shear modulus,4.67e+10,Pa,S4/S5,L2_repository_verification_baseline,not batch identified,True,storage/recovery/forest resistance
+dislocation,h_self,forest self interaction,1,--,S4/S5,L2_repository_verification_baseline,not batch identified,True,storage/recovery/forest resistance
+dislocation,h_lat,forest latent interaction,1.35,--,S4/S5,L2_repository_verification_baseline,not batch identified,True,storage/recovery/forest resistance
+dislocation,a_T,Taylor coefficient,0.3,--,S4/S5,L2_repository_verification_baseline,not batch identified,True,storage/recovery/forest resistance
+dislocation,c_d,minimum dipole distance,3,b,S4/S5,L2_repository_verification_baseline,not batch identified,True,storage/recovery/forest resistance
+dislocation,nu_c,climb attempt frequency,20000,s^-1,S4/S5,L2_repository_verification_baseline,not batch identified,True,storage/recovery/forest resistance
+dislocation,Q_c,climb activation energy,1.2e-19,J,S4/S5,L2_repository_verification_baseline,not batch identified,True,storage/recovery/forest resistance
+micromorphic/gradient,H_chi,micromorphic penalty modulus,4.67e+10,Pa,S6,L3_registered_model_control,not identified as a material band width,True,algebraic coupling / high-k regularization
+micromorphic/gradient,ell_N,Nye/GND energetic length,1e-06,m,S6,L3_registered_model_control,not identified as a material band width,True,algebraic coupling / high-k regularization
+micromorphic/gradient,ell_chi,full-rank slip-gradient length,2.5e-07,m,S6,L3_registered_model_control,not identified as a material band width,True,algebraic coupling / high-k regularization
+loading,g_1,Bunge orientation case 1,0/0/0,deg,S6,L3_registered_orientation_case,"theoretical orientation, not an experimental ODF",True,cross-orientation transfer
+loading,g_2,Bunge orientation case 2,30/90/30,deg,S6,L3_registered_orientation_case,"theoretical orientation, not an experimental ODF",True,cross-orientation transfer
+loading,g_3,Bunge orientation case 3,90/60/30,deg,S6,L3_registered_orientation_case,"theoretical orientation, not an experimental ODF",True,cross-orientation transfer
+loading,T_0,initial temperature,293.15,K,S6,L3_registered_loading,prescribed,True,base state
+loading,dot_gamma_0,macroscopic simple-shear rate,10000,s^-1,S1/S6,L2_dynamic_loading_constraint,"representative, not specimen-matched",True,base history
+loading,gamma_f,final simple shear,1.4,--,S6,L3_registered_loading,prescribed,True,observation window
+numerical,rho_floor,density protection floor,10000,m^-2,S5,N1_numerical_control,not material data,True,integration/admission control
+numerical,eps_det,determinant tolerance,1e-08,--,S5,N1_numerical_control,not material data,True,integration/admission control
+numerical,Delta gamma_max,maximum slip increment,0.0002,--,S5,N1_numerical_control,not material data,True,integration/admission control
+numerical,Delta f_tw_max,maximum twin increment,0.0002,--,S5,N1_numerical_control,not material data,True,integration/admission control
+inactive twinning,gamma_tw,twin shear override,0,--,S5,I_inactive_repository_parameter,inactive in all reported calculations,False,retained kernel field
+inactive twinning,tau_tw,twin CRSS,80000000,Pa,S5,I_inactive_repository_parameter,inactive in all reported calculations,False,retained kernel field
+inactive twinning,dot_f_tw0,twin reference rate,2500,s^-1,S5,I_inactive_repository_parameter,inactive in all reported calculations,False,retained kernel field
+inactive twinning,m_tw,twin rate exponent,3,--,S5,I_inactive_repository_parameter,inactive in all reported calculations,False,retained kernel field
+inactive twinning,tau_tw_scale,twin stress scale,1.5e+08,Pa,S5,I_inactive_repository_parameter,inactive in all reported calculations,False,retained kernel field
+inactive twinning,H_tw,twin latent hardening,3e+08,Pa,S5,I_inactive_repository_parameter,inactive in all reported calculations,False,retained kernel field
+inactive twinning,f_tw_max,maximum twin fraction,0.85,--,S5,I_inactive_repository_parameter,inactive in all reported calculations,False,retained kernel field

@@ -1,0 +1,203 @@
+\section{HCP base model and dynamic descriptor}
+\label{sec:base_model_dynamic}
+
+\subsection{Finite-strain crystal state and explicit local closure}
+
+The homogeneous crystal follows the multiplicative split
+\begin{equation}
+ \boldsymbol F=\boldsymbol F_e\boldsymbol F_p,
+ \qquad \det\boldsymbol F_p=1,
+ \qquad
+ \boldsymbol L_p=\dot{\boldsymbol F}_p\boldsymbol F_p^{-1}
+ =\sum_{\alpha=1}^{18}\dot\gamma^\alpha
+ \boldsymbol s^\alpha\otimes\boldsymbol m^\alpha .
+ \label{eq:dyn_multiplicative_split}
+\end{equation}
+The HCP geometry contains three basal $\langle a\rangle$, three prismatic $\langle a\rangle$ and twelve pyramidal $\langle c+a\rangle$ systems. Twinning is inactive in the present baseline. The 62 independent local coordinates are
+\begin{equation}
+ \boldsymbol a=
+ [\boldsymbol\xi_8,\boldsymbol\rho_m^{18},
+  \boldsymbol\rho_d^{18},\boldsymbol\gamma^{18}]^{\mathsf T},
+ \label{eq:dyn_local_state}
+\end{equation}
+where $\boldsymbol\xi$ is an eight-coordinate chart of the isochoric plastic distortion, $\rho_m^\alpha$ and $\rho_d^\alpha$ are mobile and dipole dislocation densities, and $\gamma^\alpha$ are signed slips. Imposing the chart before linearization removes the redundant plastic-volume coordinate.
+
+For slip system $\alpha$, forest density, slip resistance and mean free path are
+\begin{align}
+ \rho_f^\alpha
+ &=\max\!\left[\sum_{\beta=1}^{18}
+ h_{\alpha\beta}(\rho_m^\beta+\rho_d^\beta),\rho_{\min}\right],
+ \label{eq:ft_forest_density}\\
+ g^\alpha
+ &=\tau_0^\alpha+a_T\mu(T)b^\alpha\sqrt{\rho_f^\alpha},
+ \label{eq:ft_slip_resistance}\\
+ \Lambda^\alpha
+ &=\left[d_g^{-1}+\frac{\sqrt{\rho_f^\alpha}}{K_\Lambda}\right]^{-1}.
+ \label{eq:ft_mean_free_path}
+\end{align}
+The resolved Mandel stress $\tau^\alpha$ is coupled to the micromorphic slip $\zeta^\alpha$ through
+\begin{equation}
+ \tau_{\rm eff}^\alpha
+ =\tau^\alpha+H_\chi(\zeta^\alpha-\gamma^\alpha).
+ \label{eq:ft_effective_slip_stress}
+\end{equation}
+On an active smooth branch, the thermally activated kinetic law implemented in the base model is
+\begin{align}
+ \dot\gamma^\alpha
+ &=\rho_m^\alpha b^\alpha v_0^\alpha
+ \exp\!\left[-\frac{\Delta F^\alpha}{k_{\rm B}T}
+ \left\langle1-\bar\tau_\alpha^{\,p^\alpha}\right\rangle^{q^\alpha}\right]
+ \operatorname{sign}(\tau_{\rm eff}^\alpha),
+ \label{eq:ft_slip_rate}\\
+ \bar\tau_\alpha
+ &=\min\!\left(
+ \frac{\langle|\tau_{\rm eff}^\alpha|-g^\alpha\rangle}
+ {\tau_{\rm cut}^\alpha},1\right),
+ \qquad
+ \dot\gamma^\alpha=0\quad\text{if }|\tau_{\rm eff}^\alpha|\le g^\alpha .
+ \label{eq:ft_normalized_stress}
+\end{align}
+Here $\langle x\rangle=\max(x,0)$. The active-set condition in Eq.~\eqref{eq:ft_normalized_stress}, the density floor and the activation cap are recorded before differentiation; a perturbation probe that changes one of these branches is rejected.
+
+The continuous-rate counterparts of the implemented semi-implicit density update can be written
+\begin{align}
+ \dot\rho_m^\alpha&=S^\alpha-(F^\alpha+G^\alpha)\rho_m^\alpha,
+ &S^\alpha&=\frac{|\dot\gamma^\alpha|}{b^\alpha\Lambda^\alpha},
+ \label{eq:ft_mobile_density}\\
+ \dot\rho_d^\alpha&=F^\alpha\rho_m^\alpha-(G^\alpha+C^\alpha)\rho_d^\alpha,
+ \label{eq:ft_dipole_density}
+\end{align}
+where
+\begin{align}
+ d_{\rm check}^\alpha&=c_d b^\alpha,
+ &d_{\rm hat}^\alpha&=min\!\left[
+ \max\!\left(\frac{3\mu_0b^\alpha}{16\pi|\tau_{\rm eff}^\alpha|},
+ d_{\rm check}^\alpha\right),\Lambda^\alpha\right],\\
+ F^\alpha&=\frac{2(d_{\rm hat}^\alpha-d_{\rm check}^\alpha)_+}{b^\alpha}
+ |\dot\gamma^\alpha|,
+ &G^\alpha&=\frac{2d_{\rm check}^\alpha}{b^\alpha}|\dot\gamma^\alpha|,\\
+ C^\alpha&=\nu_c\exp[-Q_c/(k_{\rm B}T)].
+ \label{eq:ft_density_rates}
+\end{align}
+The effective crystal-plastic power and its registered thermal/nonthermal
+partition are
+\begin{equation}
+ \mathcal P_{\rm cp}=\sum_{\alpha=1}^{18}
+ \tau_{\rm eff}^\alpha\dot\gamma^\alpha\ge0,
+ \qquad r_T=\beta\mathcal P_{\rm cp},
+ \qquad \dot u_s=(1-\beta)\mathcal P_{\rm cp},
+ \qquad 0\le\beta\le1.
+ \label{eq:ft_power_partition}
+\end{equation}
+Here $u_s$ is a passive nonthermal configurational ledger. It is not identified
+with a dislocation free energy, generates no hardening force and is not an
+active coordinate of the perturbation generator. The numerical base path
+audits the Mandel/slip power equality and the mechanical--microforce
+driving-power ledger.
+
+Equations~\eqref{eq:dyn_multiplicative_split}--\eqref{eq:ft_power_partition}, anisotropic thermoelasticity and the local micromorphic force define
+\begin{equation}
+ (\boldsymbol P,r_T,\boldsymbol q,\dot{\boldsymbol a})
+ =\boldsymbol{\mathcal R}(\boldsymbol F,T,\boldsymbol\zeta,\boldsymbol a).
+ \label{eq:dyn_constitutive_map}
+\end{equation}
+The perturbation operator uses its continuous, branch-locked tangent
+\begin{equation}
+ \mathrm d\boldsymbol{\mathcal R}
+ =\boldsymbol{\mathcal R}_{F}:\mathrm d\boldsymbol F
+ +\boldsymbol{\mathcal R}_{T}\,\mathrm dT
+ +\boldsymbol{\mathcal R}_{\zeta}\,\mathrm d\boldsymbol\zeta
+ +\boldsymbol{\mathcal R}_{a}\,\mathrm d\boldsymbol a,
+ \label{eq:ft_constitutive_tangent_contract}
+\end{equation}
+not an endpoint algorithmic tangent. Equation~\eqref{eq:ft_constitutive_tangent_contract} is the precise interface by which anisotropic elasticity, slip, dislocation evolution, heating and micromorphic coupling enter the descriptor.
+
+\subsection{Recoverable micromorphic energy, entropy production and loading path}
+
+The recoverable micromorphic contribution is
+\begin{align}
+ \psi_\chi
+ &=\frac12H_\chi\|\boldsymbol\zeta-\boldsymbol\gamma\|^2
+ +\frac12\operatorname{Grad}\boldsymbol\zeta:
+ \boldsymbol H_\nabla:\operatorname{Grad}\boldsymbol\zeta,
+ &\boldsymbol H_\nabla&=\boldsymbol H_{\rm slip}+\boldsymbol H_{\rm Nye},\\
+ \boldsymbol H_{\rm Nye}&=\mu\ell_N^2
+ \boldsymbol C_N^{\mathsf H}\boldsymbol C_N .
+ \label{eq:dyn_gradient_energy}
+\end{align}
+Thus the energetic microstress and higher-order stress are
+\begin{equation}
+ \boldsymbol\pi=H_\chi(\boldsymbol\zeta-\boldsymbol\gamma),
+ \qquad
+ \boldsymbol\xi=\frac{\partial\psi_\chi}
+ {\partial\operatorname{Grad}\boldsymbol\zeta},
+ \qquad
+ \frac{\partial\psi_\chi}{\partial\boldsymbol\gamma}=-\boldsymbol\pi .
+ \label{eq:ft_energetic_microstresses}
+\end{equation}
+The last identity explains the effective driving stress
+$\boldsymbol\tau_{\rm eff}=\boldsymbol\tau+\boldsymbol\pi$: after the
+recoverable micromorphic-energy rate is removed from mechanical slip power,
+the distributable remainder is $\mathcal P_{\rm cp}$ in
+Eq.~\eqref{eq:ft_power_partition}. Under periodic or homogeneous
+microtraction boundary conditions, the local split gives
+\begin{equation}
+ \mathcal D_{\rm mat}=\mathcal P_{\rm cp}-\dot u_s
+ =r_T\ge0,
+ \qquad
+ \dot{\mathcal S}_{\rm prod}
+ =\frac{r_T}{T}
+ +\frac{\operatorname{Grad}T\cdot\boldsymbol\kappa
+ \operatorname{Grad}T}{T^2}\ge0 .
+ \label{eq:ft_entropy_production}
+\end{equation}
+The associated global first-law ledger contains kinetic energy, thermoelastic
+internal energy, $\psi_\chi$ and $u_s$, with external mechanical power,
+microtraction power and boundary heat flux. This closes the declared
+power/heat bookkeeping, but it deliberately does not claim that $u_s$ is a
+recoverable dislocation energy or that the density variables possess an
+identified Helmholtz potential. A constitutively coupled dislocation-storage
+law remains outside the present model.
+
+The slip-gradient part of $\boldsymbol H_\nabla$ is full rank for the adopted
+18-slip geometry; the Nye part is rank deficient and cannot alone control
+every micromorphic direction. In the reference configuration,
+\begin{align}
+ \rho_0\ddot{\boldsymbol u}-\operatorname{Div}\boldsymbol P&=\boldsymbol0,
+ \label{eq:dyn_balance_momentum}\\
+ \rho_0c\dot T-\operatorname{Div}(\boldsymbol\kappa\operatorname{Grad}T)-r_T&=0,
+ \label{eq:dyn_balance_heat}\\
+ \boldsymbol q-\operatorname{Div}
+ (\boldsymbol H_\nabla\operatorname{Grad}\boldsymbol\zeta)&=\boldsymbol0,
+ \label{eq:dyn_balance_microforce}\\
+ \dot{\boldsymbol a}-\boldsymbol f_a(\boldsymbol F,T,\boldsymbol\zeta,\boldsymbol a)&=\boldsymbol0.
+ \label{eq:dyn_balance_state}
+\end{align}
+The homogeneous base path is simple shear,
+\begin{equation}
+ \boldsymbol F_0(t)=\boldsymbol I+\gamma_0(t)
+ \boldsymbol e_1\otimes\boldsymbol e_2,
+ \qquad \dot\gamma_0=10^4~\mathrm{s}^{-1},
+ \qquad T_0(0)=293.15~\mathrm K,
+ \label{eq:dyn_base_shear}
+\end{equation}
+integrated to $\gamma_0=1.4$ at $140~\mu\mathrm s$. It is a reproducible single-crystal research baseline, not a specimen-specific calibration.
+
+\subsection{Fourier-linearized descriptor}
+
+At a frozen base time, use
+\begin{equation}
+ \delta\boldsymbol y(\boldsymbol X,t)=\widehat{\boldsymbol y}
+ \exp\!\left(s t+\mathrm ik\boldsymbol n\cdot\boldsymbol X\right),
+ \qquad k>0,\quad\boldsymbol n\in\mathbb S^2 .
+ \label{eq:dyn_fourier_ansatz}
+\end{equation}
+In the ordering $[\widehat{\boldsymbol u}_3,\widehat T,
+\widehat{\boldsymbol\zeta}_{18},\widehat{\boldsymbol a}_{62}]$, linearization gives
+\begin{equation}
+ \underbrace{[\boldsymbol K(t;k,\boldsymbol n)+s\boldsymbol E(t)
+ +s^2\boldsymbol M(t)]}_{\boldsymbol{\mathcal Q}(s;t,k,\boldsymbol n)}
+ \widehat{\boldsymbol z}_{84}=\boldsymbol0.
+ \label{eq:dynamic_descriptor}
+\end{equation}
+Only the three mechanical coordinates carry second-order inertia; temperature and the 62 local coordinates carry first-order storage; the 18 micromorphic coordinates are algebraic. The $\mathrm ik$ and $k^2$ blocks retain acoustic, thermomechanical, conduction and gradient couplings. Equation~\eqref{eq:dynamic_descriptor} is therefore a quadratic descriptor, not a conventional eigenproblem.

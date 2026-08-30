@@ -1,0 +1,64 @@
+{
+  "claim_boundary": "This gate addresses checkpoint-density convergence of the linear finite-time gain only; it does not establish a mature band width or specimen calibration.",
+  "contract": {
+    "cache_status": "verified_cache",
+    "directions_and_wavenumbers": "fixed V3 re-optimized winners",
+    "metric": "exact released V3 reference_coordinate_scales",
+    "model": "paper-consistent fixed-beta passive-ledger HCP model",
+    "selector": "constitutive_to_constitutive",
+    "substeps_per_registered_interval": 4
+  },
+  "gate": {
+    "definition": "max |log(G_513)/log(G_1025)-1| <= 0.02",
+    "maximum_observed": 0.006660619528121581,
+    "passed": true,
+    "threshold": 0.02
+  },
+  "provenance": {
+    "factor128_cache": "05_results/ijp_v3_factor128_context_v1.pkl",
+    "factor128_cache_sha256": "26f0e69801ec55df7ee0985dd8c1667e649913e7800feacd566b6a65a92940e2",
+    "tool": "tools/run_ijp_v3_dense_convergence_v1.py",
+    "tool_sha256": "a7febabbfe997e90240e56ca4e68460cd6c3161ffd969389d324cb07ee031ce2",
+    "v3_arrays_sha256": "472aa140f258b4425a295672041641ea648592b95524e0288a186aa187a34a0e",
+    "v3_evidence_sha256": "36a7ba568ffe71dd995b366ef07a89a74b287e2c2c584690208748d0d056fe90"
+  },
+  "records": {
+    "near_onset": {
+      "direction_n": [
+        0.0049949714977768475,
+        0.9999875199159888,
+        0.00010135090718695746
+      ],
+      "factor128_four_substep_gain": 1.730157715787804,
+      "factor128_state_count": 1025,
+      "factor64_four_substep_gain": 1.7364868229565724,
+      "factor64_state_count": 513,
+      "factor64_to128_relative_gain_change": 0.003658109957846545,
+      "factor64_to128_relative_log_gain_change": 0.006660619528121581,
+      "k_m_inv": 71848.05580700038,
+      "target_time_s": 1.4375e-06
+    },
+    "terminal": {
+      "direction_n": [
+        -0.004594551025745008,
+        -0.9999894398586743,
+        0.0001013509090619021
+      ],
+      "factor128_four_substep_gain": 629058.8280745882,
+      "factor128_state_count": 1025,
+      "factor64_four_substep_gain": 608854.0299376838,
+      "factor64_state_count": 513,
+      "factor64_to128_relative_gain_change": 0.032119091625733676,
+      "factor64_to128_relative_log_gain_change": 0.0024450476762390982,
+      "k_m_inv": 6836.8536687706555,
+      "target_time_s": 0.00014
+    }
+  },
+  "runtime": {
+    "numpy": "2.4.3",
+    "python": "3.12.10",
+    "wall_time_s": 15.344672300008824
+  },
+  "schema": "IJP_V3_DENSE_CONVERGENCE_V1",
+  "status": "DENSE_CONVERGENCE_GATE_PASS"
+}
